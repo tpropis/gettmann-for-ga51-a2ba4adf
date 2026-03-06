@@ -14,9 +14,8 @@ const HeroSection = () => {
           loading="eager"
         />
         {/* Left-side gradient — lighter to let the family shine through */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/50 to-transparent" />
-        {/* Subtle bottom fade for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/75 via-primary/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent" />
       </div>
 
       <div className="relative container mx-auto px-4 pt-40 pb-28 md:pt-44 md:pb-32">
