@@ -35,7 +35,7 @@ const CampaignHeader = () => {
           <img
             src={logo}
             alt="Keith Gettmann for Georgia House"
-            className={`transition-all duration-300 ${scrolled ? "h-[72px] md:h-[80px]" : "h-[100px] md:h-[120px]"}`}
+            className={`transition-all duration-300 ${scrolled ? "h-[120px] md:h-[140px]" : "h-[160px] md:h-[200px]"}`}
           />
         </a>
 
