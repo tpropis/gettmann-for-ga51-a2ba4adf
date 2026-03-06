@@ -26,21 +26,22 @@ const CampaignHeader = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-primary/95 backdrop-blur-md shadow-lg py-2"
-          : "bg-primary py-4"
+          ? "bg-primary/95 backdrop-blur-md shadow-lg py-1"
+          : "bg-primary py-3"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="flex-shrink-0">
+        <a href="#home" className="flex-shrink-0 mr-8">
           <img
             src={logo}
             alt="Keith Gettmann for Georgia House"
-            className={`transition-all duration-300 ${scrolled ? "h-10" : "h-14"}`}
+            className={`transition-all duration-300 ${scrolled ? "h-14 md:h-16" : "h-18 md:h-20"}`}
+            style={{ minHeight: scrolled ? '56px' : '72px' }}
           />
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -52,7 +53,7 @@ const CampaignHeader = () => {
           ))}
           <a
             href="#donate"
-            className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-2.5 rounded hover:bg-campaign-red-dark transition-colors tracking-wide"
+            className="bg-accent text-accent-foreground font-heading text-lg font-bold px-7 py-3 rounded hover:bg-campaign-red-dark transition-colors tracking-wide shadow-lg shadow-accent/20"
           >
             Donate
           </a>
@@ -91,7 +92,7 @@ const CampaignHeader = () => {
               <a
                 href="#donate"
                 onClick={() => setMenuOpen(false)}
-                className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3 rounded text-center hover:bg-campaign-red-dark transition-colors mt-2"
+                className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3 rounded text-center hover:bg-campaign-red-dark transition-colors mt-2 shadow-lg shadow-accent/20"
               >
                 Donate
               </a>
