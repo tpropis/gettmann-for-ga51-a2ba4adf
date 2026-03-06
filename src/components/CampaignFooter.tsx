@@ -1,5 +1,5 @@
 import logo from "@/assets/logo_trans.png";
-import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
 
 const footerLinks = [
   { label: "Home", href: "#home" },
@@ -10,29 +10,36 @@ const footerLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const socialLinks = [
+  { Icon: Facebook, href: "#", label: "Facebook — link coming soon" },
+  { Icon: Twitter, href: "#", label: "Twitter/X — link coming soon" },
+  { Icon: Instagram, href: "#", label: "Instagram — link coming soon" },
+  { Icon: Youtube, href: "#", label: "YouTube — link coming soon" },
+];
+
 const CampaignFooter = () => (
-  <footer id="contact" className="bg-primary py-16">
+  <footer id="contact" className="bg-primary pt-20 pb-8">
     <div className="container mx-auto px-4">
-      <div className="grid md:grid-cols-3 gap-12">
-        {/* Logo & disclaimer */}
+      <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
+        {/* Logo & brand */}
         <div>
-          <img src={logo} alt="Keith Gettmann for Georgia House" className="h-16 mb-6" />
-          <p className="text-primary-foreground/50 text-sm leading-relaxed">
-            Paid for by Keith Gettmann for Georgia. All rights reserved.
+          <img src={logo} alt="Keith Gettmann for Georgia House" className="h-20 mb-6" />
+          <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
+            Keith Gettmann is running for Georgia House District 51 to protect families, strengthen communities, and fight for the future of our district.
           </p>
         </div>
 
         {/* Nav links */}
         <div>
-          <h3 className="font-heading text-lg font-bold text-primary-foreground uppercase tracking-wider mb-4">
+          <h3 className="font-heading text-lg font-bold text-primary-foreground uppercase tracking-wider mb-5">
             Quick Links
           </h3>
-          <nav className="space-y-2">
+          <nav className="space-y-3">
             {footerLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors"
+                className="block text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors font-medium"
               >
                 {link.label}
               </a>
@@ -42,33 +49,53 @@ const CampaignFooter = () => (
 
         {/* Contact & social */}
         <div>
-          <h3 className="font-heading text-lg font-bold text-primary-foreground uppercase tracking-wider mb-4">
+          <h3 className="font-heading text-lg font-bold text-primary-foreground uppercase tracking-wider mb-5">
             Contact
           </h3>
-          <a
-            href="mailto:info@keithgettmann.com"
-            className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors"
-          >
-            info@keithgettmann.com
-          </a>
+          <div className="space-y-3">
+            <a
+              href="mailto:Keith@KeithforGA.com"
+              className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors"
+            >
+              <Mail className="h-4 w-4 text-accent flex-shrink-0" />
+              Keith@KeithforGA.com
+            </a>
+            <a
+              href="tel:+16782318730"
+              className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors"
+            >
+              <Phone className="h-4 w-4 text-accent flex-shrink-0" />
+              (678) 231-8730
+            </a>
+            <div className="flex items-center gap-3 text-primary-foreground/70 text-sm">
+              <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
+              Sandy Springs, GA 30350
+            </div>
+          </div>
 
-          <div className="flex gap-4 mt-6">
-            {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
+          <div className="flex gap-3 mt-8">
+            {socialLinks.map(({ Icon, href, label }) => (
               <a
-                key={i}
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
+                key={label}
+                href={href}
+                title={label}
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors group"
               >
-                <Icon className="h-5 w-5 text-primary-foreground" />
+                <Icon className="h-5 w-5 text-primary-foreground group-hover:text-accent-foreground transition-colors" />
               </a>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="border-t border-primary-foreground/10 mt-12 pt-6 flex flex-wrap justify-between text-primary-foreground/40 text-xs">
-        <span>© 2026 Keith Gettmann for Georgia. All rights reserved.</span>
-        <div className="flex gap-4">
+      {/* Disclaimer */}
+      <div className="border-t border-primary-foreground/10 mt-16 pt-8">
+        <p className="text-center text-primary-foreground/50 text-sm font-medium mb-4">
+          Paid for by Keith Gettmann for Georgia. All rights reserved.
+        </p>
+        <div className="flex flex-wrap justify-center gap-6 text-primary-foreground/40 text-xs">
+          <span>© 2026 Keith Gettmann for Georgia</span>
+          {/* TODO: Replace with real policy links when available */}
           <a href="#" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-primary-foreground/60 transition-colors">Terms</a>
         </div>
