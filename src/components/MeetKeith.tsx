@@ -63,7 +63,8 @@ const MeetKeith = () => (
             <img
               src={keithBody}
               alt="Keith Gettmann portrait"
-              className="w-full h-[420px] object-cover object-top"
+              className="w-full object-cover"
+              style={{ objectPosition: '50% 15%', aspectRatio: '3/4' }}
               loading="lazy"
             />
           </div>
@@ -71,8 +72,8 @@ const MeetKeith = () => (
             <img
               src={wifePic}
               alt="Keith Gettmann with his wife"
-              className="w-full h-[280px] object-cover object-center"
-              style={{ objectPosition: '50% 25%' }}
+              className="w-full object-cover"
+              style={{ objectPosition: '50% 30%', aspectRatio: '4/3' }}
               loading="lazy"
             />
           </div>
