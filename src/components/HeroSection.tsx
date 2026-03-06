@@ -3,7 +3,7 @@ import familyPic from "@/assets/family_pic.jpg";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-[92vh] flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-[700px] md:min-h-[92vh] flex items-center overflow-hidden">
       {/* Background image — full bleed, faces preserved */}
       <div className="absolute inset-0">
         <img
