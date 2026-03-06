@@ -25,47 +25,72 @@ const CampaignHeader = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-primary/95 backdrop-blur-md shadow-lg py-1"
-          : "bg-primary py-3"
+        scrolled ? "shadow-xl" : ""
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="flex-shrink-0 mr-10">
-          <img
-            src={logo}
-            alt="Keith Gettmann for Georgia House"
-            className={`transition-all duration-300 ${scrolled ? "h-[120px] md:h-[140px]" : "h-[160px] md:h-[200px]"}`}
-          />
-        </a>
+      {/* Thin red accent stripe at very top */}
+      <div className="h-1 bg-accent w-full" />
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-primary-foreground/80 hover:text-primary-foreground font-body text-sm font-semibold uppercase tracking-wider transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+      {/* Main header bar */}
+      <div
+        className={`transition-all duration-300 ${
+          scrolled ? "py-0" : "py-1"
+        }`}
+        style={{
+          background: "linear-gradient(180deg, hsl(213 50% 28%) 0%, hsl(213 50% 20%) 100%)",
+        }}
+      >
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          {/* Logo with lighter background panel */}
           <a
-            href="#donate"
-            className="bg-accent text-accent-foreground font-heading text-lg font-bold px-7 py-3 rounded hover:bg-campaign-red-dark transition-colors tracking-wide shadow-lg shadow-accent/20"
+            href="#home"
+            className="relative flex-shrink-0 -my-1"
           >
-            Donate
+            {/* Light panel behind logo for contrast */}
+            <div
+              className="absolute inset-0 -mx-4 -my-1 rounded-b-lg"
+              style={{
+                background: "linear-gradient(180deg, hsla(0,0%,100%,0.97) 0%, hsla(0,0%,100%,0.92) 100%)",
+                boxShadow: "0 2px 12px hsla(213,50%,23%,0.15)",
+              }}
+            />
+            <img
+              src={logo}
+              alt="Keith Gettmann for Georgia House"
+              className={`relative z-10 transition-all duration-300 px-4 ${
+                scrolled ? "h-[60px] md:h-[70px] py-1" : "h-[75px] md:h-[90px] py-2"
+              }`}
+            />
           </a>
-        </nav>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden text-primary-foreground p-2"
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-primary-foreground/80 hover:text-primary-foreground font-body text-sm font-semibold uppercase tracking-wider transition-colors px-3 py-2 rounded hover:bg-primary-foreground/10"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#donate"
+              className="ml-4 bg-accent text-accent-foreground font-heading text-base font-bold px-6 py-2.5 rounded hover:bg-campaign-red-dark transition-colors tracking-wide shadow-lg shadow-accent/30 uppercase"
+            >
+              Donate
+            </a>
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="lg:hidden text-primary-foreground p-2"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
@@ -91,7 +116,7 @@ const CampaignHeader = () => {
               <a
                 href="#donate"
                 onClick={() => setMenuOpen(false)}
-                className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3 rounded text-center hover:bg-campaign-red-dark transition-colors mt-2 shadow-lg shadow-accent/20"
+                className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3 rounded text-center hover:bg-campaign-red-dark transition-colors mt-2 shadow-lg shadow-accent/20 uppercase"
               >
                 Donate
               </a>
