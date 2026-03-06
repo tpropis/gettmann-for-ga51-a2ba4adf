@@ -64,7 +64,7 @@ const MeetKeith = () => (
               src={keithBody}
               alt="Keith Gettmann portrait"
               className="w-full object-cover"
-              style={{ objectPosition: '50% 15%', aspectRatio: '3/4' }}
+              style={{ objectPosition: '50% 10%', aspectRatio: '3/4' }}
               loading="lazy"
             />
           </div>
@@ -73,7 +73,7 @@ const MeetKeith = () => (
               src={wifePic}
               alt="Keith Gettmann with his wife"
               className="w-full object-cover"
-              style={{ objectPosition: '50% 30%', aspectRatio: '4/3' }}
+              style={{ objectPosition: '50% 15%', aspectRatio: '16/10' }}
               loading="lazy"
             />
           </div>
