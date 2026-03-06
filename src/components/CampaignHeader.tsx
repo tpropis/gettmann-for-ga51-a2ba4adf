@@ -31,12 +31,11 @@ const CampaignHeader = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="flex-shrink-0 mr-8">
+        <a href="#home" className="flex-shrink-0 mr-10">
           <img
             src={logo}
             alt="Keith Gettmann for Georgia House"
-            className={`transition-all duration-300 ${scrolled ? "h-14 md:h-16" : "h-18 md:h-20"}`}
-            style={{ minHeight: scrolled ? '56px' : '72px' }}
+            className={`transition-all duration-300 ${scrolled ? "h-[72px] md:h-[80px]" : "h-[100px] md:h-[120px]"}`}
           />
         </a>
 
