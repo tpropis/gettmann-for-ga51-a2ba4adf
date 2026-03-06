@@ -1,13 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import CampaignHeader from "@/components/CampaignHeader";
+import HeroSection from "@/components/HeroSection";
+import TrustBar from "@/components/TrustBar";
+import MeetKeith from "@/components/MeetKeith";
+import IssuesSection from "@/components/IssuesSection";
+import WhyKeith from "@/components/WhyKeith";
+import MomentumSection from "@/components/MomentumSection";
+import DonationSection from "@/components/DonationSection";
+import VolunteerSection from "@/components/VolunteerSection";
+import EmailSignup from "@/components/EmailSignup";
+import NewsSection from "@/components/NewsSection";
+import SocialProof from "@/components/SocialProof";
+import CampaignFooter from "@/components/CampaignFooter";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <CampaignHeader />
+      <HeroSection />
+      <TrustBar />
+      <MeetKeith />
+      <IssuesSection />
+      <WhyKeith />
+      <MomentumSection />
+      <DonationSection />
+      <VolunteerSection />
+      <EmailSignup />
+      <NewsSection />
+      <SocialProof />
+      <CampaignFooter />
+    </>
   );
 };
 
