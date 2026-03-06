@@ -10,13 +10,13 @@ const HeroSection = () => {
           src={familyPic}
           alt="Keith Gettmann with his family"
           className="w-full h-full object-cover"
-          style={{ objectPosition: '60% 25%' }}
+          style={{ objectPosition: '55% 20%' }}
           loading="eager"
         />
-        {/* Left-side gradient only — keeps right side bright and authentic */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-transparent" />
+        {/* Left-side gradient — lighter to let the family shine through */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/50 to-transparent" />
         {/* Subtle bottom fade for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
       </div>
 
       <div className="relative container mx-auto px-4 pt-40 pb-28 md:pt-44 md:pb-32">
