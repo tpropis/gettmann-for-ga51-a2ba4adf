@@ -75,7 +75,6 @@ const MeetKeith = () => (
               className="w-full"
               loading="lazy"
             />
-            />
           </div>
         </motion.div>
       </div>
