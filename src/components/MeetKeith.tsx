@@ -111,7 +111,7 @@ const MeetKeith = () => (
                 {
                   icon: Users,
                   title: "A Family Man",
-                  text: "Keith believes strong families are the foundation of strong communities. As a husband, father, and neighbor, he understands the importance of safe neighborhoods, strong schools, and a community that looks out for one another.",
+                  text: "Keith believes strong families are the foundation of strong communities. As a husband, father, grandfather of 11, and neighbor, he understands the importance of safe neighborhoods, strong schools, and a community that looks out for one another.",
                 },
                 {
                   icon: Compass,
