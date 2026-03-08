@@ -72,9 +72,9 @@ const MeetKeith = () => (
             <img
               src={wifePic}
               alt="Keith Gettmann with his wife"
-              className="w-full object-cover"
-              style={{ objectPosition: '50% 25%', aspectRatio: '4/3' }}
+              className="w-full"
               loading="lazy"
+            />
             />
           </div>
         </motion.div>
