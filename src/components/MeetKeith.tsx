@@ -73,7 +73,7 @@ const MeetKeith = () => (
               src={wifePic}
               alt="Keith Gettmann with his wife"
               className="w-full object-cover"
-              style={{ objectPosition: '50% 15%', aspectRatio: '16/10' }}
+              style={{ objectPosition: '50% 25%', aspectRatio: '4/3' }}
               loading="lazy"
             />
           </div>
