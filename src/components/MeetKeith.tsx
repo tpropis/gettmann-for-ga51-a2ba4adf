@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, GraduationCap, TrendingUp } from "lucide-react";
+import { Shield, GraduationCap, TrendingUp, Home, Users, Compass } from "lucide-react";
 import keithBody from "@/assets/keith_body.jpg";
 import wifePic from "@/assets/wife.jpg";
 
@@ -93,6 +93,70 @@ const MeetKeith = () => (
           >
             Join the Campaign
           </a>
+
+          {/* Why Keith Gettmann */}
+          <div className="pt-4">
+            <div className="w-full h-px bg-border mb-8" />
+            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight mb-6">
+              Why Keith Gettmann
+            </h3>
+
+            <div className="space-y-5">
+              {[
+                {
+                  icon: Home,
+                  title: "Rooted in District 51",
+                  text: "Keith and his family have called North Georgia home for years. He understands the challenges facing local families because he lives them every day. His commitment to District 51 comes from a lifetime of relationships, community involvement, and pride in the place he calls home.",
+                },
+                {
+                  icon: Users,
+                  title: "A Family Man",
+                  text: "Keith believes strong families are the foundation of strong communities. As a husband, father, and neighbor, he understands the importance of safe neighborhoods, strong schools, and a community that looks out for one another.",
+                },
+                {
+                  icon: Compass,
+                  title: "Common-Sense Leadership",
+                  text: "Keith believes leadership should be about listening, solving problems, and putting people first. He's running to bring practical solutions and strong representation to the people of District 51.",
+                },
+              ].map((card, i) => (
+                <motion.div
+                  key={card.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
+                  className="bg-primary/[0.03] border border-border rounded-lg p-5 flex gap-5"
+                >
+                  <div className="flex-shrink-0 w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                    <card.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading text-base font-bold text-primary uppercase tracking-wide">
+                      {card.title}
+                    </h4>
+                    <p className="text-sm text-foreground/70 mt-1.5 leading-relaxed">
+                      {card.text}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="w-full h-px bg-border my-8" />
+
+            <p className="font-heading text-xl md:text-2xl font-bold text-primary uppercase tracking-tight text-center leading-snug">
+              Real Leadership. Local Roots.<br />A Stronger District&nbsp;51.
+            </p>
+
+            <div className="mt-6 text-center">
+              <a
+                href="#get-involved"
+                className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded hover:bg-campaign-red-dark transition-colors tracking-wide shadow-lg shadow-accent/20"
+              >
+                Support Keith
+              </a>
+            </div>
+          </div>
         </motion.div>
 
         {/* Photos Column */}
