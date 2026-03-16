@@ -44,21 +44,13 @@ const CampaignHeader = () => {
           {/* Logo with lighter background panel */}
           <a
             href="#home"
-            className="relative flex-shrink-0 -my-1"
+            className="flex-shrink-0"
           >
-            {/* Light panel behind logo for contrast */}
-            <div
-              className="absolute inset-0 -mx-4 -my-1 rounded-b-lg"
-              style={{
-                background: "linear-gradient(180deg, hsla(0,0%,100%,0.97) 0%, hsla(0,0%,100%,0.92) 100%)",
-                boxShadow: "0 2px 12px hsla(213,50%,23%,0.15)",
-              }}
-            />
             <img
               src={logo}
               alt="Keith Gettmann for Georgia House"
-              className={`relative z-10 transition-all duration-300 px-4 ${
-                scrolled ? "h-[60px] md:h-[70px] py-1" : "h-[75px] md:h-[90px] py-2"
+              className={`transition-all duration-300 rounded ${
+                scrolled ? "h-[50px] md:h-[58px] my-1" : "h-[60px] md:h-[72px] my-2"
               }`}
             />
           </a>
