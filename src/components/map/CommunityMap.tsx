@@ -39,8 +39,8 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 
 const MAP_CENTER: [number, number] = [-84.376, 33.972];
 const MAP_ZOOM = 12.2;
-// CARTO Positron — free, no API key required, professional light basemap
-const MAP_STYLE = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
+// OpenFreeMap Positron — completely free vector tiles, designed for MapLibre
+const MAP_STYLE = "https://tiles.openfreemap.org/styles/positron";
 
 // Nominatim geocoding (free, no key) — bounded to Sandy Springs area
 const NOMINATIM_VIEWBOX = "-84.50,34.07,-84.26,33.85"; // left,top,right,bottom
@@ -251,10 +251,14 @@ export function CommunityMap() {
       attributionControl: false,
     });
 
+    // Only treat errors as fatal if the style itself failed to load (before the
+    // load event fires). Tile-level 404s / network blips after load are non-fatal.
     map.on("error", (e) => {
+      if (mapRef.current && (mapRef.current as maplibregl.Map).loaded()) return;
       clearTimeout(loadTimeout);
       const msg = (e as { error?: { message?: string } }).error?.message || String(e);
-      setMapError(`Map error: ${msg}. Check your Mapbox token in Netlify environment variables.`);
+      console.warn("Map load error:", msg);
+      setMapError(`Map failed to load: ${msg}. Check your internet connection and try refreshing.`);
     });
 
     map.addControl(
@@ -760,7 +764,7 @@ export function CommunityMap() {
       </aside>
 
       {/* ── Map area ────────────────────────────────────────────── */}
-      <div className="flex-1 relative min-w-0">
+      <div className="flex-1 relative min-w-0 h-full">
 
         {/* Map canvas */}
         <div ref={mapContainerRef} className="absolute inset-0" />
