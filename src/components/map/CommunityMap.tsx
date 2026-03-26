@@ -258,6 +258,18 @@ export function CommunityMap() {
   useEffect(() => {
     if (!mapContainerRef.current || mapRef.current) return;
 
+    const container = mapContainerRef.current;
+
+    // Force explicit pixel dimensions before MapLibre reads them.
+    // CSS percentage/flex heights can resolve to 0 at useEffect time;
+    // reading from the parent and falling back to viewport math guarantees
+    // a non-zero canvas size so WebGL actually renders tiles.
+    const parent = container.parentElement;
+    const w = parent?.clientWidth || window.innerWidth;
+    const h = parent?.clientHeight || window.innerHeight - 130;
+    if (w > 0) container.style.width = w + "px";
+    if (h > 0) container.style.height = h + "px";
+
     // 15-second timeout so spinner never runs forever
     const loadTimeout = setTimeout(() => {
       setMapError(
@@ -269,7 +281,7 @@ export function CommunityMap() {
     let mapLoadFired = false;
 
     const map = new maplibregl.Map({
-      container: mapContainerRef.current,
+      container,
       style: MAP_STYLE,
       center: MAP_CENTER,
       zoom: MAP_ZOOM,
