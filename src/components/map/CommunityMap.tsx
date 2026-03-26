@@ -38,7 +38,7 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 // ─── Configuration ────────────────────────────────────────────────────────────
 
 const MAP_CENTER: [number, number] = [-84.376, 33.965];
-const MAP_ZOOM = 11.8;
+const MAP_ZOOM = 12.8;
 
 // Esri Light Gray Canvas — clean, professional, free, no API key, no domain restrictions.
 // Esri uses {z}/{y}/{x} tile order (note y before x), which MapLibre handles fine.
@@ -331,24 +331,24 @@ export function CommunityMap() {
         id: "district-fill",
         type: "fill",
         source: "district51",
-        paint: { "fill-color": "#1D3557", "fill-opacity": 0.07 },
+        paint: { "fill-color": "#1D3557", "fill-opacity": 0.06 },
       });
-      // White halo behind the boundary so it shows on any tile background
+      // Wide white halo so the outline pops on any tile background
       map.addLayer({
         id: "district-outline-halo",
         type: "line",
         source: "district51",
-        paint: { "line-color": "#ffffff", "line-width": 8, "line-opacity": 0.85 },
+        paint: { "line-color": "#ffffff", "line-width": 10, "line-opacity": 1 },
       });
+      // Solid navy outline on top of the halo — no dash so it's always clear
       map.addLayer({
         id: "district-outline",
         type: "line",
         source: "district51",
         paint: {
-          "line-color": "#1D3557",
-          "line-width": 4,
+          "line-color": "#C43B3B",
+          "line-width": 3,
           "line-opacity": 1,
-          "line-dasharray": [6, 3],
         },
       });
       map.addLayer({
@@ -358,14 +358,14 @@ export function CommunityMap() {
         layout: {
           "text-field": "DISTRICT 51",
           "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
-          "text-size": 13,
+          "text-size": 14,
           "text-letter-spacing": 0.2,
           "text-transform": "uppercase",
           "symbol-placement": "point",
         },
         paint: {
-          "text-color": "#1D3557",
-          "text-opacity": 0.7,
+          "text-color": "#C43B3B",
+          "text-opacity": 0.9,
           "text-halo-color": "#ffffff",
           "text-halo-width": 3,
         },
@@ -913,8 +913,8 @@ export function CommunityMap() {
         <div className="absolute bottom-10 left-3 z-10 lg:bottom-6">
           <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-campaign-navy text-[10px] font-bold px-2.5 py-1.5 rounded-lg shadow-md border border-campaign-navy/15 uppercase tracking-wider">
             <span
-              className="inline-block w-3 h-3 rounded-sm border border-campaign-navy/50"
-              style={{ background: "rgba(29,53,87,0.08)" }}
+              className="inline-block w-3 h-3 rounded-sm border-2"
+              style={{ borderColor: "#C43B3B", background: "rgba(196,59,59,0.08)" }}
             />
             District 51 Boundary
           </div>
