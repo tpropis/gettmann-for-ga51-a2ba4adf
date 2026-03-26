@@ -37,8 +37,8 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 
 // ─── Configuration ────────────────────────────────────────────────────────────
 
-const MAP_CENTER: [number, number] = [-84.376, 33.972];
-const MAP_ZOOM = 12.2;
+const MAP_CENTER: [number, number] = [-84.376, 33.965];
+const MAP_ZOOM = 11.8;
 
 // OSM raster tiles — universally available, no auth, works from any origin.
 // Using an inline StyleSpecification avoids fetching external style JSON.
@@ -327,7 +327,7 @@ export function CommunityMap() {
         id: "district-fill",
         type: "fill",
         source: "district51",
-        paint: { "fill-color": "#1D3557", "fill-opacity": 0.04 },
+        paint: { "fill-color": "#1D3557", "fill-opacity": 0.08 },
       });
       map.addLayer({
         id: "district-outline",
@@ -335,8 +335,8 @@ export function CommunityMap() {
         source: "district51",
         paint: {
           "line-color": "#1D3557",
-          "line-width": 2.5,
-          "line-opacity": 0.65,
+          "line-width": 4,
+          "line-opacity": 1,
           "line-dasharray": [4, 2],
         },
       });
