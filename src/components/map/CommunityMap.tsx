@@ -312,7 +312,7 @@ export function CommunityMap() {
         source: "district51",
         layout: {
           "text-field": "DISTRICT 51",
-          "text-font": ["DIN Offc Pro Bold", "Arial Unicode MS Bold"],
+          "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
           "text-size": 11,
           "text-letter-spacing": 0.15,
           "text-transform": "uppercase",
@@ -402,7 +402,7 @@ export function CommunityMap() {
         filter: ["has", "point_count"],
         layout: {
           "text-field": "{point_count_abbreviated}",
-          "text-font": ["DIN Offc Pro Bold", "Arial Unicode MS Bold"],
+          "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
           "text-size": 13,
         },
         paint: { "text-color": "#ffffff" },
@@ -429,9 +429,10 @@ export function CommunityMap() {
           layers: ["clusters"],
         });
         if (!features.length) return;
-        const clusterId = features[0].properties?.cluster_id as number;
+        const clusterId = features[0].properties?.cluster_id;
+        if (clusterId == null) return;
         const source = map.getSource("issues-points") as maplibregl.GeoJSONSource;
-        source.getClusterExpansionZoom(clusterId).then((zoom) => {
+        source.getClusterExpansionZoom(clusterId as number).then((zoom) => {
           const geom = features[0].geometry as GeoJSON.Point;
           map.easeTo({ center: geom.coordinates as [number, number], zoom: zoom ?? 14 });
         }).catch(() => {/* ignore */});
