@@ -4,12 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo_trans.png";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Meet Keith", href: "#meet-keith" },
-  { label: "Issues", href: "#issues" },
-  { label: "Get Involved", href: "#get-involved" },
-  { label: "News", href: "#news" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Meet Keith", href: "/#meet-keith" },
+  { label: "Issues", href: "/#issues" },
+  { label: "District Map", href: "/map" },
+  { label: "Get Involved", href: "/#get-involved" },
+  { label: "News", href: "/#news" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const CampaignHeader = () => {
@@ -57,17 +58,28 @@ const CampaignHeader = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-primary-foreground/80 hover:text-primary-foreground font-body text-sm font-semibold uppercase tracking-wider transition-colors px-3 py-2 rounded hover:bg-primary-foreground/10"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.label === "District Map" ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center gap-1 text-primary-foreground/80 hover:text-primary-foreground font-body text-sm font-semibold uppercase tracking-wider transition-colors px-3 py-2 rounded hover:bg-primary-foreground/10"
+                >
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                  {link.label}
+                </a>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-primary-foreground/80 hover:text-primary-foreground font-body text-sm font-semibold uppercase tracking-wider transition-colors px-3 py-2 rounded hover:bg-primary-foreground/10"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <a
-              href="#donate"
+              href="/#donate"
               className="ml-4 bg-accent text-accent-foreground font-heading text-base font-bold px-6 py-2.5 rounded hover:bg-campaign-red-dark transition-colors tracking-wide shadow-lg shadow-accent/30 uppercase"
             >
               Donate
@@ -106,7 +118,7 @@ const CampaignHeader = () => {
                 </a>
               ))}
               <a
-                href="#donate"
+                href="/#donate"
                 onClick={() => setMenuOpen(false)}
                 className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3 rounded text-center hover:bg-campaign-red-dark transition-colors mt-2 shadow-lg shadow-accent/20 uppercase"
               >
