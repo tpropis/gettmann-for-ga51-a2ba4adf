@@ -704,7 +704,7 @@ export function CommunityMap() {
   // ─────────────────────────────────────────────────────────────────────────────
 
   return (
-    <div className="relative flex overflow-hidden bg-gray-100 h-full w-full">
+    <div className="absolute inset-0 flex overflow-hidden bg-gray-100">
 
       {/* ── Desktop Side Panel ──────────────────────────────────── */}
       <aside
