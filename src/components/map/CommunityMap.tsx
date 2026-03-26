@@ -40,9 +40,31 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 const MAP_CENTER: [number, number] = [-84.376, 33.972];
 const MAP_ZOOM = 12.2;
 
-// OpenFreeMap Positron — completely free, no API key, no domain restrictions,
-// served via Cloudflare CDN, built specifically for MapLibre GL JS.
-const MAP_STYLE = "https://tiles.openfreemap.org/styles/positron";
+// OSM raster tiles — universally available, no auth, works from any origin.
+// Using an inline StyleSpecification avoids fetching external style JSON.
+const MAP_STYLE: maplibregl.StyleSpecification = {
+  version: 8,
+  glyphs: "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
+  sources: {
+    osm: {
+      type: "raster",
+      tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+      tileSize: 256,
+      attribution:
+        '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxzoom: 19,
+    },
+  },
+  layers: [
+    {
+      id: "osm-tiles",
+      type: "raster",
+      source: "osm",
+      minzoom: 0,
+      maxzoom: 22,
+    },
+  ],
+};
 
 // Nominatim geocoding (free, no key) — bounded to Sandy Springs area
 const NOMINATIM_VIEWBOX = "-84.50,34.07,-84.26,33.85"; // left,top,right,bottom
@@ -372,7 +394,7 @@ export function CommunityMap() {
         paint: {
           "circle-color": [
             "step",
-            ["get", "point_count"],
+            ["coalesce", ["to-number", ["get", "point_count"]], 0],
             "#1D3557",
             6,
             "#C43B3B",
@@ -381,7 +403,7 @@ export function CommunityMap() {
           ],
           "circle-radius": [
             "step",
-            ["get", "point_count"],
+            ["coalesce", ["to-number", ["get", "point_count"]], 0],
             22,
             6,
             28,
