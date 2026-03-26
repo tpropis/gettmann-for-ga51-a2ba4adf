@@ -219,6 +219,7 @@ export function CommunityMap() {
 
   // ── State
   const [mapLoaded, setMapLoaded] = useState(false);
+  const [mapError, setMapError] = useState<string | null>(null);
   const [activeCategories, setActiveCategories] = useState<Set<Category>>(
     new Set(CATEGORIES)
   );
@@ -237,6 +238,13 @@ export function CommunityMap() {
 
     mapboxgl.accessToken = MAPBOX_TOKEN;
 
+    // 15-second timeout so spinner never runs forever
+    const loadTimeout = setTimeout(() => {
+      setMapError(
+        "Map took too long to load. Your Mapbox token may be invalid or network is slow. Check Netlify → Environment Variables → VITE_MAPBOX_TOKEN."
+      );
+    }, 15000);
+
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: MAP_STYLE,
@@ -245,6 +253,12 @@ export function CommunityMap() {
       minZoom: 10,
       maxZoom: 18,
       attributionControl: false,
+    });
+
+    map.on("error", (e) => {
+      clearTimeout(loadTimeout);
+      const msg = (e as { error?: { message?: string } }).error?.message || String(e);
+      setMapError(`Map error: ${msg}. Check your Mapbox token in Netlify environment variables.`);
     });
 
     map.addControl(
@@ -456,12 +470,14 @@ export function CommunityMap() {
       map.on("moveend", onMoveEnd);
       map.on("zoomend", onMoveEnd);
 
+      clearTimeout(loadTimeout);
       setMapLoaded(true);
       updateVisible(map);
     });
 
     mapRef.current = map;
     return () => {
+      clearTimeout(loadTimeout);
       map.remove();
       mapRef.current = null;
     };
@@ -628,7 +644,7 @@ export function CommunityMap() {
   if (!MAPBOX_TOKEN) return <NoTokenMessage />;
 
   return (
-    <div className="relative flex overflow-hidden bg-gray-100" style={{ height: "calc(100vh - 73px)" }}>
+    <div className="relative flex overflow-hidden bg-gray-100 h-full w-full">
 
       {/* ── Desktop Side Panel ──────────────────────────────────── */}
       <aside
@@ -905,15 +921,31 @@ export function CommunityMap() {
         />
       )}
 
-      {/* Loading state */}
+      {/* Loading / error state */}
       {!mapLoaded && (
         <div className="absolute inset-0 z-30 bg-campaign-light flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-10 h-10 border-4 border-campaign-navy/20 border-t-campaign-navy rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-sm text-campaign-navy/60 font-medium">
-              Loading District 51 Map…
-            </p>
-          </div>
+          {mapError ? (
+            <div className="text-center max-w-sm px-6">
+              <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
+                <AlertCircle size={24} className="text-red-500" />
+              </div>
+              <p className="text-sm font-bold text-campaign-navy mb-2">Map failed to load</p>
+              <p className="text-xs text-gray-500 leading-relaxed mb-4">{mapError}</p>
+              <button
+                onClick={() => window.location.reload()}
+                className="px-4 py-2 bg-campaign-navy text-white text-xs font-semibold rounded-lg hover:bg-campaign-navy/90 transition-colors"
+              >
+                Retry
+              </button>
+            </div>
+          ) : (
+            <div className="text-center">
+              <div className="w-10 h-10 border-4 border-campaign-navy/20 border-t-campaign-navy rounded-full animate-spin mx-auto mb-3" />
+              <p className="text-sm text-campaign-navy/60 font-medium">
+                Loading District 51 Map…
+              </p>
+            </div>
+          )}
         </div>
       )}
     </div>
