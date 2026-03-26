@@ -40,53 +40,9 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 const MAP_CENTER: [number, number] = [-84.376, 33.972];
 const MAP_ZOOM = 12.2;
 
-// Inline raster style — avoids fetching an external style JSON.
-// CARTO CDN tiles are free, no API key, work from any origin.
-const MAP_STYLE: maplibregl.StyleSpecification = {
-  version: 8,
-  // OpenMapTiles-hosted glyph fonts for symbol layers (district label, etc.)
-  glyphs: "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
-  sources: {
-    "carto-light": {
-      type: "raster",
-      tiles: [
-        "https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
-        "https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
-        "https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
-      ],
-      tileSize: 256,
-      attribution:
-        '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, © <a href="https://carto.com/attributions">CARTO</a>',
-      maxzoom: 20,
-    },
-    "carto-labels": {
-      type: "raster",
-      tiles: [
-        "https://a.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png",
-        "https://b.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png",
-        "https://c.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png",
-      ],
-      tileSize: 256,
-      maxzoom: 20,
-    },
-  },
-  layers: [
-    {
-      id: "carto-light-layer",
-      type: "raster",
-      source: "carto-light",
-      minzoom: 0,
-      maxzoom: 22,
-    },
-    {
-      id: "carto-labels-layer",
-      type: "raster",
-      source: "carto-labels",
-      minzoom: 0,
-      maxzoom: 22,
-    },
-  ],
-};
+// OpenFreeMap Positron — completely free, no API key, no domain restrictions,
+// served via Cloudflare CDN, built specifically for MapLibre GL JS.
+const MAP_STYLE = "https://tiles.openfreemap.org/styles/positron";
 
 // Nominatim geocoding (free, no key) — bounded to Sandy Springs area
 const NOMINATIM_VIEWBOX = "-84.50,34.07,-84.26,33.85"; // left,top,right,bottom
