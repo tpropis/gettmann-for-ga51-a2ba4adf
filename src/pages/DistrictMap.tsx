@@ -48,7 +48,7 @@ export default function DistrictMap() {
       </div>
 
       {/* Map fills remaining viewport */}
-      <div className="flex-1 relative overflow-hidden">
+      <div className="flex-1 relative overflow-hidden min-h-0">
         <CommunityMap />
       </div>
     </div>

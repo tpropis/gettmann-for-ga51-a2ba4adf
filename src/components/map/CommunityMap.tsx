@@ -1,6 +1,6 @@
 /**
  * District 51 Community Issues Map
- * Built with Mapbox GL JS v3
+ * Built with MapLibre GL JS + CARTO free tiles (no token required)
  *
  * Architecture note: this component is intentionally self-contained so that
  * issue data can be swapped out from any source (Airtable, REST API, etc.)
@@ -9,8 +9,8 @@
  */
 
 import { useRef, useEffect, useState, useCallback, useMemo } from "react";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 import {
   Search,
   X,
@@ -37,15 +37,13 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 
 // ─── Configuration ────────────────────────────────────────────────────────────
 
-const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN as string | undefined;
-
 const MAP_CENTER: [number, number] = [-84.376, 33.972];
 const MAP_ZOOM = 12.2;
-const MAP_STYLE = "mapbox://styles/mapbox/light-v11";
+// CARTO Positron — free, no API key required, professional light basemap
+const MAP_STYLE = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
 
-// Geocoding bbox restricted to Sandy Springs / northern Fulton County
-const GEOCODE_BBOX = "-84.50,33.85,-84.26,34.07";
-const GEOCODE_PROXIMITY = "-84.376,33.972";
+// Nominatim geocoding (free, no key) — bounded to Sandy Springs area
+const NOMINATIM_VIEWBOX = "-84.50,34.07,-84.26,33.85"; // left,top,right,bottom
 
 // ─── Status Config ────────────────────────────────────────────────────────────
 
@@ -213,12 +211,13 @@ function NoTokenMessage() {
 export function CommunityMap() {
   // ── Refs
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<mapboxgl.Map | null>(null);
-  const popupRef = useRef<mapboxgl.Popup | null>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
+  const popupRef = useRef<maplibregl.Popup | null>(null);
   const geocodeAbortRef = useRef<AbortController | null>(null);
 
   // ── State
   const [mapLoaded, setMapLoaded] = useState(false);
+  const [mapError, setMapError] = useState<string | null>(null);
   const [activeCategories, setActiveCategories] = useState<Set<Category>>(
     new Set(CATEGORIES)
   );
@@ -233,11 +232,16 @@ export function CommunityMap() {
 
   // ── Map initialization
   useEffect(() => {
-    if (!MAPBOX_TOKEN || !mapContainerRef.current || mapRef.current) return;
+    if (!mapContainerRef.current || mapRef.current) return;
 
-    mapboxgl.accessToken = MAPBOX_TOKEN;
+    // 15-second timeout so spinner never runs forever
+    const loadTimeout = setTimeout(() => {
+      setMapError(
+        "Map took too long to load. Check your internet connection and try refreshing."
+      );
+    }, 15000);
 
-    const map = new mapboxgl.Map({
+    const map = new maplibregl.Map({
       container: mapContainerRef.current,
       style: MAP_STYLE,
       center: MAP_CENTER,
@@ -247,16 +251,22 @@ export function CommunityMap() {
       attributionControl: false,
     });
 
+    map.on("error", (e) => {
+      clearTimeout(loadTimeout);
+      const msg = (e as { error?: { message?: string } }).error?.message || String(e);
+      setMapError(`Map error: ${msg}. Check your Mapbox token in Netlify environment variables.`);
+    });
+
     map.addControl(
-      new mapboxgl.AttributionControl({ compact: true }),
+      new maplibregl.AttributionControl({ compact: true }),
       "bottom-right"
     );
     map.addControl(
-      new mapboxgl.NavigationControl({ showCompass: false }),
+      new maplibregl.NavigationControl({ showCompass: false }),
       "bottom-right"
     );
     map.addControl(
-      new mapboxgl.ScaleControl({ unit: "imperial" }),
+      new maplibregl.ScaleControl({ unit: "imperial" }),
       "bottom-left"
     );
 
@@ -407,12 +417,11 @@ export function CommunityMap() {
         });
         if (!features.length) return;
         const clusterId = features[0].properties?.cluster_id as number;
-        const source = map.getSource("issues-points") as mapboxgl.GeoJSONSource;
-        source.getClusterExpansionZoom(clusterId, (err, zoom) => {
-          if (err) return;
+        const source = map.getSource("issues-points") as maplibregl.GeoJSONSource;
+        source.getClusterExpansionZoom(clusterId).then((zoom) => {
           const geom = features[0].geometry as GeoJSON.Point;
           map.easeTo({ center: geom.coordinates as [number, number], zoom: zoom ?? 14 });
-        });
+        }).catch(() => {/* ignore */});
       });
 
       // ── Click: unclustered point → popup
@@ -456,12 +465,14 @@ export function CommunityMap() {
       map.on("moveend", onMoveEnd);
       map.on("zoomend", onMoveEnd);
 
+      clearTimeout(loadTimeout);
       setMapLoaded(true);
       updateVisible(map);
     });
 
     mapRef.current = map;
     return () => {
+      clearTimeout(loadTimeout);
       map.remove();
       mapRef.current = null;
     };
@@ -473,10 +484,10 @@ export function CommunityMap() {
     if (!mapRef.current || !mapLoaded) return;
     const map = mapRef.current;
 
-    const pSrc = map.getSource("issues-points") as mapboxgl.GeoJSONSource | undefined;
+    const pSrc = map.getSource("issues-points") as maplibregl.GeoJSONSource | undefined;
     if (pSrc) pSrc.setData(getPointsGeoJSON(activeCategories) as GeoJSON.FeatureCollection);
 
-    const zSrc = map.getSource("issues-zones") as mapboxgl.GeoJSONSource | undefined;
+    const zSrc = map.getSource("issues-zones") as maplibregl.GeoJSONSource | undefined;
     if (zSrc) zSrc.setData(getZonesGeoJSON(activeCategories) as GeoJSON.FeatureCollection);
 
     updateVisible(mapRef.current);
@@ -487,13 +498,13 @@ export function CommunityMap() {
   function openPopup(
     issue: IssueData,
     coords: [number, number],
-    map: mapboxgl.Map
+    map: maplibregl.Map
   ) {
     if (popupRef.current) {
       popupRef.current.remove();
       popupRef.current = null;
     }
-    const popup = new mapboxgl.Popup({
+    const popup = new maplibregl.Popup({
       closeButton: true,
       closeOnClick: false,
       maxWidth: "340px",
@@ -514,7 +525,7 @@ export function CommunityMap() {
   }
 
   // ── Update visible issues in side panel
-  function updateVisible(map: mapboxgl.Map) {
+  function updateVisible(map: maplibregl.Map) {
     const bounds = map.getBounds();
     if (!bounds) return;
     const visible = issueData.filter((issue) => {
@@ -589,20 +600,22 @@ export function CommunityMap() {
       return;
     }
 
-    // Otherwise: geocode as address
-    if (!MAPBOX_TOKEN) return;
+    // Otherwise: geocode via Nominatim (free, no key required)
     setIsGeocoding(true);
     if (geocodeAbortRef.current) geocodeAbortRef.current.abort();
     const controller = new AbortController();
     geocodeAbortRef.current = controller;
 
     try {
-      const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(q)}.json?access_token=${MAPBOX_TOKEN}&proximity=${GEOCODE_PROXIMITY}&bbox=${GEOCODE_BBOX}&limit=1`;
-      const res = await fetch(url, { signal: controller.signal });
+      const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q + " Sandy Springs GA")}&format=json&limit=1&viewbox=${NOMINATIM_VIEWBOX}&bounded=0`;
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: { "Accept-Language": "en" },
+      });
       const data = await res.json();
-      if (data.features?.length) {
-        const [lng, lat] = data.features[0].center as [number, number];
-        mapRef.current?.flyTo({ center: [lng, lat], zoom: 15, duration: 1000 });
+      if (data?.length) {
+        const { lon, lat } = data[0];
+        mapRef.current?.flyTo({ center: [parseFloat(lon), parseFloat(lat)], zoom: 15, duration: 1000 });
       }
     } catch (_) {
       // aborted or network error — silently ignore
@@ -625,10 +638,8 @@ export function CommunityMap() {
 
   // ─────────────────────────────────────────────────────────────────────────────
 
-  if (!MAPBOX_TOKEN) return <NoTokenMessage />;
-
   return (
-    <div className="relative flex overflow-hidden bg-gray-100" style={{ height: "calc(100vh - 73px)" }}>
+    <div className="relative flex overflow-hidden bg-gray-100 h-full w-full">
 
       {/* ── Desktop Side Panel ──────────────────────────────────── */}
       <aside
@@ -905,15 +916,31 @@ export function CommunityMap() {
         />
       )}
 
-      {/* Loading state */}
+      {/* Loading / error state */}
       {!mapLoaded && (
         <div className="absolute inset-0 z-30 bg-campaign-light flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-10 h-10 border-4 border-campaign-navy/20 border-t-campaign-navy rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-sm text-campaign-navy/60 font-medium">
-              Loading District 51 Map…
-            </p>
-          </div>
+          {mapError ? (
+            <div className="text-center max-w-sm px-6">
+              <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
+                <AlertCircle size={24} className="text-red-500" />
+              </div>
+              <p className="text-sm font-bold text-campaign-navy mb-2">Map failed to load</p>
+              <p className="text-xs text-gray-500 leading-relaxed mb-4">{mapError}</p>
+              <button
+                onClick={() => window.location.reload()}
+                className="px-4 py-2 bg-campaign-navy text-white text-xs font-semibold rounded-lg hover:bg-campaign-navy/90 transition-colors"
+              >
+                Retry
+              </button>
+            </div>
+          ) : (
+            <div className="text-center">
+              <div className="w-10 h-10 border-4 border-campaign-navy/20 border-t-campaign-navy rounded-full animate-spin mx-auto mb-3" />
+              <p className="text-sm text-campaign-navy/60 font-medium">
+                Loading District 51 Map…
+              </p>
+            </div>
+          )}
         </div>
       )}
     </div>
