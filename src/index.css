@@ -79,7 +79,7 @@
 
 /* ─── Community Map — Mapbox Popup Styles ─────────────────────────────────── */
 
-.cmap-popup .mapboxgl-popup-content {
+.cmap-popup .maplibregl-popup-content {
   padding: 0;
   border-radius: 10px;
   overflow: hidden;
@@ -89,7 +89,7 @@
   border: none;
 }
 
-.cmap-popup .mapboxgl-popup-close-button {
+.cmap-popup .maplibregl-popup-close-button {
   color: rgba(255, 255, 255, 0.9);
   font-size: 18px;
   right: 8px;
@@ -106,7 +106,7 @@
   z-index: 2;
 }
 
-.cmap-popup .mapboxgl-popup-close-button:hover {
+.cmap-popup .maplibregl-popup-close-button:hover {
   background: rgba(0, 0, 0, 0.35);
   color: #fff;
 }
@@ -246,15 +246,15 @@
 }
 
 /* Mapbox tip arrow — match white popup body */
-.cmap-popup.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+.cmap-popup.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
   border-top-color: #fff;
 }
-.cmap-popup.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+.cmap-popup.maplibregl-popup-anchor-top .maplibregl-popup-tip {
   border-bottom-color: #fff;
 }
-.cmap-popup.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+.cmap-popup.maplibregl-popup-anchor-left .maplibregl-popup-tip {
   border-right-color: #fff;
 }
-.cmap-popup.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+.cmap-popup.maplibregl-popup-anchor-right .maplibregl-popup-tip {
   border-left-color: #fff;
 }

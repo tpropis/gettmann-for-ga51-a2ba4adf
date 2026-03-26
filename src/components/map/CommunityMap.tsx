@@ -1,6 +1,6 @@
 /**
  * District 51 Community Issues Map
- * Built with Mapbox GL JS v3
+ * Built with MapLibre GL JS + CARTO free tiles (no token required)
  *
  * Architecture note: this component is intentionally self-contained so that
  * issue data can be swapped out from any source (Airtable, REST API, etc.)
@@ -9,8 +9,8 @@
  */
 
 import { useRef, useEffect, useState, useCallback, useMemo } from "react";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 import {
   Search,
   X,
@@ -37,15 +37,13 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 
 // ─── Configuration ────────────────────────────────────────────────────────────
 
-const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN as string | undefined;
-
 const MAP_CENTER: [number, number] = [-84.376, 33.972];
 const MAP_ZOOM = 12.2;
-const MAP_STYLE = "mapbox://styles/mapbox/light-v11";
+// CARTO Positron — free, no API key required, professional light basemap
+const MAP_STYLE = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
 
-// Geocoding bbox restricted to Sandy Springs / northern Fulton County
-const GEOCODE_BBOX = "-84.50,33.85,-84.26,34.07";
-const GEOCODE_PROXIMITY = "-84.376,33.972";
+// Nominatim geocoding (free, no key) — bounded to Sandy Springs area
+const NOMINATIM_VIEWBOX = "-84.50,34.07,-84.26,33.85"; // left,top,right,bottom
 
 // ─── Status Config ────────────────────────────────────────────────────────────
 
@@ -213,8 +211,8 @@ function NoTokenMessage() {
 export function CommunityMap() {
   // ── Refs
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<mapboxgl.Map | null>(null);
-  const popupRef = useRef<mapboxgl.Popup | null>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
+  const popupRef = useRef<maplibregl.Popup | null>(null);
   const geocodeAbortRef = useRef<AbortController | null>(null);
 
   // ── State
@@ -234,18 +232,16 @@ export function CommunityMap() {
 
   // ── Map initialization
   useEffect(() => {
-    if (!MAPBOX_TOKEN || !mapContainerRef.current || mapRef.current) return;
-
-    mapboxgl.accessToken = MAPBOX_TOKEN;
+    if (!mapContainerRef.current || mapRef.current) return;
 
     // 15-second timeout so spinner never runs forever
     const loadTimeout = setTimeout(() => {
       setMapError(
-        "Map took too long to load. Your Mapbox token may be invalid or network is slow. Check Netlify → Environment Variables → VITE_MAPBOX_TOKEN."
+        "Map took too long to load. Check your internet connection and try refreshing."
       );
     }, 15000);
 
-    const map = new mapboxgl.Map({
+    const map = new maplibregl.Map({
       container: mapContainerRef.current,
       style: MAP_STYLE,
       center: MAP_CENTER,
@@ -262,15 +258,15 @@ export function CommunityMap() {
     });
 
     map.addControl(
-      new mapboxgl.AttributionControl({ compact: true }),
+      new maplibregl.AttributionControl({ compact: true }),
       "bottom-right"
     );
     map.addControl(
-      new mapboxgl.NavigationControl({ showCompass: false }),
+      new maplibregl.NavigationControl({ showCompass: false }),
       "bottom-right"
     );
     map.addControl(
-      new mapboxgl.ScaleControl({ unit: "imperial" }),
+      new maplibregl.ScaleControl({ unit: "imperial" }),
       "bottom-left"
     );
 
@@ -421,12 +417,11 @@ export function CommunityMap() {
         });
         if (!features.length) return;
         const clusterId = features[0].properties?.cluster_id as number;
-        const source = map.getSource("issues-points") as mapboxgl.GeoJSONSource;
-        source.getClusterExpansionZoom(clusterId, (err, zoom) => {
-          if (err) return;
+        const source = map.getSource("issues-points") as maplibregl.GeoJSONSource;
+        source.getClusterExpansionZoom(clusterId).then((zoom) => {
           const geom = features[0].geometry as GeoJSON.Point;
           map.easeTo({ center: geom.coordinates as [number, number], zoom: zoom ?? 14 });
-        });
+        }).catch(() => {/* ignore */});
       });
 
       // ── Click: unclustered point → popup
@@ -489,10 +484,10 @@ export function CommunityMap() {
     if (!mapRef.current || !mapLoaded) return;
     const map = mapRef.current;
 
-    const pSrc = map.getSource("issues-points") as mapboxgl.GeoJSONSource | undefined;
+    const pSrc = map.getSource("issues-points") as maplibregl.GeoJSONSource | undefined;
     if (pSrc) pSrc.setData(getPointsGeoJSON(activeCategories) as GeoJSON.FeatureCollection);
 
-    const zSrc = map.getSource("issues-zones") as mapboxgl.GeoJSONSource | undefined;
+    const zSrc = map.getSource("issues-zones") as maplibregl.GeoJSONSource | undefined;
     if (zSrc) zSrc.setData(getZonesGeoJSON(activeCategories) as GeoJSON.FeatureCollection);
 
     updateVisible(mapRef.current);
@@ -503,13 +498,13 @@ export function CommunityMap() {
   function openPopup(
     issue: IssueData,
     coords: [number, number],
-    map: mapboxgl.Map
+    map: maplibregl.Map
   ) {
     if (popupRef.current) {
       popupRef.current.remove();
       popupRef.current = null;
     }
-    const popup = new mapboxgl.Popup({
+    const popup = new maplibregl.Popup({
       closeButton: true,
       closeOnClick: false,
       maxWidth: "340px",
@@ -530,7 +525,7 @@ export function CommunityMap() {
   }
 
   // ── Update visible issues in side panel
-  function updateVisible(map: mapboxgl.Map) {
+  function updateVisible(map: maplibregl.Map) {
     const bounds = map.getBounds();
     if (!bounds) return;
     const visible = issueData.filter((issue) => {
@@ -605,20 +600,22 @@ export function CommunityMap() {
       return;
     }
 
-    // Otherwise: geocode as address
-    if (!MAPBOX_TOKEN) return;
+    // Otherwise: geocode via Nominatim (free, no key required)
     setIsGeocoding(true);
     if (geocodeAbortRef.current) geocodeAbortRef.current.abort();
     const controller = new AbortController();
     geocodeAbortRef.current = controller;
 
     try {
-      const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(q)}.json?access_token=${MAPBOX_TOKEN}&proximity=${GEOCODE_PROXIMITY}&bbox=${GEOCODE_BBOX}&limit=1`;
-      const res = await fetch(url, { signal: controller.signal });
+      const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q + " Sandy Springs GA")}&format=json&limit=1&viewbox=${NOMINATIM_VIEWBOX}&bounded=0`;
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: { "Accept-Language": "en" },
+      });
       const data = await res.json();
-      if (data.features?.length) {
-        const [lng, lat] = data.features[0].center as [number, number];
-        mapRef.current?.flyTo({ center: [lng, lat], zoom: 15, duration: 1000 });
+      if (data?.length) {
+        const { lon, lat } = data[0];
+        mapRef.current?.flyTo({ center: [parseFloat(lon), parseFloat(lat)], zoom: 15, duration: 1000 });
       }
     } catch (_) {
       // aborted or network error — silently ignore
@@ -640,8 +637,6 @@ export function CommunityMap() {
   }, [visibleIssues, searchQuery]);
 
   // ─────────────────────────────────────────────────────────────────────────────
-
-  if (!MAPBOX_TOKEN) return <NoTokenMessage />;
 
   return (
     <div className="relative flex overflow-hidden bg-gray-100 h-full w-full">
