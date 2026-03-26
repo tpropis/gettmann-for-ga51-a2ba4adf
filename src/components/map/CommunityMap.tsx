@@ -40,29 +40,33 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 const MAP_CENTER: [number, number] = [-84.376, 33.965];
 const MAP_ZOOM = 11.8;
 
-// OSM raster tiles — universally available, no auth, works from any origin.
-// Using an inline StyleSpecification avoids fetching external style JSON.
+// Esri Light Gray Canvas — clean, professional, free, no API key, no domain restrictions.
+// Esri uses {z}/{y}/{x} tile order (note y before x), which MapLibre handles fine.
 const MAP_STYLE: maplibregl.StyleSpecification = {
   version: 8,
   glyphs: "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
   sources: {
-    osm: {
+    "esri-gray": {
       type: "raster",
-      tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+      tiles: [
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+      ],
       tileSize: 256,
-      attribution:
-        '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxzoom: 19,
+      attribution: "Esri, HERE, Garmin, © OpenStreetMap contributors",
+      maxzoom: 16,
+    },
+    "esri-labels": {
+      type: "raster",
+      tiles: [
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}",
+      ],
+      tileSize: 256,
+      maxzoom: 16,
     },
   },
   layers: [
-    {
-      id: "osm-tiles",
-      type: "raster",
-      source: "osm",
-      minzoom: 0,
-      maxzoom: 22,
-    },
+    { id: "esri-gray-layer", type: "raster", source: "esri-gray" },
+    { id: "esri-labels-layer", type: "raster", source: "esri-labels" },
   ],
 };
 
@@ -327,7 +331,14 @@ export function CommunityMap() {
         id: "district-fill",
         type: "fill",
         source: "district51",
-        paint: { "fill-color": "#1D3557", "fill-opacity": 0.08 },
+        paint: { "fill-color": "#1D3557", "fill-opacity": 0.07 },
+      });
+      // White halo behind the boundary so it shows on any tile background
+      map.addLayer({
+        id: "district-outline-halo",
+        type: "line",
+        source: "district51",
+        paint: { "line-color": "#ffffff", "line-width": 8, "line-opacity": 0.85 },
       });
       map.addLayer({
         id: "district-outline",
@@ -337,7 +348,7 @@ export function CommunityMap() {
           "line-color": "#1D3557",
           "line-width": 4,
           "line-opacity": 1,
-          "line-dasharray": [4, 2],
+          "line-dasharray": [6, 3],
         },
       });
       map.addLayer({
@@ -347,16 +358,16 @@ export function CommunityMap() {
         layout: {
           "text-field": "DISTRICT 51",
           "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
-          "text-size": 11,
-          "text-letter-spacing": 0.15,
+          "text-size": 13,
+          "text-letter-spacing": 0.2,
           "text-transform": "uppercase",
           "symbol-placement": "point",
         },
         paint: {
           "text-color": "#1D3557",
-          "text-opacity": 0.45,
+          "text-opacity": 0.7,
           "text-halo-color": "#ffffff",
-          "text-halo-width": 2,
+          "text-halo-width": 3,
         },
       });
 
