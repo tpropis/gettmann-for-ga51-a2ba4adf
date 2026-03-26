@@ -39,8 +39,54 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 
 const MAP_CENTER: [number, number] = [-84.376, 33.972];
 const MAP_ZOOM = 12.2;
-// OpenFreeMap Positron — completely free vector tiles, designed for MapLibre
-const MAP_STYLE = "https://tiles.openfreemap.org/styles/positron";
+
+// Inline raster style — avoids fetching an external style JSON.
+// CARTO CDN tiles are free, no API key, work from any origin.
+const MAP_STYLE: maplibregl.StyleSpecification = {
+  version: 8,
+  // OpenMapTiles-hosted glyph fonts for symbol layers (district label, etc.)
+  glyphs: "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
+  sources: {
+    "carto-light": {
+      type: "raster",
+      tiles: [
+        "https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
+        "https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
+        "https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png",
+      ],
+      tileSize: 256,
+      attribution:
+        '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, © <a href="https://carto.com/attributions">CARTO</a>',
+      maxzoom: 20,
+    },
+    "carto-labels": {
+      type: "raster",
+      tiles: [
+        "https://a.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png",
+        "https://b.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png",
+        "https://c.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png",
+      ],
+      tileSize: 256,
+      maxzoom: 20,
+    },
+  },
+  layers: [
+    {
+      id: "carto-light-layer",
+      type: "raster",
+      source: "carto-light",
+      minzoom: 0,
+      maxzoom: 22,
+    },
+    {
+      id: "carto-labels-layer",
+      type: "raster",
+      source: "carto-labels",
+      minzoom: 0,
+      maxzoom: 22,
+    },
+  ],
+};
 
 // Nominatim geocoding (free, no key) — bounded to Sandy Springs area
 const NOMINATIM_VIEWBOX = "-84.50,34.07,-84.26,33.85"; // left,top,right,bottom
@@ -241,6 +287,9 @@ export function CommunityMap() {
       );
     }, 15000);
 
+    // Track whether the map's `load` event has fired yet
+    let mapLoadFired = false;
+
     const map = new maplibregl.Map({
       container: mapContainerRef.current,
       style: MAP_STYLE,
@@ -251,14 +300,14 @@ export function CommunityMap() {
       attributionControl: false,
     });
 
-    // Only treat errors as fatal if the style itself failed to load (before the
-    // load event fires). Tile-level 404s / network blips after load are non-fatal.
+    // Only treat errors as fatal if they happen before the load event.
+    // After load, tile-level 404s/network blips are non-fatal.
     map.on("error", (e) => {
-      if (mapRef.current && (mapRef.current as maplibregl.Map).loaded()) return;
+      if (mapLoadFired) return;
       clearTimeout(loadTimeout);
       const msg = (e as { error?: { message?: string } }).error?.message || String(e);
-      console.warn("Map load error:", msg);
-      setMapError(`Map failed to load: ${msg}. Check your internet connection and try refreshing.`);
+      console.error("Map load error:", msg);
+      setMapError(`Map failed to load. Check your internet connection and try refreshing.`);
     });
 
     map.addControl(
@@ -275,6 +324,10 @@ export function CommunityMap() {
     );
 
     map.on("load", () => {
+      mapLoadFired = true;
+      // Force the canvas to recompute its dimensions now that flex layout has settled
+      map.resize();
+
       // ── District 51 boundary
       map.addSource("district51", {
         type: "geojson",
@@ -475,8 +528,16 @@ export function CommunityMap() {
     });
 
     mapRef.current = map;
+
+    // Resize canvas whenever the container size changes (e.g. side panel toggling)
+    const resizeObserver = new ResizeObserver(() => {
+      if (mapRef.current) mapRef.current.resize();
+    });
+    if (mapContainerRef.current) resizeObserver.observe(mapContainerRef.current);
+
     return () => {
       clearTimeout(loadTimeout);
+      resizeObserver.disconnect();
       map.remove();
       mapRef.current = null;
     };
