@@ -89,7 +89,7 @@ const MeetKeith = () => (
 
           <a
             href="#get-involved"
-            className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded hover:bg-campaign-red-dark transition-colors tracking-wide shadow-lg shadow-accent/20"
+            className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded hover:bg-campaign-gold-dark transition-colors tracking-wide shadow-lg shadow-accent/20"
           >
             Join the Campaign
           </a>
