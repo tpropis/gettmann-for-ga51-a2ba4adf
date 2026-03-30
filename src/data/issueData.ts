@@ -138,7 +138,7 @@ export const issueData: IssueData[] = [
   },
   {
     id: "traffic-2",
-    type: "zone",
+    type: "point",
     category: "Traffic",
     areaName: "Hammond Drive Corridor",
     topIssue: "2-mile AM peak backup toward Perimeter Center",
@@ -150,13 +150,7 @@ export const issueData: IssueData[] = [
       "We have the study. We have the solution. What we've lacked is a representative willing to fight for the funding.",
     status: "Ongoing",
     sourceCount: 4,
-    polygonCoordinates: [
-      [-84.3540, 33.9620],
-      [-84.3080, 33.9620],
-      [-84.3080, 33.9570],
-      [-84.3540, 33.9570],
-      [-84.3540, 33.9620],
-    ],
+    coordinates: [-84.3310, 33.9595],
   },
   {
     id: "traffic-3",
@@ -178,7 +172,7 @@ export const issueData: IssueData[] = [
   // ── PUBLIC SAFETY ─────────────────────────────────────────────────────────────
   {
     id: "safety-1",
-    type: "zone",
+    type: "point",
     category: "Public Safety",
     areaName: "Perimeter Center Area",
     topIssue: "Vehicle break-ins up 34% year-over-year",
@@ -190,13 +184,7 @@ export const issueData: IssueData[] = [
       "A thriving Perimeter Center means more tax revenue for Sandy Springs. Safe streets are an economic investment, not just a police budget line.",
     status: "Critical",
     sourceCount: 6,
-    polygonCoordinates: [
-      [-84.3550, 33.9650],
-      [-84.3100, 33.9650],
-      [-84.3100, 33.9580],
-      [-84.3550, 33.9580],
-      [-84.3550, 33.9650],
-    ],
+    coordinates: [-84.3325, 33.9615],
   },
   {
     id: "safety-2",
@@ -250,7 +238,7 @@ export const issueData: IssueData[] = [
   },
   {
     id: "schools-2",
-    type: "zone",
+    type: "point",
     category: "Schools",
     areaName: "Dunwoody HS Attendance Boundary",
     topIssue: "Rezoning plan displaces 400+ District 51 families",
@@ -262,13 +250,7 @@ export const issueData: IssueData[] = [
       "This decision affects 400 families and was announced with 30 days' notice. Residents deserve real input, not rubber-stamp hearings.",
     status: "Monitoring",
     sourceCount: 5,
-    polygonCoordinates: [
-      [-84.3420, 33.9800],
-      [-84.2940, 33.9800],
-      [-84.2940, 33.9660],
-      [-84.3420, 33.9660],
-      [-84.3420, 33.9800],
-    ],
+    coordinates: [-84.3180, 33.9730],
   },
   {
     id: "schools-3",
@@ -422,7 +404,7 @@ export const issueData: IssueData[] = [
   },
   {
     id: "qol-3",
-    type: "zone",
+    type: "point",
     category: "Quality of Life",
     areaName: "Path 400 Trail Extension",
     topIssue: "$2.3M in GDOT funds sitting unused; trail dead-ends",
@@ -434,19 +416,13 @@ export const issueData: IssueData[] = [
       "The funding exists. The community wants it. What's missing is a rep willing to cut through the bureaucratic red tape.",
     status: "In Progress",
     sourceCount: 6,
-    polygonCoordinates: [
-      [-84.3520, 34.0100],
-      [-84.3380, 34.0100],
-      [-84.3380, 33.9700],
-      [-84.3520, 33.9700],
-      [-84.3520, 34.0100],
-    ],
+    coordinates: [-84.3450, 33.9900],
   },
 
   // ── SMALL BUSINESS ────────────────────────────────────────────────────────────
   {
     id: "biz-1",
-    type: "zone",
+    type: "point",
     category: "Small Business",
     areaName: "Roswell Road Business Corridor",
     topIssue: "28% commercial vacancy rate; 3 restaurants closed in 90 days",
@@ -458,13 +434,7 @@ export const issueData: IssueData[] = [
       "Empty storefronts mean lost tax revenue and lost community. We need policies that make Sandy Springs the kind of place small businesses want to put down roots.",
     status: "Critical",
     sourceCount: 7,
-    polygonCoordinates: [
-      [-84.3580, 33.9750],
-      [-84.3380, 33.9750],
-      [-84.3380, 33.9610],
-      [-84.3580, 33.9610],
-      [-84.3580, 33.9750],
-    ],
+    coordinates: [-84.3480, 33.9680],
   },
   {
     id: "biz-2",
