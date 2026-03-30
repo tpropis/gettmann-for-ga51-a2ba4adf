@@ -37,10 +37,12 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 
 // ─── Configuration ────────────────────────────────────────────────────────────
 
-// District 51 geographic bounds [SW, NE] — used for fitBounds on init.
+// District 51 geographic bounds [SW, NE] — derived from the actual HD51 polygon.
+// HD51 covers east Sandy Springs (Fulton Co.) east of GA-400, into the
+// Sandy Springs / Dunwoody border area.
 const DISTRICT_BOUNDS: [[number, number], [number, number]] = [
-  [-84.4498, 33.895],
-  [-84.301, 34.0435],
+  [-84.3658, 33.955],
+  [-84.2507, 34.026],
 ];
 
 // Bake the district source + layers directly into the MapLibre style spec so
