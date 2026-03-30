@@ -80,7 +80,7 @@ const CampaignHeader = () => {
             )}
             <a
               href="/#donate"
-              className="ml-4 bg-accent text-accent-foreground font-heading text-base font-bold px-6 py-2.5 rounded hover:bg-campaign-red-dark transition-colors tracking-wide shadow-lg shadow-accent/30 uppercase"
+              className="ml-4 bg-accent text-accent-foreground font-heading text-base font-bold px-6 py-2.5 rounded hover:bg-campaign-gold-dark transition-colors tracking-wide shadow-lg shadow-accent/30 uppercase"
             >
               Donate
             </a>
