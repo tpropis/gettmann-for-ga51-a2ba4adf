@@ -38,7 +38,7 @@ const CampaignHeader = () => {
           scrolled ? "py-0" : "py-1"
         }`}
         style={{
-          background: "linear-gradient(180deg, hsl(213 50% 28%) 0%, hsl(213 50% 20%) 100%)",
+          background: "linear-gradient(180deg, hsl(207 100% 22%) 0%, hsl(207 100% 15%) 100%)",
         }}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
