@@ -44,7 +44,7 @@ const MomentumSection = () => (
       <div className="text-center mt-12">
         <a
           href="#get-involved"
-          className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-8 py-4 rounded hover:bg-campaign-red-dark transition-colors tracking-wide"
+          className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-8 py-4 rounded hover:bg-campaign-gold-dark transition-colors tracking-wide"
         >
           Help Build Momentum
         </a>
