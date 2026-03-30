@@ -402,11 +402,11 @@ export function CommunityMap() {
           "circle-color": [
             "step",
             ["coalesce", ["to-number", ["get", "point_count"]], 0],
-            "#1D3557",
+            "#003056",
             6,
-            "#C43B3B",
+            "#dbb04a",
             11,
-            "#7F1D1D",
+            "#b8922e",
           ],
           "circle-radius": [
             "step",
