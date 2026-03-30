@@ -48,7 +48,8 @@ const DISTRICT_BOUNDS: [[number, number], [number, number]] = [
 // risk of the dynamic addSource/addLayer timing window causing them to be skipped.
 const MAP_STYLE: maplibregl.StyleSpecification = {
   version: 8,
-  // No glyphs needed — we removed all symbol layers from the style.
+  // Glyphs still needed for the dynamically-added cluster-count symbol layer.
+  glyphs: "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
   sources: {
     "esri-gray": {
       type: "raster",
