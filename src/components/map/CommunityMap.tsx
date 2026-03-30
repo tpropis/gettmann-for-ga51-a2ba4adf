@@ -83,7 +83,7 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
       id: "district-fill",
       type: "fill",
       source: "district51",
-      paint: { "fill-color": "#1D3557", "fill-opacity": 0.08 },
+      paint: { "fill-color": "#003056", "fill-opacity": 0.08 },
     },
     // Wide white halo so the boundary pops on the light gray tiles
     {
