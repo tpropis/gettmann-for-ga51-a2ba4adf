@@ -898,7 +898,7 @@ export function CommunityMap() {
           <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-campaign-navy text-[10px] font-bold px-2.5 py-1.5 rounded-lg shadow-md border border-campaign-navy/15 uppercase tracking-wider">
             <span
               className="inline-block w-3 h-3 rounded-sm border-2"
-              style={{ borderColor: "#C43B3B", background: "rgba(196,59,59,0.08)" }}
+              style={{ borderColor: "#dbb04a", background: "rgba(219,176,74,0.08)" }}
             />
             District 51 Boundary
           </div>
