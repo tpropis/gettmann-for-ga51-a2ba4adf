@@ -92,12 +92,12 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
       source: "district51",
       paint: { "line-color": "#ffffff", "line-width": 10, "line-opacity": 1 },
     },
-    // Solid red boundary line on top of the halo
+    // Solid gold boundary line on top of the halo
     {
       id: "district-outline",
       type: "line",
       source: "district51",
-      paint: { "line-color": "#C43B3B", "line-width": 3.5, "line-opacity": 1 },
+      paint: { "line-color": "#dbb04a", "line-width": 3.5, "line-opacity": 1 },
     },
   ],
 };
