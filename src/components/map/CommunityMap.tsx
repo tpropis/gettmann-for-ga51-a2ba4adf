@@ -37,13 +37,20 @@ import { district51GeoJSON } from "@/data/district51GeoJSON";
 
 // ─── Configuration ────────────────────────────────────────────────────────────
 
-const MAP_CENTER: [number, number] = [-84.376, 33.965];
-const MAP_ZOOM = 12.8;
+// District 51 geographic bounds [SW, NE] — derived from the actual HD51 polygon.
+// HD51 covers east Sandy Springs (Fulton Co.) east of GA-400, into the
+// Sandy Springs / Dunwoody border area.
+const DISTRICT_BOUNDS: [[number, number], [number, number]] = [
+  [-84.3658, 33.955],
+  [-84.2507, 34.026],
+];
 
-// Esri Light Gray Canvas — clean, professional, free, no API key, no domain restrictions.
-// Esri uses {z}/{y}/{x} tile order (note y before x), which MapLibre handles fine.
+// Bake the district source + layers directly into the MapLibre style spec so
+// they are guaranteed to render as part of the style loading pipeline, with no
+// risk of the dynamic addSource/addLayer timing window causing them to be skipped.
 const MAP_STYLE: maplibregl.StyleSpecification = {
   version: 8,
+  // Glyphs still needed for the dynamically-added cluster-count symbol layer.
   glyphs: "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
   sources: {
     "esri-gray": {
@@ -63,10 +70,35 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
       tileSize: 256,
       maxzoom: 16,
     },
+    "district51": {
+      type: "geojson",
+      data: district51GeoJSON as GeoJSON.FeatureCollection,
+    },
   },
   layers: [
     { id: "esri-gray-layer", type: "raster", source: "esri-gray" },
     { id: "esri-labels-layer", type: "raster", source: "esri-labels" },
+    // District fill — very light navy tint so the interior feels distinct
+    {
+      id: "district-fill",
+      type: "fill",
+      source: "district51",
+      paint: { "fill-color": "#1D3557", "fill-opacity": 0.08 },
+    },
+    // Wide white halo so the boundary pops on the light gray tiles
+    {
+      id: "district-outline-halo",
+      type: "line",
+      source: "district51",
+      paint: { "line-color": "#ffffff", "line-width": 10, "line-opacity": 1 },
+    },
+    // Solid red boundary line on top of the halo
+    {
+      id: "district-outline",
+      type: "line",
+      source: "district51",
+      paint: { "line-color": "#C43B3B", "line-width": 3.5, "line-opacity": 1 },
+    },
   ],
 };
 
@@ -287,8 +319,8 @@ export function CommunityMap() {
     const map = new maplibregl.Map({
       container,
       style: MAP_STYLE,
-      center: MAP_CENTER,
-      zoom: MAP_ZOOM,
+      bounds: DISTRICT_BOUNDS,
+      fitBoundsOptions: { padding: 50 },
       minZoom: 10,
       maxZoom: 18,
       attributionControl: false,
@@ -321,55 +353,7 @@ export function CommunityMap() {
       mapLoadFired = true;
       // Force the canvas to recompute its dimensions now that flex layout has settled
       map.resize();
-
-      // ── District 51 boundary
-      map.addSource("district51", {
-        type: "geojson",
-        data: district51GeoJSON as GeoJSON.FeatureCollection,
-      });
-      map.addLayer({
-        id: "district-fill",
-        type: "fill",
-        source: "district51",
-        paint: { "fill-color": "#1D3557", "fill-opacity": 0.06 },
-      });
-      // Wide white halo so the outline pops on any tile background
-      map.addLayer({
-        id: "district-outline-halo",
-        type: "line",
-        source: "district51",
-        paint: { "line-color": "#ffffff", "line-width": 10, "line-opacity": 1 },
-      });
-      // Solid navy outline on top of the halo — no dash so it's always clear
-      map.addLayer({
-        id: "district-outline",
-        type: "line",
-        source: "district51",
-        paint: {
-          "line-color": "#C43B3B",
-          "line-width": 3,
-          "line-opacity": 1,
-        },
-      });
-      map.addLayer({
-        id: "district-label",
-        type: "symbol",
-        source: "district51",
-        layout: {
-          "text-field": "DISTRICT 51",
-          "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
-          "text-size": 14,
-          "text-letter-spacing": 0.2,
-          "text-transform": "uppercase",
-          "symbol-placement": "point",
-        },
-        paint: {
-          "text-color": "#C43B3B",
-          "text-opacity": 0.9,
-          "text-halo-color": "#ffffff",
-          "text-halo-width": 3,
-        },
-      });
+      // district51 source + layers are already in MAP_STYLE; no need to re-add them.
 
       // ── Issue polygon zones
       const zonesData = getZonesGeoJSON(new Set(CATEGORIES));

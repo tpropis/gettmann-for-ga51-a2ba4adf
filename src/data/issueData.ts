@@ -134,7 +134,7 @@ export const issueData: IssueData[] = [
       "Hardworking families shouldn't lose an hour of their day stuck at an interchange that hasn't been meaningfully improved since the 1990s.",
     status: "Critical",
     sourceCount: 7,
-    coordinates: [-84.3398, 33.9285],
+    coordinates: [-84.3472, 33.9685],
   },
   {
     id: "traffic-2",
@@ -151,18 +151,18 @@ export const issueData: IssueData[] = [
     status: "Ongoing",
     sourceCount: 4,
     polygonCoordinates: [
-      [-84.4050, 33.9565],
-      [-84.3200, 33.9565],
-      [-84.3200, 33.9510],
-      [-84.4050, 33.9510],
-      [-84.4050, 33.9565],
+      [-84.3540, 33.9620],
+      [-84.3080, 33.9620],
+      [-84.3080, 33.9570],
+      [-84.3540, 33.9570],
+      [-84.3540, 33.9620],
     ],
   },
   {
     id: "traffic-3",
     type: "point",
     category: "Traffic",
-    areaName: "Roswell Road @ Abernathy Intersection",
+    areaName: "Abernathy Rd @ Peachtree Dunwoody",
     topIssue: "Six-block backup caused by outdated signal timing",
     summary:
       "Peak-hour queues extend six blocks north due to a signal timing plan that hasn't been updated since 2016. GDOT owns the signal but the City of Sandy Springs has made no formal request for retiming.",
@@ -172,7 +172,7 @@ export const issueData: IssueData[] = [
       "Sometimes fixing a problem just means picking up the phone and asking. Our residents deserve a rep who'll make that call.",
     status: "In Progress",
     sourceCount: 3,
-    coordinates: [-84.3804, 33.9626],
+    coordinates: [-84.3322, 33.9598],
   },
 
   // ── PUBLIC SAFETY ─────────────────────────────────────────────────────────────
@@ -191,11 +191,11 @@ export const issueData: IssueData[] = [
     status: "Critical",
     sourceCount: 6,
     polygonCoordinates: [
-      [-84.3600, 33.9450],
-      [-84.3150, 33.9450],
-      [-84.3150, 33.9130],
-      [-84.3600, 33.9130],
-      [-84.3600, 33.9450],
+      [-84.3550, 33.9650],
+      [-84.3100, 33.9650],
+      [-84.3100, 33.9580],
+      [-84.3550, 33.9580],
+      [-84.3550, 33.9650],
     ],
   },
   {
@@ -212,7 +212,7 @@ export const issueData: IssueData[] = [
       "We measure our priorities by what we protect. Slowing down traffic where kids walk to school should be non-negotiable.",
     status: "Ongoing",
     sourceCount: 5,
-    coordinates: [-84.3578, 34.0012],
+    coordinates: [-84.3412, 34.0015],
   },
   {
     id: "safety-3",
@@ -228,7 +228,7 @@ export const issueData: IssueData[] = [
       "We fund these positions. They just go unfilled. A representative fighting for officer recruitment support at the state level makes a real difference.",
     status: "Ongoing",
     sourceCount: 4,
-    coordinates: [-84.3680, 33.9820],
+    coordinates: [-84.3188, 34.0052],
   },
 
   // ── SCHOOLS ───────────────────────────────────────────────────────────────────
@@ -246,7 +246,7 @@ export const issueData: IssueData[] = [
       "Our kids' classroom conditions reflect our community's values. We can do better than portables in parking lots for one of Georgia's top schools.",
     status: "Critical",
     sourceCount: 8,
-    coordinates: [-84.3495, 33.9625],
+    coordinates: [-84.3495, 33.9660],
   },
   {
     id: "schools-2",
@@ -263,11 +263,11 @@ export const issueData: IssueData[] = [
     status: "Monitoring",
     sourceCount: 5,
     polygonCoordinates: [
-      [-84.3460, 33.9820],
-      [-84.3020, 33.9820],
-      [-84.3020, 33.9420],
-      [-84.3460, 33.9420],
-      [-84.3460, 33.9820],
+      [-84.3420, 33.9800],
+      [-84.2940, 33.9800],
+      [-84.2940, 33.9660],
+      [-84.3420, 33.9660],
+      [-84.3420, 33.9800],
     ],
   },
   {
@@ -284,7 +284,7 @@ export const issueData: IssueData[] = [
       "Georgia's funding formula is punishing our kids because our district's property values inflate state calculations. That's a fixable policy problem, not an inevitability.",
     status: "Ongoing",
     sourceCount: 6,
-    coordinates: [-84.3598, 33.9415],
+    coordinates: [-84.3218, 33.9780],
   },
 
   // ── DEVELOPMENT ───────────────────────────────────────────────────────────────
@@ -302,7 +302,7 @@ export const issueData: IssueData[] = [
       "Growth is healthy. Unchecked development without community consent is something else. Sandy Springs deserves growth on residents' terms.",
     status: "In Progress",
     sourceCount: 9,
-    coordinates: [-84.3733, 33.9304],
+    coordinates: [-84.3162, 33.9702],
   },
   {
     id: "dev-2",
@@ -318,7 +318,7 @@ export const issueData: IssueData[] = [
       "More density without more infrastructure is a tax on existing residents. We need development that pays its own way.",
     status: "Monitoring",
     sourceCount: 4,
-    coordinates: [-84.3380, 33.9280],
+    coordinates: [-84.3258, 33.9635],
   },
   {
     id: "dev-3",
@@ -334,7 +334,7 @@ export const issueData: IssueData[] = [
       "The order matters: community first, consultants second. We'll flip that script.",
     status: "Ongoing",
     sourceCount: 3,
-    coordinates: [-84.3750, 33.9540],
+    coordinates: [-84.3468, 33.9620],
   },
 
   // ── TAXES ─────────────────────────────────────────────────────────────────────
@@ -352,7 +352,7 @@ export const issueData: IssueData[] = [
       "You shouldn't need a lawyer to challenge your tax bill. The appeals process needs to work at the speed families need it to.",
     status: "Critical",
     sourceCount: 11,
-    coordinates: [-84.3733, 33.9700],
+    coordinates: [-84.3205, 33.9882],
   },
   {
     id: "taxes-2",
@@ -368,7 +368,7 @@ export const issueData: IssueData[] = [
       "Transit investment can be smart — but only when the numbers are transparent and the community had a real say.",
     status: "Monitoring",
     sourceCount: 5,
-    coordinates: [-84.3507, 33.9302],
+    coordinates: [-84.3395, 33.9998],
   },
   {
     id: "taxes-3",
@@ -384,7 +384,7 @@ export const issueData: IssueData[] = [
       "More money in the budget should mean better services for families. Right now we're seeing more of one and less of the other.",
     status: "Ongoing",
     sourceCount: 4,
-    coordinates: [-84.3750, 33.9304],
+    coordinates: [-84.3302, 33.9812],
   },
 
   // ── QUALITY OF LIFE ───────────────────────────────────────────────────────────
@@ -402,7 +402,7 @@ export const issueData: IssueData[] = [
       "A community that takes care of its parks takes care of its families. Two years is too long to wait for a working restroom.",
     status: "Ongoing",
     sourceCount: 3,
-    coordinates: [-84.3945, 33.9685],
+    coordinates: [-84.3162, 34.0158],
   },
   {
     id: "qol-2",
@@ -418,7 +418,7 @@ export const issueData: IssueData[] = [
       "When we stop monitoring our public resources, we stop protecting our families. Regular testing costs little; ignoring it costs much more.",
     status: "Critical",
     sourceCount: 5,
-    coordinates: [-84.3280, 33.9635],
+    coordinates: [-84.3218, 33.9658],
   },
   {
     id: "qol-3",
@@ -435,11 +435,11 @@ export const issueData: IssueData[] = [
     status: "In Progress",
     sourceCount: 6,
     polygonCoordinates: [
-      [-84.3455, 33.9960],
-      [-84.3360, 33.9960],
-      [-84.3360, 33.9090],
-      [-84.3455, 33.9090],
-      [-84.3455, 33.9960],
+      [-84.3520, 34.0100],
+      [-84.3380, 34.0100],
+      [-84.3380, 33.9700],
+      [-84.3520, 33.9700],
+      [-84.3520, 34.0100],
     ],
   },
 
@@ -459,11 +459,11 @@ export const issueData: IssueData[] = [
     status: "Critical",
     sourceCount: 7,
     polygonCoordinates: [
-      [-84.3840, 33.9720],
-      [-84.3680, 33.9720],
-      [-84.3680, 33.9120],
-      [-84.3840, 33.9120],
-      [-84.3840, 33.9720],
+      [-84.3580, 33.9750],
+      [-84.3380, 33.9750],
+      [-84.3380, 33.9610],
+      [-84.3580, 33.9610],
+      [-84.3580, 33.9750],
     ],
   },
   {
@@ -480,13 +480,13 @@ export const issueData: IssueData[] = [
       "Government should work at the speed of business, not the other way around. Six weeks for a business license is six weeks a family isn't earning.",
     status: "Ongoing",
     sourceCount: 5,
-    coordinates: [-84.3733, 33.9380],
+    coordinates: [-84.3285, 33.9762],
   },
   {
     id: "biz-3",
     type: "point",
     category: "Small Business",
-    areaName: "Live/Work Zoning Gap — South Sandy Springs",
+    areaName: "Live/Work Zoning Gap — East Sandy Springs",
     topIssue: "Current code prohibits mixed-use boutique retail",
     summary:
       "Sandy Springs' zoning code still reflects 1980s-era separation of uses, preventing the type of live-work and ground-floor retail that drives vibrant neighborhoods in comparable communities. Reform proposals have stalled in planning committee for two years.",
@@ -496,7 +496,7 @@ export const issueData: IssueData[] = [
       "Our zoning code is stuck in the past. Updating it is the single biggest thing we can do to invite the businesses our community is asking for.",
     status: "Monitoring",
     sourceCount: 4,
-    coordinates: [-84.3600, 33.9200],
+    coordinates: [-84.3142, 33.9722],
   },
 ];
 
