@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo_trans.png";
+import logo from "@/assets/logo_trans.svg";
 
 const navLinks = [
   { label: "Home", href: "/#home" },
@@ -38,7 +38,7 @@ const CampaignHeader = () => {
           scrolled ? "py-0" : "py-1"
         }`}
         style={{
-          background: "linear-gradient(180deg, hsl(213 50% 28%) 0%, hsl(213 50% 20%) 100%)",
+          background: "linear-gradient(180deg, hsl(207 100% 22%) 0%, hsl(207 100% 15%) 100%)",
         }}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
@@ -80,7 +80,7 @@ const CampaignHeader = () => {
             )}
             <a
               href="/#donate"
-              className="ml-4 bg-accent text-accent-foreground font-heading text-base font-bold px-6 py-2.5 rounded hover:bg-campaign-red-dark transition-colors tracking-wide shadow-lg shadow-accent/30 uppercase"
+              className="ml-4 bg-accent text-accent-foreground font-heading text-base font-bold px-6 py-2.5 rounded hover:bg-campaign-gold-dark transition-colors tracking-wide shadow-lg shadow-accent/30 uppercase"
             >
               Donate
             </a>
@@ -120,7 +120,7 @@ const CampaignHeader = () => {
               <a
                 href="/#donate"
                 onClick={() => setMenuOpen(false)}
-                className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3 rounded text-center hover:bg-campaign-red-dark transition-colors mt-2 shadow-lg shadow-accent/20 uppercase"
+                className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3 rounded text-center hover:bg-campaign-gold-dark transition-colors mt-2 shadow-lg shadow-accent/20 uppercase"
               >
                 Donate
               </a>

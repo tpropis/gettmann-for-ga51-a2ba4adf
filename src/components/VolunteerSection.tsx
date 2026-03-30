@@ -89,7 +89,7 @@ const VolunteerSection = () => {
 
           <button
             type="submit"
-            className="w-full bg-accent text-accent-foreground font-heading text-xl font-bold py-4 rounded hover:bg-campaign-red-dark transition-colors tracking-wide"
+            className="w-full bg-accent text-accent-foreground font-heading text-xl font-bold py-4 rounded hover:bg-campaign-gold-dark transition-colors tracking-wide"
           >
             Sign Up to Volunteer
           </button>

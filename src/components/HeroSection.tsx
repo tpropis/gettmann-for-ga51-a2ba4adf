@@ -33,7 +33,7 @@ const HeroSection = () => {
             <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-primary-foreground">
               Gettmann
             </span>
-            {/* Red accent line */}
+            {/* Gold accent line */}
             <span className="block w-24 h-1 bg-accent mt-5 mb-4" aria-hidden="true" />
             <span className="block text-2xl sm:text-3xl md:text-4xl font-semibold text-accent tracking-widest">
               FOR GEORGIA HOUSE

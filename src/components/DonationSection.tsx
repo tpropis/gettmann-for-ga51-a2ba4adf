@@ -83,7 +83,7 @@ const DonationSection = () => {
           <a
             href="#"
             onClick={(e) => e.preventDefault()}
-            className="block w-full bg-accent text-accent-foreground font-heading text-xl font-bold py-4 rounded text-center mt-8 hover:bg-campaign-red-dark transition-colors tracking-wide"
+            className="block w-full bg-accent text-accent-foreground font-heading text-xl font-bold py-4 rounded text-center mt-8 hover:bg-campaign-gold-dark transition-colors tracking-wide"
           >
             Donate {activeAmount > 0 ? `$${activeAmount}` : "Now"}
           </a>
