@@ -120,7 +120,7 @@ const CampaignHeader = () => {
               <a
                 href="/#donate"
                 onClick={() => setMenuOpen(false)}
-                className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3 rounded text-center hover:bg-campaign-red-dark transition-colors mt-2 shadow-lg shadow-accent/20 uppercase"
+                className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3 rounded text-center hover:bg-campaign-gold-dark transition-colors mt-2 shadow-lg shadow-accent/20 uppercase"
               >
                 Donate
               </a>

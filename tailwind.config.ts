@@ -53,8 +53,8 @@ export default {
         },
         campaign: {
           navy: "hsl(var(--campaign-navy))",
-          red: "hsl(var(--campaign-red))",
-          "red-dark": "hsl(var(--campaign-red-dark))",
+          gold: "hsl(var(--campaign-gold))",
+          "gold-dark": "hsl(var(--campaign-gold-dark))",
           light: "hsl(var(--campaign-light))",
           warm: "hsl(var(--campaign-warm))",
         },

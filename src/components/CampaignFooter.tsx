@@ -1,4 +1,4 @@
-import logo from "@/assets/logo_trans.png";
+import logo from "@/assets/logo_trans.svg";
 import { Facebook, Twitter, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
 
 const footerLinks = [
