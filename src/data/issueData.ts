@@ -124,49 +124,49 @@ export const issueData: IssueData[] = [
     id: "traffic-1",
     type: "point",
     category: "Traffic",
-    areaName: "GA-400 / I-285 Interchange",
-    topIssue: "Daily gridlock costing commuters 45+ minutes",
+    areaName: "SR-400 Express Lanes — Spalding Woods Impact",
+    topIssue: "24/7 construction through 2031 next to HD51 neighborhoods",
     summary:
-      "The Tom Moreland Interchange sees over 285,000 vehicles daily. District 51 residents sit in backups as far north as Northridge Rd every morning and evening.",
+      "GDOT's $4.6B SR-400 express lanes project begins heavy construction April 2026. Spalding Woods and Talbot Colony residents face years of noise, a 50-foot retaining wall, and tree clearing — with little advance notice from the state.",
     whyIndependentsCare:
-      "Congestion costs an estimated $1,800/year per Sandy Springs commuter in lost time and fuel. This directly hits family budgets regardless of political affiliation.",
+      "Mayor Paul called it 'an intolerable situation' for families living alongside the highway. Residents say GDOT left a door hanger on some homes as the only notice before crews started clearing trees.",
     suggestedMessageAngle:
-      "Hardworking families shouldn't lose an hour of their day stuck at an interchange that hasn't been meaningfully improved since the 1990s.",
+      "A $4.6 billion project shouldn't be managed with a door hanger. District 51 families deserve a real seat at the table before construction walls loom outside their windows.",
     status: "Critical",
-    sourceCount: 7,
-    coordinates: [-84.3472, 33.9685],
+    sourceCount: 6,
+    coordinates: [-84.3432, 33.9960],
   },
   {
     id: "traffic-2",
     type: "point",
     category: "Traffic",
-    areaName: "Hammond Drive Corridor",
-    topIssue: "2-mile AM peak backup toward Perimeter Center",
+    areaName: "Hammond Drive Widening — Stalled Funding",
+    topIssue: "17,500 cars/day on a 2-lane road; $2M widening request pending",
     summary:
-      "Hammond Drive between Roswell Road and Peachtree Dunwoody Rd backs up daily. A 2021 GDOT study recommended signal retiming and a protected bike/pedestrian lane but no funding was allocated.",
+      "Hammond Drive carries 17,500 vehicles a day — more than its 2-lane capacity can handle. The city has sought a $1.1M loan and $900K grant from the State Road and Tollway Authority to widen it to 4 lanes, but funding has not been secured.",
     whyIndependentsCare:
-      "Parents driving kids to school and workers starting their day are stuck in preventable gridlock. Signal optimization costs roughly $50K — a fraction of what delays cost residents annually.",
+      "This is a documented bottleneck with a price tag and a plan. Families sit in preventable gridlock every morning while state funding sits unclaimed.",
     suggestedMessageAngle:
-      "We have the study. We have the solution. What we've lacked is a representative willing to fight for the funding.",
+      "We know the problem. We have the plan. We need a rep who will go get the money.",
     status: "Ongoing",
     sourceCount: 4,
-    coordinates: [-84.3310, 33.9595],
+    coordinates: [-84.3310, 33.9590],
   },
   {
     id: "traffic-3",
     type: "point",
     category: "Traffic",
-    areaName: "Abernathy Rd @ Peachtree Dunwoody",
-    topIssue: "Six-block backup caused by outdated signal timing",
+    areaName: "Lake Forest Drive Culvert Failure",
+    topIssue: "Road closure after Hurricane Helene; 8,000 daily drivers rerouted",
     summary:
-      "Peak-hour queues extend six blocks north due to a signal timing plan that hasn't been updated since 2016. GDOT owns the signal but the City of Sandy Springs has made no formal request for retiming.",
+      "Hurricane Helene (Sept 2024) caused a culvert failure on Lake Forest Drive, one of HD51's key collector roads. GDOT data shows ~8,000 motorists use it daily. The closure forced traffic onto already-congested Roswell Road.",
     whyIndependentsCare:
-      "A simple timing adjustment — typically done at no cost on city request — could cut queue length by 40%. That's a quick win that costs nothing.",
+      "One storm exposed how fragile our road infrastructure is. Aging culverts and drainage systems put residents at risk every hurricane season.",
     suggestedMessageAngle:
-      "Sometimes fixing a problem just means picking up the phone and asking. Our residents deserve a rep who'll make that call.",
+      "When one storm closes a road 8,000 people use every day, that's not bad luck — that's deferred maintenance. It's time to invest before the next storm hits.",
     status: "In Progress",
     sourceCount: 3,
-    coordinates: [-84.3322, 33.9598],
+    coordinates: [-84.3462, 33.9748],
   },
 
   // ── PUBLIC SAFETY ─────────────────────────────────────────────────────────────
@@ -174,49 +174,49 @@ export const issueData: IssueData[] = [
     id: "safety-1",
     type: "point",
     category: "Public Safety",
-    areaName: "Perimeter Center Area",
-    topIssue: "Vehicle break-ins up 34% year-over-year",
+    areaName: "Police Staffing — 62% Below GA Average",
+    topIssue: "1.5 officers per 1,000 residents vs. Georgia average of 4.0",
     summary:
-      "The Perimeter Center retail and office district has seen a sharp spike in smash-and-grab vehicle thefts and organized retail crime. Sandy Springs PD reports the precinct is understaffed for patrol density.",
+      "Sandy Springs has 147 sworn officers serving 108,000+ residents — 62% below the Georgia average officer-to-resident ratio. The department logged over 100,000 calls for service in 2024.",
     whyIndependentsCare:
-      "Crime in a commercial hub hurts everyone — businesses lose customers, employees feel unsafe, and property owners bear higher insurance costs. This isn't a partisan issue.",
+      "Fewer officers means longer response times. In an emergency, seconds matter. This isn't a budget problem — it's a prioritization problem fixable at the state level.",
     suggestedMessageAngle:
-      "A thriving Perimeter Center means more tax revenue for Sandy Springs. Safe streets are an economic investment, not just a police budget line.",
+      "Our community funds the positions. The state needs to help us fill them. A rep who fights for recruitment incentives makes every family safer.",
     status: "Critical",
-    sourceCount: 6,
-    coordinates: [-84.3325, 33.9615],
+    sourceCount: 5,
+    coordinates: [-84.3320, 34.0005],
   },
   {
     id: "safety-2",
     type: "point",
     category: "Public Safety",
-    areaName: "North Springs / Lake Forrest Dr",
-    topIssue: "Residential speeding — no enforcement presence",
+    areaName: "Police Chase Policy Controversy",
+    topIssue: "41 pursuits in 2024 — more than Alpharetta, Dunwoody & Roswell combined",
     summary:
-      "Residents have documented 50+ mph speeds on a 35 mph residential corridor near North Springs MARTA. Three speeding-related accidents occurred in 2023. No traffic calming study has been requested.",
+      "Sandy Springs expanded its vehicle pursuit policy in 2024, leading to 41 chases — more than double 2023's count and more than the combined total of three neighboring cities. The policy was expanded again in 2025 to include motorcycles.",
     whyIndependentsCare:
-      "Children walk to school along this corridor. Pedestrian safety transcends politics — it's a basic quality-of-life issue every neighborhood deserves addressed.",
+      "High-speed pursuits through residential neighborhoods put innocent bystanders at risk. Residents deserve a transparent public debate before a policy this aggressive becomes the norm.",
     suggestedMessageAngle:
-      "We measure our priorities by what we protect. Slowing down traffic where kids walk to school should be non-negotiable.",
-    status: "Ongoing",
-    sourceCount: 5,
-    coordinates: [-84.3412, 34.0015],
+      "Public safety means protecting everyone — including bystanders. Our community deserves an honest conversation about the risks of this policy, not a quiet expansion.",
+    status: "Monitoring",
+    sourceCount: 4,
+    coordinates: [-84.3188, 34.0052],
   },
   {
     id: "safety-3",
     type: "point",
     category: "Public Safety",
-    areaName: "Sandy Springs Police — Northern Precinct",
-    topIssue: "12 officer vacancies leaving north end underserved",
+    areaName: "Hurricane Helene Emergency Response",
+    topIssue: "2,300 homes lost power; middle-of-night evacuation alerts in Sept 2024",
     summary:
-      "Sandy Springs PD's northern precinct currently has 12 funded-but-unfilled officer positions. Average response times in northern zip codes are 8.4 minutes vs the 5.9-minute city average.",
+      "Hurricane Helene (Sept 26–27, 2024) hit Sandy Springs hard: 37 trees down, Nancy Creek flooded Windsor Pkwy bridge, firefighters evacuated 14 Rickenbacker Road homes at 2am, and 2,300 homes lost power. The Chattahoochee flooded the Morgan Falls Dam pier.",
     whyIndependentsCare:
-      "Longer response times in any neighborhood put families at risk. This is a public safety equity issue — your safety shouldn't depend on which street you live on.",
+      "A text alert at 2:33am to 17 residents to 'Leave NOW' is not a resilience plan. As storms intensify, HD51 needs real flood infrastructure investment — not last-minute door-to-door warnings.",
     suggestedMessageAngle:
-      "We fund these positions. They just go unfilled. A representative fighting for officer recruitment support at the state level makes a real difference.",
+      "Our neighbors were woken up at 2am and told to flee. That's a failure of preparation, not just bad weather. We can do better.",
     status: "Ongoing",
-    sourceCount: 4,
-    coordinates: [-84.3188, 34.0052],
+    sourceCount: 6,
+    coordinates: [-84.3448, 33.9812],
   },
 
   // ── SCHOOLS ───────────────────────────────────────────────────────────────────
@@ -224,49 +224,49 @@ export const issueData: IssueData[] = [
     id: "schools-1",
     type: "point",
     category: "Schools",
-    areaName: "Riverwood International Charter School",
-    topIssue: "Overcrowded at 126% capacity — 2,400 students",
+    areaName: "Spalding Drive Elementary — Closure",
+    topIssue: "Board voted Feb 2025 to close a high-performing school over parent outcry",
     summary:
-      "Riverwood International Charter School serves 2,400+ students in a facility designed for 1,900. Portable classrooms line the parking lot. Expansion requests to Fulton County have stalled for three years.",
+      "Fulton County Schools voted February 20, 2025 to close Spalding Drive Charter Elementary for the 2025–26 school year, citing low enrollment and aging facilities. Parents packed Riverwood's cafeteria in protest, calling it a 'high-performing school' being eliminated without justification.",
     whyIndependentsCare:
-      "Overcrowded schools produce worse outcomes regardless of school quality. District 51 families chose this school for its academic excellence — that reputation erodes when class sizes balloon.",
+      "Parents say the closure will overcrowd receiving schools, force kids across dangerous intersections, and destabilize a community that built itself around this school. The district used 'contradictory models' to justify the decision.",
     suggestedMessageAngle:
-      "Our kids' classroom conditions reflect our community's values. We can do better than portables in parking lots for one of Georgia's top schools.",
+      "You don't fix a school by closing it. Parents fought hard and were ignored. A rep who shows up before the vote — not after — makes the difference.",
     status: "Critical",
     sourceCount: 8,
-    coordinates: [-84.3495, 33.9660],
+    coordinates: [-84.3498, 33.9712],
   },
   {
     id: "schools-2",
     type: "point",
     category: "Schools",
-    areaName: "Dunwoody HS Attendance Boundary",
-    topIssue: "Rezoning plan displaces 400+ District 51 families",
+    areaName: "Sandy Springs School Redistricting 2025",
+    topIssue: "Hundreds of families rerouted; bus routes cross dangerous intersections",
     summary:
-      "Fulton County Schools' 2024 capacity rebalancing proposal would move roughly 400 District 51 students currently zoned for Riverwood to Dunwoody HS — adding significant commutes for affected families.",
+      "To absorb students from the Spalding Drive closure, Fulton County proposed sending students to Woodland and Heards Ferry Elementary — with new bus routes crossing the high-accident Dalrymple/Roswell Road intersection. A bus driver shortage compounds the logistics nightmare.",
     whyIndependentsCare:
-      "School assignment affects property values, family routines, and student outcomes. Parents deserve a voice at the table when bureaucrats redraw the lines.",
+      "Redistricting forces families into longer commutes, disrupts established friendships, and adds bus routes through intersections already flagged as dangerous. The district's own data showed overcrowding at receiving schools.",
     suggestedMessageAngle:
-      "This decision affects 400 families and was announced with 30 days' notice. Residents deserve real input, not rubber-stamp hearings.",
-    status: "Monitoring",
-    sourceCount: 5,
-    coordinates: [-84.3180, 33.9730],
+      "When the solution to one school's problems creates safety risks at the next school, you need a rep who reads the whole plan — not just the headline.",
+    status: "In Progress",
+    sourceCount: 6,
+    coordinates: [-84.3350, 33.9762],
   },
   {
     id: "schools-3",
     type: "point",
     category: "Schools",
-    areaName: "District 51 STEM Funding Gap",
-    topIssue: "Schools receive $340 less per student than metro average",
+    areaName: "Fulton County Schools — Enrollment Decline",
+    topIssue: "Down 207 students in 2024–25; 3,300+ projected loss over 5 years",
     summary:
-      "State funding formulas leave Fulton County schools — including District 51's public schools — $340 per-student below the Atlanta metro average for STEM resources, lab equipment, and AP coursework funding.",
+      "Sandy Springs area Fulton County Schools enrollment fell by 207 students in 2024–25, and the district projects a loss of 3,300+ students over the next five years. This is driving school closures and redistrictings that destabilize neighborhoods.",
     whyIndependentsCare:
-      "STEM skills drive the economy our kids will enter. Underfunding their preparation today means a less competitive Georgia workforce tomorrow.",
+      "Declining enrollment means fewer resources, more closures, and redrawing of boundaries that affect property values and community identity. The trend needs a policy response, not just reactive school closures.",
     suggestedMessageAngle:
-      "Georgia's funding formula is punishing our kids because our district's property values inflate state calculations. That's a fixable policy problem, not an inevitability.",
-    status: "Ongoing",
-    sourceCount: 6,
-    coordinates: [-84.3218, 33.9780],
+      "Closing schools is a symptom. Families leaving the district is the disease. We need a rep focused on why families are choosing to go elsewhere.",
+    status: "Monitoring",
+    sourceCount: 4,
+    coordinates: [-84.3098, 33.9850],
   },
 
   // ── DEVELOPMENT ───────────────────────────────────────────────────────────────
@@ -274,49 +274,49 @@ export const issueData: IssueData[] = [
     id: "dev-1",
     type: "point",
     category: "Development",
-    areaName: "City Springs Mixed-Use Development",
-    topIssue: "New 15-story tower changing neighborhood scale",
+    areaName: "Develop Fulton Authority Dispute",
+    topIssue: "City reclaims control after county tried to greenlight projects without approval",
     summary:
-      "A proposed 15-story mixed-use building adjacent to City Springs (the Sandy Springs civic center) has drawn significant resident opposition over height, parking impacts, and architectural compatibility.",
+      "In January 2026 Sandy Springs voted unanimously to require the Fulton County Development Authority (Develop Fulton) to get city approval before acquiring property or offering tax incentives within city limits. The move followed a specific project — 'The Reserve at Ridgewood' — that was nearly approved without city sign-off.",
     whyIndependentsCare:
-      "Smart growth and neighborhood character aren't partisan issues. Residents across the spectrum want development that fits the community — not developer timelines.",
+      "When a county authority can cut tax deals in your city without your elected officials' consent, residents lose control over what gets built and what gets subsidized.",
     suggestedMessageAngle:
-      "Growth is healthy. Unchecked development without community consent is something else. Sandy Springs deserves growth on residents' terms.",
+      "Local control means local decisions. Sandy Springs residents should decide what gets built here — not a county authority acting behind closed doors.",
     status: "In Progress",
-    sourceCount: 9,
+    sourceCount: 5,
     coordinates: [-84.3162, 33.9702],
   },
   {
     id: "dev-2",
     type: "point",
     category: "Development",
-    areaName: "Perimeter CID Upzoning Proposal",
-    topIssue: "14 parcels proposed for 40+ unit high-density residential",
+    areaName: "High-Density Apartment Development Backlash",
+    topIssue: "Residents oppose new apartments; city faces 'luxury housing problem'",
     summary:
-      "The Perimeter Community Improvement District has backed a rezoning proposal that would convert 14 commercial parcels to residential uses of 40+ units each. Critics argue it bypasses standard community input procedures.",
+      "Sandy Springs Mayor Rusty Paul acknowledged the city has a 'significant negative reaction to any new apartment development' but that capital markets keep pushing multifamily over single-family. The city is losing starter homes as developers convert sites to rental-only.",
     whyIndependentsCare:
-      "High-density residential in an already-congested commercial hub will worsen traffic and strain schools without guaranteed community benefit in return.",
+      "Young families can't buy into a community where every new project is a luxury rental. Without a diverse housing stock, teachers, first responders, and young professionals get priced out.",
     suggestedMessageAngle:
-      "More density without more infrastructure is a tax on existing residents. We need development that pays its own way.",
-    status: "Monitoring",
+      "A city where only the wealthy can buy a home isn't a community — it's a zip code. We need housing policy that works for everyone, not just investors.",
+    status: "Ongoing",
     sourceCount: 4,
-    coordinates: [-84.3258, 33.9635],
+    coordinates: [-84.3258, 33.9675],
   },
   {
     id: "dev-3",
     type: "point",
     category: "Development",
-    areaName: "Hammond Drive Corridor Redevelopment Plan",
-    topIssue: "Developer-driven corridor plan lacks community voice",
+    areaName: "SR-400 Tree Clearing Without Notice",
+    topIssue: "Thousands of trees felled; residents got a door hanger as only warning",
     summary:
-      "A consultant-driven redevelopment study for Hammond Drive was commissioned by a private landowner coalition with minimal public notice. Community meetings were held after initial designs were complete.",
+      "As part of the SR-400 express lanes project, contractors began clearing thousands of trees in Sandy Springs. Council members noted that residents received only a door hanger before clearing began — no formal public meetings, no final design shared with neighborhoods.",
     whyIndependentsCare:
-      "When private interests set the terms for public infrastructure, residents get stuck with the costs. Public corridors should have public input from day one.",
+      "Tree loss is permanent. Once mature trees along a highway corridor are gone, they take decades to replace. Residents deserve more than a door hanger before their neighborhood's canopy disappears.",
     suggestedMessageAngle:
-      "The order matters: community first, consultants second. We'll flip that script.",
-    status: "Ongoing",
-    sourceCount: 3,
-    coordinates: [-84.3468, 33.9620],
+      "They cleared thousands of trees and left a note on the door. Our community deserves better communication than that from a $4.6 billion project.",
+    status: "Critical",
+    sourceCount: 4,
+    coordinates: [-84.3420, 33.9920],
   },
 
   // ── TAXES ─────────────────────────────────────────────────────────────────────
@@ -324,49 +324,49 @@ export const issueData: IssueData[] = [
     id: "taxes-1",
     type: "point",
     category: "Taxes",
-    areaName: "Fulton County Property Reassessments",
-    topIssue: "Average home reassessed +23%; appeal backlog 8+ months",
+    areaName: "Sandy Springs Property Tax Increase — No Rollback",
+    topIssue: "City raised taxes 2.19% in 2024 by not adopting the rollback rate",
     summary:
-      "Fulton County's 2023 reassessment cycle saw average District 51 home values jump 23%, driving property tax bills up sharply. The appeals backlog has stretched to 8+ months, leaving homeowners in limbo.",
+      "Sandy Springs collected 2.19% more in property taxes in 2024 by simply not adopting the state-required rollback millage rate. The city charter caps the rate at 4.731 mills, but skipping the rollback is a de-facto tax increase without a vote.",
     whyIndependentsCare:
-      "Rising property taxes price out long-term residents and small landlords. Many District 51 homeowners — especially retirees on fixed incomes — cannot absorb these increases.",
+      "Georgia law requires 3 public hearings when a rollback isn't adopted — but most homeowners don't know that. A quiet 2% increase compounds year over year for families on fixed incomes.",
     suggestedMessageAngle:
-      "You shouldn't need a lawyer to challenge your tax bill. The appeals process needs to work at the speed families need it to.",
-    status: "Critical",
-    sourceCount: 11,
+      "A tax increase without a vote is still a tax increase. Residents deserve straight talk about what their bill is going up and why.",
+    status: "Ongoing",
+    sourceCount: 5,
     coordinates: [-84.3205, 33.9882],
   },
   {
     id: "taxes-2",
     type: "point",
     category: "Taxes",
-    areaName: "MARTA Transit Tax Expansion",
-    topIssue: "Proposed 1-cent sales tax increase for Perimeter transit hub",
+    areaName: "Fulton County 3.74% Property Tax Hike — 2024",
+    topIssue: "County raised millage above rollback; schools also raised rates",
     summary:
-      "MARTA is seeking a 1-cent sales tax referendum to fund a major transit hub at Perimeter Center. Proponents say it reduces traffic; opponents question the cost-benefit given District 51's car-dependent geography.",
+      "Fulton County adopted a 3.74% property tax increase in 2024. Separately, the Fulton County School Board also set rates above the rollback millage. Combined with the city's increase, Sandy Springs homeowners faced a triple-layer tax hike in a single year.",
     whyIndependentsCare:
-      "A sales tax falls proportionally harder on lower-income residents. Before voting yes, residents deserve an honest accounting of who benefits and who pays.",
+      "With three taxing authorities all skipping rollbacks in the same year, the cumulative hit on homeowners can easily top 6–8%. Long-term residents — especially retirees — have no way to absorb that.",
     suggestedMessageAngle:
-      "Transit investment can be smart — but only when the numbers are transparent and the community had a real say.",
-    status: "Monitoring",
+      "Three separate taxing authorities all raising rates in the same year is not a coincidence — it's a failure of coordination and accountability.",
+    status: "Critical",
     sourceCount: 5,
-    coordinates: [-84.3395, 33.9998],
+    coordinates: [-84.3098, 33.9822],
   },
   {
     id: "taxes-3",
     type: "point",
     category: "Taxes",
-    areaName: "Sandy Springs City Budget Growth",
-    topIssue: "Budget up $4.2M over prior year with no visible service gain",
+    areaName: "SR-400 Dynamic Toll Lanes — 50-Year Private Contract",
+    topIssue: "$4.6B deal gives private company toll pricing control through 2075",
     summary:
-      "Sandy Springs' FY2025 budget increased $4.2M (6.1%) over the prior year. Residents report no corresponding improvement in park maintenance, road condition, or city services — raising questions about spending priorities.",
+      "GDOT handed SR 400 Peach State Partners a 56-year, $4.6 billion contract to build and operate the new SR-400 express lanes. The company will set dynamic toll prices based on real-time demand — meaning HD51 commuters pay whatever the market will bear, with no public oversight of pricing.",
     whyIndependentsCare:
-      "Taxpayers of every stripe want to know where their money goes. Fiscal transparency isn't left or right — it's basic accountability.",
+      "Commuters who can't afford peak-hour tolls will be pushed onto already-congested local roads. Privatizing a public highway for 56 years means no elected official can change the pricing structure.",
     suggestedMessageAngle:
-      "More money in the budget should mean better services for families. Right now we're seeing more of one and less of the other.",
-    status: "Ongoing",
+      "Turning our main highway into a private toll road for 56 years isn't an infrastructure investment — it's handing commuters a bill they can never vote away.",
+    status: "Monitoring",
     sourceCount: 4,
-    coordinates: [-84.3302, 33.9812],
+    coordinates: [-84.3395, 33.9998],
   },
 
   // ── QUALITY OF LIFE ───────────────────────────────────────────────────────────
@@ -374,48 +374,48 @@ export const issueData: IssueData[] = [
     id: "qol-1",
     type: "point",
     category: "Quality of Life",
-    areaName: "Morgan Falls Overlook Park",
-    topIssue: "Facilities maintenance deferred 2+ years",
+    areaName: "Nancy Creek Flooding — Windsor Pkwy",
+    topIssue: "Bridge closed during Helene; creek hit 14.3 ft — 3.3 ft above flood stage",
     summary:
-      "Morgan Falls Overlook Park — a key Sandy Springs recreational asset — has had restroom facilities, trailhead signage, and picnic shelters in disrepair for over two years. Work orders have been submitted repeatedly with no resolution.",
+      "Nancy Creek reached 14.3 feet during Hurricane Helene in September 2024 — 3.3 feet above flood stage — closing the Windsor Parkway bridge. Firefighters went door-to-door evacuating Rickenbacker Road residents in the middle of the night.",
     whyIndependentsCare:
-      "Parks are a shared resource every family uses. Deferred maintenance signals that leadership doesn't see green space as a priority — which affects quality of life and property values.",
+      "Nancy Creek runs through the heart of HD51. Climate patterns mean more intense storms. Without drainage infrastructure investment, this will happen again — and the next storm may be worse.",
     suggestedMessageAngle:
-      "A community that takes care of its parks takes care of its families. Two years is too long to wait for a working restroom.",
+      "When a creek hits 14 feet and closes a bridge, that's not a freak event — that's a warning. We need flood infrastructure investment before the next storm, not after.",
     status: "Ongoing",
-    sourceCount: 3,
-    coordinates: [-84.3162, 34.0158],
+    sourceCount: 5,
+    coordinates: [-84.3380, 33.9840],
   },
   {
     id: "qol-2",
     type: "point",
     category: "Quality of Life",
-    areaName: "Bull Sluice Lake Water Quality",
-    topIssue: "Algae blooms reported; no Fulton County testing in 18 months",
+    areaName: "Chattahoochee River Flood Risk",
+    topIssue: "Morgan Falls Dam pier flooded; Chattahoochee corridor homes at risk",
     summary:
-      "Residents have documented recurring algae blooms at Bull Sluice Lake, a popular kayaking and recreation spot on the Chattahoochee. Fulton County's last formal water quality test was 18 months ago.",
+      "Helene flooded the pier below Morgan Falls Dam and brought water into the adjacent dog park parking lot. Sandy Springs enforces the Metropolitan River Protection Act but aging development along the 2,000-ft river corridor faces increasing flood exposure.",
     whyIndependentsCare:
-      "Unmonitored water quality is a public health issue. Families — especially children — use this water. Regular testing is a basic duty of responsible government.",
+      "The Chattahoochee is HD51's most valuable natural asset. Flood risk along the corridor threatens property values, park access, and drinking water quality for the entire metro area.",
     suggestedMessageAngle:
-      "When we stop monitoring our public resources, we stop protecting our families. Regular testing costs little; ignoring it costs much more.",
-    status: "Critical",
-    sourceCount: 5,
+      "The Chattahoochee is too important to manage reactively. We need proactive investment in flood mitigation, not just FEMA maps and crossed fingers.",
+    status: "Ongoing",
+    sourceCount: 4,
     coordinates: [-84.3218, 33.9658],
   },
   {
     id: "qol-3",
     type: "point",
     category: "Quality of Life",
-    areaName: "Path 400 Trail Extension",
-    topIssue: "$2.3M in GDOT funds sitting unused; trail dead-ends",
+    areaName: "Path 400 Trail — Northern Extension Stalled",
+    topIssue: "$2.3M in allocated GDOT funds sitting unused for 14+ months",
     summary:
-      "The PATH 400 multi-use trail has $2.3M in allocated GDOT funds for a northern extension that would connect to the Big Creek Greenway. The project has stalled in design review for 14 months without public explanation.",
+      "The PATH 400 multi-use trail has $2.3M in allocated GDOT funds for a northern extension connecting to the Big Creek Greenway. The project has been stuck in design review for over 14 months with no public explanation from GDOT or city officials.",
     whyIndependentsCare:
-      "Connected trails drive health outcomes, reduce car trips, and increase property values. Money is already allocated — someone just needs to move the project forward.",
+      "Connected trails increase property values, reduce car trips, and improve public health. The money is already there. Someone just has to move it.",
     suggestedMessageAngle:
       "The funding exists. The community wants it. What's missing is a rep willing to cut through the bureaucratic red tape.",
     status: "In Progress",
-    sourceCount: 6,
+    sourceCount: 5,
     coordinates: [-84.3450, 33.9900],
   },
 
@@ -424,49 +424,49 @@ export const issueData: IssueData[] = [
     id: "biz-1",
     type: "point",
     category: "Small Business",
-    areaName: "Roswell Road Business Corridor",
-    topIssue: "28% commercial vacancy rate; 3 restaurants closed in 90 days",
+    areaName: "Sandy Springs Payroll Transparency Fight",
+    topIssue: "City withheld all employee names from payroll records; AG had to intervene",
     summary:
-      "The Roswell Road retail corridor from I-285 to Abernathy Road now shows a 28% commercial vacancy rate — the highest in a decade. Three locally-owned restaurants closed in the last 90 days, citing permitting delays and declining foot traffic.",
+      "Sandy Springs was the only city in its coverage area to refuse releasing payroll data under Georgia's Open Records Act in 2024. After Appen Media filed for the data to analyze $41M+ in annual salaries, the city redacted every employee name. The Georgia Attorney General's office had to step in to compel release.",
     whyIndependentsCare:
-      "Local businesses are the economic backbone of a neighborhood. Vacancies lower property values, reduce tax revenue, and hollow out community character.",
+      "If a city spends $41M of taxpayer money on salaries and fights tooth and nail to hide who got paid, residents have no way to know if funds are being used responsibly.",
     suggestedMessageAngle:
-      "Empty storefronts mean lost tax revenue and lost community. We need policies that make Sandy Springs the kind of place small businesses want to put down roots.",
-    status: "Critical",
-    sourceCount: 7,
-    coordinates: [-84.3480, 33.9680],
-  },
-  {
-    id: "biz-2",
-    type: "point",
-    category: "Small Business",
-    areaName: "Sandy Springs Permitting & Licensing",
-    topIssue: "Average 6-week permit delay cited by departing businesses",
-    summary:
-      "Sandy Springs city permit timelines average 6 weeks for routine business licenses — twice the national best-practice benchmark. Five businesses explicitly cited permitting in exit interviews conducted by the Sandy Springs Chamber.",
-    whyIndependentsCare:
-      "Bureaucratic friction doesn't discriminate — it hurts the restaurant owner, the hair salon, and the contractor equally. Streamlined permitting is pro-business and pro-community.",
-    suggestedMessageAngle:
-      "Government should work at the speed of business, not the other way around. Six weeks for a business license is six weeks a family isn't earning.",
+      "Transparency isn't optional for a government that spends $41 million of your money on salaries. If you have nothing to hide, open the books.",
     status: "Ongoing",
     sourceCount: 5,
     coordinates: [-84.3285, 33.9762],
   },
   {
+    id: "biz-2",
+    type: "point",
+    category: "Small Business",
+    areaName: "Semi-Truck Traffic on Residential Roads",
+    topIssue: "City reviewing ordinance after heavy trucks damage neighborhood streets",
+    summary:
+      "Sandy Springs City Council took up new trucking regulations in early 2026 after residents complained about heavy semi-trucks using local residential roads as cut-throughs, damaging pavement and creating safety hazards near schools and neighborhoods.",
+    whyIndependentsCare:
+      "Residential streets aren't built for 80,000-lb loads. Every semi that cuts through a neighborhood accelerates road deterioration and raises repair costs that taxpayers ultimately foot.",
+    suggestedMessageAngle:
+      "Your street isn't a truck route. We need enforceable regulations that keep heavy freight on highways and out of neighborhoods.",
+    status: "In Progress",
+    sourceCount: 3,
+    coordinates: [-84.3142, 33.9782],
+  },
+  {
     id: "biz-3",
     type: "point",
     category: "Small Business",
-    areaName: "Live/Work Zoning Gap — East Sandy Springs",
-    topIssue: "Current code prohibits mixed-use boutique retail",
+    areaName: "Sandy Springs Housing Cost Squeeze on Workforce",
+    topIssue: "Teachers, nurses, and first responders can't afford to live in the city they serve",
     summary:
-      "Sandy Springs' zoning code still reflects 1980s-era separation of uses, preventing the type of live-work and ground-floor retail that drives vibrant neighborhoods in comparable communities. Reform proposals have stalled in planning committee for two years.",
+      "Sandy Springs' mayor acknowledged the city faces a 'luxury housing problem' — new construction skews heavily toward high-end rentals and condos, pricing out the workforce that keeps the city running. The city is losing the housing types young families want to buy.",
     whyIndependentsCare:
-      "Mixed-use zoning creates the kind of walkable, economically diverse neighborhoods families and businesses want. The code needs to catch up to where the community wants to go.",
+      "When teachers commute 45 minutes because they can't afford to live here, school quality suffers. When first responders can't afford the city, response times grow. A diverse workforce needs a diverse housing market.",
     suggestedMessageAngle:
-      "Our zoning code is stuck in the past. Updating it is the single biggest thing we can do to invite the businesses our community is asking for.",
+      "A city where the people who teach your kids and fight your fires can't afford a home isn't healthy. We need housing policy that works for working people — not just investors.",
     status: "Monitoring",
     sourceCount: 4,
-    coordinates: [-84.3142, 33.9722],
+    coordinates: [-84.3058, 33.9722],
   },
 ];
 
