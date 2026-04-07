@@ -9,7 +9,7 @@ const HeroSection = () => {
         <img
           src={familyPic}
           alt="Keith Gettmann with his family"
-          className="w-full h-full object-cover scale-x-[-1] object-[8%_15%] sm:object-[20%_18%] md:object-[55%_20%]"
+          className="w-full h-full object-cover scale-x-[-1] object-[8%_15%] sm:object-[15%_18%] md:object-[30%_20%] lg:object-[55%_20%]"
           loading="eager"
         />
         {/* Left-side gradient — lighter to let the family shine through */}
