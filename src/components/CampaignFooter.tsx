@@ -94,10 +94,10 @@ const CampaignFooter = () => (
       {/* Disclaimer */}
       <div className="border-t border-primary-foreground/5 mt-20 pt-8">
         <p className="text-center text-primary-foreground/40 text-sm font-medium mb-4">
-          Paid for by Keith Gettmann for Georgia. All rights reserved.
+          Paid for by Keith for GA LLC. Not authorized by any candidate or candidate's committee.
         </p>
         <div className="flex flex-wrap justify-center gap-6 text-primary-foreground/30 text-xs">
-          <span>© 2026 Keith Gettmann for Georgia</span>
+          <span>© 2026 Keith for GA LLC. All rights reserved.</span>
           <a href="#" className="hover:text-primary-foreground/50 transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-primary-foreground/50 transition-colors">Terms</a>
         </div>
