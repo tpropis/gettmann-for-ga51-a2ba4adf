@@ -14,38 +14,38 @@ const EmailSignup = () => {
   };
 
   return (
-    <section className="py-16 bg-campaign-light">
+    <section className="py-20 md:py-28 bg-primary">
       <div className="container mx-auto px-4 max-w-xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight text-center">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase tracking-tight text-center">
             Stay Updated with Keith's Campaign
           </h2>
-          <div className="w-20 h-1 bg-accent mx-auto mt-4" />
+          <div className="w-20 h-[3px] bg-accent mx-auto mt-4" />
         </motion.div>
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-3">
+        <form onSubmit={handleSubmit} className="mt-10 space-y-4">
           <input
             type="email"
             required
             placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 border border-border rounded font-body text-base focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-5 py-4 border border-primary-foreground/20 rounded-md font-body text-base bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
           />
           <input
             type="text"
             placeholder="ZIP Code"
             value={zip}
             onChange={(e) => setZip(e.target.value)}
-            className="w-full px-4 py-3 border border-border rounded font-body text-base focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-5 py-4 border border-primary-foreground/20 rounded-md font-body text-base bg-primary-foreground/5 text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
           />
           <button
             type="submit"
-            className="w-full bg-primary text-primary-foreground font-heading text-lg font-bold py-4 rounded hover:bg-primary/90 transition-colors tracking-wide"
+            className="w-full bg-accent text-accent-foreground font-heading text-lg font-bold py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20"
           >
             Join the Movement
           </button>

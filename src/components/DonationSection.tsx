@@ -9,18 +9,30 @@ const DonationSection = () => {
   const [selected, setSelected] = useState<number>(100);
 
   return (
-    <section id="donate" className="py-20 md:py-28 bg-primary">
+    <section id="donate" className="py-24 md:py-36 bg-primary">
       <div className="container mx-auto px-4 max-w-xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-background rounded-xl p-8 md:p-10 shadow-2xl text-center"
         >
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground uppercase tracking-tight">
-            Support Keith Gettmann
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase tracking-tight text-center mb-3">
+            Help Us Win District 51
           </h2>
-          <p className="text-muted-foreground mt-3 text-base md:text-lg max-w-md mx-auto">
+          <div className="w-20 h-[3px] bg-accent mx-auto" />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="bg-background rounded-lg p-8 md:p-10 shadow-2xl text-center mt-10 border border-border/30"
+        >
+          <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+            Support Keith Gettmann
+          </h3>
+          <p className="text-muted-foreground mt-3 text-base md:text-lg max-w-md mx-auto leading-relaxed">
             Help us reach more voters, grow the campaign, and fight for District 51.
           </p>
 
@@ -30,10 +42,10 @@ const DonationSection = () => {
               <button
                 key={amt}
                 onClick={() => setSelected(amt)}
-                className={`font-heading text-lg font-bold py-3 rounded-lg transition-all ${
+                className={`font-heading text-lg font-bold py-3.5 rounded-md transition-all ${
                   selected === amt
                     ? "bg-accent text-accent-foreground ring-2 ring-accent ring-offset-2"
-                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                    : "bg-secondary text-secondary-foreground hover:bg-secondary/70 border border-border/50"
                 }`}
               >
                 ${amt}
@@ -46,7 +58,7 @@ const DonationSection = () => {
             href={PAYPAL_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full bg-accent text-accent-foreground font-heading text-xl font-bold py-4 rounded-lg text-center mt-8 hover:brightness-110 transition-all tracking-wide shadow-lg"
+            className="block w-full bg-accent text-accent-foreground font-heading text-xl font-bold py-4 rounded-md text-center mt-8 hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20"
           >
             DONATE {selected ? `$${selected}` : ""} WITH PAYPAL
           </a>
@@ -57,7 +69,7 @@ const DonationSection = () => {
           </div>
         </motion.div>
 
-        <p className="text-center text-primary-foreground/50 text-xs mt-6">
+        <p className="text-center text-primary-foreground/40 text-xs mt-8 tracking-wide">
           Paid for by Friends of Keith Gettmann
         </p>
       </div>

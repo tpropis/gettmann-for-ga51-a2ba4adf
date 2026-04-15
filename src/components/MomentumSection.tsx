@@ -9,20 +9,20 @@ const stats = [
 ];
 
 const MomentumSection = () => (
-  <section className="py-20 md:py-28 bg-campaign-light">
+  <section className="py-24 md:py-36 bg-secondary">
     <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary uppercase tracking-tight text-center">
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary uppercase tracking-tight text-center">
           Campaign Momentum
         </h2>
-        <div className="w-20 h-1 bg-accent mx-auto mt-4" />
+        <div className="section-divider" />
       </motion.div>
 
-      <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8">
         {stats.map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -30,21 +30,21 @@ const MomentumSection = () => (
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-background rounded-lg p-8 text-center shadow-sm"
+            className="bg-background rounded-lg p-10 text-center shadow-sm border border-border/50"
           >
-            <stat.icon className="h-8 w-8 text-accent mx-auto mb-3" />
+            <stat.icon className="h-8 w-8 text-accent mx-auto mb-4" />
             <div className="font-heading text-4xl font-bold text-primary">{stat.value}</div>
-            <div className="text-muted-foreground text-sm mt-1 font-semibold uppercase tracking-wide">
+            <div className="text-muted-foreground text-sm mt-2 font-semibold uppercase tracking-wider">
               {stat.label}
             </div>
           </motion.div>
         ))}
       </div>
 
-      <div className="text-center mt-12">
+      <div className="text-center mt-14">
         <a
           href="#get-involved"
-          className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-8 py-4 rounded hover:bg-campaign-gold-dark transition-colors tracking-wide"
+          className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20"
         >
           Help Build Momentum
         </a>

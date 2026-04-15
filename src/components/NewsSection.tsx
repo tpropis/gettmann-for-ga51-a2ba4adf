@@ -20,20 +20,20 @@ const posts = [
 ];
 
 const NewsSection = () => (
-  <section id="news" className="py-20 md:py-28 bg-background">
+  <section id="news" className="py-24 md:py-36 bg-background">
     <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary uppercase tracking-tight text-center">
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary uppercase tracking-tight text-center">
           Campaign News
         </h2>
-        <div className="w-20 h-1 bg-accent mx-auto mt-4" />
+        <div className="section-divider" />
       </motion.div>
 
-      <div className="mt-14 grid md:grid-cols-3 gap-8">
+      <div className="mt-16 grid md:grid-cols-3 gap-8">
         {posts.map((post, i) => (
           <motion.article
             key={post.title}
@@ -41,17 +41,17 @@ const NewsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-campaign-light rounded-lg p-8 hover:shadow-lg transition-shadow"
+            className="bg-secondary rounded-lg p-8 hover:shadow-xl transition-shadow border border-border/50"
           >
-            <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
+            <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4">
               <CalendarDays className="h-4 w-4" />
               {post.date}
             </div>
             <h3 className="font-heading text-xl font-bold text-primary uppercase tracking-wide">
               {post.title}
             </h3>
-            <p className="mt-3 text-foreground/70 leading-relaxed">{post.excerpt}</p>
-            <a href="#" className="inline-block mt-4 text-accent font-semibold hover:underline text-sm">
+            <p className="mt-4 text-muted-foreground leading-relaxed">{post.excerpt}</p>
+            <a href="#" className="inline-block mt-5 text-accent font-semibold hover:underline text-sm tracking-wide">
               Read More →
             </a>
           </motion.article>

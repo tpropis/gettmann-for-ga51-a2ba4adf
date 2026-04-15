@@ -7,40 +7,41 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 207 100% 17%;
+    --foreground: 216 60% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 207 100% 17%;
+    --card-foreground: 216 60% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 207 100% 17%;
+    --popover-foreground: 216 60% 16%;
 
-    --primary: 207 100% 17%;
+    --primary: 216 75% 15%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 207 20% 96%;
-    --secondary-foreground: 207 100% 17%;
+    --secondary: 220 15% 97%;
+    --secondary-foreground: 216 60% 16%;
 
-    --muted: 207 15% 96%;
-    --muted-foreground: 207 15% 46%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 42 67% 57%;
-    --accent-foreground: 207 100% 12%;
+    --accent: 38 52% 57%;
+    --accent-foreground: 216 75% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 207 25% 88%;
-    --input: 207 25% 88%;
-    --ring: 207 100% 17%;
+    --border: 220 18% 88%;
+    --input: 220 18% 88%;
+    --ring: 216 75% 15%;
 
     --radius: 0.375rem;
 
-    --campaign-navy: 207 100% 17%;
-    --campaign-gold: 42 67% 57%;
-    --campaign-gold-dark: 43 60% 45%;
-    --campaign-light: 207 20% 97%;
-    --campaign-warm: 42 30% 96%;
+    --campaign-navy: 216 75% 15%;
+    --campaign-gold: 38 52% 57%;
+    --campaign-gold-dark: 38 48% 46%;
+    --campaign-light: 220 20% 97%;
+    --campaign-warm: 35 25% 95%;
+    --campaign-brown: 22 16% 36%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -77,6 +78,14 @@
   }
 }
 
+/* ─── Section divider utility ─── */
+.section-divider {
+  width: 80px;
+  height: 3px;
+  background: hsl(var(--accent));
+  margin: 1rem auto 0;
+}
+
 /* ─── Community Map — Mapbox Popup Styles ─────────────────────────────────── */
 
 .cmap-popup .maplibregl-popup-content {
@@ -111,7 +120,6 @@
   color: #fff;
 }
 
-/* Popup inner layout */
 .cmap-popup-inner {
   font-family: 'Source Sans 3', sans-serif;
   min-width: 260px;
@@ -166,7 +174,7 @@
   font-family: 'Oswald', sans-serif;
   font-size: 15px;
   font-weight: 600;
-  color: #003056;
+  color: #0A1F44;
   margin: 0;
   line-height: 1.25;
   flex: 1;
@@ -186,7 +194,7 @@
 .cmap-popup-issue {
   font-size: 12.5px;
   font-weight: 700;
-  color: #dbb04a;
+  color: #C8A75D;
   margin: 0 0 6px;
   line-height: 1.35;
 }
@@ -245,7 +253,6 @@
   font-weight: 500;
 }
 
-/* Mapbox tip arrow — match white popup body */
 .cmap-popup.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
   border-top-color: #fff;
 }

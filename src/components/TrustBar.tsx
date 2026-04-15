@@ -9,18 +9,18 @@ const items = [
 ];
 
 const TrustBar = () => (
-  <section className="bg-primary py-6 border-t border-primary-foreground/10">
+  <section className="bg-primary py-8 border-t border-primary-foreground/5">
     <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="flex flex-wrap justify-center gap-8 md:gap-16"
+        className="flex flex-wrap justify-center gap-10 md:gap-20"
       >
         {items.map((item) => (
           <div key={item.label} className="flex items-center gap-3">
-            <item.icon className="h-6 w-6 text-accent" />
-            <span className="font-heading text-primary-foreground text-lg font-semibold uppercase tracking-wider">
+            <item.icon className="h-5 w-5 text-accent" />
+            <span className="font-heading text-primary-foreground/90 text-base font-semibold uppercase tracking-[0.15em]">
               {item.label}
             </span>
           </div>

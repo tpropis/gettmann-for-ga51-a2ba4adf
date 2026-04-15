@@ -17,20 +17,20 @@ const quotes = [
 ];
 
 const SocialProof = () => (
-  <section className="py-20 md:py-28 bg-campaign-light">
+  <section className="py-24 md:py-36 bg-secondary">
     <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary uppercase tracking-tight text-center">
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary uppercase tracking-tight text-center">
           Community Voices
         </h2>
-        <div className="w-20 h-1 bg-accent mx-auto mt-4" />
+        <div className="section-divider" />
       </motion.div>
 
-      <div className="mt-14 grid md:grid-cols-3 gap-8">
+      <div className="mt-16 grid md:grid-cols-3 gap-8">
         {quotes.map((q, i) => (
           <motion.div
             key={i}
@@ -38,11 +38,11 @@ const SocialProof = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-background rounded-lg p-8 shadow-sm"
+            className="bg-background rounded-lg p-8 shadow-sm border border-border/50 hover:shadow-lg transition-shadow"
           >
-            <Quote className="h-8 w-8 text-accent/30 mb-4" />
-            <p className="text-foreground/80 italic leading-relaxed">"{q.text}"</p>
-            <p className="mt-4 text-sm font-semibold text-primary">— {q.author}</p>
+            <Quote className="h-8 w-8 text-accent/25 mb-5" />
+            <p className="text-foreground/75 italic leading-relaxed text-lg">"{q.text}"</p>
+            <p className="mt-5 text-sm font-semibold text-primary tracking-wide">— {q.author}</p>
           </motion.div>
         ))}
       </div>
