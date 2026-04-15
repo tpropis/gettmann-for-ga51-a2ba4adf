@@ -70,7 +70,7 @@ const DonationSection = () => {
         </motion.div>
 
         <p className="text-center text-primary-foreground/40 text-xs mt-8 tracking-wide">
-          Paid for by Friends of Keith Gettmann
+          Paid for by Keith for GA LLC
         </p>
       </div>
     </section>
