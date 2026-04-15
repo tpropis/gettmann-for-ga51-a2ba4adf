@@ -22,7 +22,7 @@ const pillars = [
 ];
 
 const MeetKeith = () => (
-  <section id="meet-keith" className="py-24 md:py-32 bg-background">
+  <section id="meet-keith" className="py-28 md:py-40 bg-background">
     <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -30,20 +30,20 @@ const MeetKeith = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary uppercase tracking-tight text-center">
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary uppercase tracking-tight text-center">
           Meet Keith
         </h2>
-        <div className="w-20 h-1 bg-accent mx-auto mt-4" />
+        <div className="section-divider" />
       </motion.div>
 
-      <div className="mt-16 grid lg:grid-cols-2 gap-16 items-start">
+      <div className="mt-20 grid lg:grid-cols-2 gap-20 items-start">
         {/* Mission Statement Column */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="space-y-8"
+          className="space-y-10"
         >
           <h3 className="font-heading text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight leading-tight">
             Keith's Mission for District&nbsp;51
@@ -61,7 +61,7 @@ const MeetKeith = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                className="flex gap-5 py-6 first:pt-0"
+                className="flex gap-5 py-7 first:pt-0"
               >
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
                   <p.icon className="w-6 h-6 text-accent" />
@@ -70,7 +70,7 @@ const MeetKeith = () => (
                   <h4 className="font-heading text-lg font-bold text-primary uppercase tracking-wide">
                     {p.title}
                   </h4>
-                  <p className="text-foreground/70 mt-1 leading-relaxed">
+                  <p className="text-muted-foreground mt-2 leading-relaxed">
                     {p.desc}
                   </p>
                 </div>
@@ -78,30 +78,30 @@ const MeetKeith = () => (
             ))}
           </div>
 
-          <blockquote className="border-l-4 border-accent pl-6 py-4 bg-campaign-light rounded-r-lg">
+          <blockquote className="border-l-4 border-accent pl-6 py-5 bg-secondary rounded-r-lg">
             <p className="text-xl font-body italic text-primary font-semibold leading-relaxed">
               "I'm running to serve the people of District 51 with integrity, common sense, and strong leadership."
             </p>
-            <cite className="text-sm text-muted-foreground mt-3 block not-italic font-bold uppercase tracking-wide">
+            <cite className="text-sm text-muted-foreground mt-3 block not-italic font-bold uppercase tracking-wider">
               — Keith Gettmann
             </cite>
           </blockquote>
 
           <a
             href="#get-involved"
-            className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded hover:bg-campaign-gold-dark transition-colors tracking-wide shadow-lg shadow-accent/20"
+            className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20"
           >
             Join the Campaign
           </a>
 
           {/* Why Keith Gettmann */}
-          <div className="pt-4">
-            <div className="w-full h-px bg-border mb-8" />
-            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight mb-6">
+          <div className="pt-6">
+            <div className="w-full h-px bg-border mb-10" />
+            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight mb-8">
               Why Keith Gettmann
             </h3>
 
-            <div className="space-y-5">
+            <div className="space-y-6">
               {[
                 {
                   icon: Home,
@@ -125,16 +125,16 @@ const MeetKeith = () => (
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
-                  className="bg-primary/[0.03] border border-border rounded-lg p-5 flex gap-5"
+                  className="bg-secondary border border-border/50 rounded-lg p-6 flex gap-5"
                 >
-                  <div className="flex-shrink-0 w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                  <div className="flex-shrink-0 w-11 h-11 rounded-full bg-primary/5 flex items-center justify-center mt-0.5">
                     <card.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-heading text-base font-bold text-primary uppercase tracking-wide">
                       {card.title}
                     </h4>
-                    <p className="text-sm text-foreground/70 mt-1.5 leading-relaxed">
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
                       {card.text}
                     </p>
                   </div>
@@ -142,16 +142,16 @@ const MeetKeith = () => (
               ))}
             </div>
 
-            <div className="w-full h-px bg-border my-8" />
+            <div className="w-full h-px bg-border my-10" />
 
             <p className="font-heading text-xl md:text-2xl font-bold text-primary uppercase tracking-tight text-center leading-snug">
               Real Leadership. Local Roots.<br />A Stronger District&nbsp;51.
             </p>
 
-            <div className="mt-6 text-center">
+            <div className="mt-8 text-center">
               <a
                 href="#get-involved"
-                className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded hover:bg-campaign-gold-dark transition-colors tracking-wide shadow-lg shadow-accent/20"
+                className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20"
               >
                 Support Keith
               </a>
@@ -165,7 +165,7 @@ const MeetKeith = () => (
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="space-y-5"
+          className="space-y-6"
         >
           <div className="overflow-hidden rounded-lg shadow-xl">
             <img

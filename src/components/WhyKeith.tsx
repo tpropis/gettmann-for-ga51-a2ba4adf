@@ -11,20 +11,20 @@ const points = [
 ];
 
 const WhyKeith = () => (
-  <section className="py-20 md:py-28 bg-primary">
+  <section className="py-24 md:py-36 bg-primary">
     <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground uppercase tracking-tight text-center">
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground uppercase tracking-tight text-center">
           Why Keith
         </h2>
-        <div className="w-20 h-1 bg-accent mx-auto mt-4" />
+        <div className="w-20 h-[3px] bg-accent mx-auto mt-4" />
       </motion.div>
 
-      <div className="mt-14 max-w-2xl mx-auto">
+      <div className="mt-16 max-w-2xl mx-auto">
         {points.map((point, i) => (
           <motion.div
             key={i}
@@ -32,18 +32,18 @@ const WhyKeith = () => (
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            className="flex items-start gap-4 py-4 border-b border-primary-foreground/10 last:border-b-0"
+            className="flex items-start gap-4 py-5 border-b border-primary-foreground/10 last:border-b-0"
           >
             <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
-            <span className="text-primary-foreground/90 text-lg">{point}</span>
+            <span className="text-primary-foreground/85 text-lg leading-relaxed">{point}</span>
           </motion.div>
         ))}
       </div>
 
-      <div className="text-center mt-12">
+      <div className="text-center mt-14">
         <a
           href="#donate"
-          className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-8 py-4 rounded hover:bg-campaign-gold-dark transition-colors tracking-wide"
+          className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20"
         >
           Support Keith Today
         </a>

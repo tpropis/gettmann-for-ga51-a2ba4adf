@@ -4,7 +4,7 @@ import familyPic from "@/assets/family_pic.jpg";
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-[700px] md:min-h-[92vh] flex items-center overflow-hidden">
-      {/* Background image — full bleed, faces preserved */}
+      {/* Background image */}
       <div className="absolute inset-0">
         <img
           src={familyPic}
@@ -12,9 +12,9 @@ const HeroSection = () => {
           className="w-full h-full object-cover scale-x-[-1] object-[8%_15%] sm:object-[12%_18%] md:object-[18%_20%] lg:object-[55%_20%]"
           loading="eager"
         />
-        {/* Left-side gradient — lighter to let the family shine through */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/75 via-primary/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent" />
+        {/* Stronger dark overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-primary/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-primary/10" />
       </div>
 
       <div className="relative container mx-auto px-4 pt-40 pb-28 md:pt-44 md:pb-32">
@@ -26,50 +26,50 @@ const HeroSection = () => {
         >
           {/* Headline */}
           <h1 className="font-heading uppercase leading-none tracking-tight">
-            <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-primary-foreground">
+            <span className="block text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold text-primary-foreground">
               Keith
             </span>
-            <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-primary-foreground">
+            <span className="block text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold text-primary-foreground">
               Gettmann
             </span>
             {/* Gold accent line */}
-            <span className="block w-24 h-1 bg-accent mt-5 mb-4" aria-hidden="true" />
-            <span className="block text-2xl sm:text-3xl md:text-4xl font-semibold text-accent tracking-widest">
+            <span className="block w-28 h-1 bg-accent mt-6 mb-5" aria-hidden="true" />
+            <span className="block text-2xl sm:text-3xl md:text-4xl font-semibold text-accent tracking-[0.2em]">
               FOR GEORGIA HOUSE
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="mt-10 text-xl md:text-2xl text-primary-foreground font-body font-light leading-relaxed max-w-xl">
+          <p className="mt-12 text-xl md:text-2xl text-primary-foreground/90 font-body font-light leading-relaxed max-w-xl">
             Protecting Families. Defending Freedom.
             <br />
             Fighting for District 51.
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-12 flex flex-wrap gap-4">
             <a
               href="#donate"
-              className="bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded hover:brightness-110 transition-all tracking-wide shadow-lg shadow-accent/30 uppercase"
+              className="bg-accent text-accent-foreground font-heading text-lg font-bold px-12 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/25 uppercase"
             >
               Donate Now
             </a>
             <a
-              href="#get-involved"
-              className="border-2 border-primary-foreground text-primary-foreground font-heading text-lg font-bold px-10 py-4 rounded hover:bg-primary-foreground/15 transition-colors tracking-wide uppercase"
+              href="#issues"
+              className="border-2 border-primary-foreground/80 text-primary-foreground font-heading text-lg font-bold px-12 py-4 rounded-md hover:bg-primary-foreground/10 transition-colors tracking-wide uppercase"
             >
-              Join the Campaign
+              The Issues
             </a>
             <a
               href="#meet-keith"
-              className="border-2 border-primary-foreground/60 text-primary-foreground/90 font-heading text-lg font-bold px-10 py-4 rounded hover:bg-primary-foreground/15 transition-colors tracking-wide uppercase"
+              className="border-2 border-primary-foreground/40 text-primary-foreground/80 font-heading text-lg font-bold px-12 py-4 rounded-md hover:bg-primary-foreground/10 transition-colors tracking-wide uppercase"
             >
               Meet Keith
             </a>
           </div>
 
           {/* Supporting line */}
-          <p className="mt-12 text-primary-foreground/70 font-body text-sm tracking-widest uppercase font-medium max-w-lg">
+          <p className="mt-14 text-primary-foreground/60 font-body text-sm tracking-[0.15em] uppercase font-medium max-w-lg">
             Focused on strong schools, safe communities, lower taxes, and election integrity.
           </p>
         </motion.div>

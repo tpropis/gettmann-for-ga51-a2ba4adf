@@ -25,23 +25,23 @@ const issues = [
 ];
 
 const IssuesSection = () => (
-  <section id="issues" className="py-20 md:py-28 bg-campaign-light">
+  <section id="issues" className="py-24 md:py-36 bg-secondary">
     <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary uppercase tracking-tight text-center">
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary uppercase tracking-tight text-center">
           The Issues
         </h2>
-        <div className="w-20 h-1 bg-accent mx-auto mt-4" />
-        <p className="text-center text-muted-foreground mt-4 max-w-xl mx-auto text-lg">
+        <div className="section-divider" />
+        <p className="text-center text-muted-foreground mt-6 max-w-xl mx-auto text-lg leading-relaxed">
           Keith is focused on the issues that matter most to the families of District 51.
         </p>
       </motion.div>
 
-      <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {issues.map((issue, i) => (
           <motion.div
             key={issue.title}
@@ -49,15 +49,15 @@ const IssuesSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-background rounded-lg p-8 shadow-sm hover:shadow-lg transition-shadow group"
+            className="bg-background rounded-lg p-10 shadow-sm hover:shadow-xl transition-shadow border border-border/50 group"
           >
-            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-accent/10 transition-colors">
+            <div className="w-14 h-14 rounded-full bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
               <issue.icon className="h-7 w-7 text-primary group-hover:text-accent transition-colors" />
             </div>
             <h3 className="font-heading text-xl font-bold text-primary uppercase tracking-wide">
               {issue.title}
             </h3>
-            <p className="mt-3 text-foreground/70 leading-relaxed">
+            <p className="mt-4 text-muted-foreground leading-relaxed">
               {issue.description}
             </p>
           </motion.div>
