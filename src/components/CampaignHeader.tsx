@@ -4,13 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo_trans.svg";
 
 const navLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "Meet Keith", href: "/#meet-keith" },
+  { label: "About", href: "/#meet-keith" },
   { label: "Issues", href: "/#issues" },
-  { label: "District Map", href: "/map" },
   { label: "Get Involved", href: "/#get-involved" },
-  { label: "News", href: "/#news" },
-  { label: "Contact", href: "/#contact" },
 ];
 
 const CampaignHeader = () => {

@@ -50,21 +50,21 @@ const HeroSection = () => {
           <div className="mt-12 flex flex-wrap gap-4">
             <a
               href="#donate"
-              className="bg-accent text-accent-foreground font-heading text-lg font-bold px-12 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/25 uppercase"
+              className="bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/25 uppercase"
             >
               Donate Now
             </a>
             <a
-              href="#issues"
-              className="border-2 border-primary-foreground/80 text-primary-foreground font-heading text-lg font-bold px-12 py-4 rounded-md hover:bg-primary-foreground/10 transition-colors tracking-wide uppercase"
+              href="#get-involved"
+              className="bg-primary-foreground text-primary font-heading text-lg font-bold px-10 py-4 rounded-md hover:bg-primary-foreground/90 transition-all tracking-wide shadow-lg uppercase"
             >
-              The Issues
+              Join the Campaign
             </a>
             <a
-              href="#meet-keith"
-              className="border-2 border-primary-foreground/40 text-primary-foreground/80 font-heading text-lg font-bold px-12 py-4 rounded-md hover:bg-primary-foreground/10 transition-colors tracking-wide uppercase"
+              href="#issues"
+              className="border-2 border-primary-foreground/80 text-primary-foreground font-heading text-lg font-bold px-10 py-4 rounded-md hover:bg-primary-foreground/10 transition-colors tracking-wide uppercase"
             >
-              Meet Keith
+              The Issues
             </a>
           </div>
 
