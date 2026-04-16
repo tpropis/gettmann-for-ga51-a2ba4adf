@@ -12,14 +12,18 @@ const helpOptions = [
 
 const SUCCESS_MSG = "Thanks for joining the campaign. We'll be in touch soon.";
 
-/**
- * NOTE: Forms are UI-only for now.
- * To wire up later, replace the `submitSupporter` / `submitVolunteer` handlers
- * with one of:
- *   - Netlify Forms: add `data-netlify="true"` + `name="..."` to the <form>
- *     and POST form-encoded data to "/" on submit.
- *   - Nucleus CRM: POST JSON to your Nucleus endpoint.
- */
+const encode = (data: Record<string, string>) =>
+  Object.keys(data)
+    .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(data[k]))
+    .join("&");
+
+const postToNetlify = (formName: string, data: Record<string, string>) =>
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({ "form-name": formName, ...data }),
+  });
+
 const GetInvolved = () => {
   // Supporter form
   const [supporter, setSupporter] = useState({ name: "", email: "", zip: "" });
@@ -34,21 +38,38 @@ const GetInvolved = () => {
   const handleSupporter = async (e: React.FormEvent) => {
     e.preventDefault();
     setSupporterLoading(true);
-    // TODO: wire to Netlify Forms or Nucleus CRM
-    await new Promise((r) => setTimeout(r, 400));
-    setSupporterLoading(false);
-    setSupporterDone(true);
-    setSupporter({ name: "", email: "", zip: "" });
+    try {
+      await postToNetlify("stay-updated", {
+        name: supporter.name.trim(),
+        email: supporter.email.trim(),
+        zip: supporter.zip.trim(),
+      });
+      setSupporterDone(true);
+      setSupporter({ name: "", email: "", zip: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSupporterLoading(false);
+    }
   };
 
   const handleVolunteer = async (e: React.FormEvent) => {
     e.preventDefault();
     setVolLoading(true);
-    // TODO: wire to Netlify Forms or Nucleus CRM
-    await new Promise((r) => setTimeout(r, 400));
-    setVolLoading(false);
-    setVolDone(true);
-    setVol({ name: "", email: "", phone: "", help: "" });
+    try {
+      await postToNetlify("volunteer", {
+        name: vol.name.trim(),
+        email: vol.email.trim(),
+        phone: vol.phone.trim(),
+        help: vol.help,
+      });
+      setVolDone(true);
+      setVol({ name: "", email: "", phone: "", help: "" });
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setVolLoading(false);
+    }
   };
 
   const inputCls =
