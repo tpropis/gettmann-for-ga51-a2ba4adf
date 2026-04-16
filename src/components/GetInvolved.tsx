@@ -133,6 +133,7 @@ const GetInvolved = () => {
                 </p>
                 <input
                   type="text"
+                  name="name"
                   required
                   placeholder="Full Name"
                   value={supporter.name}
@@ -141,6 +142,7 @@ const GetInvolved = () => {
                 />
                 <input
                   type="email"
+                  name="email"
                   required
                   placeholder="Email Address"
                   value={supporter.email}
@@ -149,6 +151,7 @@ const GetInvolved = () => {
                 />
                 <input
                   type="text"
+                  name="zip"
                   inputMode="numeric"
                   placeholder="ZIP Code"
                   value={supporter.zip}
