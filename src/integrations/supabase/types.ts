@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      campaign_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          form_type: Database["public"]["Enums"]["campaign_form_type"]
+          id: string
+          name: string
+          phone: string | null
+          volunteer_type: string | null
+          zip: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          form_type: Database["public"]["Enums"]["campaign_form_type"]
+          id?: string
+          name: string
+          phone?: string | null
+          volunteer_type?: string | null
+          zip?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          form_type?: Database["public"]["Enums"]["campaign_form_type"]
+          id?: string
+          name?: string
+          phone?: string | null
+          volunteer_type?: string | null
+          zip?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +55,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      campaign_form_type: "supporter" | "volunteer"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +182,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      campaign_form_type: ["supporter", "volunteer"],
+    },
   },
 } as const
