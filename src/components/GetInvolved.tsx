@@ -208,6 +208,7 @@ const GetInvolved = () => {
                 </p>
                 <input
                   type="text"
+                  name="name"
                   required
                   placeholder="Full Name"
                   value={vol.name}
@@ -216,6 +217,7 @@ const GetInvolved = () => {
                 />
                 <input
                   type="email"
+                  name="email"
                   required
                   placeholder="Email Address"
                   value={vol.email}
@@ -224,6 +226,7 @@ const GetInvolved = () => {
                 />
                 <input
                   type="tel"
+                  name="phone"
                   required
                   placeholder="Phone"
                   value={vol.phone}
@@ -231,6 +234,7 @@ const GetInvolved = () => {
                   className={inputCls}
                 />
                 <select
+                  name="help"
                   required
                   value={vol.help}
                   onChange={(e) => setVol({ ...vol, help: e.target.value })}
