@@ -117,7 +117,20 @@ const GetInvolved = () => {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSupporter} className="space-y-4 flex-1 flex flex-col">
+              <form
+                name="stay-updated"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSupporter}
+                className="space-y-4 flex-1 flex flex-col"
+              >
+                <input type="hidden" name="form-name" value="stay-updated" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out: <input name="bot-field" />
+                  </label>
+                </p>
                 <input
                   type="text"
                   required
