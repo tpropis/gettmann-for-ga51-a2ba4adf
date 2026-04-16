@@ -6,6 +6,7 @@ import logo from "@/assets/logo_trans.svg";
 const navLinks = [
   { label: "About", href: "/#meet-keith" },
   { label: "Issues", href: "/#issues" },
+  { label: "District Map", href: "/map" },
   { label: "Get Involved", href: "/#get-involved" },
 ];
 

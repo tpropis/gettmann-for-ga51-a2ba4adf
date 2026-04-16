@@ -1,5 +1,6 @@
 import CampaignHeader from "@/components/CampaignHeader";
-import { CommunityMap } from "@/components/map/CommunityMap";
+// @ts-ignore - JSX component without types
+import District51Map from "@/components/District51Map.jsx";
 import { MapPin, ExternalLink } from "lucide-react";
 
 export default function DistrictMap() {
@@ -48,8 +49,8 @@ export default function DistrictMap() {
       </div>
 
       {/* Map fills remaining viewport */}
-      <div className="flex-1 relative overflow-hidden min-h-0">
-        <CommunityMap />
+      <div className="flex-1 relative overflow-hidden min-h-0 w-full">
+        <District51Map />
       </div>
     </div>
   );
