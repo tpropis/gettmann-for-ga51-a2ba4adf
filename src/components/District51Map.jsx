@@ -20,8 +20,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 // ─── CONFIG ────────────────────────────────────────────────────────────────────
 
 const MAPBOX_TOKEN =
-  import.meta?.env?.VITE_MAPBOX_TOKEN ||
-  process.env.REACT_APP_MAPBOX_TOKEN ||
+  (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_MAPBOX_TOKEN) ||
   "YOUR_MAPBOX_TOKEN_HERE";
 
 const DISTRICT_GEOJSON_URL =
