@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 const helpOptions = [
   "Door Knocking",
@@ -14,6 +12,14 @@ const helpOptions = [
 
 const SUCCESS_MSG = "Thanks for joining the campaign. We'll be in touch soon.";
 
+/**
+ * NOTE: Forms are UI-only for now.
+ * To wire up later, replace the `submitSupporter` / `submitVolunteer` handlers
+ * with one of:
+ *   - Netlify Forms: add `data-netlify="true"` + `name="..."` to the <form>
+ *     and POST form-encoded data to "/" on submit.
+ *   - Nucleus CRM: POST JSON to your Nucleus endpoint.
+ */
 const GetInvolved = () => {
   // Supporter form
   const [supporter, setSupporter] = useState({ name: "", email: "", zip: "" });
@@ -28,17 +34,9 @@ const GetInvolved = () => {
   const handleSupporter = async (e: React.FormEvent) => {
     e.preventDefault();
     setSupporterLoading(true);
-    const { error } = await supabase.from("campaign_submissions").insert({
-      form_type: "supporter",
-      name: supporter.name.trim(),
-      email: supporter.email.trim(),
-      zip: supporter.zip.trim() || null,
-    });
+    // TODO: wire to Netlify Forms or Nucleus CRM
+    await new Promise((r) => setTimeout(r, 400));
     setSupporterLoading(false);
-    if (error) {
-      toast.error("Something went wrong. Please try again.");
-      return;
-    }
     setSupporterDone(true);
     setSupporter({ name: "", email: "", zip: "" });
   };
@@ -46,18 +44,9 @@ const GetInvolved = () => {
   const handleVolunteer = async (e: React.FormEvent) => {
     e.preventDefault();
     setVolLoading(true);
-    const { error } = await supabase.from("campaign_submissions").insert({
-      form_type: "volunteer",
-      name: vol.name.trim(),
-      email: vol.email.trim(),
-      phone: vol.phone.trim() || null,
-      volunteer_type: vol.help || null,
-    });
+    // TODO: wire to Netlify Forms or Nucleus CRM
+    await new Promise((r) => setTimeout(r, 400));
     setVolLoading(false);
-    if (error) {
-      toast.error("Something went wrong. Please try again.");
-      return;
-    }
     setVolDone(true);
     setVol({ name: "", email: "", phone: "", help: "" });
   };
