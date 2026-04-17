@@ -27,37 +27,32 @@ const DISTRICT_GEOJSON_URL =
 // Tightened to HD51 + immediate Fulton neighbors (Roswell, Sandy Springs,
 // Johns Creek, Alpharetta, Milton). Source: HD51_Voting_Locations_Nov2026_CLEAN.xlsx
 const BOUNDS = [
-  [-84.50, 33.88], // SW
-  [-84.15, 34.15], // NE
+  [-84.45, 33.93], // SW
+  [-84.20, 34.10], // NE
 ];
 
-const CENTER = [-84.32, 34.00];
-const INITIAL_ZOOM = 11;
+const CENTER = [-84.32, 34.02];
+const INITIAL_ZOOM = 11.4;
 
-// Brand palette (matches spreadsheet color system)
-const NAVY    = "#1B2A4A"; // header
-const RED     = "#BA0C2F"; // accent / district
-const GOLD    = "#dbb04a"; // campaign gold
+// Brand palette
+const NAVY    = "#1B2A4A";
+const RED     = "#BA0C2F";
+const GOLD    = "#dbb04a";
 const CYAN    = "#22d3ee"; // early voting
 const ORANGE  = "#f97316"; // election day
 const DISTRICT_FILL = "rgba(186,12,47,0.10)";
 
-// EARLY VOTING — Oct 13–30, 2026 · Any Fulton voter may use any location
-// Source: fultoncountyga.gov (CLEAN list — closest 10 to HD51)
+// EARLY VOTING — Oct 13–30, 2026 · Filtered to locations inside or directly
+// bordering HD51 (Roswell / north Sandy Springs / west Johns Creek).
+// Source: HD51_Voting_Locations_Nov2026_CLEAN.xlsx
 const EARLY_VOTING = [
-  { id: "ev1",  name: "East Roswell Library",            address: "2301 Holcomb Bridge Road, Roswell, GA 30076",       coords: [-84.29442, 34.00289] },
-  { id: "ev2",  name: "Roswell Library",                 address: "115 Norcross Street, Roswell, GA 30075",            coords: [-84.35797, 34.02513] },
-  { id: "ev3",  name: "North Fulton Service Center",     address: "7741 Roswell Road, Sandy Springs, GA 30350",        coords: [-84.36267, 33.96599] },
-  { id: "ev4",  name: "Sandy Springs Library",           address: "395 Mount Vernon Highway, Sandy Springs, GA 30328", coords: [-84.37434, 33.92409] },
-  { id: "ev5",  name: "Johns Creek Environmental Campus",address: "8100 Holcomb Bridge Road, Johns Creek, GA 30022",   coords: [-84.26617, 33.97702] },
-  { id: "ev6",  name: "Northeast Spruill Oaks Library",  address: "9560 Spruill Road, Johns Creek, GA 30022",          coords: [-84.22426, 34.0142]  },
-  { id: "ev7",  name: "Robert F. Fulton Library at Ocee",address: "5090 Abbotts Bridge Road, Johns Creek, GA 30005",   coords: [-84.20968, 34.06466] },
-  { id: "ev8",  name: "Alpharetta Branch Library",       address: "10 Park Plaza, Alpharetta, GA 30009",               coords: [-84.29229, 34.07394] },
-  { id: "ev9",  name: "Fulton County HHS – North",       address: "4700 North Point Parkway, Alpharetta, GA 30005",    coords: [-84.26855, 34.05597] },
-  { id: "ev10", name: "Milton Library",                  address: "855 Mayfield Road, Milton, GA 30009",               coords: [-84.33661, 34.09014] },
+  { id: "ev1", name: "East Roswell Library",             address: "2301 Holcomb Bridge Road, Roswell, GA 30076",       coords: [-84.29442, 34.00289] },
+  { id: "ev2", name: "Roswell Library",                  address: "115 Norcross Street, Roswell, GA 30075",            coords: [-84.35797, 34.02513] },
+  { id: "ev3", name: "North Fulton Service Center",      address: "7741 Roswell Road, Sandy Springs, GA 30350",        coords: [-84.36267, 33.96599] },
+  { id: "ev4", name: "Johns Creek Environmental Campus", address: "8100 Holcomb Bridge Road, Johns Creek, GA 30022",   coords: [-84.26617, 33.97702] },
 ];
 
-// ELECTION DAY — Nov 3, 2026 · Confirmed HD51 precincts (verify yours at mvp.sos.ga.gov)
+// ELECTION DAY — Nov 3, 2026 · Confirmed HD51 precincts
 const ELECTION_DAY = [
   { id: "ed1", name: "Hembree Park Recreation Center",   address: "850 Hembree Rd, Roswell, GA 30076", coords: [-84.33725, 34.06321] },
   { id: "ed2", name: "East Roswell Recreation Center",   address: "9000 Fouts Rd, Roswell, GA 30076",  coords: [-84.29694, 34.00053] },
@@ -206,7 +201,7 @@ export default function District51Map() {
   const [statusMsg, setStatusMsg]       = useState(null); // { type: "success"|"outside"|"error", text }
   const [isSearching, setIsSearching]   = useState(false);
   const [legend, setLegend]             = useState(true);
-  const [showDates, setShowDates]       = useState(true);
+  const [showDates, setShowDates]       = useState(false);
 
   // ── Load district GeoJSON ──────────────────────────────────────────────────
   useEffect(() => {
