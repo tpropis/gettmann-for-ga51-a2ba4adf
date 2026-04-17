@@ -19,9 +19,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────────
 
-const MAPBOX_TOKEN =
-  (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_MAPBOX_TOKEN) ||
-  "YOUR_MAPBOX_TOKEN_HERE";
+const MAPBOX_TOKEN = "pk.eyJ1Ijoia2VpdGhmb3JnYSIsImEiOiJjbW8yNGJ2dmcwZXhxMnFwczY2ZnJkMnl2In0.D0pur85wTOoOxkgp2R40cQ";
 
 const DISTRICT_GEOJSON_URL =
   "https://gismaps.fultoncountyga.gov/arcgispub/rest/services/Elections/VotingDistrictsMapViewer_Public/MapServer/7/query?where=DISTRICT+%3D+%27051%27&outFields=*&f=geojson";
