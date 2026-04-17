@@ -225,7 +225,7 @@ export default function District51Map() {
 
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/standard",
+      style: "mapbox://styles/mapbox/dark-v11",
       center: CENTER,
       zoom: INITIAL_ZOOM,
       maxBounds: BOUNDS,
@@ -233,11 +233,6 @@ export default function District51Map() {
     });
 
     map.on("load", () => {
-      // Dark config for Standard style
-      map.setConfigProperty("basemap", "lightPreset", "night");
-      map.setConfigProperty("basemap", "showPointOfInterestLabels", false);
-      map.setConfigProperty("basemap", "showRoadLabels", true);
-
       // ── District boundary ───────────────────────────────────────────────
       if (districtGeo) addDistrictLayers(map, districtGeo);
 
@@ -435,7 +430,7 @@ export default function District51Map() {
       `}</style>
 
       {/* Map */}
-      <div ref={mapContainer} style={{ width: '100%', height: '100vh' }} />
+      <div ref={mapContainer} style={{ width: '100%', height: 'calc(100vh - 220px)' }} />
 
       {/* ── TOP OVERLAY ── */}
       <div className="absolute top-0 left-0 right-0 z-10 p-3 flex flex-col gap-2 pointer-events-none">
