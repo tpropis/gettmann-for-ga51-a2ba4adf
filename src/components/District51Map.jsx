@@ -767,7 +767,7 @@ export default function District51Map() {
           {" "}· Precinct boundaries subject to change
         </span>
       </div>
-    </>
+    </div>
   );
 }
 
