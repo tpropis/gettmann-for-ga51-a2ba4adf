@@ -346,13 +346,22 @@ export default function District51Map() {
     });
   }
 
-  function addMarkers(map) {
-    const addGroup = (locations, color, type) => {
-      locations.forEach((loc) => {
+  async function addMarkers(map) {
+    const addGroup = async (locations, color, type) => {
+      // Geocode all addresses in parallel via Mapbox API
+      const geocoded = await Promise.all(
+        locations.map(async (loc) => ({
+          ...loc,
+          coords: await geocodeAddress(loc.address),
+        }))
+      );
+
+      geocoded.forEach((loc) => {
+        if (!loc.coords) return; // skip if geocoding failed
+
         const el = document.createElement("div");
         el.innerHTML = makePinSVG(color);
         el.style.cursor = "pointer";
-        // No transform/scaling — keeps the pin (and popup anchor) perfectly still.
 
         const popup = new mapboxgl.Popup({
           offset: 28,
@@ -362,7 +371,7 @@ export default function District51Map() {
           closeOnClick: false,
         }).setHTML(popupHTML({ ...loc, type }));
 
-        const marker = new mapboxgl.Marker({ element: el })
+        new mapboxgl.Marker({ element: el })
           .setLngLat(loc.coords)
           .addTo(map);
 
@@ -375,7 +384,6 @@ export default function District51Map() {
           }
         };
         const hidePopup = () => {
-          // small delay so moving cursor from pin → popup doesn't flicker
           hoverTimer = setTimeout(() => {
             popup.remove();
           }, 120);
@@ -385,7 +393,6 @@ export default function District51Map() {
         el.addEventListener("mouseleave", hidePopup);
         el.addEventListener("click", showPopup);
 
-        // Keep popup open while hovering over it
         popup.on("open", () => {
           const popupEl = popup.getElement();
           if (popupEl) {
