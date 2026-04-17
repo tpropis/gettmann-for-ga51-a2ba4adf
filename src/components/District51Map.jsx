@@ -134,7 +134,7 @@ function makePinSVG(color) {
 // ─── POPUP COMPONENT (rendered as HTML string) ─────────────────────────────────
 
 function popupHTML({ name, address, type }) {
-  const accent = type === "early" ? "#22d3ee" : "#ef4444";
+  const accent = type === "early" ? CYAN : ORANGE;
   const label  = type === "early" ? "EARLY VOTING" : "ELECTION DAY";
   return `
     <div style="
@@ -321,7 +321,7 @@ export default function District51Map() {
       type: "line",
       source: "district51",
       paint: {
-        "line-color": DISTRICT_COLOR,
+        "line-color": RED,
         "line-width": 2,
         "line-blur": 3,
         "line-opacity": 0.95,
@@ -379,8 +379,8 @@ export default function District51Map() {
       });
     };
 
-    addGroup(EARLY_VOTING,  "#22d3ee", "early");
-    addGroup(ELECTION_DAY,  "#ef4444", "election");
+    addGroup(EARLY_VOTING,  CYAN,   "early");
+    addGroup(ELECTION_DAY,  ORANGE, "election");
   }
 
   // ── Address search ─────────────────────────────────────────────────────────
@@ -608,9 +608,9 @@ export default function District51Map() {
             <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", color: "#64748b", marginBottom: 8, textTransform: "uppercase" }}>
               Map Legend
             </div>
-            <LegendRow color="#BA0C2F" label="District 51 Boundary" />
-            <LegendRow color="#22d3ee" label="Early Voting Location" pin />
-            <LegendRow color="#ef4444" label="Election Day Precinct" pin />
+            <LegendRow color={RED}    label="District 51 Boundary" />
+            <LegendRow color={CYAN}   label={`Early Voting (${EARLY_VOTING.length})`} pin />
+            <LegendRow color={ORANGE} label={`Election Day (${ELECTION_DAY.length})`} pin />
           </div>
         )}
       </div>
