@@ -52,7 +52,10 @@ export default function DistrictMap() {
       </div>
 
       {/* Map fills remaining viewport */}
-      <div className="flex-1 relative overflow-hidden min-h-0 w-full">
+      <div
+        className="flex-1 relative overflow-hidden min-h-0 w-full"
+        style={{ position: "relative", minHeight: "calc(100vh - 80px)" }}
+      >
         <District51Map />
       </div>
     </div>
