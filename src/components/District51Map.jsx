@@ -616,6 +616,101 @@ export default function District51Map() {
         )}
       </div>
 
+      {/* ── KEY DATES PANEL ── */}
+      <div className="absolute z-10" style={{ top: 12, right: 12, maxWidth: 280 }}>
+        <button
+          onClick={() => setShowDates((v) => !v)}
+          style={{
+            background: NAVY,
+            border: `1px solid ${RED}`,
+            borderRadius: 8,
+            color: "#fff",
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            padding: "6px 12px",
+            cursor: "pointer",
+            backdropFilter: "blur(8px)",
+            fontFamily: "inherit",
+            display: "block",
+            marginLeft: "auto",
+            marginBottom: 6,
+          }}
+        >
+          {showDates ? "Hide" : "Show"} Key Dates
+        </button>
+
+        {showDates && (
+          <div
+            style={{
+              background: "rgba(3,7,18,0.92)",
+              border: `1px solid ${RED}55`,
+              borderRadius: 10,
+              overflow: "hidden",
+              backdropFilter: "blur(10px)",
+              boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+            }}
+          >
+            <div style={{
+              background: NAVY,
+              padding: "10px 14px",
+              borderBottom: `2px solid ${RED}`,
+            }}>
+              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", color: GOLD, textTransform: "uppercase" }}>
+                HD 51 · Nov 3, 2026
+              </div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginTop: 2 }}>
+                Key Election Dates
+              </div>
+            </div>
+            <div>
+              {KEY_DATES.map((d, i) => (
+                <div
+                  key={d.event}
+                  style={{
+                    padding: "8px 14px",
+                    borderBottom: i < KEY_DATES.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
+                    background: i % 2 === 0 ? "transparent" : "rgba(255,255,255,0.02)",
+                  }}
+                >
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8, alignItems: "baseline" }}>
+                    <span style={{ fontSize: 11, fontWeight: 600, color: "#e2e8f0", lineHeight: 1.3 }}>
+                      {d.event}
+                    </span>
+                    <span style={{ fontSize: 10, fontWeight: 700, color: RED, whiteSpace: "nowrap" }}>
+                      {d.date}
+                    </span>
+                  </div>
+                  <div style={{ fontSize: 10, color: "#64748b", marginTop: 2, lineHeight: 1.3 }}>
+                    {d.note}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <a
+              href="https://mvp.sos.ga.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block",
+                textAlign: "center",
+                background: RED,
+                color: "#fff",
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                padding: "8px",
+                textDecoration: "none",
+              }}
+            >
+              Verify Your Precinct →
+            </a>
+          </div>
+        )}
+      </div>
+
       {/* ── FOOTER DISCLAIMER ── */}
       <div
         className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center gap-2 px-4 py-2"
