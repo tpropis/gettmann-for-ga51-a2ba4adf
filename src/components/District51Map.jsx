@@ -521,7 +521,7 @@ export default function District51Map() {
       `}</style>
 
       {/* Map */}
-      <div ref={mapContainer} style={{ width: '100%', height: 'calc(100vh - 220px)' }} />
+      <div id="map-container" ref={mapContainer} />
 
       {/* ── TOP OVERLAY ── */}
       <div className="absolute top-0 left-0 right-0 z-10 p-3 flex flex-col gap-2 pointer-events-none">
