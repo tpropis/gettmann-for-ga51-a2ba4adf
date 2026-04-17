@@ -232,7 +232,29 @@ export default function District51Map() {
       attributionControl: false,
     });
 
+    const handleResize = () => {
+      map.resize();
+    };
+
+    const resizeObserver =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(() => handleResize())
+        : null;
+
+    if (resizeObserver && mapContainer.current) {
+      resizeObserver.observe(mapContainer.current);
+    }
+
+    const resizeTimeouts = [250, 1000].map((delay) =>
+      window.setTimeout(() => {
+        handleResize();
+      }, delay)
+    );
+
     map.on("load", () => {
+      handleResize();
+      window.requestAnimationFrame(handleResize);
+
       // ── District boundary ───────────────────────────────────────────────
       if (districtGeo) addDistrictLayers(map, districtGeo);
 
@@ -243,9 +265,17 @@ export default function District51Map() {
       map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "bottom-right");
     });
 
+    map.on("error", (event) => {
+      console.error("Mapbox map error:", event?.error || event);
+    });
+
+    window.addEventListener("resize", handleResize);
     mapRef.current = map;
 
     return () => {
+      window.removeEventListener("resize", handleResize);
+      resizeTimeouts.forEach((timeoutId) => window.clearTimeout(timeoutId));
+      resizeObserver?.disconnect();
       map.remove();
       mapRef.current = null;
     };
@@ -257,7 +287,10 @@ export default function District51Map() {
     const map = mapRef.current;
     if (!map || !districtGeo) return;
 
-    const addWhenReady = () => addDistrictLayers(map, districtGeo);
+    const addWhenReady = () => {
+      addDistrictLayers(map, districtGeo);
+      map.resize();
+    };
 
     if (map.isStyleLoaded()) {
       addWhenReady();
