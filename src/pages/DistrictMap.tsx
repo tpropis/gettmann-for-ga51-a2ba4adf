@@ -5,7 +5,10 @@ import { MapPin, ExternalLink } from "lucide-react";
 
 export default function DistrictMap() {
   return (
-    <div className="h-screen overflow-hidden bg-campaign-light flex flex-col">
+    <div
+      className="h-screen overflow-hidden bg-campaign-light flex flex-col"
+      style={{ minHeight: "calc(100vh - 80px)", position: "relative" }}
+    >
       <CampaignHeader />
 
       {/* Page header bar */}
