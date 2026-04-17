@@ -206,6 +206,7 @@ export default function District51Map() {
   const [statusMsg, setStatusMsg]       = useState(null); // { type: "success"|"outside"|"error", text }
   const [isSearching, setIsSearching]   = useState(false);
   const [legend, setLegend]             = useState(true);
+  const [showDates, setShowDates]       = useState(true);
 
   // ── Load district GeoJSON ──────────────────────────────────────────────────
   useEffect(() => {
