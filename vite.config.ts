@@ -20,6 +20,6 @@ export default defineConfig(({ mode }) => ({
     dedupe: ["react", "react-dom"],
   },
   optimizeDeps: {
-    exclude: ["mapbox-gl"],
+    include: ["mapbox-gl"],
   },
 }));
