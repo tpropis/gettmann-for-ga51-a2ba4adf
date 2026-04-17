@@ -24,58 +24,53 @@ const MAPBOX_TOKEN = "pk.eyJ1Ijoia2VpdGhmb3JnYSIsImEiOiJjbW8yNGJ2dmcwZXhxMnFwczY
 const DISTRICT_GEOJSON_URL =
   "https://gismaps.fultoncountyga.gov/arcgispub/rest/services/Elections/VotingDistrictsMapViewer_Public/MapServer/7/query?where=DISTRICT+%3D+%27051%27&outFields=*&f=geojson";
 
+// Tightened to HD51 + immediate Fulton neighbors (Roswell, Sandy Springs,
+// Johns Creek, Alpharetta, Milton). Source: HD51_Voting_Locations_Nov2026_CLEAN.xlsx
 const BOUNDS = [
-  [-84.75, 33.50], // SW — covers all Fulton County
-  [-84.10, 34.15], // NE
+  [-84.50, 33.88], // SW
+  [-84.15, 34.15], // NE
 ];
 
-const CENTER = [-84.31, 34.025];
+const CENTER = [-84.32, 34.00];
 const INITIAL_ZOOM = 11;
 
-// Georgia Red
-const DISTRICT_COLOR = "#BA0C2F";
-const DISTRICT_FILL  = "rgba(186,12,47,0.08)";
+// Brand palette (matches spreadsheet color system)
+const NAVY    = "#1B2A4A"; // header
+const RED     = "#BA0C2F"; // accent / district
+const GOLD    = "#dbb04a"; // campaign gold
+const CYAN    = "#22d3ee"; // early voting
+const ORANGE  = "#f97316"; // election day
+const DISTRICT_FILL = "rgba(186,12,47,0.10)";
 
-// Polling locations — Source: fultoncountyga.gov (Nov 3, 2026 General Election)
-// Early Voting: Oct 13–Oct 30, 2026 — any Fulton County voter may use any location
+// EARLY VOTING — Oct 13–30, 2026 · Any Fulton voter may use any location
+// Source: fultoncountyga.gov (CLEAN list — closest 10 to HD51)
 const EARLY_VOTING = [
-  { id: "ev1",  name: "Adams Park Library", address: "2231 Campbellton Road SW, Atlanta, GA 30311", area: "South Fulton", coords: [-84.46168, 33.70571] },
-  { id: "ev2",  name: "Alpharetta Branch Library", address: "10 Park Plaza, Alpharetta, GA 30009", area: "North Fulton", coords: [-84.29229, 34.07394] },
-  { id: "ev3",  name: "Buckhead Library", address: "269 Buckhead Avenue, Atlanta, GA 30305", area: "Buckhead", coords: [-84.37937, 33.83765] },
-  { id: "ev4",  name: "C.T. Martin Natatorium and Recreation Center", address: "3201 Martin Luther King Jr. Drive SW, Atlanta, GA 30311", area: "South Atlanta", coords: [-84.49186, 33.75411] },
-  { id: "ev5",  name: "East Point Library", address: "2757 Main Street, East Point, GA 30344", area: "East Point", coords: [-84.44065, 33.68037] },
-  { id: "ev6",  name: "East Roswell Library ★", address: "2301 Holcomb Bridge Road, Roswell, GA 30076", area: "District 51", coords: [-84.29442, 34.00289] },
-  { id: "ev7",  name: "Elections Hub and Operations Center", address: "5600 Campbellton Fairburn Road, Union City, GA 30213", area: "South Fulton", coords: [-84.60585, 33.60605] },
-  { id: "ev8",  name: "Etris Darnell Community Center", address: "5285 Lakeside Drive, Union City, GA 30291", area: "South Fulton", coords: [-84.55728, 33.58752] },
-  { id: "ev9",  name: "Evelyn G. Lowery Library at Cascade", address: "3665 Cascade Road SW, South Fulton, GA 30331", area: "South Fulton", coords: [-84.50668, 33.72453] },
-  { id: "ev10", name: "Fairburn Annex", address: "40 Washington Street, Fairburn, GA 30213", area: "South Fulton", coords: [-84.58318, 33.56688] },
-  { id: "ev11", name: "Flipper Temple AME Church", address: "580 Atlanta Student Movement Blvd, Atlanta, GA 30314", area: "West Atlanta", coords: [-84.40674, 33.74894] },
-  { id: "ev12", name: "Fulton County Health and Human Services - North", address: "4700 North Point Parkway, Alpharetta, GA 30005", area: "North Fulton", coords: [-84.26855, 34.05597] },
-  { id: "ev13", name: "Gladys S. Dennard Library at South Fulton", address: "4055 Flat Shoals Road, South Fulton, GA 30291", area: "South Fulton", coords: [-84.51959, 33.58782] },
-  { id: "ev14", name: "Grant Park Recreation Center", address: "537 Park Avenue SE, Atlanta, GA 30312", area: "Grant Park", coords: [-84.37042, 33.73974] },
-  { id: "ev15", name: "Hugh C. Conley Recreation Center", address: "3636 College Street, College Park, GA 30337", area: "College Park", coords: [-84.45098, 33.65594] },
-  { id: "ev16", name: "Joan P. Garner Library at Ponce de Leon", address: "980 Ponce De Leon Avenue NE, Atlanta, GA 30306", area: "Midtown", coords: [-84.35516, 33.77409] },
-  { id: "ev17", name: "Johns Creek Environmental Campus ★", address: "8100 Holcomb Bridge Road, Roswell, GA 30022", area: "District 51", coords: [-84.26617, 33.97702] },
-  { id: "ev18", name: "Mechanicsville Library", address: "400 Formwalt Street SW, Atlanta, GA 30312", area: "Mechanicsville", coords: [-84.39542, 33.7435] },
-  { id: "ev19", name: "Metropolitan Library", address: "1332 Metropolitan Parkway, Atlanta, GA 30310", area: "South Atlanta", coords: [-84.4074, 33.71878] },
-  { id: "ev20", name: "Milton Library", address: "855 Mayfield Road, Milton, GA 30009", area: "North Fulton", coords: [-84.33661, 34.09014] },
-  { id: "ev21", name: "North Fulton Service Center ★", address: "7741 Roswell Road, Sandy Springs, GA 30350", area: "District 51", coords: [-84.36267, 33.96599] },
-  { id: "ev22", name: "Northeast Spruill Oaks Library ★", address: "9560 Spruill Road, Johns Creek, GA 30022", area: "District 51 Adjacent", coords: [-84.22426, 34.0142] },
-  { id: "ev23", name: "Northside Library", address: "3295 Northside Parkway NW, Atlanta, GA 30327", area: "Buckhead/Northside", coords: [-84.42539, 33.84508] },
-  { id: "ev24", name: "Northwest Library at Scotts Crossing", address: "2489 Perry Boulevard NW, Atlanta, GA 30318", area: "Northwest Atlanta", coords: [-84.47019, 33.80525] },
-  { id: "ev25", name: "Palmetto Library", address: "9111 Cascade Palmetto Highway, Palmetto, GA 30268", area: "South Fulton", coords: [-84.66427, 33.53052] },
-  { id: "ev26", name: "Robert F. Fulton Library at Ocee", address: "5090 Abbotts Bridge Road, Johns Creek, GA 30005", area: "North Fulton", coords: [-84.20968, 34.06466] },
-  { id: "ev27", name: "Roswell Library ★", address: "115 Norcross Street, Roswell, GA 30075", area: "District 51", coords: [-84.35797, 34.02513] },
-  { id: "ev28", name: "Sandy Springs Library ★", address: "395 Mount Vernon Highway, Sandy Springs, GA 30328", area: "District 51 Adjacent", coords: [-84.37434, 33.92409] },
-  { id: "ev29", name: "South Fulton Service Center", address: "5600 Stonewall Tell Road, South Fulton, GA 30349", area: "South Fulton", coords: [-84.54987, 33.60132] },
-  { id: "ev30", name: "Southwest Arts Center", address: "915 New Hope Road SW, South Fulton, GA 30331", area: "South Fulton", coords: [-84.54156, 33.72974] },
-  { id: "ev31", name: "Welcome All Recreation Center", address: "4255 Will Lee Road, Atlanta, GA 30349", area: "South Fulton", coords: [-84.52647, 33.63188] },
-  { id: "ev32", name: "Wolf Creek Library", address: "3100 Enon Road SW, Atlanta, GA 30331", area: "South Fulton", coords: [-84.57422, 33.67256] },
+  { id: "ev1",  name: "East Roswell Library",            address: "2301 Holcomb Bridge Road, Roswell, GA 30076",       coords: [-84.29442, 34.00289] },
+  { id: "ev2",  name: "Roswell Library",                 address: "115 Norcross Street, Roswell, GA 30075",            coords: [-84.35797, 34.02513] },
+  { id: "ev3",  name: "North Fulton Service Center",     address: "7741 Roswell Road, Sandy Springs, GA 30350",        coords: [-84.36267, 33.96599] },
+  { id: "ev4",  name: "Sandy Springs Library",           address: "395 Mount Vernon Highway, Sandy Springs, GA 30328", coords: [-84.37434, 33.92409] },
+  { id: "ev5",  name: "Johns Creek Environmental Campus",address: "8100 Holcomb Bridge Road, Johns Creek, GA 30022",   coords: [-84.26617, 33.97702] },
+  { id: "ev6",  name: "Northeast Spruill Oaks Library",  address: "9560 Spruill Road, Johns Creek, GA 30022",          coords: [-84.22426, 34.0142]  },
+  { id: "ev7",  name: "Robert F. Fulton Library at Ocee",address: "5090 Abbotts Bridge Road, Johns Creek, GA 30005",   coords: [-84.20968, 34.06466] },
+  { id: "ev8",  name: "Alpharetta Branch Library",       address: "10 Park Plaza, Alpharetta, GA 30009",               coords: [-84.29229, 34.07394] },
+  { id: "ev9",  name: "Fulton County HHS – North",       address: "4700 North Point Parkway, Alpharetta, GA 30005",    coords: [-84.26855, 34.05597] },
+  { id: "ev10", name: "Milton Library",                  address: "855 Mayfield Road, Milton, GA 30009",               coords: [-84.33661, 34.09014] },
 ];
 
+// ELECTION DAY — Nov 3, 2026 · Confirmed HD51 precincts (verify yours at mvp.sos.ga.gov)
 const ELECTION_DAY = [
-  { id: "ed1", name: "Hembree Park Recreation Center", address: "850 Hembree Rd, Roswell, GA 30076", area: "HD51 Precinct", coords: [-84.33725, 34.06321] },
-  { id: "ed2", name: "East Roswell Recreation Center", address: "9000 Fouts Rd, Roswell, GA 30076", area: "HD51 Precinct", coords: [-84.29694, 34.00053] },
+  { id: "ed1", name: "Hembree Park Recreation Center",   address: "850 Hembree Rd, Roswell, GA 30076", coords: [-84.33725, 34.06321] },
+  { id: "ed2", name: "East Roswell Recreation Center",   address: "9000 Fouts Rd, Roswell, GA 30076",  coords: [-84.29694, 34.00053] },
+];
+
+// KEY DATES — Source: Key Dates tab
+const KEY_DATES = [
+  { event: "Voter Registration Deadline",     date: "October 5, 2026",   note: "Includes address/name changes" },
+  { event: "Absentee Ballot Request Deadline",date: "October 23, 2026",  note: "Must be received by county" },
+  { event: "Early Voting Begins",             date: "October 13, 2026",  note: "Any Fulton location" },
+  { event: "Early Voting Ends",               date: "October 30, 2026",  note: "Last day for in-person early vote" },
+  { event: "Election Day",                    date: "November 3, 2026",  note: "Assigned precinct only · 7AM–7PM" },
+  { event: "Runoff (if needed)",              date: "December 1, 2026",  note: "Same polling locations" },
 ];
 
 // ─── HELPERS ───────────────────────────────────────────────────────────────────
