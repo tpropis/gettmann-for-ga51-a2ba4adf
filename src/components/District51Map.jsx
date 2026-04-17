@@ -408,8 +408,7 @@ export default function District51Map() {
 
   return (
     <div
-      className="relative w-full rounded-xl overflow-hidden"
-      style={{ height: "600px", background: "#030712", fontFamily: "'DM Sans', sans-serif" }}
+      style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, background: "#030712", fontFamily: "'DM Sans', sans-serif" }}
     >
       {/* Google Font */}
       <style>{`
