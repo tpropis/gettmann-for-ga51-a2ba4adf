@@ -340,27 +340,48 @@ export default function District51Map() {
         const el = document.createElement("div");
         el.innerHTML = makePinSVG(color);
         el.style.cursor = "pointer";
-        el.style.transition = "transform 0.2s";
-        el.addEventListener("mouseenter", () => {
-          el.style.transform = "scale(1.2) translateY(-3px)";
-        });
-        el.addEventListener("mouseleave", () => {
-          el.style.transform = "scale(1) translateY(0)";
-        });
+        // No transform/scaling — keeps the pin (and popup anchor) perfectly still.
 
         const popup = new mapboxgl.Popup({
           offset: 28,
           closeButton: false,
           className: "d51-popup",
           maxWidth: "260px",
+          closeOnClick: false,
+besoin: undefined,
         }).setHTML(popupHTML({ ...loc, type }));
 
-        new mapboxgl.Marker({ element: el })
+        const marker = new mapboxgl.Marker({ element: el })
           .setLngLat(loc.coords)
-          .setPopup(popup)
           .addTo(map);
 
-        el.addEventListener("click", () => popup.addTo(map));
+        let hoverTimer = null;
+
+        const showPopup = () => {
+          if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+          if (!popup.isOpen()) {
+            popup.setLngLat(loc.coords).addTo(map);
+          }
+        };
+        const hidePopup = () => {
+          // small delay so moving cursor from pin → popup doesn't flicker
+          hoverTimer = setTimeout(() => {
+            popup.remove();
+          }, 120);
+        };
+
+        el.addEventListener("mouseenter", showPopup);
+        el.addEventListener("mouseleave", hidePopup);
+        el.addEventListener("click", showPopup);
+
+        // Keep popup open while hovering over it
+        popup.on("open", () => {
+          const popupEl = popup.getElement();
+          if (popupEl) {
+            popupEl.addEventListener("mouseenter", showPopup);
+            popupEl.addEventListener("mouseleave", hidePopup);
+          }
+        });
       });
     };
 
