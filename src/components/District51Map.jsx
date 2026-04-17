@@ -42,20 +42,25 @@ const CYAN    = "#22d3ee"; // early voting
 const ORANGE  = "#f97316"; // election day
 const DISTRICT_FILL = "rgba(186,12,47,0.10)";
 
-// EARLY VOTING — Oct 13–30, 2026 · Filtered to locations inside or directly
-// bordering HD51 (Roswell / north Sandy Springs / west Johns Creek).
-// Source: HD51_Voting_Locations_Nov2026_CLEAN.xlsx
+// EARLY VOTING — Oct 13–30, 2026 · 7AM–7PM weekdays
+// Coordinates are geocoded at runtime via Mapbox Geocoding API.
 const EARLY_VOTING = [
-  { id: "ev1", name: "East Roswell Library",             address: "2301 Holcomb Bridge Road, Roswell, GA 30076",       coords: [-84.29442, 34.00289] },
-  { id: "ev2", name: "Roswell Library",                  address: "115 Norcross Street, Roswell, GA 30075",            coords: [-84.35797, 34.02513] },
-  { id: "ev3", name: "North Fulton Service Center",      address: "7741 Roswell Road, Sandy Springs, GA 30350",        coords: [-84.36267, 33.96599] },
-  { id: "ev4", name: "Johns Creek Environmental Campus", address: "8100 Holcomb Bridge Road, Johns Creek, GA 30022",   coords: [-84.26617, 33.97702] },
+  { id: "ev1",  name: "East Roswell Library",                       address: "2301 Holcomb Bridge Road, Roswell, GA 30076" },
+  { id: "ev2",  name: "Roswell Library",                            address: "115 Norcross Street, Roswell, GA 30075" },
+  { id: "ev3",  name: "North Fulton Service Center",                address: "7741 Roswell Road, Sandy Springs, GA 30350" },
+  { id: "ev4",  name: "Sandy Springs Library",                      address: "395 Mount Vernon Highway, Sandy Springs, GA 30328" },
+  { id: "ev5",  name: "Johns Creek Environmental Campus",           address: "8100 Holcomb Bridge Road, Johns Creek, GA 30022" },
+  { id: "ev6",  name: "Northeast Spruill Oaks Library",             address: "9560 Spruill Road, Johns Creek, GA 30022" },
+  { id: "ev7",  name: "Robert F. Fulton Library at Ocee",           address: "5090 Abbotts Bridge Road, Johns Creek, GA 30005" },
+  { id: "ev8",  name: "Alpharetta Branch Library",                  address: "10 Park Plaza, Alpharetta, GA 30009" },
+  { id: "ev9",  name: "Fulton County HHS North",                    address: "4700 North Point Parkway, Alpharetta, GA 30005" },
+  { id: "ev10", name: "Milton Library",                             address: "855 Mayfield Road, Milton, GA 30009" },
 ];
 
-// ELECTION DAY — Nov 3, 2026 · Confirmed HD51 precincts
+// ELECTION DAY — Nov 3, 2026 · 7AM–7PM
 const ELECTION_DAY = [
-  { id: "ed1", name: "Hembree Park Recreation Center",   address: "850 Hembree Rd, Roswell, GA 30076", coords: [-84.33725, 34.06321] },
-  { id: "ed2", name: "East Roswell Recreation Center",   address: "9000 Fouts Rd, Roswell, GA 30076",  coords: [-84.29694, 34.00053] },
+  { id: "ed1", name: "Hembree Park Recreation Center", address: "850 Hembree Rd, Roswell, GA 30076" },
+  { id: "ed2", name: "East Roswell Recreation Center", address: "9000 Fouts Rd, Roswell, GA 30076" },
 ];
 
 // KEY DATES — Source: Key Dates tab
@@ -99,6 +104,21 @@ function pointInPolygon(point, polygon) {
 
 function mapsUrl(address) {
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+}
+
+// Geocode a single address via Mapbox API
+async function geocodeAddress(address) {
+  try {
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+      address
+    )}.json?access_token=${MAPBOX_TOKEN}&country=US&proximity=-84.31,34.025&limit=1`;
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.features?.length) return data.features[0].center; // [lng, lat]
+  } catch (err) {
+    console.warn("Geocode failed for:", address, err);
+  }
+  return null;
 }
 
 // ─── CUSTOM MARKER SVG ─────────────────────────────────────────────────────────
@@ -326,13 +346,22 @@ export default function District51Map() {
     });
   }
 
-  function addMarkers(map) {
-    const addGroup = (locations, color, type) => {
-      locations.forEach((loc) => {
+  async function addMarkers(map) {
+    const addGroup = async (locations, color, type) => {
+      // Geocode all addresses in parallel via Mapbox API
+      const geocoded = await Promise.all(
+        locations.map(async (loc) => ({
+          ...loc,
+          coords: await geocodeAddress(loc.address),
+        }))
+      );
+
+      geocoded.forEach((loc) => {
+        if (!loc.coords) return; // skip if geocoding failed
+
         const el = document.createElement("div");
         el.innerHTML = makePinSVG(color);
         el.style.cursor = "pointer";
-        // No transform/scaling — keeps the pin (and popup anchor) perfectly still.
 
         const popup = new mapboxgl.Popup({
           offset: 28,
@@ -342,7 +371,7 @@ export default function District51Map() {
           closeOnClick: false,
         }).setHTML(popupHTML({ ...loc, type }));
 
-        const marker = new mapboxgl.Marker({ element: el })
+        new mapboxgl.Marker({ element: el })
           .setLngLat(loc.coords)
           .addTo(map);
 
@@ -355,7 +384,6 @@ export default function District51Map() {
           }
         };
         const hidePopup = () => {
-          // small delay so moving cursor from pin → popup doesn't flicker
           hoverTimer = setTimeout(() => {
             popup.remove();
           }, 120);
@@ -365,7 +393,6 @@ export default function District51Map() {
         el.addEventListener("mouseleave", hidePopup);
         el.addEventListener("click", showPopup);
 
-        // Keep popup open while hovering over it
         popup.on("open", () => {
           const popupEl = popup.getElement();
           if (popupEl) {
