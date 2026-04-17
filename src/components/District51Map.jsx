@@ -348,7 +348,6 @@ export default function District51Map() {
           className: "d51-popup",
           maxWidth: "260px",
           closeOnClick: false,
-besoin: undefined,
         }).setHTML(popupHTML({ ...loc, type }));
 
         const marker = new mapboxgl.Marker({ element: el })
