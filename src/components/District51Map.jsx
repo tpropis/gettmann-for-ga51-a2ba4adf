@@ -106,6 +106,21 @@ function mapsUrl(address) {
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
 }
 
+// Geocode a single address via Mapbox API
+async function geocodeAddress(address) {
+  try {
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+      address
+    )}.json?access_token=${MAPBOX_TOKEN}&country=US&proximity=-84.31,34.025&limit=1`;
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.features?.length) return data.features[0].center; // [lng, lat]
+  } catch (err) {
+    console.warn("Geocode failed for:", address, err);
+  }
+  return null;
+}
+
 // ─── CUSTOM MARKER SVG ─────────────────────────────────────────────────────────
 
 function makePinSVG(color) {
