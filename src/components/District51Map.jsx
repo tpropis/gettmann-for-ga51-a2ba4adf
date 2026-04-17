@@ -403,7 +403,31 @@ export default function District51Map() {
         }
 
         const [lng, lat] = data.features[0].center;
-        mapRef.current?.flyTo({ center: [lng, lat], zoom: 14, duration: 1400 });
+        const map = mapRef.current;
+
+        if (map) {
+          // Temporarily relax bounds so we can fly to any geocoded address
+          map.setMaxBounds(null);
+          map.flyTo({ center: [lng, lat], zoom: 15, duration: 1400, essential: true });
+
+          // Drop / move a marker at the searched address
+          if (searchMarkerRef.current) {
+            searchMarkerRef.current.setLngLat([lng, lat]);
+          } else {
+            const el = document.createElement("div");
+            el.style.cssText = `
+              width:18px;height:18px;
+              border-radius:50%;
+              background:#BA0C2F;
+              border:3px solid white;
+              box-shadow:0 0 16px #BA0C2F;
+              animation: pulse-ring 1.6s infinite;
+            `;
+            searchMarkerRef.current = new mapboxgl.Marker({ element: el })
+              .setLngLat([lng, lat])
+              .addTo(map);
+          }
+        }
 
         // Point-in-polygon check
         if (districtGeo) {
@@ -415,19 +439,6 @@ export default function District51Map() {
               type: "success",
               text: "Welcome Neighbor! You are in District 51.",
             });
-
-            // Drop a temporary marker
-            const el = document.createElement("div");
-            el.style.cssText = `
-              width:16px;height:16px;
-              border-radius:50%;
-              background:#BA0C2F;
-              border:2px solid white;
-              box-shadow:0 0 12px #BA0C2F;
-            `;
-            new mapboxgl.Marker({ element: el })
-              .setLngLat([lng, lat])
-              .addTo(mapRef.current);
           } else if (inside === false) {
             setStatusMsg({
               type: "outside",
