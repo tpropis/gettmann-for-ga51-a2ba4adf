@@ -490,10 +490,13 @@ export default function District51Map() {
   };
 
   return (
-    <>
+    <div style={{ position: 'fixed', top: '80px', left: 0, right: 0, bottom: 0, zIndex: 0 }}>
       {/* Google Font */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+        #map-container { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+        #map-container .mapboxgl-map { position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100% !important; width: 100% !important; }
 
         .mapboxgl-popup-content {
           background: transparent !important;
