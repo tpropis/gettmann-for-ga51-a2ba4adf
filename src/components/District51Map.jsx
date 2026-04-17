@@ -195,6 +195,7 @@ export default function District51Map() {
   const mapContainer = useRef(null);
   const mapRef       = useRef(null);
   const geocoderInput = useRef(null);
+  const searchMarkerRef = useRef(null);
 
   const [districtGeo, setDistrictGeo]   = useState(null);
   const [searchQuery, setSearchQuery]   = useState("");
