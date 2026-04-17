@@ -5,7 +5,10 @@ import { MapPin, ExternalLink } from "lucide-react";
 
 export default function DistrictMap() {
   return (
-    <div className="h-screen overflow-hidden bg-campaign-light flex flex-col">
+    <div
+      className="h-screen overflow-hidden bg-campaign-light flex flex-col"
+      style={{ minHeight: "calc(100vh - 80px)", position: "relative" }}
+    >
       <CampaignHeader />
 
       {/* Page header bar */}
@@ -49,7 +52,10 @@ export default function DistrictMap() {
       </div>
 
       {/* Map fills remaining viewport */}
-      <div className="flex-1 relative overflow-hidden min-h-0 w-full">
+      <div
+        className="flex-1 relative overflow-hidden min-h-0 w-full"
+        style={{ position: "relative", minHeight: "calc(100vh - 80px)" }}
+      >
         <District51Map />
       </div>
     </div>

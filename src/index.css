@@ -78,6 +78,11 @@
   }
 }
 
+/* ─── Mapbox container height fix (production build) ─── */
+.mapboxgl-map {
+  height: 100% !important;
+}
+
 /* ─── Section divider utility ─── */
 .section-divider {
   width: 80px;

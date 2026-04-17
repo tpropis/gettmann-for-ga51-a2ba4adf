@@ -64,15 +64,15 @@ const CampaignFooter = () => (
               Keith@KeithforGA.com
             </a>
             <a
-              href="tel:+16782318730"
+              href="tel:+14702613103"
               className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors"
             >
               <Phone className="h-4 w-4 text-accent flex-shrink-0" />
-              (678) 231-8730
+              (470) 261-3103
             </a>
-            <div className="flex items-center gap-3 text-primary-foreground/60 text-sm">
-              <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
-              Sandy Springs, GA 30350
+            <div className="flex items-start gap-3 text-primary-foreground/60 text-sm">
+              <MapPin className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+              <span>Mail checks to:<br />20 Saddleview Run<br />Sandy Springs, GA 30350</span>
             </div>
           </div>
 
