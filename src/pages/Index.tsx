@@ -17,6 +17,7 @@ const Index = () => {
       <IssuesSection />
       <DonationSection />
       <GetInvolved />
+      <CommunityCouncilSection />
       <WhereToVote />
       <CampaignFooter />
     </>
