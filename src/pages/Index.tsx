@@ -5,6 +5,7 @@ import IssuesSection from "@/components/IssuesSection";
 import DonationSection from "@/components/DonationSection";
 import GetInvolved from "@/components/GetInvolved";
 import WhereToVote from "@/components/WhereToVote";
+import CommunityCouncilSection from "@/components/CommunityCouncilSection";
 import CampaignFooter from "@/components/CampaignFooter";
 
 const Index = () => {
@@ -16,6 +17,7 @@ const Index = () => {
       <IssuesSection />
       <DonationSection />
       <GetInvolved />
+      <CommunityCouncilSection />
       <WhereToVote />
       <CampaignFooter />
     </>

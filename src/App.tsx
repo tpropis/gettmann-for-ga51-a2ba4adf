@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 const DistrictMap = lazy(() => import("./pages/DistrictMap"));
+const CommunityCouncil = lazy(() => import("./pages/CommunityCouncil"));
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,20 @@ const App = () => (
                 }
               >
                 <DistrictMap />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/community-council"
+            element={
+              <Suspense
+                fallback={
+                  <div className="min-h-screen bg-campaign-light flex items-center justify-center">
+                    <div className="w-10 h-10 border-4 border-campaign-navy/20 border-t-campaign-navy rounded-full animate-spin" />
+                  </div>
+                }
+              >
+                <CommunityCouncil />
               </Suspense>
             }
           />
