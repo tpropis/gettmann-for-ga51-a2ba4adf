@@ -7,6 +7,7 @@ const navLinks = [
   { label: "About", href: "/#meet-keith" },
   { label: "Issues", href: "/#issues" },
   { label: "District Map", href: "/map" },
+  { label: "Have Your Say", href: "/community-council" },
   { label: "Get Involved", href: "/#get-involved" },
 ];
 
