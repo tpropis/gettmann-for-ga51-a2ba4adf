@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 const DistrictMap = lazy(() => import("./pages/DistrictMap"));
+const CommunityCouncil = lazy(() => import("./pages/CommunityCouncil"));
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
