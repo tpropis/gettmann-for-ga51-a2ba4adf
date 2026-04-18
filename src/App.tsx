@@ -36,6 +36,20 @@ const App = () => (
               </Suspense>
             }
           />
+          <Route
+            path="/community-council"
+            element={
+              <Suspense
+                fallback={
+                  <div className="min-h-screen bg-campaign-light flex items-center justify-center">
+                    <div className="w-10 h-10 border-4 border-campaign-navy/20 border-t-campaign-navy rounded-full animate-spin" />
+                  </div>
+                }
+              >
+                <CommunityCouncil />
+              </Suspense>
+            }
+          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
