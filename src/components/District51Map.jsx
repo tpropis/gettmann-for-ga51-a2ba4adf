@@ -24,8 +24,21 @@ const EARLY_VOTING = [
 const EARLY_HOURS = "Oct 13–30, 2026 · Mon–Fri 7AM–7PM";
 
 const ELECTION_DAY = [
-  { name: "Hembree Park Recreation Center", address: "850 Hembree Rd, Roswell, GA 30076" },
-  { name: "East Roswell Recreation Center", address: "9000 Fouts Rd, Roswell, GA 30076" },
+  { name: "Crabapple Middle School", address: "10900 Woodstock Rd, Roswell, GA 30075" },
+  { name: "Temple Beth Tikvah", address: "9955 Coleman Rd, Roswell, GA 30075" },
+  { name: "St. Andrews Catholic Church", address: "675 Riverside Rd, Roswell, GA 30075" },
+  { name: "East Roswell Branch Library", address: "2301 Holcomb Bridge Rd, Roswell, GA 30076" },
+  { name: "Elkins Pointe Middle School", address: "11290 Elkins Rd, Roswell, GA 30076" },
+  { name: "Northwood Elementary", address: "10200 Wooten Rd, Roswell, GA 30076" },
+  { name: "Mimosa Elementary School", address: "1550 Warsaw Rd, Roswell, GA 30076" },
+  { name: "Crosspointe Community Church", address: "77 East Crossville Rd, Roswell, GA 30075" },
+  { name: "Roswell High School", address: "11595 King Rd, Roswell, GA 30075" },
+  { name: "Roswell Library", address: "115 Norcross St, Roswell, GA 30075" },
+  { name: "North River Baptist Church", address: "12090 Hardscrabble Rd, Roswell, GA 30075" },
+  { name: "Esther Jackson Elementary", address: "1400 Martin Rd, Roswell, GA 30076" },
+  { name: "Johns Creek Environmental Campus", address: "8100 Holcomb Bridge Rd, Roswell, GA 30022" },
+  { name: "Hillside Elementary School", address: "9250 Scott Rd, Roswell, GA 30076" },
+  { name: "Mountain Park Community Building", address: "100 Lakeshore Dr, Mountain Park, GA 30075" },
 ];
 
 const ELECTION_HOURS = "Nov 3, 2026 · 7AM–7PM";
