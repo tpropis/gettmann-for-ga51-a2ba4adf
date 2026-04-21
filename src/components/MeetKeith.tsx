@@ -36,7 +36,43 @@ const MeetKeith = () => (
         <div className="section-divider" />
       </motion.div>
 
-      <div className="mt-12 grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-14 items-start">
+      {/* Mobile-only compact photo intro */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.15 }}
+        className="lg:hidden mt-10 grid grid-cols-5 gap-3"
+      >
+        <div className="col-span-3 relative overflow-hidden rounded-lg shadow-lg ring-1 ring-border/40">
+          <img
+            src={keithPortrait}
+            alt="Keith Gettmann official portrait"
+            className="w-full h-full object-cover"
+            style={{ aspectRatio: '4/5', objectPosition: '50% 20%' }}
+            loading="lazy"
+          />
+          <div className="absolute top-0 left-0 w-8 h-1 bg-accent" />
+          <div className="absolute top-0 left-0 w-1 h-8 bg-accent" />
+        </div>
+        <div className="col-span-2 flex flex-col gap-3">
+          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40 flex-1">
+            <img
+              src={keithFamily}
+              alt="Keith Gettmann with his wife and family dog"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '50% 30%' }}
+              loading="lazy"
+            />
+          </div>
+          <p className="text-[10px] text-muted-foreground tracking-wider uppercase font-semibold leading-tight">
+            Keith Gettmann<br/>
+            <span className="text-muted-foreground/70">Candidate · District 51</span>
+          </p>
+        </div>
+      </motion.div>
+
+      <div className="mt-10 lg:mt-12 grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-14 items-start">
         {/* Mission Statement Column */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -155,13 +191,13 @@ const MeetKeith = () => (
           </div>
         </motion.div>
 
-        {/* Photos Column */}
+        {/* Photos Column — Desktop only */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="space-y-5 lg:sticky lg:top-28"
+          className="hidden lg:block space-y-5 lg:sticky lg:top-28"
         >
           <div className="relative overflow-hidden rounded-lg shadow-xl ring-1 ring-border/40">
             <img
