@@ -1,8 +1,9 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Shield, TrendingDown, GraduationCap, HandCoins, Users, BookOpen, ArrowRight } from "lucide-react";
 import keithPhoto from "@/assets/keith_pushcard.jpg";
 import logo from "@/assets/logo_trans.svg";
+import { initAnalytics, trackEvent } from "@/lib/analytics";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
@@ -22,20 +23,52 @@ const Pushcard = () => {
   const tiltX = useTransform(rotateX, (v) => `${v}deg`);
   const tiltY = useTransform(rotateY, (v) => `${v}deg`);
 
+  // Throttle for tilt event (5s)
+  const lastTiltAt = useRef(0);
+  const TILT_THROTTLE_MS = 5000;
+  const TILT_THRESHOLD = 1.2; // deg of meaningful movement
+
+  const reportTilt = (source: "pointer" | "device", magnitude: number) => {
+    const now = Date.now();
+    if (magnitude < TILT_THRESHOLD) return;
+    if (now - lastTiltAt.current < TILT_THROTTLE_MS) return;
+    lastTiltAt.current = now;
+    trackEvent("pushcard_tilt", {
+      source,
+      magnitude: Number(magnitude.toFixed(2)),
+    });
+  };
+
   useEffect(() => {
     document.title = "Keith Gettmann · A Personal Note";
+
+    // Init GA4 + fire view
+    initAnalytics();
+    const referrer = typeof document !== "undefined" ? document.referrer : "";
+    const utmSource = new URLSearchParams(window.location.search).get("utm_source");
+    trackEvent("pushcard_view", {
+      page: "/card",
+      referrer,
+      utm_source: utmSource ?? "qr",
+      viewport: `${window.innerWidth}x${window.innerHeight}`,
+    });
+
     const handleOrient = (e: DeviceOrientationEvent) => {
       if (e.beta === null || e.gamma === null) return;
       const x = Math.max(-3, Math.min(3, (e.beta - 45) / 10));
       const y = Math.max(-3, Math.min(3, e.gamma / 10));
       rx.set(-x);
       ry.set(y);
+      reportTilt("device", Math.max(Math.abs(x), Math.abs(y)));
     };
     const handleMove = (e: PointerEvent) => {
       const cx = window.innerWidth / 2;
       const cy = window.innerHeight / 2;
-      ry.set(((e.clientX - cx) / cx) * 2.2);
-      rx.set(((cy - e.clientY) / cy) * 2.2);
+      const rxVal = ((cy - e.clientY) / cy) * 2.2;
+      const ryVal = ((e.clientX - cx) / cx) * 2.2;
+      ry.set(ryVal);
+      rx.set(rxVal);
+      reportTilt("pointer", Math.max(Math.abs(rxVal), Math.abs(ryVal)));
     };
     window.addEventListener("deviceorientation", handleOrient);
     window.addEventListener("pointermove", handleMove);
@@ -268,9 +301,26 @@ const Pushcard = () => {
 
           {/* CTAs */}
           <div className="px-6 mt-3 space-y-2.5">
-            <CardButton href="#donate" icon={HandCoins} label="Donate" primary />
-            <CardButton href="#volunteer" icon={Users} label="Volunteer" />
-            <CardButton href="/" icon={BookOpen} label="Learn More" subtle />
+            <CardButton
+              href="#donate"
+              icon={HandCoins}
+              label="Donate"
+              primary
+              onTap={() => trackEvent("pushcard_tap_donate", { cta: "donate" })}
+            />
+            <CardButton
+              href="#volunteer"
+              icon={Users}
+              label="Volunteer"
+              onTap={() => trackEvent("pushcard_tap_volunteer", { cta: "volunteer" })}
+            />
+            <CardButton
+              href="/"
+              icon={BookOpen}
+              label="Learn More"
+              subtle
+              onTap={() => trackEvent("pushcard_tap_learn_more", { cta: "learn_more" })}
+            />
           </div>
 
           {/* Site link */}
@@ -321,12 +371,14 @@ const CardButton = ({
   label,
   primary,
   subtle,
+  onTap,
 }: {
   href: string;
   icon: React.ElementType;
   label: string;
   primary?: boolean;
   subtle?: boolean;
+  onTap?: () => void;
 }) => {
   const base =
     "group w-full flex items-center justify-center gap-2.5 rounded-[12px] px-5 py-3.5 font-heading text-[13.5px] font-bold uppercase tracking-[0.12em] transition-all duration-150 active:scale-[0.96] active:translate-y-[1px] active:brightness-95";
@@ -336,7 +388,7 @@ const CardButton = ({
     ? "bg-transparent text-primary/70 border border-primary/15"
     : "bg-primary text-primary-foreground shadow-[0_6px_16px_-4px_hsl(var(--primary)/0.4)]";
   return (
-    <a href={href} className={`${base} ${styles}`}>
+    <a href={href} className={`${base} ${styles}`} onClick={onTap}>
       <Icon className="w-4 h-4" strokeWidth={2.25} />
       {label}
     </a>
