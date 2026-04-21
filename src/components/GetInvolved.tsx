@@ -74,10 +74,10 @@ const GetInvolved = () => {
   };
 
   const inputCls =
-    "w-full px-4 py-3 border border-border rounded-md font-body text-base bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors";
+    "w-full px-3.5 py-2.5 border border-border rounded-md font-body text-base bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors";
 
   return (
-    <section id="get-involved" className="py-16 md:py-24 bg-secondary">
+    <section id="get-involved" className="py-10 md:py-14 bg-secondary">
       <div className="container mx-auto px-4 max-w-[1100px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -85,27 +85,27 @@ const GetInvolved = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary uppercase tracking-tight">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">
             Get Involved
           </h2>
-          <div className="w-20 h-[3px] bg-accent mx-auto mt-4" />
-          <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+          <div className="w-16 h-[3px] bg-accent mx-auto mt-3" />
+          <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
             Two ways to back the campaign. Pick what fits.
           </p>
         </motion.div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-6 md:gap-8">
+        <div className="mt-8 grid md:grid-cols-2 gap-5 md:gap-6">
           {/* LEFT — Supporter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-background rounded-xl border border-border/60 shadow-md p-8 md:p-10 flex flex-col"
+            className="bg-background rounded-xl border border-border/60 shadow-md p-6 md:p-7 flex flex-col"
           >
-            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+            <h3 className="font-heading text-xl md:text-2xl font-bold text-primary uppercase tracking-tight">
               Stay Updated
             </h3>
-            <p className="text-muted-foreground mt-2 mb-6 leading-relaxed">
+            <p className="text-muted-foreground mt-1.5 mb-4 leading-relaxed text-sm">
               Get updates from the campaign.
             </p>
 
@@ -161,7 +161,7 @@ const GetInvolved = () => {
                 <button
                   type="submit"
                   disabled={supporterLoading}
-                  className="mt-auto w-full bg-accent text-accent-foreground font-heading text-lg font-bold py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase disabled:opacity-60"
+                  className="mt-2 w-full bg-accent text-accent-foreground font-heading text-base font-bold py-3.5 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase disabled:opacity-60"
                 >
                   {supporterLoading ? "Submitting..." : "Join the Campaign"}
                 </button>
@@ -175,12 +175,12 @@ const GetInvolved = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="bg-background rounded-xl border border-border/60 shadow-md p-8 md:p-10 flex flex-col"
+            className="bg-background rounded-xl border border-border/60 shadow-md p-6 md:p-7 flex flex-col"
           >
-            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+            <h3 className="font-heading text-xl md:text-2xl font-bold text-primary uppercase tracking-tight">
               Volunteer
             </h3>
-            <p className="text-muted-foreground mt-2 mb-6 leading-relaxed">
+            <p className="text-muted-foreground mt-1.5 mb-4 leading-relaxed text-sm">
               Help us win. Join the team.
             </p>
 
@@ -250,7 +250,7 @@ const GetInvolved = () => {
                 <button
                   type="submit"
                   disabled={volLoading}
-                  className="mt-auto w-full bg-primary text-primary-foreground font-heading text-lg font-bold py-4 rounded-md hover:bg-primary/90 transition-all tracking-wide shadow-md uppercase disabled:opacity-60 border-2 border-primary"
+                  className="mt-2 w-full bg-primary text-primary-foreground font-heading text-base font-bold py-3.5 rounded-md hover:bg-primary/90 transition-all tracking-wide shadow-md uppercase disabled:opacity-60 border-2 border-primary"
                 >
                   {volLoading ? "Submitting..." : "Sign Up to Volunteer"}
                 </button>
