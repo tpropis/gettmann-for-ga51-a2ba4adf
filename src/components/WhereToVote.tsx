@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const WhereToVote = () => (
-  <section className="py-24 md:py-36 bg-secondary">
+  <section className="py-16 md:py-24 bg-secondary">
     <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
