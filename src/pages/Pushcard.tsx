@@ -1,8 +1,9 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Shield, TrendingDown, GraduationCap, HandCoins, Users, BookOpen, ArrowRight } from "lucide-react";
 import keithPhoto from "@/assets/keith_pushcard.jpg";
 import logo from "@/assets/logo_trans.svg";
+import { initAnalytics, trackEvent } from "@/lib/analytics";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
@@ -22,20 +23,52 @@ const Pushcard = () => {
   const tiltX = useTransform(rotateX, (v) => `${v}deg`);
   const tiltY = useTransform(rotateY, (v) => `${v}deg`);
 
+  // Throttle for tilt event (5s)
+  const lastTiltAt = useRef(0);
+  const TILT_THROTTLE_MS = 5000;
+  const TILT_THRESHOLD = 1.2; // deg of meaningful movement
+
+  const reportTilt = (source: "pointer" | "device", magnitude: number) => {
+    const now = Date.now();
+    if (magnitude < TILT_THRESHOLD) return;
+    if (now - lastTiltAt.current < TILT_THROTTLE_MS) return;
+    lastTiltAt.current = now;
+    trackEvent("pushcard_tilt", {
+      source,
+      magnitude: Number(magnitude.toFixed(2)),
+    });
+  };
+
   useEffect(() => {
     document.title = "Keith Gettmann · A Personal Note";
+
+    // Init GA4 + fire view
+    initAnalytics();
+    const referrer = typeof document !== "undefined" ? document.referrer : "";
+    const utmSource = new URLSearchParams(window.location.search).get("utm_source");
+    trackEvent("pushcard_view", {
+      page: "/card",
+      referrer,
+      utm_source: utmSource ?? "qr",
+      viewport: `${window.innerWidth}x${window.innerHeight}`,
+    });
+
     const handleOrient = (e: DeviceOrientationEvent) => {
       if (e.beta === null || e.gamma === null) return;
       const x = Math.max(-3, Math.min(3, (e.beta - 45) / 10));
       const y = Math.max(-3, Math.min(3, e.gamma / 10));
       rx.set(-x);
       ry.set(y);
+      reportTilt("device", Math.max(Math.abs(x), Math.abs(y)));
     };
     const handleMove = (e: PointerEvent) => {
       const cx = window.innerWidth / 2;
       const cy = window.innerHeight / 2;
-      ry.set(((e.clientX - cx) / cx) * 2.2);
-      rx.set(((cy - e.clientY) / cy) * 2.2);
+      const rxVal = ((cy - e.clientY) / cy) * 2.2;
+      const ryVal = ((e.clientX - cx) / cx) * 2.2;
+      ry.set(ryVal);
+      rx.set(rxVal);
+      reportTilt("pointer", Math.max(Math.abs(rxVal), Math.abs(ryVal)));
     };
     window.addEventListener("deviceorientation", handleOrient);
     window.addEventListener("pointermove", handleMove);
