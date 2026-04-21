@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Shield, GraduationCap, TrendingUp, Home, Users, Compass } from "lucide-react";
 import keithPortrait from "@/assets/keith_fountain_clean.jpg";
-import keithFamily from "@/assets/keith_dog.jpg";
+import keithDog from "@/assets/keith_dog.jpg";
+import keithFamily from "@/assets/family_pic.jpg";
 
 const pillars = [
   {
@@ -42,34 +43,42 @@ const MeetKeith = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.15 }}
-        className="lg:hidden mt-8 grid grid-cols-5 gap-3"
+        className="lg:hidden mt-8"
       >
-        <div className="col-span-3 relative overflow-hidden rounded-lg shadow-lg ring-1 ring-border/40">
+        <div className="relative overflow-hidden rounded-lg shadow-lg ring-1 ring-border/40">
           <img
             src={keithPortrait}
             alt="Keith Gettmann official portrait"
             className="w-full h-full object-cover"
-            style={{ aspectRatio: '4/5', objectPosition: '50% 20%' }}
+            style={{ aspectRatio: '16/10', objectPosition: '50% 25%' }}
             loading="lazy"
           />
           <div className="absolute top-0 left-0 w-8 h-1 bg-accent" />
           <div className="absolute top-0 left-0 w-1 h-8 bg-accent" />
         </div>
-        <div className="col-span-2 flex flex-col gap-3">
-          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40 flex-1">
+        <div className="grid grid-cols-2 gap-3 mt-3">
+          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
             <img
-              src={keithFamily}
+              src={keithDog}
               alt="Keith Gettmann with his dog"
               className="w-full h-full object-cover"
-              style={{ objectPosition: '50% 30%' }}
+              style={{ aspectRatio: '1/1', objectPosition: '60% 35%' }}
               loading="lazy"
             />
           </div>
-          <p className="text-[10px] text-muted-foreground tracking-wider uppercase font-semibold leading-tight">
-            Keith Gettmann<br/>
-            <span className="text-muted-foreground/70">Candidate · District 51</span>
-          </p>
+          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
+            <img
+              src={keithFamily}
+              alt="Keith Gettmann with his family"
+              className="w-full h-full object-cover"
+              style={{ aspectRatio: '1/1', objectPosition: '50% 35%' }}
+              loading="lazy"
+            />
+          </div>
         </div>
+        <p className="text-[10px] text-muted-foreground tracking-wider uppercase font-semibold leading-tight mt-3 text-center">
+          Keith Gettmann · Candidate for District 51
+        </p>
       </motion.div>
 
       <div className="mt-8 lg:mt-10 grid lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-12 items-start">
@@ -204,21 +213,32 @@ const MeetKeith = () => (
               src={keithPortrait}
               alt="Keith Gettmann official portrait"
               className="w-full object-cover"
-              style={{ aspectRatio: '4/5', objectPosition: '50% 20%' }}
+              style={{ aspectRatio: '4/5', objectPosition: '50% 25%' }}
               loading="lazy"
             />
             {/* Subtle gold corner accent */}
             <div className="absolute top-0 left-0 w-12 h-1 bg-accent" />
             <div className="absolute top-0 left-0 w-1 h-12 bg-accent" />
           </div>
-          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
-            <img
-              src={keithFamily}
-              alt="Keith Gettmann with his dog"
-              className="w-full object-cover"
-              style={{ aspectRatio: '5/4', objectPosition: '50% 30%' }}
-              loading="lazy"
-            />
+          <div className="grid grid-cols-2 gap-4">
+            <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
+              <img
+                src={keithDog}
+                alt="Keith Gettmann with his dog"
+                className="w-full h-full object-cover"
+                style={{ aspectRatio: '1/1', objectPosition: '60% 35%' }}
+                loading="lazy"
+              />
+            </div>
+            <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
+              <img
+                src={keithFamily}
+                alt="Keith Gettmann with his family"
+                className="w-full h-full object-cover"
+                style={{ aspectRatio: '1/1', objectPosition: '50% 35%' }}
+                loading="lazy"
+              />
+            </div>
           </div>
           <p className="text-xs text-muted-foreground text-center tracking-wider uppercase font-medium">
             Keith Gettmann · Candidate for District 51
