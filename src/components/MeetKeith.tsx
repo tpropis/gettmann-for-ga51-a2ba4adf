@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, GraduationCap, TrendingUp, Home, Users, Compass } from "lucide-react";
-import keithBody from "@/assets/keith_body.jpg";
-import wifePic from "@/assets/wife.png";
+import keithPortrait from "@/assets/keith_portrait_dark.jpeg";
+import keithFamily from "@/assets/keith_wife_dog.jpeg";
 
 const pillars = [
   {
@@ -163,23 +163,30 @@ const MeetKeith = () => (
           transition={{ duration: 0.6, delay: 0.3 }}
           className="space-y-5 lg:sticky lg:top-28"
         >
-          <div className="overflow-hidden rounded-lg shadow-lg">
+          <div className="relative overflow-hidden rounded-lg shadow-xl ring-1 ring-border/40">
             <img
-              src={keithBody}
-              alt="Keith Gettmann portrait"
+              src={keithPortrait}
+              alt="Keith Gettmann official portrait"
               className="w-full object-cover"
-              style={{ objectPosition: '50% 10%', aspectRatio: '4/5' }}
+              style={{ aspectRatio: '4/5', objectPosition: '50% 20%' }}
               loading="lazy"
             />
+            {/* Subtle gold corner accent */}
+            <div className="absolute top-0 left-0 w-12 h-1 bg-accent" />
+            <div className="absolute top-0 left-0 w-1 h-12 bg-accent" />
           </div>
-          <div className="overflow-hidden rounded-lg shadow-md">
+          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
             <img
-              src={wifePic}
-              alt="Keith Gettmann with his wife"
-              className="w-full"
+              src={keithFamily}
+              alt="Keith Gettmann with his wife and family dog"
+              className="w-full object-cover"
+              style={{ aspectRatio: '5/4', objectPosition: '50% 30%' }}
               loading="lazy"
             />
           </div>
+          <p className="text-xs text-muted-foreground text-center tracking-wider uppercase font-medium">
+            Keith Gettmann · Candidate for District 51
+          </p>
         </motion.div>
       </div>
     </div>
