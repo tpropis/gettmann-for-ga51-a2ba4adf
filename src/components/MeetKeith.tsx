@@ -191,13 +191,13 @@ const MeetKeith = () => (
           </div>
         </motion.div>
 
-        {/* Photos Column */}
+        {/* Photos Column — Desktop only */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="space-y-5 lg:sticky lg:top-28"
+          className="hidden lg:block space-y-5 lg:sticky lg:top-28"
         >
           <div className="relative overflow-hidden rounded-lg shadow-xl ring-1 ring-border/40">
             <img
