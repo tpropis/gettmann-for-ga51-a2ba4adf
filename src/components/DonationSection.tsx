@@ -9,7 +9,7 @@ const DonationSection = () => {
   const [selected, setSelected] = useState<number>(100);
 
   return (
-    <section id="donate" className="py-24 md:py-36 bg-primary">
+    <section id="donate" className="py-16 md:py-24 bg-primary">
       <div className="container mx-auto px-4 max-w-xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

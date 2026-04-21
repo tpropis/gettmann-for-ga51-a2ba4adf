@@ -33,7 +33,7 @@ const IssuesSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="issues" className="py-20 md:py-28 bg-secondary">
+    <section id="issues" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

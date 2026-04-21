@@ -77,7 +77,7 @@ const GetInvolved = () => {
     "w-full px-4 py-3 border border-border rounded-md font-body text-base bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors";
 
   return (
-    <section id="get-involved" className="py-24 md:py-32 bg-secondary">
+    <section id="get-involved" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4 max-w-[1100px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
