@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import keithHero from "@/assets/keith_portrait_dark.jpeg";
+import keithHero from "@/assets/keith_body.jpg";
 
 const HeroSection = () => {
   return (
@@ -13,19 +13,19 @@ const HeroSection = () => {
         <img
           src={keithHero}
           alt="Keith Gettmann"
-          className="w-full h-full object-cover object-[78%_top] sm:object-[75%_top] lg:object-[72%_15%]"
+          className="w-full h-full object-cover object-[70%_top] sm:object-[68%_top] lg:object-[65%_top] contrast-110 saturate-110"
           loading="eager"
         />
-        {/* Dark navy overlay for text readability - 60% on left, gradient to lighter on right */}
-        <div 
+        {/* Navy gradient overlay - dark on left for text, lighter on right to keep Keith visible */}
+        <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(90deg, 
-              rgba(0, 48, 86, 0.92) 0%, 
-              rgba(0, 48, 86, 0.85) 30%, 
-              rgba(0, 48, 86, 0.6) 50%, 
-              rgba(0, 48, 86, 0.35) 65%, 
-              rgba(0, 48, 86, 0.25) 100%)`
+            background: `linear-gradient(90deg,
+              rgba(0, 48, 86, 0.88) 0%,
+              rgba(0, 48, 86, 0.75) 25%,
+              rgba(0, 48, 86, 0.45) 50%,
+              rgba(0, 48, 86, 0.2) 75%,
+              rgba(0, 48, 86, 0.1) 100%)`
           }}
         />
       </div>
@@ -44,14 +44,14 @@ const HeroSection = () => {
           </p>
 
           {/* Main Headline */}
-          <h1 className="font-heading uppercase leading-[0.95] tracking-tight text-primary-foreground font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="font-heading uppercase leading-[0.95] tracking-tight text-primary-foreground font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             Keith
             <br />
             <span className="text-accent">Gettmann</span>
           </h1>
 
           {/* Gold accent line */}
-          <span className="block w-16 h-[3px] bg-accent mt-6 mb-6" aria-hidden="true" />
+          <span className="block w-14 h-[3px] bg-accent mt-4 mb-4" aria-hidden="true" />
 
           {/* Subheadline */}
           <p className="text-base sm:text-lg text-primary-foreground/90 font-body leading-relaxed max-w-lg">
@@ -59,7 +59,7 @@ const HeroSection = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a
               href="#donate"
               className="group inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground font-heading text-sm font-bold px-8 py-4 rounded-md hover:brightness-95 transition-all tracking-wide shadow-xl shadow-accent/40 uppercase"
