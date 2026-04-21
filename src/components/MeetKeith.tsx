@@ -22,8 +22,8 @@ const pillars = [
 ];
 
 const MeetKeith = () => (
-  <section id="meet-keith" className="py-12 md:py-16 bg-background">
-    <div className="container mx-auto">
+  <section id="meet-keith" className="py-10 md:py-14 bg-background">
+    <div className="container mx-auto max-w-[1100px]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ const MeetKeith = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.15 }}
-        className="lg:hidden mt-10 grid grid-cols-5 gap-3"
+        className="lg:hidden mt-8 grid grid-cols-5 gap-3"
       >
         <div className="col-span-3 relative overflow-hidden rounded-lg shadow-lg ring-1 ring-border/40">
           <img
@@ -72,14 +72,14 @@ const MeetKeith = () => (
         </div>
       </motion.div>
 
-      <div className="mt-10 lg:mt-12 grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-14 items-start">
+      <div className="mt-8 lg:mt-10 grid lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-12 items-start">
         {/* Mission Statement Column */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="space-y-8"
+          className="space-y-6"
         >
           <h3 className="font-heading text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight leading-tight">
             Keith's Mission for District&nbsp;51
@@ -102,16 +102,16 @@ const MeetKeith = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                className="flex gap-5 py-6 first:pt-0"
+                className="flex gap-5 py-4 first:pt-0"
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                  <p.icon className="w-6 h-6 text-accent" />
+                <div className="flex-shrink-0 w-11 h-11 rounded-full bg-accent/10 flex items-center justify-center">
+                  <p.icon className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-lg font-bold text-primary uppercase tracking-wide">
+                  <h4 className="font-heading text-base md:text-lg font-bold text-primary uppercase tracking-wide">
                     {p.title}
                   </h4>
-                  <p className="text-muted-foreground mt-2 leading-relaxed">
+                  <p className="text-muted-foreground mt-1.5 leading-relaxed text-sm md:text-base">
                     {p.desc}
                   </p>
                 </div>
@@ -121,19 +121,19 @@ const MeetKeith = () => (
 
           <a
             href="#get-involved"
-            className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20"
+            className="inline-block bg-accent text-accent-foreground font-heading text-base font-bold px-8 py-3.5 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20 uppercase"
           >
             Join the Campaign
           </a>
 
           {/* Why Keith Gettmann */}
-          <div className="pt-6">
-            <div className="w-full h-px bg-border mb-10" />
-            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight mb-8">
+          <div className="pt-4">
+            <div className="w-full h-px bg-border mb-7" />
+            <h3 className="font-heading text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight mb-6">
               Why Keith Gettmann
             </h3>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {[
                 {
                   icon: Home,
@@ -157,16 +157,16 @@ const MeetKeith = () => (
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
-                  className="bg-secondary border border-border/50 rounded-lg p-6 flex gap-5"
+                  className="bg-secondary border border-border/50 rounded-lg p-5 flex gap-4"
                 >
-                  <div className="flex-shrink-0 w-11 h-11 rounded-full bg-primary/5 flex items-center justify-center mt-0.5">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center mt-0.5">
                     <card.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-heading text-base font-bold text-primary uppercase tracking-wide">
                       {card.title}
                     </h4>
-                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                    <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
                       {card.text}
                     </p>
                   </div>
@@ -174,16 +174,16 @@ const MeetKeith = () => (
               ))}
             </div>
 
-            <div className="w-full h-px bg-border my-10" />
+            <div className="w-full h-px bg-border my-7" />
 
             <p className="font-heading text-xl md:text-2xl font-bold text-primary uppercase tracking-tight text-center leading-snug">
               Real Leadership. Local Roots.<br />A Stronger District&nbsp;51.
             </p>
 
-            <div className="mt-8 text-center">
+            <div className="mt-6 text-center">
               <a
                 href="#get-involved"
-                className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20"
+                className="inline-block bg-accent text-accent-foreground font-heading text-base font-bold px-8 py-3.5 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20 uppercase"
               >
                 Support Keith
               </a>
