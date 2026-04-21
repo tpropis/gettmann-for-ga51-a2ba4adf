@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import keithHero from "@/assets/keith_fountain_clean.jpg";
+import keithHero from "@/assets/keith_hero_v2.jpg";
 
 const HeroSection = () => {
   return (
@@ -8,27 +8,44 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-[88vh] lg:min-h-[92vh] bg-primary overflow-hidden"
     >
-      {/* Background Image - Keith on the right */}
-      <div className="absolute inset-0">
+      {/* Solid navy base */}
+      <div className="absolute inset-0 bg-primary" />
+
+      {/* Keith portrait — anchored bottom-right, never cropped at the head */}
+      <div className="absolute inset-y-0 right-0 w-full md:w-[65%] lg:w-[58%] xl:w-[55%]">
         <img
           src={keithHero}
           alt="Keith Gettmann, Republican candidate for Georgia State House District 51"
-          className="w-full h-full object-cover object-[72%_top] sm:object-[70%_top] lg:object-[68%_15%]"
+          className="w-full h-full object-cover object-[center_top] md:object-[60%_top]"
           loading="eager"
         />
-        {/* Strong navy → transparent left-to-right gradient (no fog over Keith) */}
+        {/* Left-edge feather so the portrait blends into the navy panel */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 pointer-events-none"
           style={{
             background: `linear-gradient(90deg,
-              hsl(var(--primary) / 0.95) 0%,
-              hsl(var(--primary) / 0.85) 30%,
-              hsl(var(--primary) / 0.45) 55%,
-              hsl(var(--primary) / 0.05) 80%,
-              hsl(var(--primary) / 0) 100%)`,
+              hsl(var(--primary)) 0%,
+              hsl(var(--primary) / 0.85) 12%,
+              hsl(var(--primary) / 0.35) 28%,
+              hsl(var(--primary) / 0) 50%)`,
+          }}
+        />
+        {/* Subtle bottom vignette to ground the portrait */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
+          style={{
+            background: `linear-gradient(180deg, hsl(var(--primary) / 0) 0%, hsl(var(--primary) / 0.55) 100%)`,
           }}
         />
       </div>
+
+      {/* Mobile-only top-to-bottom navy overlay for text legibility */}
+      <div
+        className="absolute inset-0 md:hidden pointer-events-none"
+        style={{
+          background: `linear-gradient(180deg, hsl(var(--primary) / 0.95) 0%, hsl(var(--primary) / 0.55) 55%, hsl(var(--primary) / 0.85) 100%)`,
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1100px] min-h-[88vh] lg:min-h-[92vh] flex items-center py-20 lg:py-24">
@@ -43,7 +60,7 @@ const HeroSection = () => {
             Republican for State House • District 51
           </p>
 
-          {/* Main Headline (~20% smaller) */}
+          {/* Main Headline */}
           <h1 className="font-heading uppercase leading-[0.95] tracking-tight text-primary-foreground font-bold text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl">
             Keith
             <br />
