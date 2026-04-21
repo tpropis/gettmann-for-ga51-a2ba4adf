@@ -43,7 +43,7 @@ const MeetKeith = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.15 }}
-        className="lg:hidden mt-8 grid grid-cols-5 gap-3"
+        className="lg:hidden mt-8"
       >
         <div className="relative overflow-hidden rounded-lg shadow-lg ring-1 ring-border/40">
           <img
