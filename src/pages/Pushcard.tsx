@@ -301,9 +301,26 @@ const Pushcard = () => {
 
           {/* CTAs */}
           <div className="px-6 mt-3 space-y-2.5">
-            <CardButton href="#donate" icon={HandCoins} label="Donate" primary />
-            <CardButton href="#volunteer" icon={Users} label="Volunteer" />
-            <CardButton href="/" icon={BookOpen} label="Learn More" subtle />
+            <CardButton
+              href="#donate"
+              icon={HandCoins}
+              label="Donate"
+              primary
+              onTap={() => trackEvent("pushcard_tap_donate", { cta: "donate" })}
+            />
+            <CardButton
+              href="#volunteer"
+              icon={Users}
+              label="Volunteer"
+              onTap={() => trackEvent("pushcard_tap_volunteer", { cta: "volunteer" })}
+            />
+            <CardButton
+              href="/"
+              icon={BookOpen}
+              label="Learn More"
+              subtle
+              onTap={() => trackEvent("pushcard_tap_learn_more", { cta: "learn_more" })}
+            />
           </div>
 
           {/* Site link */}
@@ -354,12 +371,14 @@ const CardButton = ({
   label,
   primary,
   subtle,
+  onTap,
 }: {
   href: string;
   icon: React.ElementType;
   label: string;
   primary?: boolean;
   subtle?: boolean;
+  onTap?: () => void;
 }) => {
   const base =
     "group w-full flex items-center justify-center gap-2.5 rounded-[12px] px-5 py-3.5 font-heading text-[13.5px] font-bold uppercase tracking-[0.12em] transition-all duration-150 active:scale-[0.96] active:translate-y-[1px] active:brightness-95";
@@ -369,7 +388,7 @@ const CardButton = ({
     ? "bg-transparent text-primary/70 border border-primary/15"
     : "bg-primary text-primary-foreground shadow-[0_6px_16px_-4px_hsl(var(--primary)/0.4)]";
   return (
-    <a href={href} className={`${base} ${styles}`}>
+    <a href={href} className={`${base} ${styles}`} onClick={onTap}>
       <Icon className="w-4 h-4" strokeWidth={2.25} />
       {label}
     </a>
