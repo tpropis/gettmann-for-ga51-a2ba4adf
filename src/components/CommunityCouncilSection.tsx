@@ -3,8 +3,8 @@ import { MessageSquareHeart, ArrowRight } from "lucide-react";
 
 const CommunityCouncilSection = () => {
   return (
-    <section id="community-council" className="py-20 md:py-28 bg-campaign-light">
-      <div className="container mx-auto px-4">
+    <section id="community-council" className="py-16 md:py-22 bg-campaign-light">
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
