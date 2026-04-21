@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, GraduationCap, TrendingUp, Home, Users, Compass } from "lucide-react";
 import keithPortrait from "@/assets/keith_fountain_clean.jpg";
-import keithFamily from "@/assets/keith_wife_dog.jpeg";
+import keithFamily from "@/assets/keith_dog.jpg";
 
 const pillars = [
   {
@@ -59,7 +59,7 @@ const MeetKeith = () => (
           <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40 flex-1">
             <img
               src={keithFamily}
-              alt="Keith Gettmann with his wife and family dog"
+              alt="Keith Gettmann with his dog"
               className="w-full h-full object-cover"
               style={{ objectPosition: '50% 30%' }}
               loading="lazy"
@@ -214,7 +214,7 @@ const MeetKeith = () => (
           <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
             <img
               src={keithFamily}
-              alt="Keith Gettmann with his wife and family dog"
+              alt="Keith Gettmann with his dog"
               className="w-full object-cover"
               style={{ aspectRatio: '5/4', objectPosition: '50% 30%' }}
               loading="lazy"
