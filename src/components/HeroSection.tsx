@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, CheckCircle2 } from "lucide-react";
-import keithHero from "@/assets/keith_outdoor_blue.jpeg";
+import keithHero from "@/assets/keith_suit_bluetie.jpeg";
 
 const HeroSection = () => {
   return (
@@ -101,7 +101,7 @@ const HeroSection = () => {
                 <img
                   src={keithHero}
                   alt="Keith Gettmann, candidate for Georgia State House District 51"
-                  className="w-full h-[380px] sm:h-[460px] md:h-[560px] lg:h-[620px] object-cover object-[center_20%]"
+                  className="w-full h-[420px] sm:h-[500px] md:h-[580px] lg:h-[640px] object-cover object-[center_15%]"
                   loading="eager"
                 />
                 {/* Subtle bottom gradient for caption legibility */}
