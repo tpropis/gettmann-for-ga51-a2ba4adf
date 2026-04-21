@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import keithHero from "@/assets/keith_hero_clean.jpg";
+import keithHero from "@/assets/keith_portrait_dark.jpeg";
 
 const HeroSection = () => {
   return (
@@ -13,7 +13,7 @@ const HeroSection = () => {
         <img
           src={keithHero}
           alt="Keith Gettmann"
-          className="w-full h-full object-cover object-[65%_center]"
+          className="w-full h-full object-cover object-[78%_top] sm:object-[75%_top] lg:object-[72%_15%]"
           loading="eager"
         />
         {/* Dark navy overlay for text readability - 60% on left, gradient to lighter on right */}
@@ -21,11 +21,11 @@ const HeroSection = () => {
           className="absolute inset-0"
           style={{
             background: `linear-gradient(90deg, 
-              rgba(0, 48, 86, 0.85) 0%, 
-              rgba(0, 48, 86, 0.75) 35%, 
-              rgba(0, 48, 86, 0.4) 55%, 
-              rgba(0, 48, 86, 0.1) 70%, 
-              transparent 100%)`
+              rgba(0, 48, 86, 0.92) 0%, 
+              rgba(0, 48, 86, 0.85) 30%, 
+              rgba(0, 48, 86, 0.6) 50%, 
+              rgba(0, 48, 86, 0.35) 65%, 
+              rgba(0, 48, 86, 0.25) 100%)`
           }}
         />
       </div>
