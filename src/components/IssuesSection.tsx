@@ -59,7 +59,7 @@ const IssuesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-background rounded-lg p-8 shadow-sm hover:shadow-xl transition-shadow border border-border/50 group flex flex-col"
+                className="relative bg-background rounded-lg p-8 shadow-sm hover:shadow-xl transition-all border border-border/50 border-t-2 border-t-transparent hover:border-t-accent group flex flex-col"
               >
                 <div className="w-14 h-14 rounded-full bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-accent/10 transition-colors">
                   <issue.icon className="h-7 w-7 text-primary group-hover:text-accent transition-colors" />
