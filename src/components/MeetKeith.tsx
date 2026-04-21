@@ -213,21 +213,32 @@ const MeetKeith = () => (
               src={keithPortrait}
               alt="Keith Gettmann official portrait"
               className="w-full object-cover"
-              style={{ aspectRatio: '4/5', objectPosition: '50% 20%' }}
+              style={{ aspectRatio: '4/5', objectPosition: '50% 25%' }}
               loading="lazy"
             />
             {/* Subtle gold corner accent */}
             <div className="absolute top-0 left-0 w-12 h-1 bg-accent" />
             <div className="absolute top-0 left-0 w-1 h-12 bg-accent" />
           </div>
-          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
-            <img
-              src={keithFamily}
-              alt="Keith Gettmann with his dog"
-              className="w-full object-cover"
-              style={{ aspectRatio: '5/4', objectPosition: '50% 30%' }}
-              loading="lazy"
-            />
+          <div className="grid grid-cols-2 gap-4">
+            <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
+              <img
+                src={keithDog}
+                alt="Keith Gettmann with his dog"
+                className="w-full h-full object-cover"
+                style={{ aspectRatio: '1/1', objectPosition: '60% 35%' }}
+                loading="lazy"
+              />
+            </div>
+            <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
+              <img
+                src={keithFamily}
+                alt="Keith Gettmann with his family"
+                className="w-full h-full object-cover"
+                style={{ aspectRatio: '1/1', objectPosition: '50% 35%' }}
+                loading="lazy"
+              />
+            </div>
           </div>
           <p className="text-xs text-muted-foreground text-center tracking-wider uppercase font-medium">
             Keith Gettmann · Candidate for District 51
