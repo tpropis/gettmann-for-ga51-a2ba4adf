@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 const DistrictMap = lazy(() => import("./pages/DistrictMap"));
 const CommunityCouncil = lazy(() => import("./pages/CommunityCouncil"));
+const Pushcard = lazy(() => import("./pages/Pushcard"));
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -47,6 +48,14 @@ const App = () => (
                 }
               >
                 <CommunityCouncil />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/card"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-primary" />}>
+                <Pushcard />
               </Suspense>
             }
           />
