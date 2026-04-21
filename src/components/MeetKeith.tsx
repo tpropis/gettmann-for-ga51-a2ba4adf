@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, GraduationCap, TrendingUp, Home, Users, Compass } from "lucide-react";
 import keithPortrait from "@/assets/keith_portrait_dark.jpeg";
-import keithFamily from "@/assets/keith_wife_dog.jpeg";
+import keithFamily from "@/assets/family_pic.jpg";
 
 const pillars = [
   {
@@ -22,7 +22,7 @@ const pillars = [
 ];
 
 const MeetKeith = () => (
-  <section id="meet-keith" className="py-16 md:py-24 bg-background">
+  <section id="meet-keith" className="py-12 md:py-16 bg-background">
     <div className="container mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

@@ -7,25 +7,34 @@ const issues = [
     icon: ShieldCheck,
     title: "Public Safety",
     description:
-      "Strong communities require well-supported law enforcement and safe neighborhoods.",
+      "Strong communities start with safe neighborhoods and well-supported law enforcement. Keith is committed to protecting families and restoring confidence in public safety.",
     details:
       "Keith backs our police and first responders, supports recruitment and retention, and stands for the rule of law so families across District 51 feel secure at home, at school, and on the road.",
+    accentClass: "group-hover:border-t-accent",
+    iconBg: "bg-accent/10 group-hover:bg-accent/20",
+    iconColor: "text-accent",
   },
   {
     icon: GraduationCap,
     title: "Education",
     description:
-      "Parents deserve transparency, accountability, and a real voice in their children's education.",
+      "Parents deserve transparency, accountability, and a real voice in their children's education. Keith will fight to put families back in control.",
     details:
       "Keith will fight for parental rights, local control of schools, and high academic standards — making sure every child in District 51 has the opportunity to succeed.",
+    accentClass: "group-hover:border-t-primary",
+    iconBg: "bg-primary/10 group-hover:bg-primary/20",
+    iconColor: "text-primary",
   },
   {
     icon: TrendingUp,
-    title: "Economy / Lower Taxes",
+    title: "Lower Taxes",
     description:
-      "Families need relief from rising costs and government overreach.",
+      "Families are feeling the pressure of rising costs. Keith supports responsible spending and lower taxes to keep more money in your pocket.",
     details:
       "Keith will push for lower taxes, responsible budgets, and a pro-growth environment that supports small businesses and lets families keep more of what they earn.",
+    accentClass: "group-hover:border-t-campaign-gold-dark",
+    iconBg: "bg-campaign-gold-dark/10 group-hover:bg-campaign-gold-dark/20",
+    iconColor: "text-campaign-gold-dark",
   },
 ];
 
@@ -33,23 +42,23 @@ const IssuesSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="issues" className="py-16 md:py-24 bg-secondary">
+    <section id="issues" className="py-12 md:py-16 bg-secondary">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary uppercase tracking-tight text-center">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary uppercase tracking-tight text-center">
             The Issues
           </h2>
           <div className="section-divider" />
-          <p className="text-center text-muted-foreground mt-5 max-w-xl mx-auto text-lg leading-relaxed">
+          <p className="text-center text-muted-foreground mt-4 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
             Keith is focused on what matters most to the families of District 51.
           </p>
         </motion.div>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {issues.map((issue, i) => {
             const isOpen = openIndex === i;
             return (
@@ -59,15 +68,15 @@ const IssuesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="relative bg-background rounded-lg p-8 shadow-sm hover:shadow-xl transition-all border border-border/50 border-t-2 border-t-transparent hover:border-t-accent group flex flex-col"
+                className={`group relative bg-background rounded-lg p-6 md:p-7 shadow-sm hover:shadow-xl transition-all border border-border/50 border-t-2 border-t-transparent ${issue.accentClass} flex flex-col text-left`}
               >
-                <div className="w-14 h-14 rounded-full bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-accent/10 transition-colors">
-                  <issue.icon className="h-7 w-7 text-primary group-hover:text-accent transition-colors" />
+                <div className={`w-12 h-12 rounded-full ${issue.iconBg} flex items-center justify-center mb-4 transition-colors`}>
+                  <issue.icon className={`h-6 w-6 ${issue.iconColor} transition-colors`} />
                 </div>
-                <h3 className="font-heading text-xl font-bold text-primary uppercase tracking-wide">
+                <h3 className="font-heading text-lg md:text-xl font-bold text-primary uppercase tracking-wide">
                   {issue.title}
                 </h3>
-                <p className="mt-3 text-muted-foreground leading-relaxed">
+                <p className="mt-2.5 text-muted-foreground leading-relaxed text-sm md:text-base">
                   {issue.description}
                 </p>
 
@@ -81,7 +90,7 @@ const IssuesSection = () => {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-4 text-muted-foreground leading-relaxed border-l-2 border-accent pl-4">
+                      <p className="mt-3 text-muted-foreground leading-relaxed text-sm md:text-base border-l-2 border-accent pl-4">
                         {issue.details}
                       </p>
                     </motion.div>
@@ -92,7 +101,7 @@ const IssuesSection = () => {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  className="mt-5 inline-flex items-center gap-2 self-start font-heading text-sm font-bold text-primary uppercase tracking-wider hover:text-accent transition-colors"
+                  className="mt-4 inline-flex items-center gap-2 self-start font-heading text-xs md:text-sm font-bold text-primary uppercase tracking-wider hover:text-accent transition-colors"
                 >
                   {isOpen ? "Show Less" : "Learn More"}
                   <ChevronDown
