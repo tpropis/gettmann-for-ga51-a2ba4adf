@@ -1,69 +1,68 @@
 import { motion } from "framer-motion";
-import familyPic from "@/assets/family_pic.jpg";
+import keithHero from "@/assets/keith_fountain.jpeg";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-[560px] md:min-h-[78vh] flex items-center overflow-hidden">
-      {/* Background image */}
+    <section
+      id="home"
+      className="relative min-h-[600px] md:min-h-[88vh] flex items-center overflow-hidden"
+    >
+      {/* Background image — solo candidate */}
       <div className="absolute inset-0">
         <img
-          src={familyPic}
-          alt="Keith Gettmann with his family"
-          className="w-full h-full object-cover scale-x-[-1] object-[8%_15%] sm:object-[12%_18%] md:object-[18%_20%] lg:object-[55%_20%]"
+          src={keithHero}
+          alt="Keith Gettmann, Republican candidate for Georgia State House District 51"
+          className="w-full h-full object-cover object-[70%_25%] sm:object-[68%_22%] md:object-[65%_22%] lg:object-[60%_22%]"
           loading="eager"
         />
-        {/* Subtle dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/65 to-primary/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/35 via-transparent to-transparent" />
+        {/* Dark navy overlay (60–70%) for readability */}
+        <div className="absolute inset-0 bg-primary/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/60 to-primary/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
       </div>
 
-      <div className="relative container mx-auto pt-28 pb-16 md:pt-32 md:pb-20">
+      <div className="relative container mx-auto py-24 md:py-28">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-xl"
+          className="max-w-2xl"
         >
-          {/* Headline */}
-          <h1 className="font-heading uppercase leading-[0.95] tracking-tight">
-            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-primary-foreground">
-              Keith Gettmann
-            </span>
-            {/* Gold accent line */}
-            <span className="block w-16 h-1 bg-accent mt-4 mb-3" aria-hidden="true" />
-            <span className="block text-xl sm:text-2xl md:text-3xl font-semibold text-accent tracking-[0.2em]">
-              FOR STATE HOUSE
-            </span>
-            <span className="block text-base sm:text-lg md:text-xl font-semibold text-primary-foreground/90 tracking-[0.22em] mt-1.5">
-              DISTRICT 51
-            </span>
+          {/* Top label */}
+          <p className="font-heading text-xs sm:text-sm font-semibold text-accent tracking-[0.28em] uppercase">
+            Republican for State House
+            <span className="mx-2 text-accent/60">•</span>
+            District 51
+          </p>
+
+          {/* Main headline */}
+          <h1 className="mt-4 font-heading uppercase leading-[0.92] tracking-tight text-primary-foreground font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+            Keith Gettmann
           </h1>
 
+          {/* Gold accent line */}
+          <span className="block w-14 h-[3px] bg-accent mt-5" aria-hidden="true" />
+
           {/* Subheadline */}
-          <p className="mt-6 text-base md:text-lg text-primary-foreground/90 font-body font-light leading-relaxed max-w-md">
-            Protecting Families. Defending Freedom. Fighting for District 51.
+          <p className="mt-5 text-lg md:text-xl text-primary-foreground/90 font-body font-light leading-relaxed max-w-xl">
+            Fighting for safer communities, stronger schools, and lower costs for Georgia families.
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#donate"
-              className="bg-accent text-accent-foreground font-heading text-sm md:text-base font-bold px-7 py-3 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/25 uppercase"
+              className="bg-accent text-accent-foreground font-heading text-sm md:text-base font-bold px-8 py-3.5 rounded-md hover:brightness-95 transition-all tracking-wide shadow-lg shadow-accent/30 uppercase"
             >
               Donate Now
             </a>
             <a
               href="#get-involved"
-              className="border-2 border-primary-foreground/80 text-primary-foreground font-heading text-sm md:text-base font-bold px-7 py-3 rounded-md hover:bg-primary-foreground/10 transition-colors tracking-wide uppercase"
+              className="border-2 border-primary-foreground/90 text-primary-foreground font-heading text-sm md:text-base font-bold px-8 py-3.5 rounded-md hover:bg-primary-foreground hover:text-primary transition-colors tracking-wide uppercase"
             >
               Join the Campaign
             </a>
           </div>
-
-          {/* Supporting line */}
-          <p className="mt-8 text-primary-foreground/60 font-body text-xs tracking-[0.18em] uppercase font-medium max-w-md">
-            Strong schools · Safe communities · Lower taxes · Election integrity
-          </p>
         </motion.div>
       </div>
     </section>
