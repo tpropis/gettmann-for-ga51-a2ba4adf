@@ -18,12 +18,12 @@ const socialLinks = [
 ];
 
 const CampaignFooter = () => (
-  <footer id="contact" className="bg-primary pt-14 md:pt-16 pb-8">
-    <div className="container mx-auto">
+  <footer id="contact" className="bg-primary pt-10 md:pt-12 pb-6">
+    <div className="container mx-auto max-w-[1100px]">
       {/* Gold divider at top */}
-      <div className="w-16 h-[2px] bg-accent mx-auto mb-10" />
+      <div className="w-14 h-[2px] bg-accent mx-auto mb-8" />
 
-      <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
+      <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
         {/* Logo & brand */}
         <div>
           <img src={logo} alt="Keith Gettmann for Georgia House" className="h-14 mb-4" />
@@ -92,7 +92,7 @@ const CampaignFooter = () => (
       </div>
 
       {/* Disclaimer */}
-      <div className="border-t border-primary-foreground/10 mt-12 pt-6">
+      <div className="border-t border-primary-foreground/10 mt-8 pt-5">
         <p className="text-center text-primary-foreground/45 text-xs md:text-sm font-medium mb-3">
           Paid for by Keith for GA LLC. Not authorized by any candidate or candidate's committee.
         </p>

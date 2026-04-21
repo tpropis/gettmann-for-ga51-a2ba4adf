@@ -27,14 +27,14 @@ const issues = [
   },
   {
     icon: TrendingUp,
-    title: "Lower Taxes",
+    title: "Lower Taxes & Economy",
     description:
       "Families are feeling the pressure of rising costs. Keith supports responsible spending and lower taxes to keep more money in your pocket.",
     details:
       "Keith will push for lower taxes, responsible budgets, and a pro-growth environment that supports small businesses and lets families keep more of what they earn.",
-    accentClass: "group-hover:border-t-campaign-gold-dark",
-    iconBg: "bg-campaign-gold-dark/10 group-hover:bg-campaign-gold-dark/20",
-    iconColor: "text-campaign-gold-dark",
+    accentClass: "group-hover:border-t-campaign-brown",
+    iconBg: "bg-campaign-brown/10 group-hover:bg-campaign-brown/20",
+    iconColor: "text-campaign-brown",
   },
 ];
 
@@ -42,8 +42,8 @@ const IssuesSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="issues" className="py-12 md:py-16 bg-secondary">
-      <div className="container mx-auto">
+    <section id="issues" className="py-10 md:py-14 bg-secondary">
+      <div className="container mx-auto max-w-[1100px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
