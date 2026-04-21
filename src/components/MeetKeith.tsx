@@ -36,7 +36,7 @@ const MeetKeith = () => (
         <div className="section-divider" />
       </motion.div>
 
-      <div className="mt-14 grid lg:grid-cols-2 gap-14 items-start">
+      <div className="mt-12 grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-14 items-start">
         {/* Mission Statement Column */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -161,18 +161,18 @@ const MeetKeith = () => (
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="space-y-6"
+          className="space-y-5 lg:sticky lg:top-28"
         >
-          <div className="overflow-hidden rounded-lg shadow-xl">
+          <div className="overflow-hidden rounded-lg shadow-lg">
             <img
               src={keithBody}
               alt="Keith Gettmann portrait"
               className="w-full object-cover"
-              style={{ objectPosition: '50% 10%', aspectRatio: '3/4' }}
+              style={{ objectPosition: '50% 10%', aspectRatio: '4/5' }}
               loading="lazy"
             />
           </div>
-          <div className="overflow-hidden rounded-lg shadow-lg">
+          <div className="overflow-hidden rounded-lg shadow-md">
             <img
               src={wifePic}
               alt="Keith Gettmann with his wife"

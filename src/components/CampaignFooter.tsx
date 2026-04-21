@@ -18,15 +18,15 @@ const socialLinks = [
 ];
 
 const CampaignFooter = () => (
-  <footer id="contact" className="bg-primary pt-24 pb-10">
-    <div className="container mx-auto px-4">
+  <footer id="contact" className="bg-primary pt-14 md:pt-16 pb-8">
+    <div className="container mx-auto">
       {/* Gold divider at top */}
-      <div className="w-20 h-[3px] bg-accent mx-auto mb-16" />
+      <div className="w-16 h-[2px] bg-accent mx-auto mb-10" />
 
-      <div className="grid md:grid-cols-3 gap-14 lg:gap-20">
+      <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
         {/* Logo & brand */}
         <div>
-          <img src={logo} alt="Keith Gettmann for Georgia House" className="h-20 mb-6" />
+          <img src={logo} alt="Keith Gettmann for Georgia House" className="h-14 mb-4" />
           <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-xs">
             Keith Gettmann is running for Georgia House District 51 to protect families, strengthen communities, and fight for the future of our district.
           </p>
@@ -34,15 +34,15 @@ const CampaignFooter = () => (
 
         {/* Nav links */}
         <div>
-          <h3 className="font-heading text-lg font-bold text-primary-foreground uppercase tracking-wider mb-6">
+          <h3 className="font-heading text-sm font-bold text-primary-foreground uppercase tracking-[0.18em] mb-4">
             Quick Links
           </h3>
-          <nav className="space-y-3">
+          <nav className="space-y-2.5">
             {footerLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors font-medium tracking-wide"
+                className="block text-primary-foreground/55 hover:text-primary-foreground text-sm transition-colors font-medium tracking-wide"
               >
                 {link.label}
               </a>
@@ -52,10 +52,10 @@ const CampaignFooter = () => (
 
         {/* Contact & social */}
         <div>
-          <h3 className="font-heading text-lg font-bold text-primary-foreground uppercase tracking-wider mb-6">
+          <h3 className="font-heading text-sm font-bold text-primary-foreground uppercase tracking-[0.18em] mb-4">
             Contact
           </h3>
-          <div className="space-y-4">
+          <div className="space-y-3">
             <a
               href="mailto:Keith@KeithforGA.com"
               className="flex items-center gap-3 text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors"
@@ -76,15 +76,15 @@ const CampaignFooter = () => (
             </div>
           </div>
 
-          <div className="flex gap-3 mt-8">
+          <div className="flex gap-2.5 mt-6">
             {socialLinks.map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
                 title={label}
-                className="w-10 h-10 rounded-full bg-primary-foreground/5 flex items-center justify-center hover:bg-accent transition-colors group"
+                className="w-9 h-9 rounded-full bg-primary-foreground/5 flex items-center justify-center hover:bg-accent transition-colors group"
               >
-                <Icon className="h-5 w-5 text-primary-foreground/60 group-hover:text-accent-foreground transition-colors" />
+                <Icon className="h-4 w-4 text-primary-foreground/60 group-hover:text-accent-foreground transition-colors" />
               </a>
             ))}
           </div>
@@ -92,14 +92,14 @@ const CampaignFooter = () => (
       </div>
 
       {/* Disclaimer */}
-      <div className="border-t border-primary-foreground/5 mt-20 pt-8">
-        <p className="text-center text-primary-foreground/40 text-sm font-medium mb-4">
+      <div className="border-t border-primary-foreground/10 mt-12 pt-6">
+        <p className="text-center text-primary-foreground/45 text-xs md:text-sm font-medium mb-3">
           Paid for by Keith for GA LLC. Not authorized by any candidate or candidate's committee.
         </p>
-        <div className="flex flex-wrap justify-center gap-6 text-primary-foreground/30 text-xs">
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-primary-foreground/35 text-xs">
           <span>© 2026 Keith for GA LLC. All rights reserved.</span>
-          <a href="#" className="hover:text-primary-foreground/50 transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-primary-foreground/50 transition-colors">Terms</a>
+          <a href="#" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-primary-foreground/60 transition-colors">Terms</a>
         </div>
       </div>
     </div>

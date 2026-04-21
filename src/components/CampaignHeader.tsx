@@ -31,18 +31,14 @@ const CampaignHeader = () => {
       <div className="h-[3px] bg-accent w-full" />
 
       {/* Main header bar */}
-      <div
-        className={`transition-all duration-300 bg-primary ${
-          scrolled ? "py-0" : "py-1"
-        }`}
-      >
-        <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="transition-all duration-300 bg-primary">
+        <div className="container mx-auto flex items-center justify-between">
           <a href="#home" className="flex-shrink-0">
             <img
               src={logo}
               alt="Keith Gettmann for Georgia House"
               className={`transition-all duration-300 rounded ${
-                scrolled ? "h-[50px] md:h-[58px] my-1" : "h-[60px] md:h-[72px] my-2"
+                scrolled ? "h-[44px] md:h-[50px] my-1.5" : "h-[52px] md:h-[60px] my-2"
               }`}
             />
           </a>
@@ -71,7 +67,7 @@ const CampaignHeader = () => {
             )}
             <a
               href="/#donate"
-              className="ml-4 bg-accent text-accent-foreground font-heading text-base font-bold px-7 py-2.5 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20 uppercase"
+              className="ml-3 bg-accent text-accent-foreground font-heading text-sm font-bold px-5 py-2 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase"
             >
               Donate
             </a>
