@@ -22,8 +22,8 @@ const pillars = [
 ];
 
 const MeetKeith = () => (
-  <section id="meet-keith" className="py-28 md:py-40 bg-background">
-    <div className="container mx-auto px-4">
+  <section id="meet-keith" className="py-20 md:py-28 bg-background">
+    <div className="container mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,22 +36,27 @@ const MeetKeith = () => (
         <div className="section-divider" />
       </motion.div>
 
-      <div className="mt-20 grid lg:grid-cols-2 gap-20 items-start">
+      <div className="mt-14 grid lg:grid-cols-2 gap-14 items-start">
         {/* Mission Statement Column */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="space-y-10"
+          className="space-y-8"
         >
           <h3 className="font-heading text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight leading-tight">
             Keith's Mission for District&nbsp;51
           </h3>
 
-          <p className="text-xl md:text-2xl font-heading font-semibold text-accent leading-snug">
-            "Protect our families. Strengthen our communities. Secure the future of North Georgia."
-          </p>
+          <blockquote className="border-l-4 border-accent pl-6 py-4 bg-secondary rounded-r-lg space-y-3">
+            <p className="text-lg md:text-xl font-heading font-semibold text-primary leading-snug">
+              "Protect our families. Strengthen our communities. Secure the future of District 51."
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              Every family deserves safety, opportunity, and a community they can count on. This campaign is about delivering exactly that.
+            </p>
+          </blockquote>
 
           <div className="space-y-0 divide-y divide-border">
             {pillars.map((p, i) => (
@@ -61,7 +66,7 @@ const MeetKeith = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                className="flex gap-5 py-7 first:pt-0"
+                className="flex gap-5 py-6 first:pt-0"
               >
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
                   <p.icon className="w-6 h-6 text-accent" />
@@ -77,15 +82,6 @@ const MeetKeith = () => (
               </motion.div>
             ))}
           </div>
-
-          <blockquote className="border-l-4 border-accent pl-6 py-5 bg-secondary rounded-r-lg">
-            <p className="text-xl font-body italic text-primary font-semibold leading-relaxed">
-              "I'm running to serve the people of District 51 with integrity, common sense, and strong leadership."
-            </p>
-            <cite className="text-sm text-muted-foreground mt-3 block not-italic font-bold uppercase tracking-wider">
-              — Keith Gettmann
-            </cite>
-          </blockquote>
 
           <a
             href="#get-involved"
