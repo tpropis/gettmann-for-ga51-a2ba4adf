@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import keithHero from "@/assets/keith_fountain.jpeg";
+import keithHero from "@/assets/keith_fountain_clean.jpg";
 
 const HeroSection = () => {
   return (
