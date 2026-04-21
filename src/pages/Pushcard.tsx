@@ -258,7 +258,7 @@ const CardButton = ({
   subtle,
 }: {
   href: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: React.ElementType;
   label: string;
   primary?: boolean;
   subtle?: boolean;
