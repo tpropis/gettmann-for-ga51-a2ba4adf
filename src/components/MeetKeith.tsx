@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, GraduationCap, TrendingUp, Home, Users, Compass } from "lucide-react";
 import keithPortrait from "@/assets/keith_fountain_clean.jpg";
-import keithFamily from "@/assets/family_pic.jpg";
+import keithFamily from "@/assets/keith_wife_dog.jpeg";
 
 const pillars = [
   {
