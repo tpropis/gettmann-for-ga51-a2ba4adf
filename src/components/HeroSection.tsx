@@ -12,17 +12,16 @@ const HeroSection = () => {
       {/* Solid navy base */}
       <div className="absolute inset-0 bg-primary" />
 
-      {/* Gold seal — large, soft ornament behind the portrait */}
+      {/* Gold seal — soft ornament tucked into the far bottom-right corner, never overlapping the portrait */}
       <div
-        className="absolute pointer-events-none select-none hidden md:block"
+        className="absolute pointer-events-none select-none hidden xl:block"
         style={{
-          top: "50%",
-          right: "-8%",
-          transform: "translateY(-50%)",
-          width: "min(820px, 70vw)",
+          bottom: "-18%",
+          right: "-14%",
+          width: "min(560px, 36vw)",
           aspectRatio: "1 / 1",
-          opacity: 0.18,
-          filter: "blur(0.3px)",
+          opacity: 0.08,
+          filter: "blur(1px)",
         }}
         aria-hidden="true"
       >
