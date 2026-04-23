@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import keithHero from "@/assets/keith_hero_v2.jpg";
-import logo from "@/assets/logo_trans.svg";
+import seal from "@/assets/hero_seal.png";
 
 const HeroSection = () => {
   return (
@@ -12,20 +12,21 @@ const HeroSection = () => {
       {/* Solid navy base */}
       <div className="absolute inset-0 bg-primary" />
 
-      {/* Watermark logo — large, low-opacity brand mark behind the portrait */}
+      {/* Gold seal — large, soft ornament behind the portrait */}
       <div
         className="absolute pointer-events-none select-none hidden md:block"
         style={{
           top: "50%",
-          left: "32%",
-          transform: "translate(-50%, -50%)",
-          width: "min(620px, 55vw)",
-          opacity: 0.06,
-          mixBlendMode: "screen",
+          right: "-8%",
+          transform: "translateY(-50%)",
+          width: "min(820px, 70vw)",
+          aspectRatio: "1 / 1",
+          opacity: 0.18,
+          filter: "blur(0.3px)",
         }}
         aria-hidden="true"
       >
-        <img src={logo} alt="" className="w-full h-auto" />
+        <img src={seal} alt="" className="w-full h-full object-contain" />
       </div>
 
       {/* Keith portrait — anchored bottom-right, never cropped at the head */}
