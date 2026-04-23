@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import keithHero from "@/assets/keith_hero_v2.jpg";
-import seal from "@/assets/logo_hero_watermark.svg";
+import seal from "@/assets/hero_seal.png";
 
 const HeroSection = () => {
   return (
@@ -12,16 +12,17 @@ const HeroSection = () => {
       {/* Solid navy base */}
       <div className="absolute inset-0 bg-primary" />
 
-      {/* Campaign mark — gold-only, large and soft, anchored behind the portrait */}
+      {/* Gold seal — large, soft ornament behind the portrait */}
       <div
-        className="absolute pointer-events-none select-none hidden md:block z-[1]"
+        className="absolute pointer-events-none select-none hidden md:block"
         style={{
           top: "50%",
-          right: "-6%",
+          right: "-8%",
           transform: "translateY(-50%)",
-          width: "min(880px, 72vw)",
+          width: "min(820px, 70vw)",
           aspectRatio: "1 / 1",
-          opacity: 0.22,
+          opacity: 0.18,
+          filter: "blur(0.3px)",
         }}
         aria-hidden="true"
       >
