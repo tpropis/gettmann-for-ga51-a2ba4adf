@@ -91,7 +91,7 @@ const MeetKeith = () => (
           className="space-y-6"
         >
           <h3 className="font-heading text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight leading-tight">
-            Keith's Mission for District&nbsp;51
+            Keith's Vision for District&nbsp;51
           </h3>
 
           <blockquote className="border-l-4 border-accent pl-6 py-4 bg-secondary rounded-r-lg space-y-3">
