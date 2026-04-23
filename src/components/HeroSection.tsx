@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import keithHero from "@/assets/keith_hero_v2.jpg";
+import logo from "@/assets/logo_trans.svg";
 
 const HeroSection = () => {
   return (
@@ -10,6 +11,22 @@ const HeroSection = () => {
     >
       {/* Solid navy base */}
       <div className="absolute inset-0 bg-primary" />
+
+      {/* Watermark logo — large, low-opacity brand mark behind the portrait */}
+      <div
+        className="absolute pointer-events-none select-none hidden md:block"
+        style={{
+          top: "50%",
+          left: "32%",
+          transform: "translate(-50%, -50%)",
+          width: "min(620px, 55vw)",
+          opacity: 0.06,
+          mixBlendMode: "screen",
+        }}
+        aria-hidden="true"
+      >
+        <img src={logo} alt="" className="w-full h-auto" />
+      </div>
 
       {/* Keith portrait — anchored bottom-right, never cropped at the head */}
       <div className="absolute inset-y-0 right-0 w-full md:w-[65%] lg:w-[58%] xl:w-[55%]">
