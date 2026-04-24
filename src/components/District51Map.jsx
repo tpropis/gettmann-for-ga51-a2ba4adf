@@ -343,16 +343,20 @@ export default function District51Map() {
       >
         <div style={{ fontWeight: 700, color: "#dbb04a", marginBottom: 6 }}>Legend</div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-          <span style={{ width: 12, height: 12, background: "#22d3ee", borderRadius: "50%", display: "inline-block" }} />
-          Early Voting
+          <span style={{ width: 12, height: 12, background: COLOR_EARLY, borderRadius: "50%", display: "inline-block" }} />
+          Early Voting Only
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-          <span style={{ width: 12, height: 12, background: "#BA0C2F", borderRadius: "50%", display: "inline-block" }} />
-          Election Day
+          <span style={{ width: 12, height: 12, background: COLOR_ELECTION, borderRadius: "50%", display: "inline-block" }} />
+          Election Day Only
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+          <span style={{ width: 12, height: 12, background: COLOR_BOTH, borderRadius: "50%", display: "inline-block" }} />
+          Early + Election Day
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ width: 16, height: 3, background: "#BA0C2F", display: "inline-block" }} />
-          District 51
+          District 51 Boundary
         </div>
       </div>
 
