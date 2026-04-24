@@ -43,6 +43,45 @@ const ELECTION_DAY = [
 
 const ELECTION_HOURS = "Nov 3, 2026 · 7AM–7PM";
 
+// Merge into a unified location list with availability flags
+const normalizeAddr = (s) => s.toLowerCase().replace(/\s+/g, " ").trim();
+const LOCATION_MAP = new Map();
+for (const loc of EARLY_VOTING) {
+  const key = normalizeAddr(loc.address);
+  LOCATION_MAP.set(key, { name: loc.name, address: loc.address, early: true, electionDay: false });
+}
+for (const loc of ELECTION_DAY) {
+  const key = normalizeAddr(loc.address);
+  if (LOCATION_MAP.has(key)) {
+    LOCATION_MAP.get(key).electionDay = true;
+  } else {
+    LOCATION_MAP.set(key, { name: loc.name, address: loc.address, early: false, electionDay: true });
+  }
+}
+const ALL_LOCATIONS = Array.from(LOCATION_MAP.values());
+
+const COLOR_EARLY = "#3b82f6";   // blue
+const COLOR_ELECTION = "#BA0C2F"; // red
+const COLOR_BOTH = "#a855f7";    // purple
+
+function pinColor(loc) {
+  if (loc.early && loc.electionDay) return COLOR_BOTH;
+  if (loc.early) return COLOR_EARLY;
+  return COLOR_ELECTION;
+}
+
+function availabilityLabel(loc) {
+  if (loc.early && loc.electionDay) return "Early Voting & Election Day";
+  if (loc.early) return "Early Voting Only";
+  return "Election Day Only";
+}
+
+function locationHours(loc) {
+  if (loc.early && loc.electionDay) return `${EARLY_HOURS}<br/>${ELECTION_HOURS}`;
+  if (loc.early) return EARLY_HOURS;
+  return ELECTION_HOURS;
+}
+
 const BOUNDS = [
   [-84.45, 33.95],
   [-84.15, 34.10],
