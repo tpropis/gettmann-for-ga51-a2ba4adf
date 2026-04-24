@@ -264,8 +264,11 @@ export default function District51Map() {
           width: "calc(100% - 32px)",
         }}
       >
-        <div style={{ color: "#dbb04a", fontWeight: 700, marginBottom: 8, fontSize: 14 }}>
+        <div style={{ color: "#dbb04a", fontWeight: 700, marginBottom: 4, fontSize: 14 }}>
           Am I in District 51?
+        </div>
+        <div style={{ color: "rgba(255,255,255,0.85)", fontSize: 11, marginBottom: 8, lineHeight: 1.4 }}>
+          Some locations are available for both Early Voting and Election Day. Click each pin for details.
         </div>
         <div style={{ display: "flex", gap: 6 }}>
           <input
