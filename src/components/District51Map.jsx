@@ -183,18 +183,17 @@ export default function District51Map() {
         console.error("Failed to load district boundary", e);
       }
 
-      // Geocode and add pins
-      const addPin = async (loc, color, hours) => {
+      // Geocode and add pins (one per unique location)
+      const addPin = async (loc) => {
         const center = await geocode(loc.address);
         if (!center) return;
         const popup = new mapboxgl.Popup({ offset: 18, className: "cmap-popup" }).setHTML(
-          popupHTML(loc.name, loc.address, hours)
+          popupHTML(loc)
         );
-        new mapboxgl.Marker({ color }).setLngLat(center).setPopup(popup).addTo(map);
+        new mapboxgl.Marker({ color: pinColor(loc) }).setLngLat(center).setPopup(popup).addTo(map);
       };
 
-      for (const loc of EARLY_VOTING) addPin(loc, "#22d3ee", EARLY_HOURS);
-      for (const loc of ELECTION_DAY) addPin(loc, "#BA0C2F", ELECTION_HOURS);
+      for (const loc of ALL_LOCATIONS) addPin(loc);
     });
 
     return () => map.remove();
