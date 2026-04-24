@@ -120,16 +120,18 @@ async function geocode(query) {
   return data.features?.[0]?.center || null;
 }
 
-function popupHTML(name, address, hours) {
+function popupHTML(loc) {
   const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-    address
+    loc.address
   )}`;
+  const avail = availabilityLabel(loc);
   return `
     <div class="cmap-popup">
-      <div class="cmap-popup-header"><strong>${name}</strong></div>
+      <div class="cmap-popup-header"><strong>${loc.name}</strong></div>
       <div class="cmap-popup-body">
-        <div>${address}</div>
-        <div style="margin-top:6px;font-size:12px;opacity:0.85;">${hours}</div>
+        <div>${loc.address}</div>
+        <div style="margin-top:8px;font-size:12px;font-weight:700;color:#003056;">Available for: ${avail}</div>
+        <div style="margin-top:4px;font-size:11px;opacity:0.8;">${locationHours(loc)}</div>
         <a href="${dirUrl}" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;padding:6px 10px;background:#dbb04a;color:#003056;border-radius:4px;text-decoration:none;font-weight:600;font-size:12px;">Get Directions</a>
       </div>
     </div>
