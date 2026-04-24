@@ -43,6 +43,45 @@ const ELECTION_DAY = [
 
 const ELECTION_HOURS = "Nov 3, 2026 · 7AM–7PM";
 
+// Merge into a unified location list with availability flags
+const normalizeAddr = (s) => s.toLowerCase().replace(/\s+/g, " ").trim();
+const LOCATION_MAP = new Map();
+for (const loc of EARLY_VOTING) {
+  const key = normalizeAddr(loc.address);
+  LOCATION_MAP.set(key, { name: loc.name, address: loc.address, early: true, electionDay: false });
+}
+for (const loc of ELECTION_DAY) {
+  const key = normalizeAddr(loc.address);
+  if (LOCATION_MAP.has(key)) {
+    LOCATION_MAP.get(key).electionDay = true;
+  } else {
+    LOCATION_MAP.set(key, { name: loc.name, address: loc.address, early: false, electionDay: true });
+  }
+}
+const ALL_LOCATIONS = Array.from(LOCATION_MAP.values());
+
+const COLOR_EARLY = "#3b82f6";   // blue
+const COLOR_ELECTION = "#BA0C2F"; // red
+const COLOR_BOTH = "#a855f7";    // purple
+
+function pinColor(loc) {
+  if (loc.early && loc.electionDay) return COLOR_BOTH;
+  if (loc.early) return COLOR_EARLY;
+  return COLOR_ELECTION;
+}
+
+function availabilityLabel(loc) {
+  if (loc.early && loc.electionDay) return "Early Voting & Election Day";
+  if (loc.early) return "Early Voting Only";
+  return "Election Day Only";
+}
+
+function locationHours(loc) {
+  if (loc.early && loc.electionDay) return `${EARLY_HOURS}<br/>${ELECTION_HOURS}`;
+  if (loc.early) return EARLY_HOURS;
+  return ELECTION_HOURS;
+}
+
 const BOUNDS = [
   [-84.45, 33.95],
   [-84.15, 34.10],
@@ -81,16 +120,18 @@ async function geocode(query) {
   return data.features?.[0]?.center || null;
 }
 
-function popupHTML(name, address, hours) {
+function popupHTML(loc) {
   const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-    address
+    loc.address
   )}`;
+  const avail = availabilityLabel(loc);
   return `
     <div class="cmap-popup">
-      <div class="cmap-popup-header"><strong>${name}</strong></div>
+      <div class="cmap-popup-header"><strong>${loc.name}</strong></div>
       <div class="cmap-popup-body">
-        <div>${address}</div>
-        <div style="margin-top:6px;font-size:12px;opacity:0.85;">${hours}</div>
+        <div>${loc.address}</div>
+        <div style="margin-top:8px;font-size:12px;font-weight:700;color:#003056;">Available for: ${avail}</div>
+        <div style="margin-top:4px;font-size:11px;opacity:0.8;">${locationHours(loc)}</div>
         <a href="${dirUrl}" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;padding:6px 10px;background:#dbb04a;color:#003056;border-radius:4px;text-decoration:none;font-weight:600;font-size:12px;">Get Directions</a>
       </div>
     </div>
@@ -142,18 +183,17 @@ export default function District51Map() {
         console.error("Failed to load district boundary", e);
       }
 
-      // Geocode and add pins
-      const addPin = async (loc, color, hours) => {
+      // Geocode and add pins (one per unique location)
+      const addPin = async (loc) => {
         const center = await geocode(loc.address);
         if (!center) return;
         const popup = new mapboxgl.Popup({ offset: 18, className: "cmap-popup" }).setHTML(
-          popupHTML(loc.name, loc.address, hours)
+          popupHTML(loc)
         );
-        new mapboxgl.Marker({ color }).setLngLat(center).setPopup(popup).addTo(map);
+        new mapboxgl.Marker({ color: pinColor(loc) }).setLngLat(center).setPopup(popup).addTo(map);
       };
 
-      for (const loc of EARLY_VOTING) addPin(loc, "#22d3ee", EARLY_HOURS);
-      for (const loc of ELECTION_DAY) addPin(loc, "#BA0C2F", ELECTION_HOURS);
+      for (const loc of ALL_LOCATIONS) addPin(loc);
     });
 
     return () => map.remove();
@@ -224,8 +264,11 @@ export default function District51Map() {
           width: "calc(100% - 32px)",
         }}
       >
-        <div style={{ color: "#dbb04a", fontWeight: 700, marginBottom: 8, fontSize: 14 }}>
+        <div style={{ color: "#dbb04a", fontWeight: 700, marginBottom: 4, fontSize: 14 }}>
           Am I in District 51?
+        </div>
+        <div style={{ color: "rgba(255,255,255,0.85)", fontSize: 11, marginBottom: 8, lineHeight: 1.4 }}>
+          Some locations are available for both Early Voting and Election Day. Click each pin for details.
         </div>
         <div style={{ display: "flex", gap: 6 }}>
           <input
@@ -300,16 +343,20 @@ export default function District51Map() {
       >
         <div style={{ fontWeight: 700, color: "#dbb04a", marginBottom: 6 }}>Legend</div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-          <span style={{ width: 12, height: 12, background: "#22d3ee", borderRadius: "50%", display: "inline-block" }} />
-          Early Voting
+          <span style={{ width: 12, height: 12, background: COLOR_EARLY, borderRadius: "50%", display: "inline-block" }} />
+          Early Voting Only
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-          <span style={{ width: 12, height: 12, background: "#BA0C2F", borderRadius: "50%", display: "inline-block" }} />
-          Election Day
+          <span style={{ width: 12, height: 12, background: COLOR_ELECTION, borderRadius: "50%", display: "inline-block" }} />
+          Election Day Only
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+          <span style={{ width: 12, height: 12, background: COLOR_BOTH, borderRadius: "50%", display: "inline-block" }} />
+          Early + Election Day
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ width: 16, height: 3, background: "#BA0C2F", display: "inline-block" }} />
-          District 51
+          District 51 Boundary
         </div>
       </div>
 
