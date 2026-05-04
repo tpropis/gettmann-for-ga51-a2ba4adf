@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Shield, Heart } from "lucide-react";
 import { motion } from "framer-motion";
+import { trackDonateClick } from "@/lib/analytics";
 
 const amounts = [25, 50, 100, 250];
 const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/9TFN22CKFFVFW";
