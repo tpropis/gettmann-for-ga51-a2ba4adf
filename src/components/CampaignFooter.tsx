@@ -1,5 +1,6 @@
 import logo from "@/assets/logo_trans.svg";
 import { Facebook, Twitter, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const footerLinks = [
   { label: "Home", href: "#home" },
@@ -83,6 +84,13 @@ const CampaignFooter = () => (
                 rel="noopener noreferrer"
                 title={label}
                 aria-label={label}
+                onClick={() =>
+                  trackEvent("social_link_click", {
+                    network: label.toLowerCase(),
+                    location: "footer",
+                    url: href,
+                  })
+                }
                 className="w-9 h-9 rounded-full bg-primary-foreground/5 flex items-center justify-center hover:bg-accent transition-colors group"
               >
                 <Icon className="h-4 w-4 text-primary-foreground/60 group-hover:text-accent-foreground transition-colors" />
