@@ -75,27 +75,34 @@ const CampaignFooter = () => (
             </div>
           </div>
 
-          <div className="flex gap-2.5 mt-6">
-            {socialLinks.map(({ Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={label}
-                aria-label={label}
-                onClick={() =>
-                  trackEvent("social_link_click", {
-                    network: label.toLowerCase(),
-                    location: "footer",
-                    url: href,
-                  })
-                }
-                className="w-9 h-9 rounded-full bg-primary-foreground/5 flex items-center justify-center hover:bg-accent transition-colors group"
-              >
-                <Icon className="h-4 w-4 text-primary-foreground/60 group-hover:text-accent-foreground transition-colors" />
-              </a>
-            ))}
+          <div className="mt-5">
+            <div className="text-primary-foreground/70 text-xs uppercase tracking-[0.18em] font-bold mb-3">
+              Follow Keith
+            </div>
+            <div className="flex flex-col gap-2.5">
+              {socialLinks.map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  onClick={() =>
+                    trackEvent("social_link_click", {
+                      network: label.toLowerCase(),
+                      location: "footer",
+                      url: href,
+                    })
+                  }
+                  className="inline-flex items-center gap-3 text-primary-foreground/80 hover:text-accent text-sm font-medium transition-colors group"
+                >
+                  <span className="w-9 h-9 rounded-full bg-accent flex items-center justify-center group-hover:bg-primary-foreground transition-colors">
+                    <Icon className="h-4 w-4 text-primary" />
+                  </span>
+                  {label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
