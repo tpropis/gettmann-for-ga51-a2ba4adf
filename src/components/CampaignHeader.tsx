@@ -108,7 +108,10 @@ const CampaignHeader = () => {
               ))}
               <a
                 href="/#donate"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  trackDonateClick("header_mobile", "Donate");
+                  setMenuOpen(false);
+                }}
                 className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3.5 rounded-md text-center hover:brightness-90 transition-all mt-2 shadow-lg shadow-accent/20 uppercase"
               >
                 Donate
