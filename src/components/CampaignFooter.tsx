@@ -41,6 +41,11 @@ const CampaignFooter = () => (
               <a
                 key={link.href}
                 href={link.href}
+                onClick={
+                  link.label === "Donate"
+                    ? () => trackDonateClick("footer", "Donate")
+                    : undefined
+                }
                 className="block text-primary-foreground/55 hover:text-primary-foreground text-sm transition-colors font-medium tracking-wide"
               >
                 {link.label}
