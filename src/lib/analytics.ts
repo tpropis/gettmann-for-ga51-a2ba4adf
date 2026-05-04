@@ -53,3 +53,18 @@ export const trackEvent = (
   }
   window.gtag("event", name, params);
 };
+
+// Centralized donate-click tracker so every CTA reports consistent fields.
+export const trackDonateClick = (
+  step: string,
+  label: string,
+  extra: Record<string, unknown> = {}
+) => {
+  trackEvent("donate_click", {
+    step,
+    label,
+    referrer: typeof document !== "undefined" ? document.referrer || "direct" : "direct",
+    path: typeof window !== "undefined" ? window.location.pathname : "",
+    ...extra,
+  });
+};
