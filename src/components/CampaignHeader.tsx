@@ -68,6 +68,7 @@ const CampaignHeader = () => {
             )}
             <a
               href="/#donate"
+              onClick={() => trackDonateClick("header_desktop", "Donate")}
               className="ml-3 bg-accent text-accent-foreground font-heading text-sm font-bold px-5 py-2 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase"
             >
               Donate
