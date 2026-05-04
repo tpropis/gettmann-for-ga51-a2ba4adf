@@ -11,10 +11,8 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { Icon: Facebook, href: "#", label: "Facebook — link coming soon" },
-  { Icon: Twitter, href: "#", label: "Twitter/X — link coming soon" },
-  { Icon: Instagram, href: "#", label: "Instagram — link coming soon" },
-  { Icon: Youtube, href: "#", label: "YouTube — link coming soon" },
+  { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61564223962233", label: "Facebook" },
+  { Icon: Instagram, href: "https://www.instagram.com/keithforgeorgia/", label: "Instagram" },
 ];
 
 const CampaignFooter = () => (
