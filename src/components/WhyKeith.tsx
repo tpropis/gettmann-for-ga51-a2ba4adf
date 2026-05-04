@@ -1,5 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { trackDonateClick } from "@/lib/analytics";
 
 const points = [
   "Family-centered leadership rooted in real values",
@@ -43,6 +44,7 @@ const WhyKeith = () => (
       <div className="text-center mt-14">
         <a
           href="#donate"
+          onClick={() => trackDonateClick("why_keith", "Support Keith Today")}
           className="inline-block bg-accent text-accent-foreground font-heading text-lg font-bold px-10 py-4 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20"
         >
           Support Keith Today

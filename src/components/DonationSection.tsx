@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Shield, Heart } from "lucide-react";
 import { motion } from "framer-motion";
+import { trackDonateClick } from "@/lib/analytics";
 
 const amounts = [25, 50, 100, 250];
 const PAYPAL_LINK = "https://www.paypal.com/ncp/payment/9TFN22CKFFVFW";
@@ -55,6 +56,12 @@ const DonationSection = () => {
             href={PAYPAL_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackDonateClick("donation_section", `Donate $${selected}`, {
+                amount: selected,
+                provider: "paypal",
+              })
+            }
             className="mt-6 flex items-center justify-center gap-2 w-full bg-accent text-accent-foreground font-heading text-xl md:text-2xl font-bold py-5 rounded-md text-center hover:brightness-95 transition-all tracking-wide shadow-xl shadow-accent/30 uppercase"
           >
             <Heart className="w-5 h-5 fill-current" />

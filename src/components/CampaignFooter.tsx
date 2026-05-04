@@ -1,6 +1,6 @@
 import logo from "@/assets/logo_trans.svg";
 import { Facebook, Twitter, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackDonateClick } from "@/lib/analytics";
 
 const footerLinks = [
   { label: "Home", href: "#home" },
@@ -41,6 +41,11 @@ const CampaignFooter = () => (
               <a
                 key={link.href}
                 href={link.href}
+                onClick={
+                  link.label === "Donate"
+                    ? () => trackDonateClick("footer", "Donate")
+                    : undefined
+                }
                 className="block text-primary-foreground/55 hover:text-primary-foreground text-sm transition-colors font-medium tracking-wide"
               >
                 {link.label}

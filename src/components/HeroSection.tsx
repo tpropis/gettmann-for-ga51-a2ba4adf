@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import keithHero from "@/assets/keith_hero_v2.jpg";
 import seal from "@/assets/hero_seal.png";
+import { trackDonateClick } from "@/lib/analytics";
 
 const HeroSection = () => {
   return (
@@ -96,6 +97,7 @@ const HeroSection = () => {
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <a
               href="#donate"
+              onClick={() => trackDonateClick("hero", "Donate Now")}
               className="group inline-flex items-center justify-center gap-3 bg-accent text-accent-foreground font-heading text-base font-bold px-9 py-4 rounded-md hover:brightness-95 transition-all tracking-wide shadow-xl shadow-accent/40 uppercase"
             >
               Donate Now

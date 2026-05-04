@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo_trans.svg";
+import { trackDonateClick } from "@/lib/analytics";
 
 const navLinks = [
   { label: "About", href: "/#meet-keith" },
@@ -67,6 +68,7 @@ const CampaignHeader = () => {
             )}
             <a
               href="/#donate"
+              onClick={() => trackDonateClick("header_desktop", "Donate")}
               className="ml-3 bg-accent text-accent-foreground font-heading text-sm font-bold px-5 py-2 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase"
             >
               Donate
@@ -106,7 +108,10 @@ const CampaignHeader = () => {
               ))}
               <a
                 href="/#donate"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  trackDonateClick("header_mobile", "Donate");
+                  setMenuOpen(false);
+                }}
                 className="bg-accent text-accent-foreground font-heading text-lg font-bold px-6 py-3.5 rounded-md text-center hover:brightness-90 transition-all mt-2 shadow-lg shadow-accent/20 uppercase"
               >
                 Donate
