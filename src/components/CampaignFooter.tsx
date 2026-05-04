@@ -1,6 +1,6 @@
 import logo from "@/assets/logo_trans.svg";
 import { Facebook, Twitter, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackDonateClick } from "@/lib/analytics";
 
 const footerLinks = [
   { label: "Home", href: "#home" },
