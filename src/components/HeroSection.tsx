@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import keithHero from "@/assets/keith_hero_v2.jpg";
 import seal from "@/assets/hero_seal.png";
+import { trackDonateClick } from "@/lib/analytics";
 
 const HeroSection = () => {
   return (
