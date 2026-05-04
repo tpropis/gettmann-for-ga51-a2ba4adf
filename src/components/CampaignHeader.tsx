@@ -2,6 +2,15 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo_trans.svg";
+import { trackEvent } from "@/lib/analytics";
+
+const trackDonateClick = (step: string, label: string) =>
+  trackEvent("donate_click", {
+    step,
+    label,
+    referrer: typeof document !== "undefined" ? document.referrer || "direct" : "direct",
+    path: typeof window !== "undefined" ? window.location.pathname : "",
+  });
 
 const navLinks = [
   { label: "About", href: "/#meet-keith" },
