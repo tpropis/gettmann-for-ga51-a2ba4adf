@@ -324,6 +324,29 @@ export default function District51Map() {
             {statusMsg.text}
           </div>
         )}
+        <div
+          style={{
+            marginTop: 10,
+            padding: "8px 10px",
+            borderRadius: 4,
+            background: "#dbb04a",
+            color: "#003056",
+            fontSize: 12,
+            fontWeight: 700,
+            lineHeight: 1.4,
+            textAlign: "center",
+          }}
+        >
+          Always verify your assigned precinct at{" "}
+          <a
+            href="https://mvp.sos.ga.gov/s/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#003056", textDecoration: "underline", fontWeight: 800 }}
+          >
+            Georgia My Voter Page
+          </a>
+        </div>
       </form>
 
       {/* Legend */}
