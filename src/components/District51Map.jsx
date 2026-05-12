@@ -324,6 +324,29 @@ export default function District51Map() {
             {statusMsg.text}
           </div>
         )}
+        <div
+          style={{
+            marginTop: 10,
+            padding: "8px 10px",
+            borderRadius: 4,
+            background: "#dbb04a",
+            color: "#003056",
+            fontSize: 12,
+            fontWeight: 700,
+            lineHeight: 1.4,
+            textAlign: "center",
+          }}
+        >
+          Always verify your assigned precinct at{" "}
+          <a
+            href="https://mvp.sos.ga.gov/s/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#003056", textDecoration: "underline", fontWeight: 800 }}
+          >
+            Georgia My Voter Page
+          </a>
+        </div>
       </form>
 
       {/* Legend */}
@@ -360,33 +383,6 @@ export default function District51Map() {
         </div>
       </div>
 
-      {/* Footer */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          textAlign: "center",
-          zIndex: 10,
-          color: "white",
-          fontSize: 14,
-          fontWeight: 600,
-          padding: "10px 16px",
-          background: "rgba(0,48,86,0.92)",
-          borderTop: "2px solid #dbb04a",
-        }}
-      >
-        Always verify your assigned precinct at{" "}
-        <a
-          href="https://mvp.sos.ga.gov/s/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "#dbb04a", textDecoration: "underline", fontWeight: 700 }}
-        >
-          Georgia My Voter Page
-        </a>
-      </div>
     </div>
   );
 }
