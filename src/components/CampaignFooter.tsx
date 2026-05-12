@@ -76,7 +76,7 @@ const CampaignFooter = () => (
             </a>
             <div className="flex items-start gap-3 text-primary-foreground/60 text-sm">
               <MapPin className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-              <span>Mail checks to:<br />20 Saddleview Run<br />Sandy Springs, GA 30350</span>
+              <span>Mail checks to:<br />Keith for GA LLC<br />20 Saddleview Run<br />Sandy Springs, GA 30350</span>
             </div>
           </div>
 
