@@ -324,69 +324,27 @@ export default function District51Map() {
             {statusMsg.text}
           </div>
         )}
-      </form>
-
-      {/* Legend */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 50,
-          left: 16,
-          zIndex: 10,
-          background: "rgba(0,48,86,0.95)",
-          padding: 12,
-          borderRadius: 8,
-          color: "white",
-          fontSize: 12,
-          boxShadow: "0 4px 16px rgba(0,0,0,0.3)",
-        }}
-      >
-        <div style={{ fontWeight: 700, color: "#dbb04a", marginBottom: 6 }}>Legend</div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-          <span style={{ width: 12, height: 12, background: COLOR_EARLY, borderRadius: "50%", display: "inline-block" }} />
-          Early Voting Only
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-          <span style={{ width: 12, height: 12, background: COLOR_ELECTION, borderRadius: "50%", display: "inline-block" }} />
-          Election Day Only
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-          <span style={{ width: 12, height: 12, background: COLOR_BOTH, borderRadius: "50%", display: "inline-block" }} />
-          Early + Election Day
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ width: 16, height: 3, background: "#BA0C2F", display: "inline-block" }} />
-          District 51 Boundary
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          textAlign: "center",
-          zIndex: 10,
-          color: "white",
-          fontSize: 14,
-          fontWeight: 600,
-          padding: "10px 16px",
-          background: "rgba(0,48,86,0.92)",
-          borderTop: "2px solid #dbb04a",
-        }}
-      >
-        Always verify your assigned precinct at{" "}
-        <a
-          href="https://mvp.sos.ga.gov/s/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "#dbb04a", textDecoration: "underline", fontWeight: 700 }}
+        <div
+          style={{
+            marginTop: 12,
+            paddingTop: 10,
+            borderTop: "1px solid rgba(255,255,255,0.2)",
+            fontSize: 12,
+            fontWeight: 600,
+            color: "white",
+            lineHeight: 1.4,
+          }}
         >
-          Georgia My Voter Page
-        </a>
-      </div>
-    </div>
+          Always verify your assigned precinct at{" "}
+          <a
+            href="https://mvp.sos.ga.gov/s/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#dbb04a", textDecoration: "underline", fontWeight: 700 }}
+          >
+            Georgia My Voter Page
+          </a>
+        </div>
+      </form>
   );
 }
