@@ -337,7 +337,8 @@ export default function District51Map() {
             textAlign: "center",
           }}
         >
-          Always verify your assigned precinct at{" "}
+          Always verify your assigned precinct at
+          <br />
           <a
             href="https://mvp.sos.ga.gov/s/"
             target="_blank"
