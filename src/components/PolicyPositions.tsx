@@ -7,6 +7,7 @@ import {
   HeartHandshake,
   BookOpen,
   Leaf,
+  ShieldCheck,
 } from "lucide-react";
 
 const positions = [
