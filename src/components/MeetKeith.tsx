@@ -57,21 +57,21 @@ const MeetKeith = () => (
           <div className="absolute top-0 left-0 w-1 h-8 bg-accent" />
         </div>
         <div className="grid grid-cols-2 gap-3 mt-3">
-          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
+          <div className="overflow-hidden rounded-lg shadow-md">
             <img
               src={keithDog}
               alt="Keith Gettmann with his dog"
               className="w-full h-full object-cover"
-              style={{ aspectRatio: '1/1', objectPosition: '60% 35%' }}
+              style={{ aspectRatio: '4/3', objectPosition: '55% 20%' }}
               loading="lazy"
             />
           </div>
-          <div className="overflow-hidden rounded-lg shadow-md bg-background">
+          <div className="overflow-hidden rounded-lg shadow-md">
             <img
               src={keithFamily}
               alt="Keith Gettmann with his family"
-              className="w-full h-full object-contain"
-              style={{ aspectRatio: '1/1' }}
+              className="w-full h-full object-cover"
+              style={{ aspectRatio: '4/3' }}
               loading="lazy"
             />
           </div>
@@ -221,21 +221,21 @@ const MeetKeith = () => (
             <div className="absolute top-0 left-0 w-1 h-12 bg-accent" />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
+            <div className="overflow-hidden rounded-lg shadow-md">
               <img
                 src={keithDog}
                 alt="Keith Gettmann with his dog"
                 className="w-full h-full object-cover"
-                style={{ aspectRatio: '1/1', objectPosition: '60% 35%' }}
+                style={{ aspectRatio: '4/3', objectPosition: '55% 20%' }}
                 loading="lazy"
               />
             </div>
-            <div className="overflow-hidden rounded-lg shadow-md bg-background">
+            <div className="overflow-hidden rounded-lg shadow-md">
               <img
                 src={keithFamily}
                 alt="Keith Gettmann with his family"
-                className="w-full h-full object-contain"
-                style={{ aspectRatio: '1/1' }}
+                className="w-full h-full object-cover"
+                style={{ aspectRatio: '4/3' }}
                 loading="lazy"
               />
             </div>
