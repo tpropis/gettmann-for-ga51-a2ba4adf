@@ -66,7 +66,7 @@ const MeetKeith = () => (
               loading="lazy"
             />
           </div>
-          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40 bg-secondary">
+          <div className="overflow-hidden rounded-lg shadow-md bg-background">
             <img
               src={keithFamily}
               alt="Keith Gettmann with his family"
@@ -230,7 +230,7 @@ const MeetKeith = () => (
                 loading="lazy"
               />
             </div>
-            <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40 bg-secondary">
+            <div className="overflow-hidden rounded-lg shadow-md bg-background">
               <img
                 src={keithFamily}
                 alt="Keith Gettmann with his family"
