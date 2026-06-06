@@ -50,7 +50,7 @@ const MeetKeith = () => (
             src={keithPortrait}
             alt="Keith Gettmann official portrait"
             className="w-full h-full object-cover"
-            style={{ aspectRatio: '16/10', objectPosition: '50% 25%' }}
+            style={{ aspectRatio: '16/10', objectPosition: '50% 8%' }}
             loading="lazy"
           />
           <div className="absolute top-0 left-0 w-8 h-1 bg-accent" />
@@ -66,12 +66,12 @@ const MeetKeith = () => (
               loading="lazy"
             />
           </div>
-          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
+          <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40 bg-secondary">
             <img
               src={keithFamily}
               alt="Keith Gettmann with his family"
-              className="w-full h-full object-cover"
-              style={{ aspectRatio: '1/1', objectPosition: '50% 35%' }}
+              className="w-full h-full object-contain"
+              style={{ aspectRatio: '1/1' }}
               loading="lazy"
             />
           </div>
@@ -146,8 +146,8 @@ const MeetKeith = () => (
               {[
                 {
                   icon: Home,
-                  title: "Rooted in District 51",
-                  text: "Keith and his family have called North Georgia home for years. He understands the challenges facing local families because he lives them every day. His commitment to District 51 comes from a lifetime of relationships, community involvement, and pride in the place he calls home.",
+                  title: "Rooted in Georgia",
+                  text: "Keith was born, raised, and educated in Georgia. He and his family have built their lives here, and his commitment to District 51 comes from a lifetime of relationships, community involvement, and pride in the place he calls home.",
                 },
                 {
                   icon: Users,
@@ -213,7 +213,7 @@ const MeetKeith = () => (
               src={keithPortrait}
               alt="Keith Gettmann official portrait"
               className="w-full object-cover"
-              style={{ aspectRatio: '4/5', objectPosition: '50% 25%' }}
+              style={{ aspectRatio: '4/5', objectPosition: '50% 8%' }}
               loading="lazy"
             />
             {/* Subtle gold corner accent */}
@@ -230,12 +230,12 @@ const MeetKeith = () => (
                 loading="lazy"
               />
             </div>
-            <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40">
+            <div className="overflow-hidden rounded-lg shadow-md ring-1 ring-border/40 bg-secondary">
               <img
                 src={keithFamily}
                 alt="Keith Gettmann with his family"
-                className="w-full h-full object-cover"
-                style={{ aspectRatio: '1/1', objectPosition: '50% 35%' }}
+                className="w-full h-full object-contain"
+                style={{ aspectRatio: '1/1' }}
                 loading="lazy"
               />
             </div>
