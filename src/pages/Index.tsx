@@ -15,7 +15,7 @@ const Index = () => {
       <CampaignHeader />
       <HeroSection />
       <MeetKeith />
-      <IssuesSection />
+      
       <PolicyPositions />
       <DonationSection />
       <GetInvolved />
