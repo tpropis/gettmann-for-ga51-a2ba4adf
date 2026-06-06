@@ -1,7 +1,7 @@
 import CampaignHeader from "@/components/CampaignHeader";
 import HeroSection from "@/components/HeroSection";
 import MeetKeith from "@/components/MeetKeith";
-import IssuesSection from "@/components/IssuesSection";
+
 import PolicyPositions from "@/components/PolicyPositions";
 import DonationSection from "@/components/DonationSection";
 import GetInvolved from "@/components/GetInvolved";
@@ -15,7 +15,7 @@ const Index = () => {
       <CampaignHeader />
       <HeroSection />
       <MeetKeith />
-      <IssuesSection />
+      
       <PolicyPositions />
       <DonationSection />
       <GetInvolved />
