@@ -135,11 +135,12 @@ const CommunityCouncil = () => {
                   </p>
 
                   <div>
-                    <label className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
+                    <label htmlFor="cc-name" className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
                       Name
                     </label>
                     <input
                       type="text"
+                      id="cc-name"
                       name="name"
                       required
                       value={form.name}
@@ -150,11 +151,12 @@ const CommunityCouncil = () => {
 
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
+                      <label htmlFor="cc-email" className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
                         Email
                       </label>
                       <input
                         type="email"
+                        id="cc-email"
                         name="email"
                         required
                         value={form.email}
@@ -163,11 +165,12 @@ const CommunityCouncil = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
+                      <label htmlFor="cc-zip" className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
                         Zip Code
                       </label>
                       <input
                         type="text"
+                        id="cc-zip"
                         name="zip"
                         required
                         value={form.zip}
@@ -178,10 +181,11 @@ const CommunityCouncil = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
+                    <label htmlFor="cc-topic" className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
                       Topic
                     </label>
                     <select
+                      id="cc-topic"
                       name="topic"
                       required
                       value={form.topic}
@@ -200,10 +204,11 @@ const CommunityCouncil = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
+                    <label htmlFor="cc-message" className="block text-sm font-semibold text-primary mb-1.5 font-body uppercase tracking-wide">
                       Message
                     </label>
                     <textarea
+                      id="cc-message"
                       name="message"
                       required
                       rows={6}
