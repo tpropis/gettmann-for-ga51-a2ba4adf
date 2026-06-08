@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import CampaignHeader from "@/components/CampaignHeader";
 import HeroSection from "@/components/HeroSection";
 import MeetKeith from "@/components/MeetKeith";
