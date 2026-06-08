@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
+import Seo from "@/components/Seo";
 import CampaignHeader from "@/components/CampaignHeader";
 import CampaignFooter from "@/components/CampaignFooter";
 
 const Privacy = () => (
   <>
+    <Seo
+      title="Privacy Policy | Keith Gettmann for Georgia"
+      description="How the Keith Gettmann for Georgia campaign collects, uses, and protects your information, including SMS opt-in data."
+      path="/privacy"
+    />
     <CampaignHeader />
     <main className="bg-background py-16 md:py-20">
       <div className="container mx-auto max-w-3xl px-4">

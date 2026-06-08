@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, MessageSquareHeart, ArrowLeft } from "lucide-react";
 import CampaignHeader from "@/components/CampaignHeader";
 import CampaignFooter from "@/components/CampaignFooter";
+import Seo from "@/components/Seo";
 
 const topicOptions = ["Local Issue", "Policy Idea", "Community Event", "Other"];
 
@@ -50,6 +51,11 @@ const CommunityCouncil = () => {
 
   return (
     <>
+      <Seo
+        title="Community Council | Keith Gettmann for Georgia"
+        description="Residents of Georgia State House District 51 can share concerns, ideas, and priorities directly with Keith Gettmann through the Community Council form."
+        path="/community-council"
+      />
       <CampaignHeader />
       <main className="bg-campaign-light min-h-screen pt-32 md:pt-40 pb-20">
         <div className="container mx-auto px-4">

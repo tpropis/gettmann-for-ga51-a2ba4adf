@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
+import Seo from "@/components/Seo";
 import CampaignHeader from "@/components/CampaignHeader";
 import CampaignFooter from "@/components/CampaignFooter";
 
 const Terms = () => (
   <>
+    <Seo
+      title="Terms & Conditions | Keith Gettmann for Georgia"
+      description="Terms of use for the Keith Gettmann for Georgia website and SMS text messaging program."
+      path="/terms"
+    />
     <CampaignHeader />
     <main className="bg-background py-16 md:py-20">
       <div className="container mx-auto max-w-3xl px-4">

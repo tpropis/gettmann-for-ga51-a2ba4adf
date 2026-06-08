@@ -13,6 +13,11 @@ import CampaignFooter from "@/components/CampaignFooter";
 const Index = () => {
   return (
     <>
+      <Seo
+        title="Keith Gettmann for Georgia State House District 51"
+        description="Republican candidate Keith Gettmann is running for Georgia State House District 51 — safer communities, stronger schools, lower taxes, and common-sense leadership."
+        path="/"
+      />
       <CampaignHeader />
       <HeroSection />
       <MeetKeith />
