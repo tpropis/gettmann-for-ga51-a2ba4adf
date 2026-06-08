@@ -151,8 +151,10 @@ const GetInvolved = () => {
                 </p>
                 <input
                   type="text"
+                  id="su-name"
                   name="name"
                   required
+                  aria-label="Full name"
                   placeholder="Full Name"
                   value={supporter.name}
                   onChange={(e) => setSupporter({ ...supporter, name: e.target.value })}
@@ -160,8 +162,10 @@ const GetInvolved = () => {
                 />
                 <input
                   type="email"
+                  id="su-email"
                   name="email"
                   required
+                  aria-label="Email address"
                   placeholder="Email Address"
                   value={supporter.email}
                   onChange={(e) => setSupporter({ ...supporter, email: e.target.value })}
@@ -169,8 +173,10 @@ const GetInvolved = () => {
                 />
                 <input
                   type="text"
+                  id="su-zip"
                   name="zip"
                   inputMode="numeric"
+                  aria-label="ZIP code"
                   placeholder="ZIP Code"
                   value={supporter.zip}
                   onChange={(e) => setSupporter({ ...supporter, zip: e.target.value })}
@@ -178,15 +184,18 @@ const GetInvolved = () => {
                 />
                 <input
                   type="tel"
+                  id="su-phone"
                   name="phone"
+                  aria-label="Phone number (optional)"
                   placeholder="Phone Number (optional)"
                   value={supporter.phone}
                   onChange={(e) => setSupporter({ ...supporter, phone: e.target.value })}
                   className={inputCls}
                 />
-                <label className="flex items-start gap-2 text-sm text-foreground cursor-pointer">
+                <label htmlFor="su-sms" className="flex items-start gap-2 text-sm text-foreground cursor-pointer">
                   <input
                     type="checkbox"
+                    id="su-sms"
                     name="sms_opt_in"
                     checked={supporter.smsOptIn}
                     onChange={(e) => setSupporter({ ...supporter, smsOptIn: e.target.checked })}
@@ -245,8 +254,10 @@ const GetInvolved = () => {
                 </p>
                 <input
                   type="text"
+                  id="vol-name"
                   name="name"
                   required
+                  aria-label="Full name"
                   placeholder="Full Name"
                   value={vol.name}
                   onChange={(e) => setVol({ ...vol, name: e.target.value })}
@@ -254,8 +265,10 @@ const GetInvolved = () => {
                 />
                 <input
                   type="email"
+                  id="vol-email"
                   name="email"
                   required
+                  aria-label="Email address"
                   placeholder="Email Address"
                   value={vol.email}
                   onChange={(e) => setVol({ ...vol, email: e.target.value })}
@@ -263,16 +276,20 @@ const GetInvolved = () => {
                 />
                 <input
                   type="tel"
+                  id="vol-phone"
                   name="phone"
                   required
+                  aria-label="Phone number"
                   placeholder="Phone"
                   value={vol.phone}
                   onChange={(e) => setVol({ ...vol, phone: e.target.value })}
                   className={inputCls}
                 />
                 <select
+                  id="vol-help"
                   name="help"
                   required
+                  aria-label="How would you like to help?"
                   value={vol.help}
                   onChange={(e) => setVol({ ...vol, help: e.target.value })}
                   className={`${inputCls} text-foreground`}
@@ -284,9 +301,10 @@ const GetInvolved = () => {
                     </option>
                   ))}
                 </select>
-                <label className="flex items-start gap-2 text-sm text-foreground cursor-pointer">
+                <label htmlFor="vol-sms" className="flex items-start gap-2 text-sm text-foreground cursor-pointer">
                   <input
                     type="checkbox"
+                    id="vol-sms"
                     name="sms_opt_in"
                     checked={vol.smsOptIn}
                     onChange={(e) => setVol({ ...vol, smsOptIn: e.target.checked })}

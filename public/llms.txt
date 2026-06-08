@@ -1,0 +1,11 @@
+# Keith Gettmann for Georgia State House District 51
+
+> Official campaign site for Keith Gettmann, Republican candidate for Georgia State House District 51. Focused on safer communities, stronger schools, lower taxes, and common-sense leadership for District 51 families.
+
+## Pages
+
+- [Home](/): Campaign overview, Keith's vision, policy pillars, and ways to support the campaign.
+- [Community Council](/community-council): Form for District 51 residents to submit concerns, ideas, and priorities directly to Keith.
+- [District 51 Map](/map): Interactive map of Georgia House District 51.
+- [Privacy Policy](/privacy): How the campaign collects and uses contact information, including the SMS opt-in program.
+- [Terms & Conditions](/terms): Terms of use for the site and SMS messaging program.

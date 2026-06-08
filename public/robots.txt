@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://gettmann-for-ga51.lovable.app/sitemap.xml
