@@ -119,8 +119,8 @@ const CampaignFooter = () => (
         </p>
         <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-primary-foreground/35 text-xs">
           <span>© 2026 Keith for GA LLC. All rights reserved.</span>
-          <a href="#" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-primary-foreground/60 transition-colors">Terms</a>
+          <a href="/privacy" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
+          <a href="/terms" className="hover:text-primary-foreground/60 transition-colors">Terms</a>
         </div>
       </div>
     </div>

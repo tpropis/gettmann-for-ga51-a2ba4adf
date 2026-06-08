@@ -9,6 +9,8 @@ const DistrictMap = lazy(() => import("./pages/DistrictMap"));
 const CommunityCouncil = lazy(() => import("./pages/CommunityCouncil"));
 const Pushcard = lazy(() => import("./pages/Pushcard"));
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +61,8 @@ const App = () => (
               </Suspense>
             }
           />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
