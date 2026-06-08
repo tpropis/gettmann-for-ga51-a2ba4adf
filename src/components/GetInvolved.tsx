@@ -151,8 +151,10 @@ const GetInvolved = () => {
                 </p>
                 <input
                   type="text"
+                  id="su-name"
                   name="name"
                   required
+                  aria-label="Full name"
                   placeholder="Full Name"
                   value={supporter.name}
                   onChange={(e) => setSupporter({ ...supporter, name: e.target.value })}
@@ -160,8 +162,10 @@ const GetInvolved = () => {
                 />
                 <input
                   type="email"
+                  id="su-email"
                   name="email"
                   required
+                  aria-label="Email address"
                   placeholder="Email Address"
                   value={supporter.email}
                   onChange={(e) => setSupporter({ ...supporter, email: e.target.value })}
@@ -169,8 +173,10 @@ const GetInvolved = () => {
                 />
                 <input
                   type="text"
+                  id="su-zip"
                   name="zip"
                   inputMode="numeric"
+                  aria-label="ZIP code"
                   placeholder="ZIP Code"
                   value={supporter.zip}
                   onChange={(e) => setSupporter({ ...supporter, zip: e.target.value })}
@@ -178,15 +184,18 @@ const GetInvolved = () => {
                 />
                 <input
                   type="tel"
+                  id="su-phone"
                   name="phone"
+                  aria-label="Phone number (optional)"
                   placeholder="Phone Number (optional)"
                   value={supporter.phone}
                   onChange={(e) => setSupporter({ ...supporter, phone: e.target.value })}
                   className={inputCls}
                 />
-                <label className="flex items-start gap-2 text-sm text-foreground cursor-pointer">
+                <label htmlFor="su-sms" className="flex items-start gap-2 text-sm text-foreground cursor-pointer">
                   <input
                     type="checkbox"
+                    id="su-sms"
                     name="sms_opt_in"
                     checked={supporter.smsOptIn}
                     onChange={(e) => setSupporter({ ...supporter, smsOptIn: e.target.checked })}
