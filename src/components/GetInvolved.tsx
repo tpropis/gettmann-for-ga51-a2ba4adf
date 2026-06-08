@@ -176,6 +176,25 @@ const GetInvolved = () => {
                   onChange={(e) => setSupporter({ ...supporter, zip: e.target.value })}
                   className={inputCls}
                 />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number (optional)"
+                  value={supporter.phone}
+                  onChange={(e) => setSupporter({ ...supporter, phone: e.target.value })}
+                  className={inputCls}
+                />
+                <label className="flex items-start gap-2 text-sm text-foreground cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="sms_opt_in"
+                    checked={supporter.smsOptIn}
+                    onChange={(e) => setSupporter({ ...supporter, smsOptIn: e.target.checked })}
+                    className="mt-1 h-4 w-4 accent-accent flex-shrink-0"
+                  />
+                  <span>I agree to receive text messages</span>
+                </label>
+                <SmsDisclosure />
                 <button
                   type="submit"
                   disabled={supporterLoading}
@@ -265,6 +284,17 @@ const GetInvolved = () => {
                     </option>
                   ))}
                 </select>
+                <label className="flex items-start gap-2 text-sm text-foreground cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="sms_opt_in"
+                    checked={vol.smsOptIn}
+                    onChange={(e) => setVol({ ...vol, smsOptIn: e.target.checked })}
+                    className="mt-1 h-4 w-4 accent-accent flex-shrink-0"
+                  />
+                  <span>I agree to receive text messages</span>
+                </label>
+                <SmsDisclosure />
                 <button
                   type="submit"
                   disabled={volLoading}
