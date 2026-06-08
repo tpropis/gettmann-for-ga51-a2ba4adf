@@ -34,8 +34,11 @@ const HeroSection = () => {
         <img
           src={keithHero}
           alt="Keith Gettmann, Republican candidate for Georgia State House District 51"
+          width={1200}
+          height={1500}
           className="w-full h-full object-cover object-[center_top] md:object-[60%_top]"
           loading="eager"
+          fetchPriority="high"
         />
         {/* Left-edge feather so the portrait blends into the navy panel */}
         <div
@@ -80,9 +83,12 @@ const HeroSection = () => {
 
           {/* Main Headline */}
           <h1 className="font-heading uppercase leading-[0.88] tracking-normal text-primary-foreground font-bold text-5xl sm:text-6xl md:text-[5.4rem] lg:text-[6.8rem] xl:text-[7.4rem]">
-            Keith
-            <br />
-            <span className="text-accent">Gettmann</span>
+            <span aria-hidden="true">
+              Keith
+              <br />
+              <span className="text-accent">Gettmann</span>
+            </span>
+            <span className="sr-only">Keith Gettmann for Georgia State House District 51</span>
           </h1>
 
           {/* Gold accent line */}
