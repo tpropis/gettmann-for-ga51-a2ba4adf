@@ -3,6 +3,7 @@ import { Shield, GraduationCap, TrendingUp, Home, Users, Compass } from "lucide-
 import keithPortrait from "@/assets/keith_fountain_clean.jpg";
 import keithDog from "@/assets/keith_dog.jpg";
 import keithFamily from "@/assets/family_pic.jpg";
+import { winredUrl } from "@/lib/winred";
 
 const pillars = [
   {
@@ -191,7 +192,9 @@ const MeetKeith = () => (
 
             <div className="mt-6 text-center">
               <a
-                href="#get-involved"
+                href={winredUrl("site_cta")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-accent text-accent-foreground font-heading text-base font-bold px-8 py-3.5 rounded-md hover:brightness-90 transition-all tracking-wide shadow-lg shadow-accent/20 uppercase"
               >
                 Support Keith
