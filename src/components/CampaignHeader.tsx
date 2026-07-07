@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo_trans.svg";
 import { trackDonateClick } from "@/lib/analytics";
+import { winredUrl } from "@/lib/winred";
 
 const navLinks = [
   { label: "About", href: "/#meet-keith" },
@@ -67,7 +68,9 @@ const CampaignHeader = () => {
               )
             )}
             <a
-              href="/#donate"
+              href={winredUrl("header")}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => trackDonateClick("header_desktop", "Donate")}
               className="ml-3 bg-accent text-accent-foreground font-heading text-sm font-bold px-5 py-2 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase"
             >
@@ -107,7 +110,9 @@ const CampaignHeader = () => {
                 </a>
               ))}
               <a
-                href="/#donate"
+                href={winredUrl("mobile_menu")}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => {
                   trackDonateClick("header_mobile", "Donate");
                   setMenuOpen(false);
