@@ -1,13 +1,14 @@
 import logo from "@/assets/logo_trans.svg";
 import { Facebook, Twitter, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
 import { trackEvent, trackDonateClick } from "@/lib/analytics";
+import { winredUrl } from "@/lib/winred";
 
 const footerLinks = [
   { label: "Home", href: "#home" },
   { label: "Meet Keith", href: "#meet-keith" },
   { label: "Issues", href: "#issues" },
   { label: "Get Involved", href: "#get-involved" },
-  { label: "Donate", href: "#donate" },
+  { label: "Donate", href: winredUrl("footer"), external: true },
   { label: "Contact", href: "#contact" },
 ];
 
