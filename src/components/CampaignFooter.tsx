@@ -42,6 +42,8 @@ const CampaignFooter = () => (
               <a
                 key={link.href}
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={
                   link.label === "Donate"
                     ? () => trackDonateClick("footer", "Donate")
