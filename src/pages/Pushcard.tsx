@@ -4,6 +4,7 @@ import { Shield, TrendingDown, GraduationCap, HandCoins, Users, BookOpen, ArrowR
 import keithPhoto from "@/assets/keith_pushcard.jpg";
 import logo from "@/assets/logo_trans.svg";
 import { initAnalytics, trackEvent } from "@/lib/analytics";
+import { winredUrl } from "@/lib/winred";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
@@ -302,7 +303,7 @@ const Pushcard = () => {
           {/* CTAs */}
           <div className="px-6 mt-3 space-y-2.5">
             <CardButton
-              href="#donate"
+              href={winredUrl("site_cta")}
               icon={HandCoins}
               label="Donate"
               primary
@@ -388,7 +389,13 @@ const CardButton = ({
     ? "bg-transparent text-primary/70 border border-primary/15"
     : "bg-primary text-primary-foreground shadow-[0_6px_16px_-4px_hsl(var(--primary)/0.4)]";
   return (
-    <a href={href} className={`${base} ${styles}`} onClick={onTap}>
+    <a
+      href={href}
+      className={`${base} ${styles}`}
+      onClick={onTap}
+      target={/^https?:/.test(href) ? "_blank" : undefined}
+      rel={/^https?:/.test(href) ? "noopener noreferrer" : undefined}
+    >
       <Icon className="w-4 h-4" strokeWidth={2.25} />
       {label}
     </a>
