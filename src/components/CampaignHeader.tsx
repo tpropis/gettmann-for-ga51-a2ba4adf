@@ -118,6 +118,13 @@ const CampaignHeader = () => {
                 </a>
               ))}
               <a
+                href="/plusone"
+                onClick={() => setMenuOpen(false)}
+                className="font-heading text-base font-bold text-primary-foreground uppercase tracking-wider py-2.5 px-4 rounded-md border border-accent/50 text-center"
+              >
+                Plus<span className="text-accent">One</span> in 51
+              </a>
+              <a
                 href={winredUrl("mobile_menu")}
                 target="_blank"
                 rel="noopener noreferrer"
