@@ -69,11 +69,19 @@ const CampaignHeader = () => {
               )
             )}
             <a
+              href="/plusone"
+              aria-label="PlusOne in 51"
+              className="ml-2 flex items-center gap-2 px-3 py-1.5 rounded bg-primary-foreground/5 hover:bg-primary-foreground/10 border border-primary-foreground/10 transition-colors"
+            >
+              <img src={plusoneLogo.url} alt="" className="h-7 w-auto" />
+              <span className="sr-only">PlusOne in 51</span>
+            </a>
+            <a
               href={winredUrl("header")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackDonateClick("header_desktop", "Donate")}
-              className="ml-3 bg-accent text-accent-foreground font-heading text-sm font-bold px-5 py-2 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase"
+              className="ml-2 bg-accent text-accent-foreground font-heading text-sm font-bold px-5 py-2 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase"
             >
               Donate
             </a>
