@@ -71,10 +71,9 @@ const CampaignHeader = () => {
             <a
               href="/plusone"
               aria-label="PlusOne in 51"
-              className="ml-2 flex items-center gap-2 px-3 py-1.5 rounded bg-primary-foreground/5 hover:bg-primary-foreground/10 border border-primary-foreground/10 transition-colors"
+              className="ml-2 font-heading text-sm font-bold px-4 py-2 rounded-md border border-accent/50 text-primary-foreground hover:bg-accent/10 transition-colors tracking-wide uppercase"
             >
-              <img src={plusoneLogo.url} alt="" className="h-7 w-auto" />
-              <span className="sr-only">PlusOne in 51</span>
+              Plus<span className="text-accent">One</span>
             </a>
             <a
               href={winredUrl("header")}
