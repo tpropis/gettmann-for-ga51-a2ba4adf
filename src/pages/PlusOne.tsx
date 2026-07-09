@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, Users, MessageCircle, Vote } from "lucide-react";
 import { trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
-import plusoneVideo from "@/assets/plusonesite.mp4.asset.json";
-import plusoneLogo from "@/assets/plusone-simple.png.asset.json";
+import plusoneVideo from "@/assets/plusonesite-2.mp4.asset.json";
+import plusoneLogo from "@/assets/plusone-logo-simple.png.asset.json";
 
 const scrollToHow = (e: React.MouseEvent) => {
   e.preventDefault();
@@ -41,7 +41,7 @@ const PlusOne = () => {
         description="PlusOne in 51 is Keith Gettmann's neighbor-to-neighbor mission to bring more voters into the process in Georgia House District 51."
         path="/plusone"
       />
-      <CampaignHeader />
+      <CampaignHeader logoHref="https://keithforga.com/" />
 
       <main className="bg-background">
         {/* HERO */}
@@ -53,7 +53,7 @@ const PlusOne = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mx-auto w-full max-w-md md:max-w-lg mb-8 bg-background rounded-lg px-6 py-8 shadow-2xl"
+              className="mx-auto w-full max-w-md md:max-w-lg mb-8 drop-shadow-2xl"
             />
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,8 @@ const PlusOne = () => {
                 controls
                 playsInline
                 preload="metadata"
-                className="w-full h-full"
+                poster={plusoneLogo.url}
+                className="w-full h-full bg-primary object-contain"
               >
                 <source src={plusoneVideo.url} type="video/mp4" />
                 Your browser does not support this video.

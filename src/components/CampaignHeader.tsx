@@ -14,7 +14,11 @@ const navLinks = [
   { label: "Get Involved", href: "/#get-involved" },
 ];
 
-const CampaignHeader = () => {
+type CampaignHeaderProps = {
+  logoHref?: string;
+};
+
+const CampaignHeader = ({ logoHref = "/#home" }: CampaignHeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -36,7 +40,7 @@ const CampaignHeader = () => {
       {/* Main header bar */}
       <div className="transition-all duration-300 bg-primary">
         <div className="container mx-auto flex items-center justify-between">
-          <a href="#home" className="flex-shrink-0">
+          <a href={logoHref} className="flex-shrink-0">
             <img
               src={logo}
               alt="Keith Gettmann for Georgia House"
