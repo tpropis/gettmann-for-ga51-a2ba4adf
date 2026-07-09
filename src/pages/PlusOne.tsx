@@ -6,7 +6,7 @@ import { ArrowRight, Users, MessageCircle, Vote } from "lucide-react";
 import { trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
 import plusoneVideo from "@/assets/plusonesite.mp4.asset.json";
-import plusoneLogo from "@/assets/plusone-logo.png.asset.json";
+import plusoneLogo from "@/assets/plusone-simple.png.asset.json";
 
 const scrollToHow = (e: React.MouseEvent) => {
   e.preventDefault();
@@ -53,7 +53,7 @@ const PlusOne = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mx-auto w-full max-w-md md:max-w-lg mb-8 bg-background/95 rounded-lg p-6 md:p-8 shadow-2xl"
+              className="mx-auto w-full max-w-md md:max-w-lg mb-8 bg-background rounded-lg px-6 py-8 shadow-2xl"
             />
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
