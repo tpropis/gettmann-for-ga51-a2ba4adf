@@ -49,7 +49,7 @@ const PlusOne = () => {
 
       <main className="bg-background">
         {/* HERO */}
-        <section className="relative bg-primary pt-32 md:pt-36 pb-16 md:pb-20 overflow-hidden">
+        <section className="relative bg-primary pt-24 md:pt-28 pb-12 md:pb-14 overflow-hidden">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             <motion.img
               src={plusoneLogoUrl}
@@ -57,21 +57,21 @@ const PlusOne = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mx-auto w-full max-w-md md:max-w-lg mb-8 drop-shadow-2xl"
+              className="mx-auto w-full max-w-xs md:max-w-sm drop-shadow-2xl"
             />
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-heading text-4xl md:text-6xl font-bold text-primary-foreground uppercase tracking-tight"
+              className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground uppercase tracking-tight mt-4"
             >
               Be a PlusOne in 51
             </motion.h1>
-            <div className="w-16 h-[3px] bg-accent mx-auto mt-5" />
-            <p className="font-heading text-lg md:text-2xl text-accent mt-5 uppercase tracking-wide">
+            <div className="w-16 h-[3px] bg-accent mx-auto mt-4" />
+            <p className="font-heading text-lg md:text-2xl text-accent mt-4 uppercase tracking-wide">
               One Neighbor. One Vote. One Victory.
             </p>
-            <p className="text-primary-foreground/85 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mt-6">
+            <p className="text-primary-foreground/85 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mt-5">
               PlusOne in 51 is Keith Gettmann's neighbor-to-neighbor mission for Georgia House
               District 51. The idea is simple: find one person who did not vote in 2024 and
               personally encourage them to vote in 2026.
