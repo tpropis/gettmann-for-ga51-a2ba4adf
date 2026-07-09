@@ -6,7 +6,7 @@ import { ArrowRight, Users, MessageCircle, Vote } from "lucide-react";
 import { trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
 import plusoneVideo from "@/assets/plusonesite.mp4.asset.json";
-import plusoneLogo from "@/assets/plusone-logo.png.asset.json";
+import plusoneLogo from "@/assets/plusone-simple.png.asset.json";
 
 const scrollToHow = (e: React.MouseEvent) => {
   e.preventDefault();
