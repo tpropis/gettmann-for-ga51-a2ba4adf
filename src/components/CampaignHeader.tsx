@@ -5,6 +5,7 @@ import logo from "@/assets/logo_trans.svg";
 import { trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
 
+
 const navLinks = [
   { label: "About", href: "/#meet-keith" },
   { label: "Issues", href: "/#issues" },
@@ -68,11 +69,18 @@ const CampaignHeader = () => {
               )
             )}
             <a
+              href="/plusone"
+              aria-label="PlusOne in 51"
+              className="ml-2 font-heading text-sm font-bold px-4 py-2 rounded-md border border-accent/50 text-primary-foreground hover:bg-accent/10 transition-colors tracking-wide uppercase"
+            >
+              Plus<span className="text-accent">One</span>
+            </a>
+            <a
               href={winredUrl("header")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackDonateClick("header_desktop", "Donate")}
-              className="ml-3 bg-accent text-accent-foreground font-heading text-sm font-bold px-5 py-2 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase"
+              className="ml-2 bg-accent text-accent-foreground font-heading text-sm font-bold px-5 py-2 rounded-md hover:brightness-90 transition-all tracking-wide shadow-md shadow-accent/20 uppercase"
             >
               Donate
             </a>
@@ -109,6 +117,13 @@ const CampaignHeader = () => {
                   {link.label}
                 </a>
               ))}
+              <a
+                href="/plusone"
+                onClick={() => setMenuOpen(false)}
+                className="font-heading text-base font-bold text-primary-foreground uppercase tracking-wider py-2.5 px-4 rounded-md border border-accent/50 text-center"
+              >
+                Plus<span className="text-accent">One</span> in 51
+              </a>
               <a
                 href={winredUrl("mobile_menu")}
                 target="_blank"

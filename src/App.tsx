@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 const DistrictMap = lazy(() => import("./pages/DistrictMap"));
 const CommunityCouncil = lazy(() => import("./pages/CommunityCouncil"));
 const Pushcard = lazy(() => import("./pages/Pushcard"));
+const PlusOne = lazy(() => import("./pages/PlusOne"));
 import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -63,6 +64,14 @@ const App = () => (
           />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route
+            path="/plusone"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-primary" />}>
+                <PlusOne />
+              </Suspense>
+            }
+          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
