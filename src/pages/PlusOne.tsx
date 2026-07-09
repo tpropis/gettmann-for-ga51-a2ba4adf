@@ -8,6 +8,10 @@ import { winredUrl } from "@/lib/winred";
 import plusoneVideo from "@/assets/plusonesite-2.mp4.asset.json";
 import plusoneLogo from "@/assets/plusone-logo-simple.png.asset.json";
 
+const ASSET_ORIGIN = "https://gettmann-for-ga51.lovable.app";
+const plusoneVideoUrl = new URL(plusoneVideo.url, ASSET_ORIGIN).toString();
+const plusoneLogoUrl = new URL(plusoneLogo.url, ASSET_ORIGIN).toString();
+
 const scrollToHow = (e: React.MouseEvent) => {
   e.preventDefault();
   document
@@ -48,7 +52,7 @@ const PlusOne = () => {
         <section className="relative bg-primary pt-32 md:pt-36 pb-16 md:pb-20 overflow-hidden">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             <motion.img
-              src={plusoneLogo.url}
+              src={plusoneLogoUrl}
               alt="PlusOne in 51"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -83,10 +87,10 @@ const PlusOne = () => {
                 controls
                 playsInline
                 preload="metadata"
-                poster={plusoneLogo.url}
+                poster={plusoneLogoUrl}
                 className="w-full h-full bg-primary object-contain"
               >
-                <source src={plusoneVideo.url} type="video/mp4" />
+                <source src={plusoneVideoUrl} type="video/mp4" />
                 Your browser does not support this video.
               </video>
             </div>
