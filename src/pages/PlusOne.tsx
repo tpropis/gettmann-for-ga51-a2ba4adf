@@ -80,7 +80,7 @@ const PlusOne = () => {
         </section>
 
         {/* VIDEO + DESCRIPTION + BUTTONS */}
-        <section className="py-16 md:py-20 bg-background">
+        <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-primary aspect-video">
               <video
