@@ -173,7 +173,7 @@ const PlusOne = () => {
         </section>
 
         {/* WHY IT MATTERS */}
-        <section className="py-20 md:py-24 bg-background">
+        <section className="py-14 md:py-20 bg-background">
           <div className="container mx-auto px-4 max-w-3xl text-center">
             <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary uppercase tracking-tight leading-tight">
               One neighbor can add one more vote.
