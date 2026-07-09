@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo_trans.svg";
 import { trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
+import plusoneLogo from "@/assets/plusone-logo.png.asset.json";
 
 const navLinks = [
   { label: "About", href: "/#meet-keith" },
