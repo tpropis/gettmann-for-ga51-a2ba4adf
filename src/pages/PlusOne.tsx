@@ -196,7 +196,7 @@ const PlusOne = () => {
         </section>
 
         {/* FINAL CTA */}
-        <section className="py-20 md:py-24 bg-primary">
+        <section className="py-14 md:py-20 bg-primary">
           <div className="container mx-auto px-4 max-w-3xl text-center">
             <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary-foreground uppercase tracking-tight">
               Be Keith's PlusOne in 51
