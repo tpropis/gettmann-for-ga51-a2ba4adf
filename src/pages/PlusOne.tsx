@@ -53,7 +53,7 @@ const PlusOne = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mx-auto w-full max-w-md md:max-w-lg mb-8 bg-background/95 rounded-lg p-6 md:p-8 shadow-2xl"
+              className="mx-auto w-full max-w-md md:max-w-lg mb-8 bg-background rounded-lg px-6 py-8 shadow-2xl"
             />
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
