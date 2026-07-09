@@ -5,8 +5,12 @@ import { motion } from "framer-motion";
 import { ArrowRight, Users, MessageCircle, Vote } from "lucide-react";
 import { trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
-import plusoneVideo from "@/assets/plusonesite.mp4.asset.json";
-import plusoneLogo from "@/assets/plusone-simple.png.asset.json";
+import plusoneVideo from "@/assets/plusonesite-2.mp4.asset.json";
+import plusoneLogo from "@/assets/plusone-logo-simple.png.asset.json";
+
+const ASSET_ORIGIN = "https://gettmann-for-ga51.lovable.app";
+const plusoneVideoUrl = new URL(plusoneVideo.url, ASSET_ORIGIN).toString();
+const plusoneLogoUrl = new URL(plusoneLogo.url, ASSET_ORIGIN).toString();
 
 const scrollToHow = (e: React.MouseEvent) => {
   e.preventDefault();
@@ -41,19 +45,19 @@ const PlusOne = () => {
         description="PlusOne in 51 is Keith Gettmann's neighbor-to-neighbor mission to bring more voters into the process in Georgia House District 51."
         path="/plusone"
       />
-      <CampaignHeader />
+      <CampaignHeader logoHref="https://keithforga.com/" />
 
       <main className="bg-background">
         {/* HERO */}
         <section className="relative bg-primary pt-32 md:pt-36 pb-16 md:pb-20 overflow-hidden">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             <motion.img
-              src={plusoneLogo.url}
+              src={plusoneLogoUrl}
               alt="PlusOne in 51"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mx-auto w-full max-w-md md:max-w-lg mb-8 bg-background rounded-lg px-6 py-8 shadow-2xl"
+              className="mx-auto w-full max-w-md md:max-w-lg mb-8 drop-shadow-2xl"
             />
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -83,9 +87,10 @@ const PlusOne = () => {
                 controls
                 playsInline
                 preload="metadata"
-                className="w-full h-full"
+                poster={plusoneLogoUrl}
+                className="w-full h-full bg-primary object-contain"
               >
-                <source src={plusoneVideo.url} type="video/mp4" />
+                <source src={plusoneVideoUrl} type="video/mp4" />
                 Your browser does not support this video.
               </video>
             </div>
