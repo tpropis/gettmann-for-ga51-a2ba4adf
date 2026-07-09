@@ -139,7 +139,7 @@ const PlusOne = () => {
         </section>
 
         {/* HOW PLUSONE WORKS */}
-        <section id="how-plusone-works" className="py-20 md:py-24 bg-secondary/40">
+        <section id="how-plusone-works" className="py-14 md:py-20 bg-secondary/40">
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center">
               <h2 className="font-heading text-3xl md:text-5xl font-bold text-primary uppercase tracking-tight">
