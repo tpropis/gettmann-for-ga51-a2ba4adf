@@ -89,8 +89,9 @@ const PlusOne = () => {
                 <span className="w-8 h-[2px] bg-accent" />
               </p>
               <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary uppercase tracking-tight mt-3">
-                See the PlusOne Mission in 60 Seconds
+                See the PlusOne Mission in 51 Seconds
               </h2>
+
             </div>
 
             <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-primary aspect-video">
