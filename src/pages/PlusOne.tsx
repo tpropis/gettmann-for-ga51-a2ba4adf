@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Users, MessageCircle, Vote } from "lucide-react";
 import { trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
-import plusoneVideo from "@/assets/plusone-newest.mp4.asset.json";
+import plusoneVideo from "@/assets/plusone-v3.mp4.asset.json";
 import plusoneLogo from "@/assets/plusone-logo-simple.png.asset.json";
 
 const ASSET_ORIGIN = "https://gettmann-for-ga51.lovable.app";
@@ -82,6 +82,17 @@ const PlusOne = () => {
         {/* VIDEO + DESCRIPTION + BUTTONS */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center mb-6">
+              <p className="inline-flex items-center gap-2 font-heading text-sm md:text-base font-bold uppercase tracking-[0.2em] text-accent">
+                <span className="w-8 h-[2px] bg-accent" />
+                Watch How It Works
+                <span className="w-8 h-[2px] bg-accent" />
+              </p>
+              <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary uppercase tracking-tight mt-3">
+                See the PlusOne Mission in 60 Seconds
+              </h2>
+            </div>
+
             <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-primary aspect-video">
               <video
                 controls
