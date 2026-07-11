@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Users, MessageCircle, Vote } from "lucide-react";
 import { trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
-import plusoneVideo from "@/assets/plusone-new.mp4.asset.json";
+import plusoneVideo from "@/assets/plusone-newest.mp4.asset.json";
 import plusoneLogo from "@/assets/plusone-logo-simple.png.asset.json";
 
 const ASSET_ORIGIN = "https://gettmann-for-ga51.lovable.app";
