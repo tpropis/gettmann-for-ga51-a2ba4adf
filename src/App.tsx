@@ -73,6 +73,15 @@ const App = () => (
               </Suspense>
             }
           />
+          {/* Hidden game route — intentionally not linked from nav/footer */}
+          <Route
+            path="/common-sense-swing"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-primary" />}>
+                <CommonSenseSwing />
+              </Suspense>
+            }
+          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
