@@ -9,6 +9,7 @@ const DistrictMap = lazy(() => import("./pages/DistrictMap"));
 const CommunityCouncil = lazy(() => import("./pages/CommunityCouncil"));
 const Pushcard = lazy(() => import("./pages/Pushcard"));
 const PlusOne = lazy(() => import("./pages/PlusOne"));
+const CommonSenseSwing = lazy(() => import("./pages/CommonSenseSwing"));
 import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
