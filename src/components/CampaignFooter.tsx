@@ -126,18 +126,18 @@ const CampaignFooter = () => (
           <a href="/terms" className="hover:text-primary-foreground/60 transition-colors">Terms</a>
         </div>
 
-        {/* Hidden easter egg — visible on hover/tap but out of the main flow */}
+        {/* Hidden easter egg — reveals on hover, focus (Tab), or tap. Activate with Enter. */}
         <div className="mt-6 flex justify-center">
           <a
             href="/common-sense-swing"
-            aria-label="Secret game"
-            className="group inline-flex items-center gap-2 rounded-full border border-primary-foreground/5 px-4 py-2 text-primary-foreground/10 hover:text-accent hover:border-accent/40 active:text-accent focus:text-accent transition-all select-none text-xs font-heading uppercase tracking-[0.3em]"
+            aria-label="Secret game — press Enter to play"
+            className="group inline-flex items-center gap-2 rounded-full border border-primary-foreground/5 px-4 py-2 text-primary-foreground/10 hover:text-accent hover:border-accent/40 focus:text-accent focus:border-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary transition-all select-none text-xs font-heading uppercase tracking-[0.3em]"
           >
-            <span className="opacity-40 group-hover:opacity-100 transition-opacity">?</span>
+            <span className="opacity-40 group-hover:opacity-100 group-focus:opacity-100 transition-opacity" aria-hidden="true">?</span>
             <span className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity">
-              What the… click me
+              What the… press Enter
             </span>
-            <span className="opacity-40 group-hover:opacity-100 transition-opacity">?</span>
+            <span className="opacity-40 group-hover:opacity-100 group-focus:opacity-100 transition-opacity" aria-hidden="true">?</span>
           </a>
         </div>
       </div>
