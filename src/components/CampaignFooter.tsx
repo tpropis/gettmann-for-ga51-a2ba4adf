@@ -124,12 +124,20 @@ const CampaignFooter = () => (
           <span>© 2026 Keith for GA LLC. All rights reserved.</span>
           <a href="/privacy" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
           <a href="/terms" className="hover:text-primary-foreground/60 transition-colors">Terms</a>
+        </div>
+
+        {/* Hidden easter egg — visible on hover/tap but out of the main flow */}
+        <div className="mt-6 flex justify-center">
           <a
             href="/common-sense-swing"
-            aria-label="Common Sense Swing"
-            className="text-primary-foreground/10 hover:text-primary-foreground/60 transition-colors select-none"
+            aria-label="Secret game"
+            className="group inline-flex items-center gap-2 rounded-full border border-primary-foreground/5 px-4 py-2 text-primary-foreground/10 hover:text-accent hover:border-accent/40 active:text-accent focus:text-accent transition-all select-none text-xs font-heading uppercase tracking-[0.3em]"
           >
-            ·
+            <span className="opacity-40 group-hover:opacity-100 transition-opacity">?</span>
+            <span className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-opacity">
+              What the… click me
+            </span>
+            <span className="opacity-40 group-hover:opacity-100 transition-opacity">?</span>
           </a>
         </div>
       </div>
