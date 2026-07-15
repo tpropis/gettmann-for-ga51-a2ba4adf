@@ -309,11 +309,10 @@ const CommonSenseSwing = () => {
   const onShare = async () => {
     trackEvent("css_share_click", { score });
     const data = { title: "Common-Sense Swing", text: shareText, url: shareUrl };
+    const nav = navigator as Navigator & { share?: (d: typeof data) => Promise<void> };
     try {
-      // @ts-expect-error - navigator.share is not typed everywhere
-      if (navigator.share) {
-        // @ts-expect-error
-        await navigator.share(data);
+      if (nav.share) {
+        await nav.share(data);
         return;
       }
     } catch {
