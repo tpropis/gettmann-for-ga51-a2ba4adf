@@ -43,6 +43,13 @@
     --campaign-warm: 35 25% 95%;
     --campaign-brown: 22 16% 36%;
 
+    /* Hidden "Wake Up 51" prank page — terminal + crash-screen palette */
+    --terminal-bg: 0 0% 4%;
+    --terminal-green: 130 92% 58%;
+    --terminal-green-dim: 130 45% 32%;
+    --crash-blue: 214 84% 34%;
+
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
