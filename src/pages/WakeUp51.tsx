@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Seo from "@/components/Seo";
-import { MatrixRain, TerminalLine, CrashScreen, RevealCard } from "@/components/wake-up-51";
+import { MatrixRain, TerminalLine, CrashScreen, RevealCard, CommonIssues } from "@/components/wake-up-51";
 import { trackEvent } from "@/lib/analytics";
 
 /**
@@ -231,6 +231,7 @@ const WakeUp51 = () => {
         {phase === "reveal" && (
           <div className="flex min-h-dvh flex-col items-center justify-center bg-crash-blue px-5 py-12">
             <RevealCard onReplay={replay} />
+            <CommonIssues />
             <a
               href="/"
               className="mt-6 font-heading text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60 transition-colors hover:text-accent"
