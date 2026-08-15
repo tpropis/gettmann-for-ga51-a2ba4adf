@@ -28,6 +28,7 @@ const Index = () => {
       <GetInvolved />
       <CommunityCouncilSection />
       <WhereToVote />
+      <ScanToShare />
       <CampaignFooter />
     </>
   );
