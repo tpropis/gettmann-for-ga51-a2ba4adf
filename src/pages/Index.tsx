@@ -8,6 +8,7 @@ import DonationSection from "@/components/DonationSection";
 import GetInvolved from "@/components/GetInvolved";
 import WhereToVote from "@/components/WhereToVote";
 import CommunityCouncilSection from "@/components/CommunityCouncilSection";
+import ScanToShare from "@/components/ScanToShare";
 import CampaignFooter from "@/components/CampaignFooter";
 
 const Index = () => {
