@@ -175,6 +175,10 @@ const WakeUp51 = () => {
                   <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-terminal-green-dim sm:text-xs">
                     keithforga.secure.node // district-51
                   </span>
+                  <span className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">
+                    unsecured session detected
+                  </span>
+
                   <span className="font-mono text-lg text-terminal-green sm:text-2xl">
                     press any key to continue
                     <span className="ml-1 animate-pulse">_</span>
