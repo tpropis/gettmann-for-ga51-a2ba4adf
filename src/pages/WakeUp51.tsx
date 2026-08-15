@@ -22,14 +22,17 @@ interface ScanStep {
 }
 
 const SCAN_STEPS: ScanStep[] = [
-  { text: "SCANNING DEVICE FOR VOTER APATHY", result: "97% DETECTED" },
-  { text: "LOCATING YOUR MISSING BALLOT", result: "NOT FOUND" },
-  { text: "ACCESSING PROPERTY TAX TRAUMA", result: "CONFIRMED" },
-  { text: "DOWNLOADING COMMON SENSE", result: "3 BYTES REMAINING", bar: true },
-  { text: "ENCRYPTING SCHOOL BOARD MEETING MINUTES", result: "FAILED" },
-  { text: "CROSS-REFERENCING TRAFFIC ON ROSWELL RD", result: "STILL BAD" },
-  { text: "REROUTING POWER TO DISTRICT 51", result: "COMPLETE" },
+  { text: "ESTABLISHING SECURE UPLINK :: DISTRICT 51", result: "CONNECTED" },
+  { text: "SCANNING HOUSEHOLD COSTS: GROCERIES, RENT, UTILITIES", result: "STILL RISING" },
+  { text: "PULLING PROPERTY TAX ASSESSMENT HISTORY", result: "REASSESSED AGAIN" },
+  { text: "AUDITING STATE INCOME TAX WITHHOLDING", result: "OVERPAID" },
+  { text: "ANALYZING TRAFFIC: GA-400 / ROSWELL RD CORRIDOR", result: "GRIDLOCK" },
+  { text: "REQUESTING SCHOOL TRANSPARENCY + PARENTAL RIGHTS FILES", result: "ACCESS DENIED" },
+  { text: "TESTING WATER QUALITY + ENVIRONMENTAL SAFETY REPORTS", result: "INCOMPLETE" },
+  { text: "CHECKING PUBLIC SAFETY STAFFING LEVELS", result: "UNDERFUNDED" },
+  { text: "DOWNLOADING COMMON SENSE FROM STATE CAPITOL", result: "SOURCE NOT FOUND", bar: true },
 ];
+
 
 const usePrefersReducedMotion = () => {
   const [reduced, setReduced] = useState(false);
@@ -172,6 +175,10 @@ const WakeUp51 = () => {
                   <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-terminal-green-dim sm:text-xs">
                     keithforga.secure.node // district-51
                   </span>
+                  <span className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">
+                    unsecured session detected
+                  </span>
+
                   <span className="font-mono text-lg text-terminal-green sm:text-2xl">
                     press any key to continue
                     <span className="ml-1 animate-pulse">_</span>
@@ -182,9 +189,10 @@ const WakeUp51 = () => {
                 </button>
               ) : (
                 <>
-                  <div className="mb-6 font-mono text-[0.7rem] uppercase tracking-[0.3em] text-terminal-green-dim">
-                    initializing deep scan…
+                  <div className="mb-6 font-mono text-[0.7rem] uppercase tracking-[0.3em] text-accent">
+                    access granted // running district 51 diagnostic
                   </div>
+
                   <div className="space-y-3">
                     {visibleSteps.map((step, i) => (
                       <TerminalLine
