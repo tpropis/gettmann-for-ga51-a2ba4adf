@@ -76,7 +76,7 @@ const WakeUp51 = () => {
 
   // Track start of the scan sequence.
   useEffect(() => {
-    trackEvent("wakeup51_start", { path: "/wake-up-51" });
+    trackEvent("wakeup51_start", { path: "/hack51" });
   }, []);
 
   // Drive the scan sequence.
