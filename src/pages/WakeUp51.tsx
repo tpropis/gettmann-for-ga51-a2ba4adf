@@ -13,7 +13,7 @@ import { trackEvent } from "@/lib/analytics";
  *  - The payoff and reveal card always state that nothing was collected.
  */
 
-type Phase = "boot" | "scan" | "crash" | "reveal";
+type Phase = "scan" | "crash" | "reveal";
 
 interface ScanStep {
   text: string;
@@ -48,7 +48,7 @@ const usePrefersReducedMotion = () => {
 
 const WakeUp51 = () => {
   const reducedMotion = usePrefersReducedMotion();
-  const [phase, setPhase] = useState<Phase>("boot");
+  const [phase, setPhase] = useState<Phase>("scan");
   const [stepIndex, setStepIndex] = useState(0);
   const [barValue, setBarValue] = useState(0);
   const [glitch, setGlitch] = useState(false);
@@ -66,30 +66,28 @@ const WakeUp51 = () => {
     setPhase("crash");
   }, [clearTimers]);
 
-  const startScan = useCallback(() => {
+  const replay = useCallback(() => {
+    clearTimers();
+    setStepIndex(0);
+    setBarValue(0);
+    setGlitch(false);
+    setPhase("scan");
+  }, [clearTimers]);
+
+  // Track start of the scan sequence.
+  useEffect(() => {
     trackEvent("wakeup51_start", { path: "/wake-up-51" });
+  }, []);
+
+  // Drive the scan sequence.
+  useEffect(() => {
+    if (phase !== "scan") return;
     if (reducedMotion) {
       setStepIndex(SCAN_STEPS.length);
       setBarValue(100);
       setPhase("crash");
       return;
     }
-    setPhase("scan");
-    setStepIndex(0);
-    setBarValue(0);
-  }, [reducedMotion]);
-
-  const replay = useCallback(() => {
-    clearTimers();
-    setStepIndex(0);
-    setBarValue(0);
-    setGlitch(false);
-    setPhase("boot");
-  }, [clearTimers]);
-
-  // Drive the scan sequence.
-  useEffect(() => {
-    if (phase !== "scan") return;
     if (stepIndex >= SCAN_STEPS.length) {
       const t = window.setTimeout(() => {
         setGlitch(true);
@@ -101,7 +99,7 @@ const WakeUp51 = () => {
     }
     const t = window.setTimeout(() => setStepIndex((i) => i + 1), 900);
     timers.current.push(t);
-  }, [phase, stepIndex]);
+  }, [phase, stepIndex, reducedMotion]);
 
   // Fake progress bar animation.
   useEffect(() => {
@@ -122,14 +120,6 @@ const WakeUp51 = () => {
 
   useEffect(() => clearTimers, [clearTimers]);
 
-  // Any key starts the sequence from the boot screen.
-  useEffect(() => {
-    if (phase !== "boot") return;
-    const onKey = () => startScan();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [phase, startScan]);
-
   const visibleSteps = useMemo(
     () => SCAN_STEPS.slice(0, Math.min(stepIndex + 1, SCAN_STEPS.length)),
     [stepIndex]
@@ -145,7 +135,7 @@ const WakeUp51 = () => {
       />
 
       <main className="relative min-h-dvh w-full overflow-hidden bg-terminal-bg font-body">
-        {(phase === "boot" || phase === "scan") && (
+        {phase === "scan" && (
           <>
             <MatrixRain active={!reducedMotion} />
 
@@ -166,46 +156,23 @@ const WakeUp51 = () => {
                 glitch ? "animate-pulse" : ""
               }`}
             >
-              {phase === "boot" ? (
-                <button
-                  type="button"
-                  onClick={startScan}
-                  className="flex flex-1 flex-col items-center justify-center gap-6 text-center focus-visible:outline-none"
-                >
-                  <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-terminal-green-dim sm:text-xs">
-                    keithforga.secure.node // district-51
-                  </span>
-                  <span className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">
-                    unsecured session detected
-                  </span>
+              <>
+                <div className="mb-6 font-mono text-[0.7rem] uppercase tracking-[0.3em] text-accent">
+                  access granted // running district 51 diagnostic
+                </div>
 
-                  <span className="font-mono text-lg text-terminal-green sm:text-2xl">
-                    press any key to continue
-                    <span className="ml-1 animate-pulse">_</span>
-                  </span>
-                  <span className="max-w-xs font-mono text-[0.65rem] leading-relaxed text-terminal-green-dim">
-                    (this is a joke. nothing is collected.)
-                  </span>
-                </button>
-              ) : (
-                <>
-                  <div className="mb-6 font-mono text-[0.7rem] uppercase tracking-[0.3em] text-accent">
-                    access granted // running district 51 diagnostic
-                  </div>
-
-                  <div className="space-y-3">
-                    {visibleSteps.map((step, i) => (
-                      <TerminalLine
-                        key={step.text}
-                        text={step.text}
-                        result={step.result}
-                        bar={step.bar && i === stepIndex ? barValue : undefined}
-                        done={i < stepIndex}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
+                <div className="space-y-3">
+                  {visibleSteps.map((step, i) => (
+                    <TerminalLine
+                      key={step.text}
+                      text={step.text}
+                      result={step.result}
+                      bar={step.bar && i === stepIndex ? barValue : undefined}
+                      done={i < stepIndex}
+                    />
+                  ))}
+                </div>
+              </>
 
               {phase === "scan" && (
                 <div className="mt-auto pt-8 text-center">
