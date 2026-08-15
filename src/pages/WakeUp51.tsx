@@ -156,46 +156,23 @@ const WakeUp51 = () => {
                 glitch ? "animate-pulse" : ""
               }`}
             >
-              {phase === "boot" ? (
-                <button
-                  type="button"
-                  onClick={startScan}
-                  className="flex flex-1 flex-col items-center justify-center gap-6 text-center focus-visible:outline-none"
-                >
-                  <span className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-terminal-green-dim sm:text-xs">
-                    keithforga.secure.node // district-51
-                  </span>
-                  <span className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">
-                    unsecured session detected
-                  </span>
+              <>
+                <div className="mb-6 font-mono text-[0.7rem] uppercase tracking-[0.3em] text-accent">
+                  access granted // running district 51 diagnostic
+                </div>
 
-                  <span className="font-mono text-lg text-terminal-green sm:text-2xl">
-                    press any key to continue
-                    <span className="ml-1 animate-pulse">_</span>
-                  </span>
-                  <span className="max-w-xs font-mono text-[0.65rem] leading-relaxed text-terminal-green-dim">
-                    (this is a joke. nothing is collected.)
-                  </span>
-                </button>
-              ) : (
-                <>
-                  <div className="mb-6 font-mono text-[0.7rem] uppercase tracking-[0.3em] text-accent">
-                    access granted // running district 51 diagnostic
-                  </div>
-
-                  <div className="space-y-3">
-                    {visibleSteps.map((step, i) => (
-                      <TerminalLine
-                        key={step.text}
-                        text={step.text}
-                        result={step.result}
-                        bar={step.bar && i === stepIndex ? barValue : undefined}
-                        done={i < stepIndex}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
+                <div className="space-y-3">
+                  {visibleSteps.map((step, i) => (
+                    <TerminalLine
+                      key={step.text}
+                      text={step.text}
+                      result={step.result}
+                      bar={step.bar && i === stepIndex ? barValue : undefined}
+                      done={i < stepIndex}
+                    />
+                  ))}
+                </div>
+              </>
 
               {phase === "scan" && (
                 <div className="mt-auto pt-8 text-center">
