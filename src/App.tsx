@@ -84,7 +84,16 @@ const App = () => (
               </Suspense>
             }
           />
-          {/* Hidden parody page — reached only by QR code, intentionally unlinked */}
+          {/* Hidden parody page — reached only by QR code, intentionally unlinked.
+              /hack51 is the primary QR destination; /wake-up-51 kept as a legacy alias. */}
+          <Route
+            path="/hack51"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-terminal-bg" />}>
+                <WakeUp51 />
+              </Suspense>
+            }
+          />
           <Route
             path="/wake-up-51"
             element={

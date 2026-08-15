@@ -76,7 +76,7 @@ const WakeUp51 = () => {
 
   // Track start of the scan sequence.
   useEffect(() => {
-    trackEvent("wakeup51_start", { path: "/wake-up-51" });
+    trackEvent("wakeup51_start", { path: "/hack51" });
   }, []);
 
   // Drive the scan sequence.
@@ -130,7 +130,7 @@ const WakeUp51 = () => {
       <Seo
         title="Wake Up, District 51 | Keith Gettmann for Georgia"
         description="A message for Georgia House District 51 from the Keith Gettmann campaign."
-        path="/wake-up-51"
+        path="/hack51"
         noindex
       />
 
