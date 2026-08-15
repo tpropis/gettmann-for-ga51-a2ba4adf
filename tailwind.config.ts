@@ -66,6 +66,9 @@ export default {
           bg: "hsl(var(--terminal-bg))",
           green: "hsl(var(--terminal-green))",
           "green-dim": "hsl(var(--terminal-green-dim))",
+          amber: "hsl(var(--terminal-amber))",
+          red: "hsl(var(--terminal-red))",
+          cyan: "hsl(var(--terminal-cyan))",
         },
         crash: {
           blue: "hsl(var(--crash-blue))",
