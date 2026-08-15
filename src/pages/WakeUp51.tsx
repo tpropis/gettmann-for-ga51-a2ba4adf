@@ -194,6 +194,16 @@ const WakeUp51 = () => {
     return () => window.clearInterval(id);
   }, [phase, idx]);
 
+  // Auto-advance from the crash screen to the reveal.
+  useEffect(() => {
+    if (phase !== "crash") return;
+    const t = window.setTimeout(() => setPhase("reveal"), reducedMotion ? 1200 : 3200);
+    timers.current.push(t);
+    return () => window.clearTimeout(t);
+  }, [phase, reducedMotion]);
+
+  useEffect(() => clearTimers, [clearTimers]);
+
   // Keep the newest line in view.
   useEffect(() => {
     const el = logRef.current;
