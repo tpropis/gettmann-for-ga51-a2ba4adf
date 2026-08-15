@@ -3,7 +3,7 @@
  * Deliberately over the top so it reads instantly as a joke.
  */
 export const CrashScreen = ({ glitch = true }: { glitch?: boolean }) => (
-  <div className="flex h-full w-full flex-col items-center justify-center bg-crash-blue px-6 py-12 text-center text-primary-foreground">
+  <div className="flex min-h-dvh w-full flex-col items-center justify-center bg-crash-blue px-6 py-12 text-center text-primary-foreground">
     <div
       className={`font-mono text-5xl sm:text-6xl ${glitch ? "animate-pulse" : ""}`}
       aria-hidden="true"
