@@ -9,12 +9,15 @@ interface SeoProps {
   path: string;
   image?: string;
   type?: "website" | "article" | "profile";
+  noindex?: boolean;
 }
 
-const Seo = ({ title, description, path, image = DEFAULT_IMAGE, type = "website" }: SeoProps) => {
+const Seo = ({ title, description, path, image = DEFAULT_IMAGE, type = "website", noindex = false }: SeoProps) => {
   const url = `${SITE_URL}${path}`;
   return (
     <Helmet>
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
+
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
