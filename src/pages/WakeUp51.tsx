@@ -130,7 +130,7 @@ const WakeUp51 = () => {
       <Seo
         title="Wake Up, District 51 | Keith Gettmann for Georgia"
         description="A message for Georgia House District 51 from the Keith Gettmann campaign."
-        path="/wake-up-51"
+        path="/hack51"
         noindex
       />
 

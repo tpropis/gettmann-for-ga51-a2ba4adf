@@ -19,7 +19,7 @@ export const RevealCard = ({ onReplay }: RevealCardProps) => {
       text: "You have to see this. Wake up, District 51 — vote Keith Gettmann.",
       url,
     };
-    trackEvent("wakeup51_share", { path: "/wake-up-51" });
+    trackEvent("wakeup51_share", { path: "/hack51" });
     try {
       if (navigator.share) {
         await navigator.share(shareData);
