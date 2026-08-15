@@ -13,7 +13,7 @@ import { trackEvent } from "@/lib/analytics";
  *  - The payoff and reveal card always state that nothing was collected.
  */
 
-type Phase = "boot" | "scan" | "crash" | "reveal";
+type Phase = "scan" | "crash" | "reveal";
 
 interface ScanStep {
   text: string;
