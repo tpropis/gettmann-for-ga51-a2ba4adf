@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Seo from "@/components/Seo";
-import { MatrixRain, TerminalLine, CrashScreen, RevealCard } from "@/components/wake-up-51";
+import { MatrixRain, TerminalLine, CrashScreen, RevealCard, CommonIssues } from "@/components/wake-up-51";
 import { trackEvent } from "@/lib/analytics";
 
 /**
