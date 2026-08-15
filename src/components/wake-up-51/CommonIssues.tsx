@@ -24,7 +24,7 @@ const ISSUE_FILES: IssueFile[] = [
     detail:
       "Annual notices of assessment set the value your county bills against. Georgia's Department of Revenue publishes how assessments, appeals and exemptions work.",
     source: "GA Department of Revenue",
-    href: "https://dor.georgia.gov/property-tax",
+    href: "https://dor.georgia.gov/property-tax-real-and-personal-property",
   },
   {
     id: "51-002",
