@@ -135,7 +135,7 @@ const WakeUp51 = () => {
       />
 
       <main className="relative min-h-dvh w-full overflow-hidden bg-terminal-bg font-body">
-        {(phase === "boot" || phase === "scan") && (
+        {phase === "scan" && (
           <>
             <MatrixRain active={!reducedMotion} />
 
