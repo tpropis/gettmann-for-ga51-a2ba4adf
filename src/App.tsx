@@ -84,6 +84,16 @@ const App = () => (
               </Suspense>
             }
           />
+          {/* Hidden parody page — reached only by QR code, intentionally unlinked */}
+          <Route
+            path="/wake-up-51"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-terminal-bg" />}>
+                <WakeUp51 />
+              </Suspense>
+            }
+          />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
