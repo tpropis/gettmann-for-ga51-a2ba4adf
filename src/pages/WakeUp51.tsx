@@ -120,14 +120,6 @@ const WakeUp51 = () => {
 
   useEffect(() => clearTimers, [clearTimers]);
 
-  // Any key starts the sequence from the boot screen.
-  useEffect(() => {
-    if (phase !== "boot") return;
-    const onKey = () => startScan();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [phase, startScan]);
-
   const visibleSteps = useMemo(
     () => SCAN_STEPS.slice(0, Math.min(stepIndex + 1, SCAN_STEPS.length)),
     [stepIndex]
