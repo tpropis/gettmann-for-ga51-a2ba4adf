@@ -62,6 +62,15 @@ export default {
           warm: "hsl(var(--campaign-warm))",
           brown: "hsl(var(--campaign-brown))",
         },
+        terminal: {
+          bg: "hsl(var(--terminal-bg))",
+          green: "hsl(var(--terminal-green))",
+          "green-dim": "hsl(var(--terminal-green-dim))",
+        },
+        crash: {
+          blue: "hsl(var(--crash-blue))",
+        },
+
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
