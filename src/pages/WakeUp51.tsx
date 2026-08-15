@@ -185,9 +185,10 @@ const WakeUp51 = () => {
                 </button>
               ) : (
                 <>
-                  <div className="mb-6 font-mono text-[0.7rem] uppercase tracking-[0.3em] text-terminal-green-dim">
-                    initializing deep scan…
+                  <div className="mb-6 font-mono text-[0.7rem] uppercase tracking-[0.3em] text-accent">
+                    access granted // running district 51 diagnostic
                   </div>
+
                   <div className="space-y-3">
                     {visibleSteps.map((step, i) => (
                       <TerminalLine
