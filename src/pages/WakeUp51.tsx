@@ -48,7 +48,7 @@ const usePrefersReducedMotion = () => {
 
 const WakeUp51 = () => {
   const reducedMotion = usePrefersReducedMotion();
-  const [phase, setPhase] = useState<Phase>("boot");
+  const [phase, setPhase] = useState<Phase>("scan");
   const [stepIndex, setStepIndex] = useState(0);
   const [barValue, setBarValue] = useState(0);
   const [glitch, setGlitch] = useState(false);
@@ -66,30 +66,28 @@ const WakeUp51 = () => {
     setPhase("crash");
   }, [clearTimers]);
 
-  const startScan = useCallback(() => {
+  const replay = useCallback(() => {
+    clearTimers();
+    setStepIndex(0);
+    setBarValue(0);
+    setGlitch(false);
+    setPhase("scan");
+  }, [clearTimers]);
+
+  // Track start of the scan sequence.
+  useEffect(() => {
     trackEvent("wakeup51_start", { path: "/wake-up-51" });
+  }, []);
+
+  // Drive the scan sequence.
+  useEffect(() => {
+    if (phase !== "scan") return;
     if (reducedMotion) {
       setStepIndex(SCAN_STEPS.length);
       setBarValue(100);
       setPhase("crash");
       return;
     }
-    setPhase("scan");
-    setStepIndex(0);
-    setBarValue(0);
-  }, [reducedMotion]);
-
-  const replay = useCallback(() => {
-    clearTimers();
-    setStepIndex(0);
-    setBarValue(0);
-    setGlitch(false);
-    setPhase("boot");
-  }, [clearTimers]);
-
-  // Drive the scan sequence.
-  useEffect(() => {
-    if (phase !== "scan") return;
     if (stepIndex >= SCAN_STEPS.length) {
       const t = window.setTimeout(() => {
         setGlitch(true);
@@ -101,7 +99,7 @@ const WakeUp51 = () => {
     }
     const t = window.setTimeout(() => setStepIndex((i) => i + 1), 900);
     timers.current.push(t);
-  }, [phase, stepIndex]);
+  }, [phase, stepIndex, reducedMotion]);
 
   // Fake progress bar animation.
   useEffect(() => {
