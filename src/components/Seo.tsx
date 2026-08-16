@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_URL = "https://gettmann-for-ga51.lovable.app";
-const DEFAULT_IMAGE = `${SITE_URL}/web-app-manifest-512x512.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
 
 interface SeoProps {
   title: string;
