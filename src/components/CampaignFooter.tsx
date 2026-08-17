@@ -130,7 +130,7 @@ const CampaignFooter = () => (
             onClick={() => trackEvent("coloring_footer_click", { location: "footer" })}
             className="text-primary-foreground/70 hover:text-accent transition-colors"
           >
-            Coloring Book
+            Color With Keith
           </a>
         </div>
 
