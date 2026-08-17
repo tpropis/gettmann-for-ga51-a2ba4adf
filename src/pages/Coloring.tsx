@@ -5,14 +5,14 @@ import CampaignHeader from "@/components/CampaignHeader";
 import CampaignFooter from "@/components/CampaignFooter";
 import CrayonRequestModal from "@/components/coloring/CrayonRequestModal";
 import { trackEvent } from "@/lib/analytics";
-import ccOriginal from "@/assets/coloring-color-code-original.png.asset.json";
-import qrOriginal from "@/assets/coloring-qr-challenge-original.png.asset.json";
-import ccPreview from "@/assets/coloring-color-code-preview.webp.asset.json";
-import qrPreview from "@/assets/coloring-qr-challenge-preview.webp.asset.json";
-import signAsset from "@/assets/crayon-sign-bright.jpg.asset.json";
+// Self-hosted files in /public/coloring — served by your own site (Netlify), not a CDN.
+const ccOriginal = { url: "/coloring/Keith_Gettmann_Color_Code_Page.png" };
+const qrOriginal = { url: "/coloring/Keith_Gettmann_QR_Challenge_Page.png" };
+const ccPreview = { url: "/coloring/color-code-preview.webp" };
+const qrPreview = { url: "/coloring/qr-challenge-preview.webp" };
+const signAsset = { url: "/coloring/crayon-sign-bright.jpg" };
 
-const ASSET_ORIGIN = "https://gettmann-for-ga51.lovable.app";
-const assetUrl = (u: string) => new URL(u, ASSET_ORIGIN).toString();
+const assetUrl = (u: string) => u;
 
 const PAGE_URL = "https://keithforga.com/coloring";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61564223962233";
