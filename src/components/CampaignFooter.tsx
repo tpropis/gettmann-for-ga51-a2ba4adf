@@ -125,13 +125,6 @@ const CampaignFooter = () => (
           <span>© 2026 Keith for GA LLC. All rights reserved.</span>
           <a href="/privacy" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
           <a href="/terms" className="hover:text-primary-foreground/60 transition-colors">Terms</a>
-          <a
-            href="/coloring"
-            onClick={() => trackEvent("coloring_footer_click", { location: "footer" })}
-            className="text-primary-foreground/70 hover:text-accent transition-colors"
-          >
-            Color With Keith
-          </a>
         </div>
 
         {/* Hidden easter egg — reveals on hover, focus (Tab), or tap. Activate with Enter. */}
