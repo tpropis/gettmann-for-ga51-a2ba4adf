@@ -9,6 +9,7 @@ import ccOriginal from "@/assets/coloring-color-code-original.png.asset.json";
 import qrOriginal from "@/assets/coloring-qr-challenge-original.png.asset.json";
 import ccPreview from "@/assets/coloring-color-code-preview.webp.asset.json";
 import qrPreview from "@/assets/coloring-qr-challenge-preview.webp.asset.json";
+import signAsset from "@/assets/crayon-sign-bright.jpg.asset.json";
 
 const ASSET_ORIGIN = "https://gettmann-for-ga51.lovable.app";
 const assetUrl = (u: string) => new URL(u, ASSET_ORIGIN).toString();
@@ -157,6 +158,46 @@ const Coloring = () => {
             <a href="#downloads" className={`${btnGold} mt-7 w-full sm:w-auto`}>
               Choose Your Coloring Page <ArrowDown className="h-4 w-4" />
             </a>
+          </div>
+        </section>
+
+        {/* SAW THE SIGN */}
+        <section className="py-12 md:py-16 bg-campaign-light border-y border-border">
+          <div className="container mx-auto max-w-[1100px]">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div>
+                <p className="font-heading text-[11px] md:text-xs font-bold uppercase tracking-[0.28em] text-accent">
+                  Saw the sign?
+                </p>
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-primary leading-[1.05] mt-3">
+                  You're in the right place.
+                </h2>
+                <div className="w-14 h-[3px] bg-accent mt-4 mb-4" />
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                  That piece of paper was not mass-produced. It was not generated.
+                  It was drawn by hand with actual crayons — and it led you here.
+                </p>
+                <div className="mt-4">
+                  <Aside>This is the part that definitely isn't AI.</Aside>
+                </div>
+                <a href="#downloads" className={`${btnGold} mt-7 w-full sm:w-auto`}>
+                  Read More <ArrowDown className="h-4 w-4" />
+                </a>
+              </div>
+
+              <div className="relative">
+                <div className="absolute inset-0 bg-accent/10 rounded-xl rotate-1" aria-hidden="true" />
+                <img
+                  src={assetUrl(signAsset.url)}
+                  alt="Hand-drawn crayon sign: Vote Keith Gettmann for Georgia State House District 51"
+                  width={1354}
+                  height={1805}
+                  loading="eager"
+                  decoding="async"
+                  className="relative rounded-xl border-2 border-white shadow-lg w-full h-auto max-w-md mx-auto rotate-[-1deg]"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
