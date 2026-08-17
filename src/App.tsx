@@ -11,6 +11,7 @@ const Pushcard = lazy(() => import("./pages/Pushcard"));
 const PlusOne = lazy(() => import("./pages/PlusOne"));
 const CommonSenseSwing = lazy(() => import("./pages/CommonSenseSwing"));
 const WakeUp51 = lazy(() => import("./pages/WakeUp51"));
+const Coloring = lazy(() => import("./pages/Coloring"));
 
 import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
@@ -67,6 +68,14 @@ const App = () => (
           />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route
+            path="/coloring"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-background" />}>
+                <Coloring />
+              </Suspense>
+            }
+          />
           <Route
             path="/plusone"
             element={
