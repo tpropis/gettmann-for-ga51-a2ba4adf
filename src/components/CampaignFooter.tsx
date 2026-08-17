@@ -9,6 +9,7 @@ const footerLinks = [
   { label: "Issues", href: "#issues" },
   { label: "Get Involved", href: "#get-involved" },
   { label: "Donate", href: winredUrl("footer"), external: true },
+  { label: "Color With Keith", href: "/coloring" },
   { label: "Contact", href: "#contact" },
 ];
 
