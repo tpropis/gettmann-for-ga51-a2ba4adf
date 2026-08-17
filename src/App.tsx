@@ -11,6 +11,7 @@ const Pushcard = lazy(() => import("./pages/Pushcard"));
 const PlusOne = lazy(() => import("./pages/PlusOne"));
 const CommonSenseSwing = lazy(() => import("./pages/CommonSenseSwing"));
 const WakeUp51 = lazy(() => import("./pages/WakeUp51"));
+const Coloring = lazy(() => import("./pages/Coloring"));
 
 import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
