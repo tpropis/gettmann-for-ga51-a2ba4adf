@@ -337,7 +337,7 @@ const Coloring = () => {
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto mt-4 leading-relaxed">
                 Because apparently "I didn't have the right color" isn't getting
-                anyone out of this assignment.
+                anyone out of this assignment. Keep coloring till the wax runs out.
               </p>
               <p className="text-primary font-semibold mt-2">
                 Need crayons for the kids? Let the campaign know.
