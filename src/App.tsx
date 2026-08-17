@@ -69,6 +69,14 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route
+            path="/coloring"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-background" />}>
+                <Coloring />
+              </Suspense>
+            }
+          />
+          <Route
             path="/plusone"
             element={
               <Suspense fallback={<div className="min-h-screen bg-primary" />}>
