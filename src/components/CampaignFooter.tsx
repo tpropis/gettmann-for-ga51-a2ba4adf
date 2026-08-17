@@ -9,6 +9,7 @@ const footerLinks = [
   { label: "Issues", href: "#issues" },
   { label: "Get Involved", href: "#get-involved" },
   { label: "Donate", href: winredUrl("footer"), external: true },
+  { label: "Color With Keith", href: "/coloring" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -129,7 +130,7 @@ const CampaignFooter = () => (
             onClick={() => trackEvent("coloring_footer_click", { location: "footer" })}
             className="text-primary-foreground/70 hover:text-accent transition-colors"
           >
-            Coloring Book
+            Color With Keith
           </a>
         </div>
 
