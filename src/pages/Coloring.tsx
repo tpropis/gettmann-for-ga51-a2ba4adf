@@ -10,6 +10,9 @@ import qrOriginal from "@/assets/coloring-qr-challenge-original.png.asset.json";
 import ccPreview from "@/assets/coloring-color-code-preview.webp.asset.json";
 import qrPreview from "@/assets/coloring-qr-challenge-preview.webp.asset.json";
 
+const ASSET_ORIGIN = "https://gettmann-for-ga51.lovable.app";
+const assetUrl = (u: string) => new URL(u, ASSET_ORIGIN).toString();
+
 const PAGE_URL = "https://keithforga.com/coloring";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61564223962233";
 const INSTAGRAM_URL = "https://www.instagram.com/keithforgeorgia/";
@@ -33,9 +36,9 @@ const cards = [
     id: "color-code",
     eyebrow: "Coloring Page #1",
     title: "The Color Code",
-    preview: ccPreview.url,
+    preview: assetUrl(ccPreview.url),
     alt: "Keith Gettmann Georgia House District 51 printable color-code coloring page",
-    file: ccOriginal.url,
+    file: assetUrl(ccOriginal.url),
     filename: "Keith_Gettmann_Color_Code_Page.png",
     button: "Download the Color Code",
     event: "color_code_download",
@@ -44,9 +47,9 @@ const cards = [
     id: "qr-challenge",
     eyebrow: "Coloring Page #2",
     title: "Can You Make It Scan?",
-    preview: qrPreview.url,
+    preview: assetUrl(qrPreview.url),
     alt: "Keith Gettmann printable QR code coloring challenge for KeithForGA.com",
-    file: qrOriginal.url,
+    file: assetUrl(qrOriginal.url),
     filename: "Keith_Gettmann_QR_Challenge_Page.png",
     button: "Download the QR Challenge",
     event: "qr_challenge_download",
@@ -343,7 +346,7 @@ const Coloring = () => {
                     aria-hidden="true"
                   />
                   <img
-                    src={ccPreview.url}
+                    src={assetUrl(ccPreview.url)}
                     alt="Keith Gettmann Georgia House District 51 printable color-code coloring page"
                     width={900}
                     height={1164}
