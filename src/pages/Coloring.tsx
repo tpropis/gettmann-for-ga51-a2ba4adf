@@ -9,6 +9,7 @@ import ccOriginal from "@/assets/coloring-color-code-original.png.asset.json";
 import qrOriginal from "@/assets/coloring-qr-challenge-original.png.asset.json";
 import ccPreview from "@/assets/coloring-color-code-preview.webp.asset.json";
 import qrPreview from "@/assets/coloring-qr-challenge-preview.webp.asset.json";
+import signAsset from "@/assets/crayon-sign-bright.jpg.asset.json";
 
 const ASSET_ORIGIN = "https://gettmann-for-ga51.lovable.app";
 const assetUrl = (u: string) => new URL(u, ASSET_ORIGIN).toString();
