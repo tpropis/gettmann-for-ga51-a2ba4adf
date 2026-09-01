@@ -14,7 +14,7 @@ const signAsset = { url: "/coloring/crayon-sign-bright.jpg" };
 
 const assetUrl = (u: string) => u;
 
-const PAGE_URL = "https://keithforga.com/coloring";
+const PAGE_URL = "https://www.keithforga.com/coloring";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61564223962233";
 const INSTAGRAM_URL = "https://www.instagram.com/keithforgeorgia/";
 
