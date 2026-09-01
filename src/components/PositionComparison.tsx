@@ -53,11 +53,11 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
   const [open, setOpen] = useState(false);
   const panelId = `cmp-${row.id}`;
 
-  const details = (
+  const details = (contentId: string) => (
     <AnimatePresence initial={false}>
       {open && (
         <motion.div
-          id={panelId}
+          id={contentId}
           initial={{ height: 0 }}
           animate={{ height: "auto" }}
           exit={{ height: 0 }}
