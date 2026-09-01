@@ -8,6 +8,7 @@ import { winredUrl } from "@/lib/winred";
 
 const navLinks = [
   { label: "About", href: "/#meet-keith" },
+  { label: "Constituent Services", href: "/constituent-services" },
   { label: "Issues", href: "/#issues" },
   { label: "District Map", href: "/map" },
   { label: "Have Your Say", href: "/community-council" },

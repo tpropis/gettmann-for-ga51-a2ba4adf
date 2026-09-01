@@ -7,19 +7,14 @@ import { winredUrl } from "@/lib/winred";
 type AmountOption = { amount: number | "other"; label: string; utm: string };
 
 const amounts: AmountOption[] = [
-  { amount: 25, label: "$25", utm: "donation_page_25" },
   { amount: 51, label: "$51", utm: "donation_page_51" },
-  { amount: 100, label: "$100", utm: "donation_page_100" },
-  { amount: 250, label: "$250", utm: "donation_page_250" },
-  { amount: 500, label: "$500", utm: "donation_page_500" },
-  { amount: 1000, label: "$1,000", utm: "donation_page_1000" },
-  { amount: 3300, label: "$3,300", utm: "donation_page_3300" },
-  { amount: 6600, label: "$6,600", utm: "donation_page_6600" },
-  { amount: "other", label: "Other", utm: "donation_page_other" },
+  { amount: 151, label: "$151", utm: "donation_page_151" },
+  { amount: 510, label: "$510", utm: "donation_page_510" },
+  { amount: 1051, label: "$1,051", utm: "donation_page_1051" },
 ];
 
 const DonationSection = () => {
-  const [selected, setSelected] = useState<AmountOption>(amounts[2]);
+  const [selected, setSelected] = useState<AmountOption>(amounts[1]);
 
   const donateHref =
     selected.amount === "other"

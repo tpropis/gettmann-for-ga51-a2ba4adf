@@ -126,10 +126,10 @@ const Coloring = () => {
   return (
     <>
       <Seo
-        title="Keith Gettmann Coloring Book | Georgia House District 51"
+        title="Color With Keith | Georgia House District 51"
         description="Download free Keith Gettmann coloring pages, take the QR Code Challenge, put your masterpiece on the fridge and share it with the campaign."
         path="/coloring"
-        image="https://gettmann-for-ga51.lovable.app/og-coloring.jpg"
+        image="https://www.keithforga.com/coloring/color-code-preview.webp"
       />
       <CampaignHeader />
 
