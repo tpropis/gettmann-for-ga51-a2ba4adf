@@ -151,7 +151,7 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
         </dl>
 
         <p className="mt-3 text-sm text-campaign-slate leading-relaxed">{row.source}</p>
-        <div id={`${panelId}-m`}>{details}</div>
+        <div>{details(`${panelId}-m`)} </div>
       </div>
     </>
   );
