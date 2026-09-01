@@ -82,41 +82,32 @@ const HeroSection = () => {
             Republican for State House • District 51
           </p>
 
-          {/* Main Headline */}
-          <h1 className="font-heading uppercase leading-[0.88] tracking-normal text-primary-foreground font-bold text-5xl sm:text-6xl md:text-[5.4rem] lg:text-[6.8rem] xl:text-[7.4rem]">
-            <span aria-hidden="true">
-              Keith
-              <br />
-              <span className="text-accent">Gettmann</span>
-            </span>
-            <span className="sr-only">Keith Gettmann for Georgia State House District 51</span>
+          <h1 className="font-heading uppercase leading-[0.96] tracking-normal text-primary-foreground font-bold text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl max-w-2xl">
+            I lost this district by 4,599 votes. I know where every one of them is.
           </h1>
 
-          {/* Gold accent line */}
-          <span className="block w-20 h-[4px] bg-accent mt-5 mb-5" aria-hidden="true" />
+          <span className="block w-20 h-[4px] bg-accent mt-6 mb-6" aria-hidden="true" />
 
-          {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-primary-foreground/90 font-body leading-relaxed max-w-xl">
-            Fighting for safer communities, stronger schools, and lower costs for Georgia families.
+            Keith Gettmann spent his career in housing and banking — Fannie Mae, the Resolution Trust Corporation, the FDIC. He closed the books on institutions that spent money they didn't have. He'd rather stop it than clean it up.
           </p>
 
-          {/* CTA Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <a
-              href={winredUrl("homepage_hero")}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackDonateClick("hero", "Donate Now")}
-              className="group inline-flex items-center justify-center gap-3 bg-accent text-accent-foreground font-heading text-base font-bold px-9 py-4 rounded-md hover:brightness-95 transition-all tracking-wide shadow-xl shadow-accent/40 uppercase"
+              href="#issues"
+              className="inline-flex items-center justify-center gap-3 bg-accent text-accent-foreground font-heading text-base font-bold px-9 py-4 rounded-md hover:brightness-95 transition-all tracking-wide shadow-xl shadow-accent/40 uppercase"
             >
-              Donate Now
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              See the plan
+              <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="#get-involved"
+              href={winredUrl("homepage_hero", 51)}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackDonateClick("hero", "Chip in $51", { amount: 51, provider: "winred" })}
               className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground/80 text-primary-foreground font-heading text-base font-bold px-9 py-4 rounded-md hover:bg-primary-foreground hover:text-primary transition-colors tracking-wide uppercase"
             >
-              Join the Campaign
+              Chip in $51
             </a>
           </div>
         </motion.div>

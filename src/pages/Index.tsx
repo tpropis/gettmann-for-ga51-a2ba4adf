@@ -3,7 +3,8 @@ import CampaignHeader from "@/components/CampaignHeader";
 import HeroSection from "@/components/HeroSection";
 import MeetKeith from "@/components/MeetKeith";
 
-import PolicyPositions from "@/components/PolicyPositions";
+import IssuesSection from "@/components/IssuesSection";
+import PositionComparison from "@/components/PositionComparison";
 import DonationSection from "@/components/DonationSection";
 import GetInvolved from "@/components/GetInvolved";
 import WhereToVote from "@/components/WhereToVote";
@@ -23,7 +24,8 @@ const Index = () => {
       <HeroSection />
       <MeetKeith />
       
-      <PolicyPositions />
+      <IssuesSection />
+      <PositionComparison />
       <DonationSection />
       <GetInvolved />
       <CommunityCouncilSection />

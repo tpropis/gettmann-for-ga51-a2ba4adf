@@ -61,6 +61,8 @@ export default {
           light: "hsl(var(--campaign-light))",
           warm: "hsl(var(--campaign-warm))",
           brown: "hsl(var(--campaign-brown))",
+          slate: "hsl(var(--campaign-slate))",
+          red: "hsl(var(--campaign-red))",
         },
         terminal: {
           bg: "hsl(var(--terminal-bg))",

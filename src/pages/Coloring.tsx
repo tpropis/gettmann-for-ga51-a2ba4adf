@@ -14,7 +14,7 @@ const signAsset = { url: "/coloring/crayon-sign-bright.jpg" };
 
 const assetUrl = (u: string) => u;
 
-const PAGE_URL = "https://keithforga.com/coloring";
+const PAGE_URL = "https://www.keithforga.com/coloring";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61564223962233";
 const INSTAGRAM_URL = "https://www.instagram.com/keithforgeorgia/";
 
@@ -126,10 +126,10 @@ const Coloring = () => {
   return (
     <>
       <Seo
-        title="Keith Gettmann Coloring Book | Georgia House District 51"
+        title="Color With Keith | Georgia House District 51"
         description="Download free Keith Gettmann coloring pages, take the QR Code Challenge, put your masterpiece on the fridge and share it with the campaign."
         path="/coloring"
-        image="https://gettmann-for-ga51.lovable.app/og-coloring.jpg"
+        image="https://www.keithforga.com/coloring/color-code-preview.webp"
       />
       <CampaignHeader />
 
