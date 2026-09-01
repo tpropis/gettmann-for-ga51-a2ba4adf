@@ -103,7 +103,7 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
             </span>
           </button>
           <p className="mt-2 pl-7 text-sm text-campaign-slate leading-relaxed">{row.source}</p>
-          <div className="pl-7">{details}</div>
+          <div className="pl-7">{details(panelId)}</div>
         </div>
         {columns.map((col) => (
           <div
