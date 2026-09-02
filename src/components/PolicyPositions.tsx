@@ -8,6 +8,7 @@ import {
   BookOpen,
   Leaf,
   ShieldCheck,
+  ExternalLink,
 } from "lucide-react";
 
 const positions = [
