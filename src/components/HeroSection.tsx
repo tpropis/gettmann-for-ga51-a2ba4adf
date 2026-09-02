@@ -79,17 +79,17 @@ const HeroSection = () => {
         >
           {/* Top Label */}
           <p className="font-heading text-sm sm:text-base font-semibold text-accent tracking-[0.24em] uppercase mb-4">
-            Republican for State House • District 51
+            Republican for Georgia State House • District 51
           </p>
 
           <h1 className="font-heading uppercase leading-[0.96] tracking-normal text-primary-foreground font-bold text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl max-w-2xl">
-            I lost this district by 4,599 votes. I know where every one of them is.
+            Lower taxes. Safer neighborhoods. Schools that answer to parents.
           </h1>
 
           <span className="block w-20 h-[4px] bg-accent mt-6 mb-6" aria-hidden="true" />
 
           <p className="text-lg sm:text-xl md:text-2xl text-primary-foreground/90 font-body leading-relaxed max-w-xl">
-            Keith Gettmann spent his career in housing and banking — Fannie Mae, the Resolution Trust Corporation, the FDIC. He closed the books on institutions that spent money they didn't have. He'd rather stop it than clean it up.
+            Keith Gettmann — Republican for Georgia State House District 51.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">

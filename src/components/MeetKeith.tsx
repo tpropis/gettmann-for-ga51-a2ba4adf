@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, GraduationCap, TrendingUp, Home, Users, Compass } from "lucide-react";
+import { Shield, GraduationCap, TrendingUp, Home, Users, Compass, Briefcase } from "lucide-react";
 import keithPortrait from "@/assets/keith_fountain_clean.jpg";
 import keithDog from "@/assets/keith_dog.jpg";
 import keithFamily from "@/assets/family_pic.jpg";
