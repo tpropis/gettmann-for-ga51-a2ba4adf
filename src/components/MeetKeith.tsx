@@ -146,6 +146,11 @@ const MeetKeith = () => (
             <div className="space-y-4">
               {[
                 {
+                  icon: Briefcase,
+                  title: "Ready on Day One",
+                  text: "Keith spent his career in housing and banking — Fannie Mae, the Resolution Trust Corporation, the FDIC. He closed the books on institutions that spent money they didn't have. He'd rather stop it than clean it up.",
+                },
+                {
                   icon: Home,
                   title: "Rooted in Georgia",
                   text: "Keith was born, raised, and educated in Georgia. He and his family have built their lives here, and his commitment to District 51 comes from a lifetime of relationships, community involvement, and pride in the place he calls home.",
