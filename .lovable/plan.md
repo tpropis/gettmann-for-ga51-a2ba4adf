@@ -1,30 +1,38 @@
-# Affordability Message Update (HB 463)
+# Hero Redesign: Message-First Layout
 
-Fold the uploaded affordability statement into the site's existing Issues and Comparison sections. Copy-only work — no new sections, no layout changes.
+## Goal
+Replace the current loss-margin-first hero with a voter-facing message-first hero that keeps Keith's name visible but makes the voter benefit the headline.
 
-## 1. Affordability & Inflation issue card
+## Proposed Hero Copy
+- **Top label:** Republican for Georgia State House • District 51
+- **H1:** Lower taxes. Safer neighborhoods. Schools that answer to parents.
+- **Subhead:** Keith Gettmann — Republican for Georgia State House District 51.
+- **CTAs:** "See the plan" and "Chip in $51" (keep existing buttons and tracking)
 
-In the Issues section, update the affordability card so it carries the campaign's actual affordability argument:
+## Changes
 
-- Problem paragraph gains the grocery-aisle framing: costs at checkout are up and paychecks haven't moved.
-- "Keith Will" bullets updated to reflect the Republican record and what Keith continues:
-  1. Continue the $1.1 billion state income tax cut, holding the rate down on schedule.
-  2. Protect the doubled $4,000 homestead exemption.
-  3. Keep the $1,000-per-child tax deduction and defend the assessment cap.
-- The existing "Why this is personal for me" FDIC/RTC paragraphs stay as they are.
+### 1. Rewrite `src/components/HeroSection.tsx`
+- Replace the first-person loss-margin H1 with the message-first H1 above.
+- Move name/office to the subheadline.
+- Remove the Fannie Mae / RTC / FDIC career paragraph from the hero.
+- Preserve the existing portrait, navy overlay, gold seal, and mobile gradient.
+- Keep the WinRed donation link and `trackDonateClick` analytics intact.
 
-## 2. HB 463 comparison row
+### 2. Repurpose the loss-margin line in `src/components/DonationSection.tsx`
+- Add a short urgency line above the amount buttons:
+  "This seat was decided by just 4,599 votes. Your support can change that."
+- Keep the "Paid for by Keith for GA LLC" disclaimer and secure-contribution note.
 
-Broaden the HB 463 row so it reflects the full bill rather than only the rate schedule:
+### 3. Move career credentials into `src/components/MeetKeith.tsx`
+- Add a compact "Why He's Ready" card or paragraph in the existing "Why Keith Gettmann" section using the existing hero copy about Fannie Mae, the Resolution Trust Corporation, the FDIC, and closing the books on institutions that spent money they didn't have.
+- This keeps the credibility content on the site without leading with it.
 
-- Row label: the affordability package — income tax cut, doubled homestead exemption, increased child deduction (HB 463).
-- Detail sentence notes the $1.1B cut, the $4,000 homestead exemption, and the $1,000 child deduction.
-- Source line notes Rep. Panitch voted against HB 463; positions stay Republicans support / Keith support / Panitch oppose.
+## Scope Guardrails
+- No new pages, no layout changes outside the hero copy hierarchy, no image swaps.
+- Existing colors, fonts, and animations stay the same.
+- All donation analytics and UTM tracking remain unchanged.
 
-## Not doing
-
-No new issue card, no attack framing, no images from the document, and no numbers beyond what the statement supplies.
-
-## Technical notes
-
-Edits limited to `src/data/issues.ts` (affordability entry) and `src/data/positionComparison.ts` (hb463 entry). Components untouched.
+## Verification
+- Run `bun run build`.
+- Check desktop and mobile hero text legibility in preview.
+- Confirm donation CTA still routes to WinRed with the correct amount.
