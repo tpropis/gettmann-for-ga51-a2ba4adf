@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, GraduationCap, TrendingUp, Home, Users, Compass } from "lucide-react";
+import { Shield, GraduationCap, TrendingUp, Home, Users, Compass, Briefcase } from "lucide-react";
 import keithPortrait from "@/assets/keith_fountain_clean.jpg";
 import keithDog from "@/assets/keith_dog.jpg";
 import keithFamily from "@/assets/family_pic.jpg";
@@ -145,6 +145,11 @@ const MeetKeith = () => (
 
             <div className="space-y-4">
               {[
+                {
+                  icon: Briefcase,
+                  title: "Ready on Day One",
+                  text: "Keith spent his career in housing and banking — Fannie Mae, the Resolution Trust Corporation, the FDIC. He closed the books on institutions that spent money they didn't have. He'd rather stop it than clean it up.",
+                },
                 {
                   icon: Home,
                   title: "Rooted in Georgia",

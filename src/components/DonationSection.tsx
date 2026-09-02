@@ -37,6 +37,9 @@ const DonationSection = () => {
           <p className="text-primary-foreground/80 mt-4 text-base md:text-lg max-w-md mx-auto leading-relaxed">
             Your donation helps us reach more voters and win House District 51.
           </p>
+          <p className="text-primary-foreground/70 mt-3 text-sm md:text-base max-w-md mx-auto leading-relaxed">
+            This seat was decided by just 4,599 votes. Your support can change that.
+          </p>
         </motion.div>
 
         <motion.div
