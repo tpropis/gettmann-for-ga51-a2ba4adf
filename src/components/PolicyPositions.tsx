@@ -179,6 +179,22 @@ const PolicyPositions = () => {
                             {p.closing}
                           </p>
                         )}
+                        {p.researchLink && p.researchLink.href !== "#" && (
+                          <p className="pt-2 text-sm md:text-base leading-relaxed">
+                            <span className="font-semibold text-primary">
+                              {p.researchLink.label}
+                            </span>{" "}
+                            <a
+                              href={p.researchLink.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
+                            >
+                              {p.researchLink.text}
+                              <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                            </a>
+                          </p>
+                        )}
                       </div>
                     </motion.div>
                   )}
