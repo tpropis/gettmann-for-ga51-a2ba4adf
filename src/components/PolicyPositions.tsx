@@ -8,6 +8,7 @@ import {
   BookOpen,
   Leaf,
   ShieldCheck,
+  ExternalLink,
 } from "lucide-react";
 
 const positions = [
@@ -18,8 +19,13 @@ const positions = [
       "Backing our police, defending the rule of law, and keeping HD 51 families safe at home, at school, and on the road.",
     paragraphs: [
       "Strong communities start with safe neighborhoods and well-supported law enforcement. As your next State Representative for HD 51, I will stand with the men and women who protect us and make sure they have the resources, training, and respect they deserve.",
-      "I will back our police and first responders, support recruitment and retention, defend victims’ rights, and stand firmly for the rule of law. Every family in District 51 deserves to feel secure — in their home, in their neighborhood, and in their schools.",
+      "I will back our police and first responders, support recruitment and retention, defend victims' rights, and stand firmly for the rule of law. Every family in District 51 deserves to feel secure — in their home, in their neighborhood, and in their schools.",
     ],
+    researchLink: {
+      label: "Read the research:",
+      text: "[Dissertation title or source name]",
+      href: "#",
+    },
   },
   {
     icon: Wallet,
@@ -171,6 +177,22 @@ const PolicyPositions = () => {
                         {p.closing && (
                           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                             {p.closing}
+                          </p>
+                        )}
+                        {p.researchLink && p.researchLink.href !== "#" && (
+                          <p className="pt-2 text-sm md:text-base leading-relaxed">
+                            <span className="font-semibold text-primary">
+                              {p.researchLink.label}
+                            </span>{" "}
+                            <a
+                              href={p.researchLink.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
+                            >
+                              {p.researchLink.text}
+                              <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                            </a>
                           </p>
                         )}
                       </div>
