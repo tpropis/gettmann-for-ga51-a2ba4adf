@@ -19,8 +19,13 @@ const positions = [
       "Backing our police, defending the rule of law, and keeping HD 51 families safe at home, at school, and on the road.",
     paragraphs: [
       "Strong communities start with safe neighborhoods and well-supported law enforcement. As your next State Representative for HD 51, I will stand with the men and women who protect us and make sure they have the resources, training, and respect they deserve.",
-      "I will back our police and first responders, support recruitment and retention, defend victims’ rights, and stand firmly for the rule of law. Every family in District 51 deserves to feel secure — in their home, in their neighborhood, and in their schools.",
+      "I will back our police and first responders, support recruitment and retention, defend victims' rights, and stand firmly for the rule of law. Every family in District 51 deserves to feel secure — in their home, in their neighborhood, and in their schools.",
     ],
+    researchLink: {
+      label: "Read the research:",
+      text: "[Dissertation title or source name]",
+      href: "#",
+    },
   },
   {
     icon: Wallet,
