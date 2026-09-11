@@ -1,24 +1,12 @@
 import Seo from "@/components/Seo";
 import CampaignHeader from "@/components/CampaignHeader";
 import CampaignFooter from "@/components/CampaignFooter";
-import { DoorOpen, Phone, MessageCircle, Coffee, Mail, MapPin } from "lucide-react";
+import { Phone, MessageCircle, Coffee, Mail } from "lucide-react";
 
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61564223962233";
 const INSTAGRAM_URL = "https://www.instagram.com/keithforgeorgia/";
 
 const items = [
-  {
-    icon: DoorOpen,
-    title: "Knock on my door",
-    body:
-      "I live right here in District 51. If something is wrong, you shouldn't have to drive to Atlanta to be heard.",
-    detail: {
-      icon: MapPin,
-      text: "20 Saddleview Run, Sandy Springs, GA 30350",
-      href: "https://www.google.com/maps/search/?api=1&query=20+Saddleview+Run+Sandy+Springs+GA+30350",
-      label: "Open address in Google Maps",
-    },
-  },
   {
     icon: Phone,
     title: "Just call me",
@@ -26,8 +14,8 @@ const items = [
       "Not a form. Not a queue. A real number that reaches a real person who answers for District 51.",
     detail: {
       icon: Phone,
-      text: "(470) 261-3103",
-      href: "tel:+14702613103",
+      text: "(678) 231-8730",
+      href: "tel:+16782318730",
       label: "Call Keith",
     },
   },
@@ -47,8 +35,7 @@ const items = [
     icon: Coffee,
     title: "Let's grab coffee",
     body:
-      "Regular office hours in Roswell, Sandy Springs and Johns Creek — posted dates and places, no appointment needed.",
-    placeholder: "Dates and locations: to be posted",
+      "Office hours at your favorite coffee shop in our district — keeping it local and keeping it simple.",
   },
 ];
 
@@ -70,7 +57,7 @@ const ConstituentServices = () => {
             </h1>
             <div className="w-16 h-[3px] bg-accent mt-5" />
             <p className="mt-5 text-primary-foreground/85 text-base md:text-lg leading-relaxed max-w-xl">
-              Knock on my door. Call me. Send me a DM. Constituent service isn't a department — it's a
+              Call me. Send me a DM. Let's grab coffee. Constituent service isn't a department — it's a
               relationship, and it starts with showing up before the election and staying reachable after it.
             </p>
           </div>
@@ -101,11 +88,6 @@ const ConstituentServices = () => {
                         <item.detail.icon className="shrink-0" size={16} aria-hidden="true" />
                         {item.detail.text}
                       </a>
-                    )}
-                    {item.placeholder && (
-                      <p className="mt-3 inline-block rounded border border-dashed border-border px-3 py-1.5 text-sm text-campaign-slate">
-                        {item.placeholder}
-                      </p>
                     )}
                     {item.title === "DM me" && (
                       <div className="mt-4 flex flex-wrap gap-3">
