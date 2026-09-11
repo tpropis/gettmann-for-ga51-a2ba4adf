@@ -16,32 +16,37 @@ const positionLabel: Record<Position, string> = {
   none: "No published position",
 };
 
-const Mark = ({ value }: { value: Position }) => {
+const Mark = ({
+  value,
+  label,
+}: {
+  value: Position;
+  label: string;
+}) => {
   if (value === "support") {
     return (
       <span
-        role="img"
-        aria-label={positionLabel.support}
-        className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground"
+        aria-label={`${label}: ${positionLabel.support}`}
+        className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground whitespace-nowrap"
       >
         <Check size={14} strokeWidth={3} aria-hidden="true" />
+        {label}
       </span>
     );
   }
   if (value === "oppose") {
     return (
       <span
-        role="img"
-        aria-label={positionLabel.oppose}
-        className="inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-campaign-red text-campaign-red"
+        aria-label={`${label}: ${positionLabel.oppose}`}
+        className="inline-flex items-center gap-1.5 rounded-full bg-campaign-red px-3 py-1.5 text-xs font-bold text-white whitespace-nowrap"
       >
         <X size={14} strokeWidth={3} aria-hidden="true" />
+        {label}
       </span>
     );
   }
   return (
     <span
-      role="img"
       aria-label={positionLabel.none}
       className="inline-flex h-6 w-6 items-center justify-center text-campaign-slate"
     >
@@ -51,9 +56,9 @@ const Mark = ({ value }: { value: Position }) => {
 };
 
 const columns = [
-  { key: "gop" as const, label: "Georgia Republicans", subLabel: "Supported" },
-  { key: "keith" as const, label: "Keith Gettmann", subLabel: "Supports" },
-  { key: "panitch" as const, label: "Rep. Panitch", subLabel: "Voted no" },
+  { key: "gop" as const, label: "Georgia Republicans", subLabel: "Voted yes", badgeLabel: "VOTED YES" },
+  { key: "keith" as const, label: "Keith Gettmann", subLabel: "Supports", badgeLabel: "SUPPORTS" },
+  { key: "panitch" as const, label: "Rep. Panitch", subLabel: "Voted no", badgeLabel: "VOTED NO" },
 ];
 
 const RowBlock = ({ row }: { row: ComparisonRow }) => {
@@ -123,7 +128,7 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
               col.key === "keith" ? "bg-primary/5 rounded-md py-2" : ""
             }`}
           >
-            <Mark value={row[col.key]} />
+            <Mark value={row[col.key]} label={col.badgeLabel} />
           </div>
         ))}
       </div>
@@ -154,9 +159,8 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
               }`}
             >
               <dt className="text-base text-foreground/90">{col.label}</dt>
-              <dd className="flex items-center gap-2">
-                <Mark value={row[col.key]} />
-                <span className="text-sm text-foreground/80">{col.subLabel}</span>
+              <dd>
+                <Mark value={row[col.key]} label={col.badgeLabel} />
               </dd>
             </div>
           ))}
@@ -227,17 +231,6 @@ const PositionComparison = () => {
           Keith Gettmann supports every one of these laws. Esther Panitch voted against all
           seventeen. The votes are on the record — tap any line to see what the bill did.
         </p>
-
-        <div className="mt-6 flex flex-wrap items-center gap-4 md:gap-6">
-          <div className="flex items-center gap-2">
-            <Mark value="support" />
-            <span className="text-sm text-foreground/90">Supported / voted yes</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Mark value="oppose" />
-            <span className="text-sm text-foreground/90">Voted no</span>
-          </div>
-        </div>
 
         {groupOrder.map((group) => (
           <Group key={group} group={group} />
