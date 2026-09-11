@@ -16,32 +16,37 @@ const positionLabel: Record<Position, string> = {
   none: "No published position",
 };
 
-const Mark = ({ value }: { value: Position }) => {
+const Mark = ({
+  value,
+  label,
+}: {
+  value: Position;
+  label: string;
+}) => {
   if (value === "support") {
     return (
       <span
-        role="img"
-        aria-label={positionLabel.support}
-        className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground"
+        aria-label={`${label}: ${positionLabel.support}`}
+        className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground whitespace-nowrap"
       >
         <Check size={14} strokeWidth={3} aria-hidden="true" />
+        {label}
       </span>
     );
   }
   if (value === "oppose") {
     return (
       <span
-        role="img"
-        aria-label={positionLabel.oppose}
-        className="inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-campaign-red text-campaign-red"
+        aria-label={`${label}: ${positionLabel.oppose}`}
+        className="inline-flex items-center gap-1.5 rounded-full bg-campaign-red px-3 py-1.5 text-xs font-bold text-white whitespace-nowrap"
       >
         <X size={14} strokeWidth={3} aria-hidden="true" />
+        {label}
       </span>
     );
   }
   return (
     <span
-      role="img"
       aria-label={positionLabel.none}
       className="inline-flex h-6 w-6 items-center justify-center text-campaign-slate"
     >
@@ -51,9 +56,9 @@ const Mark = ({ value }: { value: Position }) => {
 };
 
 const columns = [
-  { key: "gop" as const, label: "Georgia Republicans", subLabel: "Supported" },
-  { key: "keith" as const, label: "Keith Gettmann", subLabel: "Supports" },
-  { key: "panitch" as const, label: "Rep. Panitch", subLabel: "Voted no" },
+  { key: "gop" as const, label: "Georgia Republicans", subLabel: "Voted yes", badgeLabel: "VOTED YES" },
+  { key: "keith" as const, label: "Keith Gettmann", subLabel: "Supports", badgeLabel: "SUPPORTS" },
+  { key: "panitch" as const, label: "Rep. Panitch", subLabel: "Voted no", badgeLabel: "VOTED NO" },
 ];
 
 const RowBlock = ({ row }: { row: ComparisonRow }) => {
