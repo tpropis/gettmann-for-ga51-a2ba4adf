@@ -1,13 +1,13 @@
-# Where We Disagree: 17 Votes
+# 17 Votes: The Record
 
-Replace the current three-way "Where we agree. Where we don't." chart with a single, clean comparison built around the 17 bills where Keith and the Republican caucus voted yes and Rep. Esther Panitch voted no.
+Replace the current three-way "Where we agree. Where we don't." chart with one clean, hard-hitting comparison built on the 17 bills where Keith and the Republican caucus stood with District 51 and Rep. Esther Panitch voted no.
 
 ## What changes on the page
 
-- Section heading becomes **"17 votes. 17 disagreements."** with a one-line lead: Keith stands with these bills; the current representative voted against every one.
-- The "Where all three agree" group is removed. No agreement rows, no score, no tally.
-- Three columns stay, relabeled and simplified: **Georgia Republicans** / **Keith Gettmann** (highlighted) / **Rep. Panitch**. Marks: filled navy check for yes, open muted-red X for no.
-- Every row is one bill, in plain language a voter reads in one breath: bill number, what it does, the vote count and date.
+- Section heading becomes **"17 votes. She said no to every one."** Lead line: Keith supports each of these laws. Esther Panitch voted against all seventeen. The votes are on the record.
+- The "Where all three agree" group is removed. No agreement rows, no score, no tally, no hedging.
+- Three columns stay, relabeled and simplified: **Georgia Republicans** / **Keith Gettmann** (highlighted) / **Rep. Panitch**. Marks: filled navy check for yes, open muted-red X for no. Her column is a full run of red X marks — that column is the argument.
+- Every row is one bill, in plain language a voter reads in one breath: the voter problem, the bill, the recorded vote and date, with "Panitch voted NO" in the visible row text.
 - Clicking a row opens a short explanation (2-3 sentences) plus, where one exists, one link labeled with its source (e.g. Georgia General Assembly vote record). The generic "Read more" links are removed everywhere per Keith's note.
 - Sourcing note at the bottom stays: positions come from House and Senate vote records.
 
