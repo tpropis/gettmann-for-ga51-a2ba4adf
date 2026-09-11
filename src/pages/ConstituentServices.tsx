@@ -1,7 +1,10 @@
 import Seo from "@/components/Seo";
 import CampaignHeader from "@/components/CampaignHeader";
 import CampaignFooter from "@/components/CampaignFooter";
-import { DoorOpen, Phone, MessageCircle, Coffee } from "lucide-react";
+import { DoorOpen, Phone, MessageCircle, Coffee, Mail, MapPin } from "lucide-react";
+
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61564223962233";
+const INSTAGRAM_URL = "https://www.instagram.com/keithforgeorgia/";
 
 const items = [
   {
@@ -9,20 +12,36 @@ const items = [
     title: "Knock on my door",
     body:
       "I live right here in District 51. If something is wrong, you shouldn't have to drive to Atlanta to be heard.",
-    placeholder: "District office address: to be posted",
+    detail: {
+      icon: MapPin,
+      text: "20 Saddleview Run, Sandy Springs, GA 30350",
+      href: "https://www.google.com/maps/search/?api=1&query=20+Saddleview+Run+Sandy+Springs+GA+30350",
+      label: "Open address in Google Maps",
+    },
   },
   {
     icon: Phone,
     title: "Just call me",
     body:
       "Not a form. Not a queue. A real number that reaches a real person who answers for District 51.",
-    placeholder: "Phone number: to be posted",
+    detail: {
+      icon: Phone,
+      text: "(470) 261-3103",
+      href: "tel:+14702613103",
+      label: "Call Keith",
+    },
   },
   {
     icon: MessageCircle,
     title: "DM me",
     body:
       "Shoot me a message on Facebook or Instagram. I read them, and if you need help, I'll respond directly.",
+    detail: {
+      icon: Mail,
+      text: "Keith@KeithforGA.com",
+      href: "mailto:Keith@KeithforGA.com",
+      label: "Email Keith",
+    },
   },
   {
     icon: Coffee,
@@ -66,17 +85,47 @@ const ConstituentServices = () => {
               >
                 <div className="flex items-start gap-4">
                   <item.icon className="text-accent mt-1 shrink-0" size={22} aria-hidden="true" />
-                  <div>
+                  <div className="min-w-0">
                     <h2 className="font-heading text-xl md:text-2xl font-bold text-primary tracking-tight">
                       {item.title}
                     </h2>
                     <p className="mt-2 text-base md:text-[17px] leading-relaxed text-foreground/90">
                       {item.body}
                     </p>
+                    {item.detail && (
+                      <a
+                        href={item.detail.href}
+                        aria-label={item.detail.label}
+                        className="mt-4 inline-flex items-center gap-2 rounded bg-primary/5 px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/10 hover:underline transition-colors break-words"
+                      >
+                        <item.detail.icon className="shrink-0" size={16} aria-hidden="true" />
+                        {item.detail.text}
+                      </a>
+                    )}
                     {item.placeholder && (
                       <p className="mt-3 inline-block rounded border border-dashed border-border px-3 py-1.5 text-sm text-campaign-slate">
                         {item.placeholder}
                       </p>
+                    )}
+                    {item.title === "DM me" && (
+                      <div className="mt-4 flex flex-wrap gap-3">
+                        <a
+                          href={FACEBOOK_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded border border-border px-3 py-2 text-sm font-medium text-foreground/90 hover:border-accent hover:text-accent transition-colors"
+                        >
+                          Facebook
+                        </a>
+                        <a
+                          href={INSTAGRAM_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded border border-border px-3 py-2 text-sm font-medium text-foreground/90 hover:border-accent hover:text-accent transition-colors"
+                        >
+                          Instagram
+                        </a>
+                      </div>
                     )}
                   </div>
                 </div>
