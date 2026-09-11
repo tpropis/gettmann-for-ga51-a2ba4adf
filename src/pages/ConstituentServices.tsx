@@ -1,33 +1,35 @@
 import Seo from "@/components/Seo";
 import CampaignHeader from "@/components/CampaignHeader";
 import CampaignFooter from "@/components/CampaignFooter";
-import { MapPin, Phone, Clock, Users } from "lucide-react";
+import { DoorOpen, Phone, MessageCircle, Coffee } from "lucide-react";
 
 const items = [
   {
-    icon: MapPin,
-    title: "Office hours in all three cities",
+    icon: DoorOpen,
+    title: "Knock on my door",
     body:
-      "Roswell, Sandy Springs and Johns Creek. Posted dates, posted places, no appointment.",
-    placeholder: "Dates and locations: to be posted",
+      "I live right here in District 51. If something is wrong, you shouldn't have to drive to Atlanta to be heard.",
+    placeholder: "District office address: to be posted",
   },
   {
     icon: Phone,
-    title: "A phone number that reaches a person",
-    body: "Not a form, not a queue. A number that gets answered.",
+    title: "Just call me",
+    body:
+      "Not a form. Not a queue. A real number that reaches a real person who answers for District 51.",
     placeholder: "Phone number: to be posted",
   },
   {
-    icon: Clock,
-    title: "Answered within two business days",
+    icon: MessageCircle,
+    title: "DM me",
     body:
-      "Every message answered within two business days — published as a standard, so you can hold me to it.",
+      "Shoot me a message on Facebook or Instagram. I read them, and if you need help, I'll respond directly.",
   },
   {
-    icon: Users,
-    title: "Town halls four times a year",
-    body: "Open to everyone in District 51.",
-    placeholder: "Schedule: to be posted",
+    icon: Coffee,
+    title: "Let's grab coffee",
+    body:
+      "Regular office hours in Roswell, Sandy Springs and Johns Creek — posted dates and places, no appointment needed.",
+    placeholder: "Dates and locations: to be posted",
   },
 ];
 
@@ -36,7 +38,7 @@ const ConstituentServices = () => {
     <>
       <Seo
         title="Constituent Services | Keith Gettmann for Georgia House District 51"
-        description="Office hours in Roswell, Sandy Springs and Johns Creek, a phone number that reaches a person, and every message answered within two business days."
+        description="Keith Gettmann is your neighbor in District 51. Call, message, or stop by — real constituent service starts with showing up."
         path="/constituent-services"
       />
       <CampaignHeader />
@@ -45,12 +47,12 @@ const ConstituentServices = () => {
         <section className="bg-primary py-16 md:py-24">
           <div className="container mx-auto max-w-3xl px-4">
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary-foreground tracking-tight">
-              Call me. I'll answer.
+              I'm your neighbor. Act like it.
             </h1>
             <div className="w-16 h-[3px] bg-accent mt-5" />
             <p className="mt-5 text-primary-foreground/85 text-base md:text-lg leading-relaxed max-w-xl">
-              Representation is a service job. Here is the standard I'm committing to,
-              in writing, before the election.
+              Knock on my door. Call me. Send me a DM. Constituent service isn't a department — it's a
+              relationship, and it starts with showing up before the election and staying reachable after it.
             </p>
           </div>
         </section>
