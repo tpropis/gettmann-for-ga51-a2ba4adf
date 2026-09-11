@@ -51,9 +51,9 @@ const Mark = ({ value }: { value: Position }) => {
 };
 
 const columns = [
-  { key: "gop" as const, label: "Georgia Republicans" },
-  { key: "keith" as const, label: "Keith Gettmann" },
-  { key: "panitch" as const, label: "Rep. Panitch" },
+  { key: "gop" as const, label: "Georgia Republicans", subLabel: "Supported" },
+  { key: "keith" as const, label: "Keith Gettmann", subLabel: "Supports" },
+  { key: "panitch" as const, label: "Rep. Panitch", subLabel: "Voted no" },
 ];
 
 const RowBlock = ({ row }: { row: ComparisonRow }) => {
@@ -154,8 +154,9 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
               }`}
             >
               <dt className="text-base text-foreground/90">{col.label}</dt>
-              <dd>
+              <dd className="flex items-center gap-2">
                 <Mark value={row[col.key]} />
+                <span className="text-sm text-foreground/80">{col.subLabel}</span>
               </dd>
             </div>
           ))}
@@ -192,7 +193,10 @@ const Group = ({ group }: { group: ComparisonGroup }) => {
                 : "text-campaign-slate pt-2"
             }`}
           >
-            {col.label}
+            <span className="block">{col.label}</span>
+            <span className="block text-xs font-normal normal-case tracking-normal text-campaign-slate mt-1">
+              {col.subLabel}
+            </span>
           </div>
         ))}
       </div>
@@ -223,6 +227,17 @@ const PositionComparison = () => {
           Keith Gettmann supports every one of these laws. Esther Panitch voted against all
           seventeen. The votes are on the record — tap any line to see what the bill did.
         </p>
+
+        <div className="mt-6 flex flex-wrap items-center gap-4 md:gap-6">
+          <div className="flex items-center gap-2">
+            <Mark value="support" />
+            <span className="text-sm text-foreground/90">Supported / voted yes</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Mark value="oppose" />
+            <span className="text-sm text-foreground/90">Voted no</span>
+          </div>
+        </div>
 
         {groupOrder.map((group) => (
           <Group key={group} group={group} />
