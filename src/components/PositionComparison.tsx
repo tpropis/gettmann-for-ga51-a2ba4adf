@@ -186,7 +186,7 @@ const Group = ({ group }: { group: ComparisonGroup }) => {
 
       {/* Desktop column headers */}
       <div className="hidden md:grid grid-cols-[minmax(0,1.8fr)_1fr_1fr] gap-4 mt-4">
-        <span className="sr-only">Issue</span>
+        <div aria-hidden="true" />
         {columns.map((col) => (
           <div
             key={col.key}
