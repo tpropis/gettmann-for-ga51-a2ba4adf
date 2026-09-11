@@ -44,7 +44,7 @@ Rows are grouped under four short subheads so 17 items don't read as a wall. Gro
 
 ## Tone
 
-Every row follows John's framing: the voter problem first, then the bill, then the vote. No adjectives about the incumbent beyond the recorded vote itself. Nothing about her motives.
+Simple, strong, and unapologetic. Every row follows John's framing: the voter problem first, then the bill, then her no vote. Short declarative sentences, no jargon, no bill-number-first openings. The punch comes from the recorded votes themselves, not from name-calling or claims about her motives — that keeps it professional and impossible to dispute.
 
 ## Mobile
 
