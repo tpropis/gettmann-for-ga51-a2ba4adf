@@ -56,7 +56,6 @@ const Mark = ({
 };
 
 const columns = [
-  { key: "gop" as const, label: "Georgia Republicans", subLabel: "Voted yes", badgeLabel: "VOTED YES" },
   { key: "keith" as const, label: "Keith Gettmann", subLabel: "Supports", badgeLabel: "SUPPORTS" },
   { key: "panitch" as const, label: "Rep. Panitch", subLabel: "Voted no", badgeLabel: "VOTED NO" },
 ];
