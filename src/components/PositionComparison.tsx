@@ -128,7 +128,7 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
               col.key === "keith" ? "bg-primary/5 rounded-md py-2" : ""
             }`}
           >
-            <Mark value={row[col.key]} />
+            <Mark value={row[col.key]} label={col.badgeLabel} />
           </div>
         ))}
       </div>
@@ -159,9 +159,8 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
               }`}
             >
               <dt className="text-base text-foreground/90">{col.label}</dt>
-              <dd className="flex items-center gap-2">
-                <Mark value={row[col.key]} />
-                <span className="text-sm text-foreground/80">{col.subLabel}</span>
+              <dd>
+                <Mark value={row[col.key]} label={col.badgeLabel} />
               </dd>
             </div>
           ))}
@@ -232,17 +231,6 @@ const PositionComparison = () => {
           Keith Gettmann supports every one of these laws. Esther Panitch voted against all
           seventeen. The votes are on the record — tap any line to see what the bill did.
         </p>
-
-        <div className="mt-6 flex flex-wrap items-center gap-4 md:gap-6">
-          <div className="flex items-center gap-2">
-            <Mark value="support" />
-            <span className="text-sm text-foreground/90">Supported / voted yes</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Mark value="oppose" />
-            <span className="text-sm text-foreground/90">Voted no</span>
-          </div>
-        </div>
 
         {groupOrder.map((group) => (
           <Group key={group} group={group} />
