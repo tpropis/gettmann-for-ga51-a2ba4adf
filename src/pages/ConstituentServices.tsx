@@ -1,7 +1,10 @@
 import Seo from "@/components/Seo";
 import CampaignHeader from "@/components/CampaignHeader";
 import CampaignFooter from "@/components/CampaignFooter";
-import { DoorOpen, Phone, MessageCircle, Coffee } from "lucide-react";
+import { DoorOpen, Phone, MessageCircle, Coffee, Mail, MapPin } from "lucide-react";
+
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61564223962233";
+const INSTAGRAM_URL = "https://www.instagram.com/keithforgeorgia/";
 
 const items = [
   {
@@ -9,20 +12,36 @@ const items = [
     title: "Knock on my door",
     body:
       "I live right here in District 51. If something is wrong, you shouldn't have to drive to Atlanta to be heard.",
-    placeholder: "District office address: to be posted",
+    detail: {
+      icon: MapPin,
+      text: "20 Saddleview Run, Sandy Springs, GA 30350",
+      href: "https://www.google.com/maps/search/?api=1&query=20+Saddleview+Run+Sandy+Springs+GA+30350",
+      label: "Open address in Google Maps",
+    },
   },
   {
     icon: Phone,
     title: "Just call me",
     body:
       "Not a form. Not a queue. A real number that reaches a real person who answers for District 51.",
-    placeholder: "Phone number: to be posted",
+    detail: {
+      icon: Phone,
+      text: "(470) 261-3103",
+      href: "tel:+14702613103",
+      label: "Call Keith",
+    },
   },
   {
     icon: MessageCircle,
     title: "DM me",
     body:
       "Shoot me a message on Facebook or Instagram. I read them, and if you need help, I'll respond directly.",
+    detail: {
+      icon: Mail,
+      text: "Keith@KeithforGA.com",
+      href: "mailto:Keith@KeithforGA.com",
+      label: "Email Keith",
+    },
   },
   {
     icon: Coffee,
