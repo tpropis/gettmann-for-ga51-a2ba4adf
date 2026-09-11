@@ -89,11 +89,6 @@ const ConstituentServices = () => {
                         {item.detail.text}
                       </a>
                     )}
-                    {item.placeholder && (
-                      <p className="mt-3 inline-block rounded border border-dashed border-border px-3 py-1.5 text-sm text-campaign-slate">
-                        {item.placeholder}
-                      </p>
-                    )}
                     {item.title === "DM me" && (
                       <div className="mt-4 flex flex-wrap gap-3">
                         <a
