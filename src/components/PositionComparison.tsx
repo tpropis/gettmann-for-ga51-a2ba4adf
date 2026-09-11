@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, X, ChevronDown, ChevronRight } from "lucide-react";
-import { comparisonRows, type ComparisonRow, type Position } from "@/data/positionComparison";
+import {
+  comparisonRows,
+  groupOrder,
+  groupTitles,
+  type ComparisonGroup,
+  type ComparisonRow,
+  type Position,
+} from "@/data/positionComparison";
 
 const positionLabel: Record<Position, string> = {
-  support: "Supports",
-  oppose: "Opposes",
+  support: "Voted yes",
+  oppose: "Voted no",
   none: "No published position",
 };
 
@@ -26,9 +33,9 @@ const Mark = ({ value }: { value: Position }) => {
       <span
         role="img"
         aria-label={positionLabel.oppose}
-        className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-campaign-red text-campaign-red"
+        className="inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-campaign-red text-campaign-red"
       >
-        <X size={14} strokeWidth={2} aria-hidden="true" />
+        <X size={14} strokeWidth={3} aria-hidden="true" />
       </span>
     );
   }
@@ -65,13 +72,15 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
           className="overflow-hidden"
         >
           <div className="pt-3 space-y-2">
-            <p className="text-base leading-relaxed text-foreground/90">{row.detail}</p>
-            {row.readMoreHref && (
+            <p className="text-base leading-relaxed text-foreground/90">{row.summary}</p>
+            {row.sourceHref && (
               <a
-                href={row.readMoreHref}
-                className="inline-flex items-center gap-1 font-body text-base font-semibold text-campaign-red hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
+                href={row.sourceHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-body text-sm font-semibold text-campaign-red hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
               >
-                Read more
+                {row.sourceLabel ?? "Source"}
                 <ChevronRight size={16} aria-hidden="true" />
               </a>
             )}
@@ -102,7 +111,9 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
               {row.issue}
             </span>
           </button>
-          <p className="mt-2 pl-7 text-sm text-campaign-slate leading-relaxed">{row.source}</p>
+          <p className="mt-2 pl-7 text-sm font-semibold text-campaign-red leading-relaxed">
+            {row.voteRecord}
+          </p>
           <div className="pl-7">{details(panelId)}</div>
         </div>
         {columns.map((col) => (
@@ -150,21 +161,23 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
           ))}
         </dl>
 
-        <p className="mt-3 text-sm text-campaign-slate leading-relaxed">{row.source}</p>
+        <p className="mt-3 text-sm font-semibold text-campaign-red leading-relaxed">
+          {row.voteRecord}
+        </p>
         <div>{details(`${panelId}-m`)}</div>
       </div>
     </>
   );
 };
 
-const Group = ({ title, group }: { title: string; group: "agree" | "differ" }) => {
+const Group = ({ group }: { group: ComparisonGroup }) => {
   const rows = comparisonRows.filter((r) => r.group === group);
   if (rows.length === 0) return null;
 
   return (
     <div className="mt-10">
       <h3 className="font-heading text-lg font-bold uppercase tracking-[0.14em] text-campaign-slate">
-        {title}
+        {groupTitles[group]}
       </h3>
 
       {/* Desktop column headers */}
@@ -203,21 +216,20 @@ const PositionComparison = () => {
           viewport={{ once: true }}
           className="font-heading text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight"
         >
-          Where we agree. Where we don't.
+          17 votes. She said no to every one.
         </motion.h2>
         <div className="w-16 h-[3px] bg-accent mt-4" />
         <p className="mt-4 text-base md:text-[17px] text-foreground/90 leading-relaxed max-w-2xl">
-          District 51 deserves a straight comparison. Most of the record is agreement —
-          the differences are few, specific, and traceable to a bill.
+          Keith Gettmann supports every one of these laws. Esther Panitch voted against all
+          seventeen. The votes are on the record — tap any line to see what the bill did.
         </p>
 
-        <Group title="Where all three agree" group="agree" />
-        <Group title="Where we differ" group="differ" />
+        {groupOrder.map((group) => (
+          <Group key={group} group={group} />
+        ))}
 
         <p className="mt-10 text-sm text-campaign-slate leading-relaxed">
-          Positions are drawn from Georgia General Assembly records and from each
-          candidate's published campaign materials. Where a candidate has taken no public
-          position, this chart says so rather than guessing.
+          Votes are taken from Georgia House and Senate roll-call records.
         </p>
       </div>
     </section>
