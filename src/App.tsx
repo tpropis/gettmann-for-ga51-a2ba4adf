@@ -13,6 +13,7 @@ const CommonSenseSwing = lazy(() => import("./pages/CommonSenseSwing"));
 const WakeUp51 = lazy(() => import("./pages/WakeUp51"));
 const Coloring = lazy(() => import("./pages/Coloring"));
 const ConstituentServices = lazy(() => import("./pages/ConstituentServices"));
+const Issues = lazy(() => import("./pages/Issues"));
 
 import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
@@ -74,6 +75,14 @@ const App = () => (
             element={
               <Suspense fallback={<div className="min-h-screen bg-background" />}>
                 <ConstituentServices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/issues"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-background" />}>
+                <Issues />
               </Suspense>
             }
           />
