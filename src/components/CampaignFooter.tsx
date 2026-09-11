@@ -6,7 +6,7 @@ import { winredUrl } from "@/lib/winred";
 const footerLinks = [
   { label: "Home", href: "#home" },
   { label: "Meet Keith", href: "#meet-keith" },
-  { label: "Issues", href: "#issues" },
+  { label: "Issues", href: "/issues" },
   { label: "Get Involved", href: "#get-involved" },
   { label: "Donate", href: winredUrl("footer"), external: true },
   { label: "Color With Keith", href: "/coloring" },

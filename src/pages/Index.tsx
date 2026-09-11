@@ -3,7 +3,6 @@ import CampaignHeader from "@/components/CampaignHeader";
 import HeroSection from "@/components/HeroSection";
 import MeetKeith from "@/components/MeetKeith";
 
-import IssuesSection from "@/components/IssuesSection";
 import PositionComparison from "@/components/PositionComparison";
 import DonationSection from "@/components/DonationSection";
 import GetInvolved from "@/components/GetInvolved";
@@ -23,8 +22,7 @@ const Index = () => {
       <CampaignHeader />
       <HeroSection />
       <MeetKeith />
-      
-      <IssuesSection />
+
       <PositionComparison />
       <DonationSection />
       <GetInvolved />
