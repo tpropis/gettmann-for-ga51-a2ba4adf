@@ -97,7 +97,7 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
   return (
     <>
       {/* Desktop row */}
-      <div className="hidden md:grid grid-cols-[minmax(0,1.6fr)_1fr_1.15fr_1fr] items-start gap-4 border-t border-border py-5">
+      <div className="hidden md:grid grid-cols-[minmax(0,1.8fr)_1fr_1fr] items-start gap-4 border-t border-border py-5">
         <div>
           <button
             type="button"
@@ -185,7 +185,7 @@ const Group = ({ group }: { group: ComparisonGroup }) => {
       </h3>
 
       {/* Desktop column headers */}
-      <div className="hidden md:grid grid-cols-[minmax(0,1.6fr)_1fr_1.15fr_1fr] gap-4 mt-4">
+      <div className="hidden md:grid grid-cols-[minmax(0,1.8fr)_1fr_1fr] gap-4 mt-4">
         <span className="sr-only">Issue</span>
         {columns.map((col) => (
           <div
