@@ -57,7 +57,7 @@ const ConstituentServices = () => {
             </h1>
             <div className="w-16 h-[3px] bg-accent mt-5" />
             <p className="mt-5 text-primary-foreground/85 text-base md:text-lg leading-relaxed max-w-xl">
-              Knock on my door. Call me. Send me a DM. Constituent service isn't a department — it's a
+              Call me. Send me a DM. Let's grab coffee. Constituent service isn't a department — it's a
               relationship, and it starts with showing up before the election and staying reachable after it.
             </p>
           </div>
