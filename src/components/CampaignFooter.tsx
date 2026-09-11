@@ -118,8 +118,8 @@ const CampaignFooter = () => (
 
       {/* Disclaimer */}
       <div className="border-t border-primary-foreground/10 mt-8 pt-5">
-        <p className="text-center text-primary-foreground/45 text-xs md:text-sm font-medium mb-3">
-          Paid for by Keith for GA LLC. Not authorized by any candidate or candidate's committee.
+        <p className="text-center text-primary-foreground/80 text-sm md:text-base font-semibold mb-3">
+          Paid for by Keith for GA LLC
         </p>
         <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-primary-foreground/35 text-xs">
           <span>© 2026 Keith for GA LLC. All rights reserved.</span>
