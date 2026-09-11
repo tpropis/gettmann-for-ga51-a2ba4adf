@@ -85,17 +85,47 @@ const ConstituentServices = () => {
               >
                 <div className="flex items-start gap-4">
                   <item.icon className="text-accent mt-1 shrink-0" size={22} aria-hidden="true" />
-                  <div>
+                  <div className="min-w-0">
                     <h2 className="font-heading text-xl md:text-2xl font-bold text-primary tracking-tight">
                       {item.title}
                     </h2>
                     <p className="mt-2 text-base md:text-[17px] leading-relaxed text-foreground/90">
                       {item.body}
                     </p>
+                    {item.detail && (
+                      <a
+                        href={item.detail.href}
+                        aria-label={item.detail.label}
+                        className="mt-4 inline-flex items-center gap-2 rounded bg-primary/5 px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/10 hover:underline transition-colors break-words"
+                      >
+                        <item.detail.icon className="shrink-0" size={16} aria-hidden="true" />
+                        {item.detail.text}
+                      </a>
+                    )}
                     {item.placeholder && (
                       <p className="mt-3 inline-block rounded border border-dashed border-border px-3 py-1.5 text-sm text-campaign-slate">
                         {item.placeholder}
                       </p>
+                    )}
+                    {item.title === "DM me" && (
+                      <div className="mt-4 flex flex-wrap gap-3">
+                        <a
+                          href={FACEBOOK_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded border border-border px-3 py-2 text-sm font-medium text-foreground/90 hover:border-accent hover:text-accent transition-colors"
+                        >
+                          Facebook
+                        </a>
+                        <a
+                          href={INSTAGRAM_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded border border-border px-3 py-2 text-sm font-medium text-foreground/90 hover:border-accent hover:text-accent transition-colors"
+                        >
+                          Instagram
+                        </a>
+                      </div>
                     )}
                   </div>
                 </div>
