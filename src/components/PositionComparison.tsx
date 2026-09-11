@@ -193,7 +193,7 @@ const Group = ({ group }: { group: ComparisonGroup }) => {
             className={`text-center font-body text-sm font-semibold uppercase tracking-wider ${
               col.key === "keith"
                 ? "text-primary border-t-2 border-accent pt-2"
-                : "text-campaign-slate pt-2"
+                : "text-campaign-red border-t-2 border-campaign-red/40 pt-2"
             }`}
           >
             <span className="block">{col.label}</span>
