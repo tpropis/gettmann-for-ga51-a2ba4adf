@@ -56,7 +56,6 @@ const Mark = ({
 };
 
 const columns = [
-  { key: "gop" as const, label: "Georgia Republicans", subLabel: "Voted yes", badgeLabel: "VOTED YES" },
   { key: "keith" as const, label: "Keith Gettmann", subLabel: "Supports", badgeLabel: "SUPPORTS" },
   { key: "panitch" as const, label: "Rep. Panitch", subLabel: "Voted no", badgeLabel: "VOTED NO" },
 ];
@@ -98,7 +97,7 @@ const RowBlock = ({ row }: { row: ComparisonRow }) => {
   return (
     <>
       {/* Desktop row */}
-      <div className="hidden md:grid grid-cols-[minmax(0,1.6fr)_1fr_1.15fr_1fr] items-start gap-4 border-t border-border py-5">
+      <div className="hidden md:grid grid-cols-[minmax(0,1.8fr)_1fr_1fr] items-start gap-4 border-t border-border py-5">
         <div>
           <button
             type="button"
@@ -186,7 +185,7 @@ const Group = ({ group }: { group: ComparisonGroup }) => {
       </h3>
 
       {/* Desktop column headers */}
-      <div className="hidden md:grid grid-cols-[minmax(0,1.6fr)_1fr_1.15fr_1fr] gap-4 mt-4">
+      <div className="hidden md:grid grid-cols-[minmax(0,1.8fr)_1fr_1fr] gap-4 mt-4">
         <span className="sr-only">Issue</span>
         {columns.map((col) => (
           <div
@@ -194,7 +193,7 @@ const Group = ({ group }: { group: ComparisonGroup }) => {
             className={`text-center font-body text-sm font-semibold uppercase tracking-wider ${
               col.key === "keith"
                 ? "text-primary border-t-2 border-accent pt-2"
-                : "text-campaign-slate pt-2"
+                : "text-campaign-red border-t-2 border-campaign-red/40 pt-2"
             }`}
           >
             <span className="block">{col.label}</span>
