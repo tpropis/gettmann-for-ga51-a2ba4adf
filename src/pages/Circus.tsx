@@ -6,7 +6,7 @@ import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
 import { playCircusHonk } from "@/lib/circusHonk";
-import circusPortrait from "@/assets/esther-panitch-circus-portrait.jpg";
+import circusPortrait from "@/assets/esther-panitch-big-top.jpg";
 
 const Circus = () => {
   const [count, setCount] = useState(0);
@@ -46,13 +46,14 @@ const Circus = () => {
           {muted ? <VolumeX /> : <Volume2 />}
         </Button>
         <motion.header initial={reducedMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto max-w-3xl text-center">
-          <h1 className="font-heading text-4xl md:text-6xl font-bold leading-tight text-balance">Honk if you're tired of<br className="hidden md:block" /> the circus in HD51.</h1>
+          <div className="circus-header-stars mb-4 flex items-center justify-center gap-4" aria-hidden="true"><Star className="h-4 w-4" /><Star className="h-6 w-6" /><Star className="h-4 w-4" /></div>
+          <h1 className="font-heading text-4xl md:text-6xl font-bold leading-tight text-balance">Honk if you're tired of<br className="hidden md:block" /> <span className="text-accent">the circus in HD51.</span></h1>
           <p className="mt-5 text-lg text-muted-foreground">Click the nose. See the record.</p>
         </motion.header>
 
         <div className="relative mx-auto mt-10 w-full max-w-sm">
           <motion.div animate={reducedMotion || complete ? { y: 0 } : { y: [0, -7, 0] }} transition={reducedMotion || complete ? { duration: 0 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="relative">
-            <div className="circus-portrait overflow-hidden rounded-lg border border-border">
+            <div className="circus-marquee circus-portrait overflow-hidden rounded-lg border border-border">
               <img src={circusPortrait} alt="Esther Panitch with digitally added clown makeup — campaign satire" className="block h-auto w-full" />
             </div>
             <div className="absolute left-[49%] top-[51%] -translate-x-1/2 -translate-y-1/2 w-[18%] aspect-square min-w-11">
