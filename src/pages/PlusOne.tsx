@@ -5,12 +5,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, Users, MessageCircle, Vote } from "lucide-react";
 import { trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
-import plusoneVideo from "@/assets/plusone-v3.mp4.asset.json";
-import plusoneLogo from "@/assets/plusone-logo-simple.png.asset.json";
-
-const ASSET_ORIGIN = "https://gettmann-for-ga51.lovable.app";
-const plusoneVideoUrl = new URL(plusoneVideo.url, ASSET_ORIGIN).toString();
-const plusoneLogoUrl = new URL(plusoneLogo.url, ASSET_ORIGIN).toString();
+const plusoneVideoUrl = `${import.meta.env.BASE_URL}plusone/plusone-mission.mp4`;
+const plusoneLogoUrl = `${import.meta.env.BASE_URL}plusone/plusone-logo-simple.png`;
 
 const scrollToHow = (e: React.MouseEvent) => {
   e.preventDefault();
