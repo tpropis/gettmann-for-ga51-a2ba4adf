@@ -99,6 +99,15 @@ const Circus = () => {
               <img src={circusPortraitBlink} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full ${reducedMotion ? "opacity-0" : "circus-blink"}`} />
             </div>
             <div className="absolute left-[49%] top-[51%] -translate-x-1/2 -translate-y-1/2 w-[18%] aspect-square min-w-11">
+            <AnimatePresence>
+              {count === 0 && (
+                <span className="pointer-events-none absolute -top-9 left-1/2 z-30 -translate-x-1/2">
+                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, -4, 0] }} exit={{ opacity: 0 }} transition={{ opacity: { delay: 1.1, duration: 0.4 }, y: { duration: 1.2, repeat: Infinity, ease: "easeInOut" } }} className="block whitespace-nowrap font-heading text-sm uppercase tracking-widest text-accent drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] sm:text-base">
+                    Click me!
+                  </motion.span>
+                </span>
+              )}
+            </AnimatePresence>
             <motion.div animate={controls} className="h-full w-full">
               <Button onClick={honk} disabled={complete} aria-label={complete ? "All issues revealed" : "Honk and reveal next issue"} className="circus-nose-button h-full w-full disabled:opacity-100 focus-visible:ring-accent" variant="ghost">
                 <svg viewBox="0 0 220 220" aria-hidden="true">
