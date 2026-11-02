@@ -7,9 +7,9 @@ export interface CircusIssue {
 
 // Publish factual copy only after the campaign supplies a verifiable source.
 export const circusIssues: CircusIssue[] = [
-  { issue: "Property tax millage", record: "", source: "", fix: "" },
-  { issue: "Fulton County jail crisis", record: "", source: "", fix: "" },
-  { issue: "School budget", record: "", source: "", fix: "" },
+  { issue: "Property taxes", record: "", source: "", fix: "Defend the assessment cap and help seniors stay in the homes they already paid for." },
+  { issue: "Public safety", record: "", source: "", fix: "Fight to retain first responders with competitive pay and publish 911 response times by ZIP code." },
+  { issue: "School budgets", record: "", source: "", fix: "Put every school budget on one page, in plain language, and publish the curriculum online." },
 ];
 
 export const circusVoteMessage = "Vote Keith Gettmann — Tuesday, Nov 3";

@@ -1,5 +1,7 @@
 # Circus page
 
+- [ ] Restyle issue cards as clean circus tickets and highlight Keith's existing commitments without unsourced opponent claims.
+
 - [x] Refine the portrait with recognizable professional clown makeup and a proportional nose; verify desktop and mobile.
 
 - [x] Add hidden footer trigger and noindex circus page.

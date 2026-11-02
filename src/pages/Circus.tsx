@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useAnimationControls, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, MapPin, Volume2, VolumeX } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, GraduationCap, Star } from "lucide-react";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
@@ -79,16 +79,28 @@ const Circus = () => {
         </div>
 
         <div aria-live="polite" aria-atomic="false" className="mt-10 grid gap-4 md:grid-cols-3">
-          {circusIssues.slice(0, count).map((item, index) => (
-            <motion.article key={item.issue} initial={reducedMotion ? false : { opacity: 0, y: -45, rotate: index % 2 ? 4 : -4 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ type: "spring", stiffness: 180, damping: 19 }} className="rounded-lg border border-border bg-card p-6 text-card-foreground">
-              <h2 className="font-heading text-2xl font-bold">{item.issue}</h2>
-              <p className="mt-5 text-sm font-semibold">Panitch's record:</p>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{hasSourcedRecord(item) ? item.record : "Awaiting sourced details."}</p>
-              {hasSourcedRecord(item) && <Button asChild variant="link" className="mt-1 h-11 px-0 text-accent"><a href={item.source} target="_blank" rel="noopener noreferrer">Source <ArrowUpRight /></a></Button>}
-              <p className="mt-5 text-sm font-semibold">Keith's fix:</p>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.fix || "Statement forthcoming."}</p>
+          {circusIssues.slice(0, count).map((item, index) => {
+            const Icon = [Home, ShieldCheck, GraduationCap][index] ?? Star;
+            return (
+            <motion.article key={item.issue} initial={reducedMotion ? false : { opacity: 0, y: -45, rotate: index % 2 ? 4 : -4 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ type: "spring", stiffness: 180, damping: 19 }} className="circus-ticket relative overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
+              <div className="circus-ticket-stripe h-2" aria-hidden="true" />
+              <div className="flex items-center justify-between border-b border-dashed border-border px-6 py-4">
+                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground"><Star className="h-3 w-3 text-accent" aria-hidden="true" /> End the circus</span>
+                <span className="font-heading text-xl text-accent" aria-hidden="true">0{index + 1}</span>
+              </div>
+              <div className="p-6">
+                <Icon className="mb-4 h-7 w-7 text-accent" aria-hidden="true" />
+                <h2 className="font-heading text-2xl font-bold">{item.issue}</h2>
+                <p className="mt-5 text-xs uppercase tracking-widest font-bold text-accent">What Keith will do</p>
+                <p className="mt-2 text-base leading-relaxed">{item.fix}</p>
+                {hasSourcedRecord(item) && <div className="mt-5 border-t border-border pt-4">
+                  <p className="text-sm font-semibold">Panitch's record:</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.record}</p>
+                  <Button asChild variant="link" className="mt-1 h-11 px-0 text-accent"><a href={item.source} target="_blank" rel="noopener noreferrer">Source <ArrowUpRight /></a></Button>
+                </div>}
+              </div>
             </motion.article>
-          ))}
+          );})}
         </div>
         {complete && <motion.section initial={reducedMotion ? false : { opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 160, damping: 20 }} className="mt-8 border-y border-border py-8 text-center">
           <h2 className="font-heading text-2xl md:text-3xl font-bold">{circusVoteMessage}</h2>
