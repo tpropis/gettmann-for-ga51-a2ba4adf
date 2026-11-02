@@ -5,11 +5,11 @@ describe("circus reveal rules", () => {
   it("reveals one of the three issues per click and stops after the third", () => {
     expect([0, 1, 2, 3].map(nextCircusCount)).toEqual([1, 2, 3, 3]);
     expect(circusIssues.map(({ issue }) => issue)).toEqual([
-      "Property tax millage", "Fulton County jail crisis", "School budget",
+      "Property taxes", "Public safety", "School budgets",
     ]);
   });
-  it("keeps campaign-supplied record, source, and fix content blank", () => {
-    expect(circusIssues.every(({ record, source, fix }) => record === "" && source === "" && fix === "")).toBe(true);
+  it("keeps unsourced opponent records and sources blank", () => {
+    expect(circusIssues.every(({ record, source }) => record === "" && source === "")).toBe(true);
   });
   it("does not present a record without a valid secure source", () => {
     expect(hasSourcedRecord({ issue: "Test", record: "A claim", source: "", fix: "" })).toBe(false);
