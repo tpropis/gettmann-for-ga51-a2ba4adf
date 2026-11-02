@@ -350,12 +350,17 @@
 
 .circus-blink { opacity: 0; animation: circus-blink 3.2s steps(1, end) infinite; }
 @keyframes circus-blink { 0%, 92% { opacity: 0; } 93%, 97% { opacity: 1; } 98%, 100% { opacity: 0; } }
-.circus-arrow-canvas { position: absolute; left: -22%; width: 144%; height: 100%; overflow: visible; filter: drop-shadow(0 3px 5px hsl(var(--circus-shadow) / 0.8)); }
-.circus-arrow-outline { fill: none; stroke: hsl(var(--circus-red-dark)); stroke-width: 22; stroke-linecap: round; }
-.circus-arrow-trail { fill: none; stroke: hsl(var(--circus-gold)); stroke-width: 12; stroke-linecap: round; stroke-dasharray: 22 18; animation: circus-arrow-rush 0.55s linear infinite; }
-.circus-arrow-trail-1 { animation-delay: -0.2s; }
-.circus-arrow-trail-2 { animation-delay: -0.4s; }
-.circus-arrowhead { fill: hsl(var(--circus-gold)); }
+.circus-arrow-shot { z-index: 5; filter: drop-shadow(0 3px 5px hsl(var(--circus-shadow) / 0.8)); }
+.circus-arrow-shaft { stroke: hsl(var(--circus-gold)); stroke-width: 5; stroke-linecap: round; }
+.circus-arrow-tip { fill: hsl(var(--circus-gold)); }
+.circus-arrow-fletch { fill: none; stroke: hsl(var(--circus-red-dark)); stroke-width: 4; stroke-linecap: round; }
+.circus-nose-under-fire { animation: circus-nose-pummel 1.5s linear infinite; }
+@keyframes circus-nose-pummel {
+  0%, 31%, 50%, 100% { transform: scale(1); }
+  34% { transform: scale(0.84, 0.9); }
+  38% { transform: scale(1.06, 1.03); }
+  40% { transform: scale(0.9, 0.94); }
+  44% { transform: scale(1.03, 1.01); }
+  46% { transform: scale(0.94, 0.97); }
+}
 .circus-monkey-cast .circus-swing { animation-duration: 1.25s; }
-@keyframes circus-arrow-rush { to { stroke-dashoffset: -40; } }
-@media (prefers-reduced-motion: reduce) { .circus-arrow-trail { animation: none; stroke-dasharray: none; } }
