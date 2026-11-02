@@ -6,6 +6,7 @@ import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
 import { playCircusHonk } from "@/lib/circusHonk";
+import portrait from "../../public/circus/esther-panitch.jpg.asset.json";
 
 const Circus = () => {
   const [count, setCount] = useState(0);
@@ -52,9 +53,10 @@ const Circus = () => {
         <div className="relative mx-auto mt-10 w-full max-w-sm">
           <motion.div animate={reducedMotion || complete ? { y: 0 } : { y: [0, -7, 0] }} transition={reducedMotion || complete ? { duration: 0 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="relative">
             <div className="circus-portrait overflow-hidden rounded-lg border border-border aspect-[4/5]">
-              <img src={`${import.meta.env.BASE_URL}circus/esther-panitch.jpg`} alt="Rep. Esther Panitch — portrait with a satirical clown-nose overlay" className="h-full w-full object-cover" />
+              <img src={portrait.url} alt="Rep. Esther Panitch — portrait with a satirical clown-nose overlay" className="h-full w-full object-cover" />
             </div>
-            <motion.div animate={controls} className="absolute left-1/2 top-[39%] -translate-x-1/2 w-[220px] h-[220px] max-w-[65%]">
+            <div className="absolute left-1/2 top-[28%] -translate-x-1/2 w-[220px] h-[220px] max-w-[65%]">
+            <motion.div animate={controls} className="h-full w-full">
               <Button onClick={honk} disabled={complete} aria-label={complete ? "All issues revealed" : "Honk and reveal next issue"} className="circus-nose-button h-full w-full disabled:opacity-100 focus-visible:ring-accent" variant="ghost">
                 <svg viewBox="0 0 220 220" aria-hidden="true">
                   <defs><radialGradient id="circus-nose-fill" cx="32%" cy="25%" r="76%"><stop offset="0" className="circus-nose-light" /><stop offset="0.42" className="circus-nose-red" /><stop offset="1" className="circus-nose-dark" /></radialGradient></defs>
@@ -64,6 +66,7 @@ const Circus = () => {
                 </svg>
               </Button>
             </motion.div>
+            </div>
           </motion.div>
           {!reducedMotion && burst > 0 && <div key={burst} aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2">
             {Array.from({ length: 16 }, (_, index) => {
@@ -72,6 +75,7 @@ const Circus = () => {
             })}
           </div>}
           <p className="mt-4 text-center text-xs uppercase tracking-widest text-muted-foreground">Campaign satire · Esther Panitch</p>
+          <a className="block text-center text-xs text-muted-foreground underline min-h-11 py-3" href="https://www.legis.ga.gov/members/house/5026" target="_blank" rel="noopener noreferrer">Photo: Georgia General Assembly</a>
         </div>
 
         <div aria-live="polite" aria-atomic="false" className="mt-10 grid gap-4 md:grid-cols-3">

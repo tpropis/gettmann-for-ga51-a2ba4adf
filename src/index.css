@@ -305,7 +305,7 @@
 .circus-stripes { background-image: var(--circus-stripes); opacity: 0.06; }
 .circus-portrait { box-shadow: 0 24px 80px hsl(var(--circus-shadow) / 0.7); }
 .circus-nose-button { background: transparent !important; padding: 0; border-radius: 50%; }
-.circus-nose-button svg { width: 100%; height: 100%; }
+.circus-page .circus-nose-button > svg { width: 100%; height: 100%; }
 .circus-nose-shadow { fill: hsl(var(--circus-shadow) / 0.45); }
 .circus-nose-light { stop-color: hsl(var(--circus-red-light)); }
 .circus-nose-red { stop-color: hsl(var(--circus-red)); }
