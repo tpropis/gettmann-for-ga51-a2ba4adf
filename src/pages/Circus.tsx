@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useAnimationControls, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, GraduationCap, Star, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, GraduationCap, Star, X } from "lucide-react";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
@@ -83,31 +83,12 @@ const Circus = () => {
         </motion.header>
 
         <div className="relative mx-auto mt-5 w-[calc(100%-4.5rem)] sm:w-full" style={{ maxWidth: "min(24rem, calc((100svh - 17rem) * 0.77))" }}>
-          <div className="pointer-events-none absolute inset-y-0 -left-6 -right-6 sm:-left-24 sm:-right-24 md:-left-40 md:-right-40" aria-hidden="true">
-            {[{ side: "top-0 left-0 sm:left-2 md:left-6", d: 0, len: "h-16" }, { side: "top-0 right-0 sm:right-2 md:right-6", d: 0.9, len: "h-28" }, { side: "top-24 sm:top-0 left-0 sm:left-20 md:left-24", d: 1.7, len: "h-6" }].map((m) => (
-              <div key={m.d} className={`circus-swing absolute ${m.side}`} style={{ animationDelay: `${m.d}s` }}>
-                <div className={`mx-auto w-px bg-accent/60 ${m.len}`} />
-                <span className="block -mt-1 text-2xl sm:text-4xl md:text-5xl">🐒</span>
-              </div>
-            ))}
-            <span className="absolute bottom-14 left-0 text-3xl sm:text-5xl md:text-6xl opacity-60 -scale-x-100">🐘</span>
-            <span className="absolute bottom-14 right-0 text-3xl sm:text-5xl md:text-6xl opacity-60">🐘</span>
-          </div>
           <motion.div animate={reducedMotion || complete ? { y: 0 } : { y: [0, -7, 0] }} transition={reducedMotion || complete ? { duration: 0 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="relative">
             <div className="circus-marquee circus-portrait relative overflow-hidden rounded-lg border border-border">
               <img src={circusPortrait} alt="Esther Panitch with digitally added clown makeup — campaign satire" className="block h-auto w-full" />
               <img src={circusPortraitBlink} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full ${reducedMotion ? "opacity-0" : "circus-blink"}`} />
             </div>
             <div className="absolute left-[49%] top-[51%] -translate-x-1/2 -translate-y-1/2 w-[18%] aspect-square min-w-11">
-            <AnimatePresence>
-              {count === 0 && (
-                <span className="pointer-events-none absolute -top-20 left-1/2 z-30 -translate-x-1/2">
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, -4, 0] }} exit={{ opacity: 0 }} transition={{ opacity: { delay: 1.1, duration: 0.4 }, y: { duration: 1.2, repeat: Infinity, ease: "easeInOut" } }} className="block whitespace-nowrap rounded-full border border-accent/70 bg-background/85 px-3 py-1 font-heading text-xs uppercase tracking-widest text-accent shadow-md sm:text-sm">
-                    Click me!
-                  </motion.span>
-                </span>
-              )}
-            </AnimatePresence>
             <motion.div animate={controls} className="h-full w-full">
               <Button onClick={honk} disabled={complete} aria-label={complete ? "All issues revealed" : "Honk and reveal next issue"} className="circus-nose-button h-full w-full disabled:opacity-100 focus-visible:ring-accent" variant="ghost">
                 <svg viewBox="0 0 220 220" aria-hidden="true">
@@ -121,16 +102,31 @@ const Circus = () => {
             </div>
             <AnimatePresence>
               {count === 0 && (
-                <motion.div key="nose-arrows" aria-hidden="true" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ delay: 0.8, duration: 0.4 }} className="pointer-events-none absolute inset-0 z-20">
-                  <motion.div className="absolute left-0 right-[64%] top-[51%] -translate-y-1/2 flex justify-end" animate={reducedMotion ? undefined : { x: [0, 14, 0] }} transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}>
-                    <ArrowRight className="h-14 w-14 sm:h-16 sm:w-16 text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" strokeWidth={3.5} />
-                  </motion.div>
-                  <motion.div className="absolute left-[64%] right-0 top-[51%] -translate-y-1/2 flex justify-start" animate={reducedMotion ? undefined : { x: [0, -14, 0] }} transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}>
-                    <ArrowLeft className="h-14 w-14 sm:h-16 sm:w-16 text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" strokeWidth={3.5} />
-                  </motion.div>
+                <motion.div key="nose-arrows" aria-hidden="true" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className="circus-monkey-arrows pointer-events-none absolute inset-0 z-20">
+                  <svg className="circus-arrow-canvas" viewBox="-220 0 1440 1300" preserveAspectRatio="none">
+                    <defs><marker id="monkey-arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 Z" className="circus-arrowhead" /></marker></defs>
+                    {["M -100 230 C -210 520, 100 760, 380 675", "M 1100 230 C 1230 530, 880 780, 600 675", "M -100 455 C -80 690, 180 810, 385 715"].map((path, index) => (
+                      <g key={path}>
+                        <path d={path} className="circus-arrow-outline" />
+                        <path d={path} className={`circus-arrow-trail circus-arrow-trail-${index}`} markerEnd="url(#monkey-arrowhead)" />
+                      </g>
+                    ))}
+                  </svg>
                 </motion.div>
               )}
             </AnimatePresence>
+            <div className="circus-monkey-cast pointer-events-none absolute inset-0 z-30" aria-hidden="true">
+              {[{ side: "left-[-14%] top-[5%]", d: 0 }, { side: "right-[-14%] top-[5%]", d: 0.4 }, { side: "left-[-14%] top-[23%]", d: 0.8 }].map((monkey) => (
+                <div key={monkey.d} className={`absolute ${monkey.side}`}>
+                  <div className="circus-swing" style={{ animationDelay: `${monkey.d}s` }}>
+                    <div className="mx-auto h-10 w-px bg-accent/60 sm:h-14" />
+                    <span className="block -mt-1 text-3xl sm:text-5xl">🐒</span>
+                  </div>
+                </div>
+              ))}
+              <span className="absolute bottom-[8%] left-[-14%] text-3xl sm:text-5xl opacity-60 -scale-x-100">🐘</span>
+              <span className="absolute bottom-[8%] right-[-14%] text-3xl sm:text-5xl opacity-60">🐘</span>
+            </div>
           </motion.div>
           {!reducedMotion && burst > 0 && <div key={burst} aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2">
             {Array.from({ length: 16 }, (_, index) => {
