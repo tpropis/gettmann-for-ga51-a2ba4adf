@@ -5,20 +5,21 @@ import { ArrowLeft, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, G
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
-import { playCircusHonk } from "@/lib/circusHonk";
 import circusPortrait from "@/assets/esther-panitch-big-top-glasses.jpg";
+import circusPortraitBlink from "@/assets/esther-panitch-big-top-glasses-blink.jpg";
+const HONK_URL = `${import.meta.env.BASE_URL}circus/honk.wav`;
 
 const Circus = () => {
   const [count, setCount] = useState(0);
   const [muted, setMuted] = useState(false);
   const [burst, setBurst] = useState(0);
-  const audio = useRef<AudioContext | null>(null);
+  const audio = useRef<HTMLAudioElement | null>(null);
   const countRef = useRef(0);
   const controls = useAnimationControls();
   const reducedMotion = useReducedMotion();
   const complete = count === circusIssues.length;
 
-  useEffect(() => () => { void audio.current?.close(); }, []);
+  useEffect(() => { audio.current = new Audio(HONK_URL); audio.current.preload = "auto"; }, []);
 
   const honk = () => {
     if (countRef.current >= circusIssues.length) return;
@@ -29,11 +30,9 @@ const Circus = () => {
       void controls.start({ scaleX: 1.2, scaleY: 0.78, transition: { type: "spring", stiffness: 600, damping: 18 } }).then(() => controls.start({ scaleX: 1, scaleY: 1, transition: { type: "spring", stiffness: 400, damping: 12 } }));
     }
     if (!muted) {
-      try {
-        audio.current ??= new AudioContext();
-        const context = audio.current;
-        void context.resume().then(() => playCircusHonk(context)).catch(() => setMuted(true));
-      } catch { setMuted(true); }
+      const sound = audio.current ?? new Audio(HONK_URL);
+      sound.currentTime = 0;
+      void sound.play().catch(() => undefined);
     }
   };
 
@@ -63,8 +62,9 @@ const Circus = () => {
             <span className="absolute bottom-14 right-0 text-3xl sm:text-5xl md:text-6xl opacity-60">🐘</span>
           </div>
           <motion.div animate={reducedMotion || complete ? { y: 0 } : { y: [0, -7, 0] }} transition={reducedMotion || complete ? { duration: 0 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="relative">
-            <div className="circus-marquee circus-portrait overflow-hidden rounded-lg border border-border">
+            <div className="circus-marquee circus-portrait relative overflow-hidden rounded-lg border border-border">
               <img src={circusPortrait} alt="Esther Panitch with digitally added clown makeup — campaign satire" className="block h-auto w-full" />
+              <img src={circusPortraitBlink} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full ${reducedMotion ? "opacity-0" : "circus-blink"}`} />
             </div>
             <div className="absolute left-[49%] top-[51%] -translate-x-1/2 -translate-y-1/2 w-[18%] aspect-square min-w-11">
             <motion.div animate={controls} className="h-full w-full">
