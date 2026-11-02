@@ -14,6 +14,7 @@ const WakeUp51 = lazy(() => import("./pages/WakeUp51"));
 const Coloring = lazy(() => import("./pages/Coloring"));
 const ConstituentServices = lazy(() => import("./pages/ConstituentServices"));
 const Issues = lazy(() => import("./pages/Issues"));
+const Circus = lazy(() => import("./pages/Circus"));
 
 import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
@@ -131,6 +132,7 @@ const App = () => (
           />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/circus" element={<Suspense fallback={<div className="min-h-screen bg-background" />}><Circus /></Suspense>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
