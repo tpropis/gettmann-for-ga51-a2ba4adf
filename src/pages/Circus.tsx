@@ -59,8 +59,8 @@ const Circus = () => {
                 <span className="block -mt-1 text-4xl md:text-5xl">🐒</span>
               </div>
             ))}
-            <span className="absolute bottom-2 left-0 text-5xl md:text-6xl opacity-60 -scale-x-100">🐘</span>
-            <span className="absolute bottom-2 right-0 text-5xl md:text-6xl opacity-60">🐘</span>
+            <span className="absolute bottom-14 left-0 text-5xl md:text-6xl opacity-60 -scale-x-100">🐘</span>
+            <span className="absolute bottom-14 right-0 text-5xl md:text-6xl opacity-60">🐘</span>
           </div>
           <motion.div animate={reducedMotion || complete ? { y: 0 } : { y: [0, -7, 0] }} transition={reducedMotion || complete ? { duration: 0 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="relative">
             <div className="circus-marquee circus-portrait overflow-hidden rounded-lg border border-border">
