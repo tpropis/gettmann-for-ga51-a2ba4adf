@@ -6,7 +6,6 @@ import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
 import { playCircusHonk } from "@/lib/circusHonk";
-import portrait from "../../public/circus/esther-panitch.jpg.asset.json";
 
 const Circus = () => {
   const [count, setCount] = useState(0);
@@ -53,7 +52,7 @@ const Circus = () => {
         <div className="relative mx-auto mt-10 w-full max-w-sm">
           <motion.div animate={reducedMotion || complete ? { y: 0 } : { y: [0, -7, 0] }} transition={reducedMotion || complete ? { duration: 0 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="relative">
             <div className="circus-portrait overflow-hidden rounded-lg border border-border aspect-[4/5]">
-              <img src={portrait.url} alt="Rep. Esther Panitch — portrait with a satirical clown-nose overlay" className="h-full w-full object-cover" />
+              <img src={`${import.meta.env.BASE_URL}circus/esther-panitch.jpg`} alt="Rep. Esther Panitch — portrait with a satirical clown-nose overlay" className="h-full w-full object-cover" />
             </div>
             <div className="absolute left-1/2 top-[28%] -translate-x-1/2 w-[220px] h-[220px] max-w-[65%]">
             <motion.div animate={controls} className="h-full w-full">
