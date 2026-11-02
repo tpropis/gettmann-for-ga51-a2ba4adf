@@ -6,7 +6,7 @@ import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
 import { playCircusHonk } from "@/lib/circusHonk";
-import circusPortrait from "@/assets/esther-panitch-big-top.jpg";
+import circusPortrait from "@/assets/esther-panitch-big-top-glasses.jpg";
 
 const Circus = () => {
   const [count, setCount] = useState(0);
@@ -41,6 +41,17 @@ const Circus = () => {
     <main className="circus-page relative min-h-screen overflow-hidden bg-background text-foreground flex flex-col">
       <Seo title="The Circus in HD51 | Keith Gettmann" description="HD51 campaign satire from Keith Gettmann." path="/circus" noindex />
       <div className="circus-stripes pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-64" aria-hidden="true">
+        {[{ l: "8%", d: 0, len: "h-28" }, { l: "88%", d: 0.8, len: "h-40" }, { l: "22%", d: 1.6, len: "h-20 hidden md:block" }].map((m) => (
+          <div key={m.l} className="circus-swing absolute top-0" style={{ left: m.l, animationDelay: `${m.d}s` }}>
+            <div className={`mx-auto w-px bg-accent/60 ${m.len}`} />
+            <span className="block -mt-1 text-4xl md:text-5xl">🐒</span>
+          </div>
+        ))}
+      </div>
+      <div className="pointer-events-none absolute bottom-24 inset-x-0 overflow-hidden h-16 opacity-25" aria-hidden="true">
+        <div className="circus-parade flex gap-10 text-4xl whitespace-nowrap">🐘 🐘 🐘</div>
+      </div>
       <div className="relative mx-auto w-full max-w-6xl flex-1 px-5 pt-20 pb-10 md:px-8 md:pt-16">
         <Button variant="ghost" size="icon" className="absolute right-5 top-4 h-11 w-11 text-foreground hover:bg-card" aria-label={muted ? "Unmute honk" : "Mute honk"} title={muted ? "Unmute honk" : "Mute honk"} onClick={() => setMuted((value) => !value)}>
           {muted ? <VolumeX /> : <Volume2 />}

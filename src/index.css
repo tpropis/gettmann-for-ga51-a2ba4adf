@@ -328,3 +328,8 @@
 @media (prefers-reduced-motion: reduce) {
   .circus-footer-trigger:hover .circus-footer-dot { animation: none; }
 }
+.circus-swing { transform-origin: top center; animation: circus-swing 2.8s ease-in-out infinite alternate; }
+@keyframes circus-swing { from { transform: rotate(-22deg); } to { transform: rotate(22deg); } }
+.circus-parade { animation: circus-parade 40s linear infinite; }
+@keyframes circus-parade { from { transform: translateX(-30vw); } to { transform: translateX(110vw); } }
+@media (prefers-reduced-motion: reduce) { .circus-swing, .circus-parade { animation: none; } }
