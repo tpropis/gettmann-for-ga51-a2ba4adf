@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useAnimationControls, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, GraduationCap, Star } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, GraduationCap, Star, X } from "lucide-react";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
@@ -14,6 +14,7 @@ const Circus = () => {
   const [count, setCount] = useState(0);
   const [muted, setMuted] = useState(false);
   const [burst, setBurst] = useState(0);
+  const [showIssue, setShowIssue] = useState(false);
   const audio = useRef<HTMLAudioElement | null>(null);
   const backgroundAudio = useRef<HTMLAudioElement | null>(null);
   const [soundStarted, setSoundStarted] = useState(false);
@@ -54,6 +55,7 @@ const Circus = () => {
     if (countRef.current >= circusIssues.length) return;
     countRef.current = nextCircusCount(countRef.current);
     setCount(countRef.current);
+    setShowIssue(true);
     if (!reducedMotion) {
       setBurst((value) => value + 1);
       void controls.start({ scaleX: 1.2, scaleY: 0.78, transition: { type: "spring", stiffness: 600, damping: 18 } }).then(() => controls.start({ scaleX: 1, scaleY: 1, transition: { type: "spring", stiffness: 400, damping: 12 } }));
@@ -119,15 +121,19 @@ const Circus = () => {
           <a className="block text-center text-xs text-muted-foreground underline min-h-11 py-3" href="https://www.legis.ga.gov/members/house/5026" target="_blank" rel="noopener noreferrer">Original photo: Georgia General Assembly</a>
         </div>
 
-        <div aria-live="polite" aria-atomic="false" className="mt-10 grid gap-4 md:grid-cols-3">
-          {circusIssues.slice(0, count).map((item, index) => {
+        <div aria-live="polite" aria-atomic="true" className="fixed inset-x-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-lg">
+          {showIssue && circusIssues.slice(count - 1, count).map((item) => {
+            const index = count - 1;
             const Icon = [Home, ShieldCheck, GraduationCap][index] ?? Star;
             return (
-            <motion.article key={item.issue} initial={reducedMotion ? false : { opacity: 0, y: -45, rotate: index % 2 ? 4 : -4 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ type: "spring", stiffness: 180, damping: 19 }} className="circus-ticket relative overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
+            <motion.article key={item.issue} initial={reducedMotion ? false : { opacity: 0, y: -45, rotate: index % 2 ? 4 : -4 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ type: "spring", stiffness: 180, damping: 19 }} className="circus-ticket relative max-h-[calc(100svh-2rem)] overflow-y-auto rounded-lg border border-border bg-card text-card-foreground shadow-xl">
               <div className="circus-ticket-stripe h-2" aria-hidden="true" />
               <div className="flex items-center justify-between border-b border-dashed border-border px-6 py-4">
                 <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground"><Star className="h-3 w-3 text-accent" aria-hidden="true" /> End the circus</span>
-                <span className="font-heading text-xl text-accent" aria-hidden="true">0{index + 1}</span>
+                <div className="flex items-center gap-3">
+                  <span className="font-heading text-xl text-accent" aria-hidden="true">0{index + 1}</span>
+                  <Button variant="ghost" size="icon" className="h-11 w-11" aria-label="Close issue" title="Close issue" onClick={() => setShowIssue(false)}><X /></Button>
+                </div>
               </div>
               <div className="p-6">
                 <Icon className="mb-4 h-7 w-7 text-accent" aria-hidden="true" />
