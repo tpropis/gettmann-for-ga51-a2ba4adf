@@ -333,3 +333,6 @@
 .circus-parade { animation: circus-parade 40s linear infinite; }
 @keyframes circus-parade { from { transform: translateX(-30vw); } to { transform: translateX(110vw); } }
 @media (prefers-reduced-motion: reduce) { .circus-swing, .circus-parade { animation: none; } }
+
+.circus-blink { opacity: 0; animation: circus-blink 3.2s steps(1, end) infinite; }
+@keyframes circus-blink { 0%, 92% { opacity: 0; } 93%, 97% { opacity: 1; } 98%, 100% { opacity: 0; } }
