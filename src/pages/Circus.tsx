@@ -25,7 +25,7 @@ const Circus = () => {
     setCount(countRef.current);
     if (!reducedMotion) {
       setBurst((value) => value + 1);
-      void controls.start({ scaleX: [1, 1.2, 0.88, 1], scaleY: [1, 0.78, 1.14, 1], transition: { duration: 0.45 } });
+      void controls.start({ scaleX: 1.2, scaleY: 0.78, transition: { type: "spring", stiffness: 600, damping: 18 } }).then(() => controls.start({ scaleX: 1, scaleY: 1, transition: { type: "spring", stiffness: 400, damping: 12 } }));
     }
     if (!muted) {
       try {
