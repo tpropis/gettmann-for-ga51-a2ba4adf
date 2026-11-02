@@ -2,6 +2,8 @@ import logo from "@/assets/logo_trans.svg";
 import { Facebook, Twitter, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
 import { trackEvent, trackDonateClick } from "@/lib/analytics";
 import { winredUrl } from "@/lib/winred";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const footerLinks = [
   { label: "Home", href: "#home" },
@@ -122,7 +124,14 @@ const CampaignFooter = () => (
           Paid for by Keith for GA LLC
         </p>
         <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-primary-foreground/35 text-xs">
-          <span>© 2026 Keith for GA LLC. All rights reserved.</span>
+          <span className="inline-flex items-center gap-1">
+            © 2026 Keith for GA LLC. All rights reserved.
+            <Button asChild variant="ghost" className="circus-footer-trigger h-11 w-11 p-0 hover:bg-transparent">
+              <Link to="/circus" aria-label="Open circus page" className="cursor-pointer">
+                <span aria-hidden="true" className="circus-footer-dot h-2 w-2 rounded-full" />
+              </Link>
+            </Button>
+          </span>
           <a href="/privacy" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
           <a href="/terms" className="hover:text-primary-foreground/60 transition-colors">Terms</a>
         </div>
