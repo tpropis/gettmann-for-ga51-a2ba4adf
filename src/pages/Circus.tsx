@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useAnimationControls, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, GraduationCap, Star, X } from "lucide-react";
+import { AnimatePresence, motion, useAnimationControls, useReducedMotion } from "framer-motion";
+import { ArrowLeft, ArrowRight, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, GraduationCap, Star, X } from "lucide-react";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
