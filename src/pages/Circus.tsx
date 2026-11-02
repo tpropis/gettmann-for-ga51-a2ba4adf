@@ -52,15 +52,15 @@ const Circus = () => {
         </motion.header>
 
         <div className="relative mx-auto mt-5 w-full" style={{ maxWidth: "min(24rem, calc((100svh - 17rem) * 0.77))" }}>
-          <div className="pointer-events-none absolute inset-y-0 -left-24 -right-24 hidden sm:block md:-left-40 md:-right-40" aria-hidden="true">
-            {[{ side: "left-2 md:left-6", d: 0, len: "h-16" }, { side: "right-2 md:right-6", d: 0.9, len: "h-28" }, { side: "left-20 md:left-24", d: 1.7, len: "h-6 hidden md:block" }].map((m) => (
+          <div className="pointer-events-none absolute inset-y-0 -left-6 -right-6 sm:-left-24 sm:-right-24 md:-left-40 md:-right-40" aria-hidden="true">
+            {[{ side: "left-1 sm:left-2 md:left-6", d: 0, len: "h-16" }, { side: "right-1 sm:right-2 md:right-6", d: 0.9, len: "h-28" }, { side: "left-4 sm:left-20 md:left-24", d: 1.7, len: "h-6" }].map((m) => (
               <div key={m.side} className={`circus-swing absolute top-0 ${m.side}`} style={{ animationDelay: `${m.d}s` }}>
                 <div className={`mx-auto w-px bg-accent/60 ${m.len}`} />
-                <span className="block -mt-1 text-4xl md:text-5xl">🐒</span>
+                <span className="block -mt-1 text-2xl sm:text-4xl md:text-5xl">🐒</span>
               </div>
             ))}
-            <span className="absolute bottom-14 left-0 text-5xl md:text-6xl opacity-60 -scale-x-100">🐘</span>
-            <span className="absolute bottom-14 right-0 text-5xl md:text-6xl opacity-60">🐘</span>
+            <span className="absolute bottom-14 left-0 text-3xl sm:text-5xl md:text-6xl opacity-60 -scale-x-100">🐘</span>
+            <span className="absolute bottom-14 right-0 text-3xl sm:text-5xl md:text-6xl opacity-60">🐘</span>
           </div>
           <motion.div animate={reducedMotion || complete ? { y: 0 } : { y: [0, -7, 0] }} transition={reducedMotion || complete ? { duration: 0 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="relative">
             <div className="circus-marquee circus-portrait overflow-hidden rounded-lg border border-border">
