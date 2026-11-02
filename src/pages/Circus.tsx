@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useAnimationControls, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, GraduationCap, Star, X } from "lucide-react";
+import { AnimatePresence, motion, useAnimationControls, useReducedMotion } from "framer-motion";
+import { ArrowLeft, ArrowRight, ArrowUpRight, MapPin, Volume2, VolumeX, Home, ShieldCheck, GraduationCap, Star, X } from "lucide-react";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
@@ -110,6 +110,18 @@ const Circus = () => {
               </Button>
             </motion.div>
             </div>
+            <AnimatePresence>
+              {count === 0 && (
+                <motion.div key="nose-arrows" aria-hidden="true" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ delay: 0.8, duration: 0.4 }} className="pointer-events-none absolute inset-0 z-20">
+                  <motion.div className="absolute left-0 right-[64%] top-[51%] -translate-y-1/2 flex justify-end" animate={reducedMotion ? undefined : { x: [0, 14, 0] }} transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}>
+                    <ArrowRight className="h-14 w-14 sm:h-16 sm:w-16 text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" strokeWidth={3.5} />
+                  </motion.div>
+                  <motion.div className="absolute left-[64%] right-0 top-[51%] -translate-y-1/2 flex justify-start" animate={reducedMotion ? undefined : { x: [0, -14, 0] }} transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}>
+                    <ArrowLeft className="h-14 w-14 sm:h-16 sm:w-16 text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" strokeWidth={3.5} />
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
           {!reducedMotion && burst > 0 && <div key={burst} aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2">
             {Array.from({ length: 16 }, (_, index) => {
