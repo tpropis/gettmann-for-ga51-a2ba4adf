@@ -6,6 +6,7 @@ import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, nextCircusCount } from "@/data/circus";
 import { playCircusHonk } from "@/lib/circusHonk";
+import circusPortrait from "@/assets/esther-panitch-circus-portrait.jpg";
 
 const Circus = () => {
   const [count, setCount] = useState(0);
@@ -51,10 +52,10 @@ const Circus = () => {
 
         <div className="relative mx-auto mt-10 w-full max-w-sm">
           <motion.div animate={reducedMotion || complete ? { y: 0 } : { y: [0, -7, 0] }} transition={reducedMotion || complete ? { duration: 0 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="relative">
-            <div className="circus-portrait overflow-hidden rounded-lg border border-border aspect-[4/5]">
-              <img src={`${import.meta.env.BASE_URL}circus/esther-panitch.jpg`} alt="Rep. Esther Panitch — portrait with a satirical clown-nose overlay" className="h-full w-full object-cover" />
+            <div className="circus-portrait overflow-hidden rounded-lg border border-border">
+              <img src={circusPortrait} alt="Esther Panitch with digitally added clown makeup — campaign satire" className="block h-auto w-full" />
             </div>
-            <div className="absolute left-1/2 top-[28%] -translate-x-1/2 w-[220px] h-[220px] max-w-[65%]">
+            <div className="absolute left-[49%] top-[51%] -translate-x-1/2 -translate-y-1/2 w-[18%] aspect-square min-w-11">
             <motion.div animate={controls} className="h-full w-full">
               <Button onClick={honk} disabled={complete} aria-label={complete ? "All issues revealed" : "Honk and reveal next issue"} className="circus-nose-button h-full w-full disabled:opacity-100 focus-visible:ring-accent" variant="ghost">
                 <svg viewBox="0 0 220 220" aria-hidden="true">
@@ -73,8 +74,8 @@ const Circus = () => {
               return <motion.span key={index} className="circus-confetti absolute h-2 w-1.5 rounded-sm" initial={{ x: 0, y: 0, opacity: 1 }} animate={{ x: Math.cos(angle) * 150, y: Math.sin(angle) * 130 + 80, opacity: 0, rotate: index * 75 }} transition={{ duration: 0.8, ease: "easeOut" }} />;
             })}
           </div>}
-          <p className="mt-4 text-center text-xs uppercase tracking-widest text-muted-foreground">Campaign satire · Esther Panitch</p>
-          <a className="block text-center text-xs text-muted-foreground underline min-h-11 py-3" href="https://www.legis.ga.gov/members/house/5026" target="_blank" rel="noopener noreferrer">Photo: Georgia General Assembly</a>
+          <p className="mt-4 text-center text-xs uppercase tracking-widest text-muted-foreground">Digitally altered satire · Esther Panitch</p>
+          <a className="block text-center text-xs text-muted-foreground underline min-h-11 py-3" href="https://www.legis.ga.gov/members/house/5026" target="_blank" rel="noopener noreferrer">Original photo: Georgia General Assembly</a>
         </div>
 
         <div aria-live="polite" aria-atomic="false" className="mt-10 grid gap-4 md:grid-cols-3">
