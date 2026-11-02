@@ -51,7 +51,7 @@ const Circus = () => {
           <p className="mt-2 text-lg text-muted-foreground">Click the nose. See the record.</p>
         </motion.header>
 
-        <div className="relative mx-auto mt-5 w-full" style={{ maxWidth: "min(24rem, calc((100svh - 17rem) * 0.77))" }}>
+        <div className="relative mx-auto mt-5 w-[calc(100%-4.5rem)] sm:w-full" style={{ maxWidth: "min(24rem, calc((100svh - 17rem) * 0.77))" }}>
           <div className="pointer-events-none absolute inset-y-0 -left-6 -right-6 sm:-left-24 sm:-right-24 md:-left-40 md:-right-40" aria-hidden="true">
             {[{ side: "left-1 sm:left-2 md:left-6", d: 0, len: "h-16" }, { side: "right-1 sm:right-2 md:right-6", d: 0.9, len: "h-28" }, { side: "left-4 sm:left-20 md:left-24", d: 1.7, len: "h-6" }].map((m) => (
               <div key={m.side} className={`circus-swing absolute top-0 ${m.side}`} style={{ animationDelay: `${m.d}s` }}>
