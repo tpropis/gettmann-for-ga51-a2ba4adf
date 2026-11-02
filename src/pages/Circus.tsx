@@ -101,17 +101,33 @@ const Circus = () => {
             </motion.div>
             </div>
             <AnimatePresence>
-              {count === 0 && (
-                <motion.div key="nose-arrows" aria-hidden="true" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className="circus-monkey-arrows pointer-events-none absolute inset-0 z-20">
-                  <svg className="circus-arrow-canvas" viewBox="-220 0 1440 1300" preserveAspectRatio="none">
-                    <defs><marker id="monkey-arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 Z" className="circus-arrowhead" /></marker></defs>
-                    {["M -100 230 C -210 520, 100 760, 380 675", "M 1100 230 C 1230 530, 880 780, 600 675", "M -100 455 C -80 690, 180 810, 385 715"].map((path, index) => (
-                      <g key={path}>
-                        <path d={path} className="circus-arrow-outline" />
-                        <path d={path} className={`circus-arrow-trail circus-arrow-trail-${index}`} markerEnd="url(#monkey-arrowhead)" />
-                      </g>
-                    ))}
-                  </svg>
+              {count === 0 && !reducedMotion && (
+                <motion.div key="nose-volley" aria-hidden="true" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className="circus-monkey-arrows pointer-events-none absolute inset-0 z-20">
+                  {[
+                    { from: "-9%", top: "9%", mid: "24%", midTop: "13%", rot: [-34, 12], delay: 0 },
+                    { from: "109%", top: "9%", mid: "76%", midTop: "13%", rot: [214, 168], delay: 0.09 },
+                    { from: "-9%", top: "27%", mid: "26%", midTop: "28%", rot: [-26, 8], delay: 0.18 },
+                  ].map((shot, index) => (
+                    <motion.span
+                      key={index}
+                      className="circus-arrow-shot absolute"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        left: [shot.from, shot.mid, "44%", "49%"],
+                        top: [shot.top, shot.midTop, "49%", "51%"],
+                        rotate: [shot.rot[0], (shot.rot[0] + shot.rot[1]) / 2, shot.rot[1], shot.rot[1]],
+                        opacity: [0, 1, 1, 0],
+                      }}
+                      transition={{ duration: 0.5, delay: shot.delay, repeat: Infinity, repeatDelay: 1, ease: "linear", times: [0, 0.5, 0.9, 1] }}
+                      style={{ x: "-50%", y: "-50%" }}
+                    >
+                      <svg viewBox="0 0 64 24" className="h-5 w-14 sm:h-6 sm:w-16">
+                        <line x1="3" y1="12" x2="50" y2="12" className="circus-arrow-shaft" />
+                        <path d="M50 4 L62 12 L50 20 Z" className="circus-arrow-tip" />
+                        <path d="M12 6 L3 12 L12 18" className="circus-arrow-fletch" />
+                      </svg>
+                    </motion.span>
+                  ))}
                 </motion.div>
               )}
             </AnimatePresence>
