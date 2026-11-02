@@ -101,8 +101,8 @@ const Circus = () => {
             <div className="absolute left-[49%] top-[51%] -translate-x-1/2 -translate-y-1/2 w-[18%] aspect-square min-w-11">
             <AnimatePresence>
               {count === 0 && (
-                <span className="pointer-events-none absolute -top-9 left-1/2 z-30 -translate-x-1/2">
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, -4, 0] }} exit={{ opacity: 0 }} transition={{ opacity: { delay: 1.1, duration: 0.4 }, y: { duration: 1.2, repeat: Infinity, ease: "easeInOut" } }} className="block whitespace-nowrap font-heading text-sm uppercase tracking-widest text-accent drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] sm:text-base">
+                <span className="pointer-events-none absolute -top-20 left-1/2 z-30 -translate-x-1/2">
+                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1, y: [0, -4, 0] }} exit={{ opacity: 0 }} transition={{ opacity: { delay: 1.1, duration: 0.4 }, y: { duration: 1.2, repeat: Infinity, ease: "easeInOut" } }} className="block whitespace-nowrap rounded-full border border-accent/70 bg-background/85 px-3 py-1 font-heading text-xs uppercase tracking-widest text-accent shadow-md sm:text-sm">
                     Click me!
                   </motion.span>
                 </span>
