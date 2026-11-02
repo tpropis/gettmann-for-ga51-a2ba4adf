@@ -116,7 +116,7 @@ const Circus = () => {
               )}
             </AnimatePresence>
             <div className="circus-monkey-cast pointer-events-none absolute inset-0 z-30" aria-hidden="true">
-              {[{ side: "left-[-18%] top-[5%]", d: 0 }, { side: "right-[-18%] top-[5%]", d: 0.4 }, { side: "left-[-18%] top-[23%]", d: 0.8 }].map((monkey) => (
+              {[{ side: "left-[-14%] top-[5%]", d: 0 }, { side: "right-[-14%] top-[5%]", d: 0.4 }, { side: "left-[-14%] top-[23%]", d: 0.8 }].map((monkey) => (
                 <div key={monkey.d} className={`absolute ${monkey.side}`}>
                   <div className="circus-swing" style={{ animationDelay: `${monkey.d}s` }}>
                     <div className="mx-auto h-10 w-px bg-accent/60 sm:h-14" />
@@ -124,8 +124,8 @@ const Circus = () => {
                   </div>
                 </div>
               ))}
-              <span className="absolute bottom-[8%] left-[-18%] text-3xl sm:text-5xl opacity-60 -scale-x-100">🐘</span>
-              <span className="absolute bottom-[8%] right-[-18%] text-3xl sm:text-5xl opacity-60">🐘</span>
+              <span className="absolute bottom-[8%] left-[-14%] text-3xl sm:text-5xl opacity-60 -scale-x-100">🐘</span>
+              <span className="absolute bottom-[8%] right-[-14%] text-3xl sm:text-5xl opacity-60">🐘</span>
             </div>
           </motion.div>
           {!reducedMotion && burst > 0 && <div key={burst} aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2">
