@@ -41,28 +41,27 @@ const Circus = () => {
     <main className="circus-page relative min-h-screen overflow-hidden bg-background text-foreground flex flex-col">
       <Seo title="The Circus in HD51 | Keith Gettmann" description="HD51 campaign satire from Keith Gettmann." path="/circus" noindex />
       <div className="circus-stripes pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-64" aria-hidden="true">
-        {[{ l: "8%", d: 0, len: "h-28" }, { l: "88%", d: 0.8, len: "h-40" }, { l: "22%", d: 1.6, len: "h-20 hidden md:block" }].map((m) => (
-          <div key={m.l} className="circus-swing absolute top-0" style={{ left: m.l, animationDelay: `${m.d}s` }}>
-            <div className={`mx-auto w-px bg-accent/60 ${m.len}`} />
-            <span className="block -mt-1 text-4xl md:text-5xl">🐒</span>
-          </div>
-        ))}
-      </div>
-      <div className="pointer-events-none absolute bottom-24 inset-x-0 overflow-hidden h-16 opacity-25" aria-hidden="true">
-        <div className="circus-parade flex gap-10 text-4xl whitespace-nowrap">🐘 🐘 🐘</div>
-      </div>
-      <div className="relative mx-auto w-full max-w-6xl flex-1 px-5 pt-20 pb-10 md:px-8 md:pt-16">
+      <div className="relative mx-auto w-full max-w-6xl flex-1 px-5 pt-16 pb-10 md:px-8 md:pt-8">
         <Button variant="ghost" size="icon" className="absolute right-5 top-4 h-11 w-11 text-foreground hover:bg-card" aria-label={muted ? "Unmute honk" : "Mute honk"} title={muted ? "Unmute honk" : "Mute honk"} onClick={() => setMuted((value) => !value)}>
           {muted ? <VolumeX /> : <Volume2 />}
         </Button>
         <motion.header initial={reducedMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto max-w-3xl text-center">
-          <div className="circus-header-stars mb-4 flex items-center justify-center gap-4" aria-hidden="true"><Star className="h-4 w-4" /><Star className="h-6 w-6" /><Star className="h-4 w-4" /></div>
-          <h1 className="font-heading text-4xl md:text-6xl font-bold leading-tight text-balance">Honk if you're tired of<br className="hidden md:block" /> <span className="text-accent">the circus in HD51.</span></h1>
-          <p className="mt-5 text-lg text-muted-foreground">Click the nose. See the record.</p>
+          <div className="circus-header-stars mb-2 flex items-center justify-center gap-4" aria-hidden="true"><Star className="h-4 w-4" /><Star className="h-6 w-6" /><Star className="h-4 w-4" /></div>
+          <h1 className="font-heading text-3xl md:text-5xl font-bold leading-tight text-balance">Honk if you're tired of<br className="hidden md:block" /> <span className="text-accent">the circus in HD51.</span></h1>
+          <p className="mt-2 text-lg text-muted-foreground">Click the nose. See the record.</p>
         </motion.header>
 
-        <div className="relative mx-auto mt-10 w-full max-w-sm">
+        <div className="relative mx-auto mt-5 w-full" style={{ maxWidth: "min(24rem, calc((100svh - 17rem) * 0.77))" }}>
+          <div className="pointer-events-none absolute inset-y-0 -left-24 -right-24 hidden sm:block md:-left-40 md:-right-40" aria-hidden="true">
+            {[{ side: "left-2 md:left-6", d: 0, len: "h-16" }, { side: "right-2 md:right-6", d: 0.9, len: "h-28" }, { side: "left-20 md:left-24", d: 1.7, len: "h-6 hidden md:block" }].map((m) => (
+              <div key={m.side} className={`circus-swing absolute top-0 ${m.side}`} style={{ animationDelay: `${m.d}s` }}>
+                <div className={`mx-auto w-px bg-accent/60 ${m.len}`} />
+                <span className="block -mt-1 text-4xl md:text-5xl">🐒</span>
+              </div>
+            ))}
+            <span className="absolute bottom-2 left-0 text-5xl md:text-6xl opacity-60 -scale-x-100">🐘</span>
+            <span className="absolute bottom-2 right-0 text-5xl md:text-6xl opacity-60">🐘</span>
+          </div>
           <motion.div animate={reducedMotion || complete ? { y: 0 } : { y: [0, -7, 0] }} transition={reducedMotion || complete ? { duration: 0 } : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="relative">
             <div className="circus-marquee circus-portrait overflow-hidden rounded-lg border border-border">
               <img src={circusPortrait} alt="Esther Panitch with digitally added clown makeup — campaign satire" className="block h-auto w-full" />
