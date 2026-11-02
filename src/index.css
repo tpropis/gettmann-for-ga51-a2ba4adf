@@ -284,6 +284,20 @@
 }
 
 /* Hidden circus experience: scoped semantic palette. */
+@font-face {
+  font-family: "Circus Rye";
+  src: url("/circus/rye-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+.circus-title {
+  font-family: "Circus Rye", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: hsl(var(--circus-gold));
+  text-shadow: 2px 2px 0 hsl(var(--circus-red-dark)), 0 3px 12px hsl(var(--circus-shadow) / 0.7);
+}
 .circus-page {
   --background: 240 19% 5.3%;
   --foreground: 42 46% 91%;

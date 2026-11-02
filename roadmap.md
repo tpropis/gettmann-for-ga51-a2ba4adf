@@ -1,5 +1,7 @@
 # Circus page
 
+- [x] Add “ESTHER THE CLOWN” circus lettering and locally hosted background circus music with click-to-start and mute.
+
 - [x] Restyle issue cards as clean circus tickets and highlight Keith's existing commitments without unsourced opponent claims.
 
 - [x] Refine the portrait with recognizable professional clown makeup and a proportional nose; verify desktop and mobile.

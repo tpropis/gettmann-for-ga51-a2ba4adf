@@ -8,18 +8,47 @@ import { circusIssues, circusVoteMessage, circusVoterUrl, hasSourcedRecord, next
 import circusPortrait from "@/assets/esther-panitch-big-top-glasses.jpg";
 import circusPortraitBlink from "@/assets/esther-panitch-big-top-glasses-blink.jpg";
 const HONK_URL = `${import.meta.env.BASE_URL}circus/honk.wav`;
+const BACKGROUND_URL = `${import.meta.env.BASE_URL}circus/circus-background.wav`;
 
 const Circus = () => {
   const [count, setCount] = useState(0);
   const [muted, setMuted] = useState(false);
   const [burst, setBurst] = useState(0);
   const audio = useRef<HTMLAudioElement | null>(null);
+  const backgroundAudio = useRef<HTMLAudioElement | null>(null);
+  const [soundStarted, setSoundStarted] = useState(false);
   const countRef = useRef(0);
   const controls = useAnimationControls();
   const reducedMotion = useReducedMotion();
   const complete = count === circusIssues.length;
 
-  useEffect(() => { audio.current = new Audio(HONK_URL); audio.current.preload = "auto"; }, []);
+  useEffect(() => {
+    audio.current = new Audio(HONK_URL);
+    audio.current.preload = "auto";
+    const background = new Audio(BACKGROUND_URL);
+    background.loop = true;
+    background.volume = 0.22;
+    background.preload = "none";
+    backgroundAudio.current = background;
+    return () => { audio.current?.pause(); background.pause(); };
+  }, []);
+
+  const startBackground = () => {
+    const background = backgroundAudio.current;
+    if (!background) return;
+    void background.play().then(() => setSoundStarted(true)).catch(() => undefined);
+  };
+
+  const toggleSound = () => {
+    if (!soundStarted || muted) {
+      setMuted(false);
+      startBackground();
+    } else {
+      setMuted(true);
+      audio.current?.pause();
+      backgroundAudio.current?.pause();
+    }
+  };
 
   const honk = () => {
     if (countRef.current >= circusIssues.length) return;
@@ -30,6 +59,7 @@ const Circus = () => {
       void controls.start({ scaleX: 1.2, scaleY: 0.78, transition: { type: "spring", stiffness: 600, damping: 18 } }).then(() => controls.start({ scaleX: 1, scaleY: 1, transition: { type: "spring", stiffness: 400, damping: 12 } }));
     }
     if (!muted) {
+      startBackground();
       const sound = audio.current ?? new Audio(HONK_URL);
       sound.currentTime = 0;
       void sound.play().catch(() => undefined);
@@ -38,15 +68,15 @@ const Circus = () => {
 
   return (
     <main className="circus-page relative min-h-screen overflow-hidden bg-background text-foreground flex flex-col">
-      <Seo title="The Circus in HD51 | Keith Gettmann" description="HD51 campaign satire from Keith Gettmann." path="/circus" noindex />
+      <Seo title="Esther the Clown | Keith Gettmann" description="HD51 campaign satire from Keith Gettmann." path="/circus" noindex />
       <div className="circus-stripes pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="relative mx-auto w-full max-w-6xl flex-1 px-5 pt-16 pb-10 md:px-8 md:pt-8">
-        <Button variant="ghost" size="icon" className="absolute right-5 top-4 h-11 w-11 text-foreground hover:bg-card" aria-label={muted ? "Unmute honk" : "Mute honk"} title={muted ? "Unmute honk" : "Mute honk"} onClick={() => setMuted((value) => !value)}>
-          {muted ? <VolumeX /> : <Volume2 />}
+        <Button variant="ghost" size="icon" className="absolute right-5 top-4 h-11 w-11 text-foreground hover:bg-card" aria-label={!soundStarted ? "Start circus sounds" : muted ? "Unmute circus sounds" : "Mute circus sounds"} title={!soundStarted ? "Start circus sounds" : muted ? "Unmute circus sounds" : "Mute circus sounds"} onClick={toggleSound}>
+          {muted || !soundStarted ? <VolumeX /> : <Volume2 />}
         </Button>
         <motion.header initial={reducedMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="mx-auto max-w-3xl text-center">
           <div className="circus-header-stars mb-2 flex items-center justify-center gap-4" aria-hidden="true"><Star className="h-4 w-4" /><Star className="h-6 w-6" /><Star className="h-4 w-4" /></div>
-          <h1 className="font-heading text-3xl md:text-5xl font-bold leading-tight text-balance">Honk if you're tired of<br className="hidden md:block" /> <span className="text-accent">the circus in HD51.</span></h1>
+          <h1 className="circus-title text-3xl sm:text-4xl md:text-5xl leading-tight">ESTHER <span className="block">THE CLOWN</span></h1>
           <p className="mt-2 text-lg text-muted-foreground">Click the nose. See the record.</p>
         </motion.header>
 
