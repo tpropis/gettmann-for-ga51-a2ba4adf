@@ -90,6 +90,7 @@ const Circus = () => {
             </div>
             <div className="absolute left-[49%] top-[51%] -translate-x-1/2 -translate-y-1/2 w-[18%] aspect-square min-w-11">
             <motion.div animate={controls} className="h-full w-full">
+              <div className={`h-full w-full ${count === 0 && !reducedMotion ? "circus-nose-under-fire" : ""}`}>
               <Button onClick={honk} disabled={complete} aria-label={complete ? "All issues revealed" : "Honk and reveal next issue"} className="circus-nose-button h-full w-full disabled:opacity-100 focus-visible:ring-accent" variant="ghost">
                 <svg viewBox="0 0 220 220" aria-hidden="true">
                   <defs><radialGradient id="circus-nose-fill" cx="32%" cy="25%" r="76%"><stop offset="0" className="circus-nose-light" /><stop offset="0.42" className="circus-nose-red" /><stop offset="1" className="circus-nose-dark" /></radialGradient></defs>
@@ -98,6 +99,7 @@ const Circus = () => {
                   <ellipse cx="77" cy="60" rx="28" ry="13" transform="rotate(-32 77 60)" className="circus-nose-glint" />
                 </svg>
               </Button>
+              </div>
             </motion.div>
             </div>
             <AnimatePresence>
